@@ -384,6 +384,18 @@ def check_signals():
                 f"时间：{datetime.now().strftime('%H:%M:%S')}"
             )
             
+            # 记录到交易历史
+            account['trade_history'].append({
+                'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'code': code,
+                'name': name,
+                'action': '买入',
+                'shares': shares,
+                'price': current_price,
+                'amount': cost,
+                'commission': commission
+            })
+            
             trades_executed.append({
                 'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                 'code': code,
