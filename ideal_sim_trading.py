@@ -33,14 +33,6 @@ from itick_config import ITICK_CONFIG
 CONFIG['stock_pool'] = STOCK_POOL
 CONFIG['itick'] = ITICK_CONFIG
 
-# 使用腾讯财经作为主力接口（iTick 备用）
-if ITICK_CONFIG.get('enabled', False):
-    CONFIG['check_interval'] = ITICK_CONFIG['interval_seconds']
-    get_price = get_price_itick_batch  # 使用 iTick（已禁用）
-else:
-    CONFIG['check_interval'] = 30  # 腾讯财经 30 秒检查一次
-    get_price = get_price_tencent  # ✅ 使用腾讯财经
-
 # ==================== 日志 ====================
 def log(message):
     """记录日志"""
@@ -170,6 +162,14 @@ def get_price_itick_batch(codes_batch):
 
 # 默认使用腾讯财经
 get_price = get_price_tencent
+
+# 使用腾讯财经作为主力接口（iTick 备用）
+if ITICK_CONFIG.get('enabled', False):
+    CONFIG['check_interval'] = ITICK_CONFIG['interval_seconds']
+    get_price = get_price_itick_batch  # 使用 iTick
+else:
+    CONFIG['check_interval'] = 30  # 腾讯财经 30 秒检查一次
+    # get_price 已经设置为 get_price_tencent
 
 # ==================== 加载账户 ====================
 def load_account():
