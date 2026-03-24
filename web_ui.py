@@ -4,7 +4,7 @@ BOB 量化系统 - Web UI 界面
 实时显示持仓、盈亏、资产等信息，每 5 秒刷新
 """
 
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import json
 import os
 import requests
@@ -128,6 +128,9 @@ def api_account():
     cash = account.get('cash', 0)
     positions = account.get('positions', {})
     
+    # 获取今天的日期
+    today = datetime.now().strftime('%Y-%m-%d')
+    
     # 计算持仓市值和盈亏
     market_value = 0
     total_profit = 0
@@ -150,6 +153,10 @@ def api_account():
         profit = mv - cost
         profit_pct = (profit / cost * 100) if cost > 0 else 0
         
+        # 判断是否今天买入 (T+1 规则：今天买入的不可卖)
+        buy_date = pos.get('buy_date', '')
+        today_bought = shares if buy_date == today else 0
+        
         market_value += mv
         total_profit += profit
         
@@ -162,7 +169,8 @@ def api_account():
             'cost': cost,
             'market_value': mv,
             'profit': profit,
-            'profit_pct': profit_pct
+            'profit_pct': profit_pct,
+            'today_bought': today_bought  # 今天买入的数量（不可卖）
         })
     
     total_assets = cash + market_value
@@ -191,6 +199,49 @@ def api_trades():
             trades = account['trade_history']
     
     return jsonify({'trades': trades[-20:]})  # 返回最近 20 条
+
+@app.route('/api/stock/<code>')
+def api_stock_detail(code):
+    """单个股票详情 API"""
+    account = load_account()
+    if not account:
+        return jsonify({'error': '账户数据不存在'})
+    
+    positions = account.get('positions', {})
+    
+    if code not in positions:
+        return jsonify({'error': '未找到该股票持仓'})
+    
+    pos = positions[code]
+    shares = pos.get('shares', 0)
+    avg_price = pos.get('avg_price', 0)
+    cost = shares * avg_price
+    
+    # 获取实时价格
+    current_price = get_realtime_price(code)
+    if current_price is None:
+        current_price = avg_price
+    
+    mv = shares * current_price
+    profit = mv - cost
+    profit_pct = (profit / cost * 100) if cost > 0 else 0
+    
+    # 获取该股票的交易记录
+    all_trades = load_trades()
+    stock_trades = [t for t in all_trades if t.get('code') == code]
+    
+    return jsonify({
+        'code': code,
+        'name': get_stock_name(code),
+        'shares': shares,
+        'avg_price': avg_price,
+        'current_price': current_price,
+        'cost': cost,
+        'market_value': mv,
+        'profit': profit,
+        'profit_pct': profit_pct,
+        'trades': stock_trades[-10:]  # 返回最近 10 条
+    })
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
