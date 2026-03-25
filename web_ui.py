@@ -153,9 +153,20 @@ def api_account():
         profit = mv - cost
         profit_pct = (profit / cost * 100) if cost > 0 else 0
         
-        # 判断是否今天买入 (T+1 规则：今天买入的不可卖)
-        buy_date = pos.get('buy_date', '')
-        today_bought = shares if buy_date == today else 0
+        # T+1 规则：计算今天买入的总股数（不可卖）
+        # 从交易记录中统计，支持多次加仓场景
+        today_bought = 0
+        all_trades = load_trades()
+        for t in all_trades:
+            if t.get('code') == code and t.get('action') == '买入':
+                trade_date = t.get('time', '')[:10]
+                if trade_date == today:
+                    today_bought += t.get('shares', 0)
+        # 如果整个持仓都是今天建的（无历史交易记录），用 buy_date 兜底
+        if today_bought == 0:
+            buy_date = pos.get('buy_date', '')
+            if buy_date == today:
+                today_bought = shares
         
         market_value += mv
         total_profit += profit

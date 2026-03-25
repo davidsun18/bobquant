@@ -1,5 +1,5 @@
 {
-  "cash": 443380.82949999993,
+  "cash": 436712.94249999995,
   "initial_capital": 1000000,
   "positions": {
     "sz.000333": {
@@ -66,14 +66,6 @@
       "buy_time": "2026-03-24 13:56:22",
       "commission": 38.18
     },
-    "sz.000538": {
-      "shares": 1200,
-      "avg_price": 55.42,
-      "buy_price": 55.42,
-      "buy_date": "2026-03-24",
-      "buy_time": "2026-03-24 13:56:23",
-      "commission": 33.252
-    },
     "sh.600690": {
       "shares": 1800,
       "avg_price": 23.28,
@@ -83,15 +75,34 @@
       "commission": 20.952
     },
     "sh.600547": {
-      "shares": 1500,
-      "avg_price": 37.82,
+      "shares": 1600,
+      "avg_price": 37.9412,
       "buy_price": 37.82,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:56:32",
-      "commission": 28.365000000000002
+      "commission": 30.353
+    },
+    "sz.002460": {
+      "shares": 1000,
+      "avg_price": 69.21,
+      "buy_price": 69.21,
+      "buy_date": "2026-03-25",
+      "buy_time": "2026-03-25 13:01:21",
+      "commission": 34.605000000000004
     }
   },
-  "trade_history": [],
+  "trade_history": [
+    {
+      "time": "2026-03-25 13:01:21",
+      "code": "sz.002460",
+      "name": "赣锋锂业",
+      "action": "买入",
+      "shares": 1000,
+      "price": 69.21,
+      "amount": 69210.0,
+      "commission": 34.605000000000004
+    }
+  ],
   "start_date": "2026-03-24",
-  "last_update": "2026-03-24 13:56:32"
+  "last_update": "2026-03-25 13:14:12"
 }

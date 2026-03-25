@@ -27,6 +27,36 @@ CONFIG = {
     'max_stocks': 20,  # 最大持仓数量
 }
 
+# ==================== 交易增强配置 ====================
+TRADE_CONFIG = {
+    # 金字塔加仓
+    'pyramid_levels': [0.03, 0.05, 0.07],  # 仓位递进: 3% → 5% → 7%
+    'add_dip_pct': 0.03,                    # 跌3%触发加仓
+
+    # 分批止盈 + 跟踪止损
+    'take_profit': [
+        {'pct': 0.05, 'sell_ratio': 0.33},  # 涨5%卖1/3
+        {'pct': 0.10, 'sell_ratio': 0.50},  # 涨10%卖1/2剩余
+        {'pct': 0.15, 'sell_ratio': 1.00},  # 涨15%全卖
+    ],
+    'stop_loss_pct': -0.08,                 # 亏8%止损
+    'trailing_stop_activate': 0.05,         # 盈利5%后激活跟踪止损
+    'trailing_stop_drawdown': 0.02,         # 从最高点回撤2%触发卖出
+
+    # 网格做T（替代固定阈值）
+    't_grid_up': 0.02,     # 日内涨2%触发第一次高抛
+    't_grid_step': 0.015,  # 每涨1.5%再抛一次（多档网格）
+    't_grid_max': 3,       # 单日最多3次网格卖出
+    't_buyback_dip': 0.01, # 较最后一次卖出价回落1%接回
+    't_sell_ratio': 0.20,  # 每次高抛可卖部分的20%
+
+    # 信号增强
+    'rsi_buy_max': 35,     # RSI < 35 才允许买入（避免追高）
+    'rsi_sell_min': 70,    # RSI > 70 加强卖出信号
+    'volume_confirm': True, # 成交量确认开关
+    'volume_ratio_buy': 1.5, # 买入需成交量 > 20日均量的1.5倍
+}
+
 # 导入股票池和配置
 from stock_pool_50 import STOCK_POOL
 from itick_config import ITICK_CONFIG
@@ -194,6 +224,262 @@ def save_account(account):
     with open(CONFIG['positions_file'], 'w', encoding='utf-8') as f:
         json.dump(account, f, ensure_ascii=False, indent=2)
 
+# ==================== 辅助函数（加仓/减仓/做T） ====================
+def get_sellable_shares(pos):
+    """计算T+1可卖股数，通过 buy_lots 逐笔判断"""
+    today = datetime.now().strftime('%Y-%m-%d')
+    lots = pos.get('buy_lots', [])
+    if not lots:
+        # 兼容旧数据
+        if pos.get('buy_date', '') == today:
+            return 0
+        return pos.get('shares', 0)
+    sellable = 0
+    for lot in lots:
+        if lot['date'] != today:
+            sellable += lot['shares']
+    return min(sellable, pos.get('shares', 0))  # 不超过总持仓
+
+
+def migrate_positions(account):
+    """给旧持仓添加 buy_lots/add_level/profit_taken"""
+    for code, pos in account['positions'].items():
+        if 'buy_lots' not in pos:
+            pos['buy_lots'] = [{
+                'shares': pos['shares'],
+                'price': pos.get('buy_price', pos['avg_price']),
+                'date': pos.get('buy_date', '2026-03-24'),
+                'time': pos.get('buy_time', ''),
+            }]
+        if 'add_level' not in pos:
+            pos['add_level'] = 1
+        if 'profit_taken' not in pos:
+            pos['profit_taken'] = 0
+
+
+def get_stock_name_from_pool(code):
+    """从股票池查名称"""
+    for stock in CONFIG['stock_pool']:
+        if stock[0] == code:
+            return stock[1]
+    return code
+
+
+def execute_buy(account, code, name, shares, price, reason, is_add=False):
+    """
+    统一的买入执行函数
+    - 计算手续费，扣减现金
+    - 新建仓或加仓（更新avg_price, shares, buy_lots, add_level）
+    - 返回交易记录dict（用于trades_executed）
+    - 资金不足返回None
+    """
+    # 股数取整到100的整数倍
+    shares = int(shares / 100) * 100
+    if shares <= 0:
+        return None
+
+    cost = shares * price
+    commission = cost * CONFIG['commission_rate']
+    total_cost = cost + commission
+
+    # 检查资金
+    if total_cost > account['cash']:
+        log(f"  ⚠️ {name}: 资金不足 (需要¥{total_cost:,.0f}, 可用¥{account['cash']:,.0f})")
+        return None
+
+    account['cash'] -= total_cost
+
+    now_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    today_str = datetime.now().strftime('%Y-%m-%d')
+
+    new_lot = {
+        'shares': shares,
+        'price': price,
+        'date': today_str,
+        'time': now_str,
+    }
+
+    if code in account['positions'] and account['positions'][code]['shares'] > 0:
+        # 加仓：更新均价和股数
+        pos = account['positions'][code]
+        old_shares = pos['shares']
+        old_avg = pos['avg_price']
+        new_total_shares = old_shares + shares
+        pos['avg_price'] = (old_shares * old_avg + shares * price) / new_total_shares
+        pos['shares'] = new_total_shares
+        pos['buy_lots'].append(new_lot)
+        pos['add_level'] = pos.get('add_level', 1) + 1
+        pos['commission'] = pos.get('commission', 0) + commission
+        action_label = f"加仓L{pos['add_level']}" if is_add else "买入"
+    else:
+        # 新建仓
+        account['positions'][code] = {
+            'shares': shares,
+            'avg_price': price,
+            'buy_price': price,
+            'buy_date': today_str,
+            'buy_time': now_str,
+            'commission': commission,
+            'buy_lots': [new_lot],
+            'add_level': 1,
+            'profit_taken': 0,
+        }
+        action_label = "买入"
+
+    emoji = "🟢"
+    log(f"  {emoji} {action_label} {name}: {shares}股 @ ¥{price:.2f} (手续费¥{commission:.2f})")
+    log(f"     原因：{reason}")
+
+    send_feishu(
+        f"{emoji} {action_label} - {name}",
+        f"股票：{code} {name}\n"
+        f"操作：{action_label}\n"
+        f"数量：{shares}股\n"
+        f"价格：¥{price:.2f}\n"
+        f"金额：¥{cost:,.2f}\n"
+        f"手续费：¥{commission:.2f}\n"
+        f"原因：{reason}\n"
+        f"时间：{datetime.now().strftime('%H:%M:%S')}"
+    )
+
+    trade = {
+        'time': now_str,
+        'code': code,
+        'name': name,
+        'action': action_label,
+        'shares': shares,
+        'price': price,
+        'amount': cost,
+        'commission': commission,
+        'reason': reason,
+    }
+    account['trade_history'].append(trade)
+    return trade
+
+
+def execute_sell(account, code, name, shares, price, reason, action_label='卖出'):
+    """
+    统一的卖出执行函数
+    - 支持部分卖出（不是全清仓）
+    - 计算盈亏
+    - 更新 buy_lots（FIFO先卖最早的，跳过today的lot）
+    - pos['shares'] 减到0时删除持仓
+    - 返回交易记录dict
+    """
+    if code not in account['positions'] or account['positions'][code]['shares'] <= 0:
+        return None
+
+    pos = account['positions'][code]
+
+    # 股数取整到100的整数倍
+    shares = int(shares / 100) * 100
+    if shares <= 0:
+        return None
+
+    # 不能超过可卖股数
+    sellable = get_sellable_shares(pos)
+    shares = min(shares, sellable)
+    shares = int(shares / 100) * 100
+    if shares <= 0:
+        return None
+
+    revenue = shares * price
+    commission = revenue * CONFIG['commission_rate']
+    net_revenue = revenue - commission
+
+    # 计算盈亏（基于均价）
+    cost_basis = shares * pos['avg_price']
+    profit = net_revenue - cost_basis
+    profit_pct = (profit / cost_basis * 100) if cost_basis > 0 else 0
+
+    account['cash'] += net_revenue
+
+    # FIFO 更新 buy_lots（跳过 today 的 lot）
+    today = datetime.now().strftime('%Y-%m-%d')
+    remaining_to_sell = shares
+    new_lots = []
+    for lot in pos.get('buy_lots', []):
+        if remaining_to_sell <= 0 or lot['date'] == today:
+            new_lots.append(lot)
+            continue
+        if lot['shares'] <= remaining_to_sell:
+            remaining_to_sell -= lot['shares']
+            # 这个lot被完全卖掉，不保留
+        else:
+            lot['shares'] -= remaining_to_sell
+            remaining_to_sell = 0
+            new_lots.append(lot)
+    pos['buy_lots'] = new_lots
+
+    # 更新持仓股数
+    pos['shares'] -= shares
+
+    emoji = "🔴" if "做T" not in action_label else "🔄"
+
+    if pos['shares'] <= 0:
+        del account['positions'][code]
+        log(f"  {emoji} {action_label} {name}: {shares}股 @ ¥{price:.2f} (清仓, 手续费¥{commission:.2f})")
+    else:
+        log(f"  {emoji} {action_label} {name}: {shares}股 @ ¥{price:.2f} (剩余{pos['shares']}股, 手续费¥{commission:.2f})")
+
+    log(f"     盈亏：¥{profit:,.2f} ({profit_pct:+.1f}%)")
+    log(f"     原因：{reason}")
+
+    send_feishu(
+        f"{emoji} {action_label} - {name}",
+        f"股票：{code} {name}\n"
+        f"操作：{action_label}\n"
+        f"数量：{shares}股\n"
+        f"价格：¥{price:.2f}\n"
+        f"金额：¥{revenue:,.2f}\n"
+        f"手续费：¥{commission:.2f}\n"
+        f"盈亏：¥{profit:,.2f} ({profit_pct:+.1f}%)\n"
+        f"原因：{reason}\n"
+        f"时间：{datetime.now().strftime('%H:%M:%S')}"
+    )
+
+    now_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    trade = {
+        'time': now_str,
+        'code': code,
+        'name': name,
+        'action': action_label,
+        'shares': shares,
+        'price': price,
+        'amount': revenue,
+        'commission': commission,
+        'profit': profit,
+        'profit_pct': profit_pct,
+        'reason': reason,
+    }
+    account['trade_history'].append(trade)
+    return trade
+
+
+def sync_trade_log(trades):
+    """同步交易到交易记录.json"""
+    if not trades:
+        return
+    try:
+        trade_log_file = CONFIG['trade_log_file']
+        existing_trades = []
+        if os.path.exists(trade_log_file):
+            with open(trade_log_file, 'r', encoding='utf-8') as f:
+                existing_trades = json.load(f)
+        existing_trades.extend(trades)
+        with open(trade_log_file, 'w', encoding='utf-8') as f:
+            json.dump(existing_trades, f, ensure_ascii=False, indent=2)
+        log(f"  ✅ 交易记录已同步到 交易记录.json")
+    except Exception as e:
+        log(f"  ⚠️ 交易记录同步失败: {e}")
+
+
+# 做T 日内状态（模块级变量）
+_t_state = {}       # {code: {'sells': [{'shares':n,'price':p},...], 'total_sold': n, 'count': n, 'bought_back': bool}}
+_t_state_date = ''  # 日期切换时重置
+# 跟踪止损：记录每只股票的最高盈利价
+_trailing_high = {}  # {code: max_price}
+
 # ==================== 计算指标 ====================
 def calculate_macd(df, ma1=12, ma2=26):
     """计算 MACD"""
@@ -209,6 +495,21 @@ def calculate_bollinger(df, window=20, std=2):
     df['bb_upper'] = df['bb_mid'] + std * df['bb_std']
     df['bb_lower'] = df['bb_mid'] - std * df['bb_std']
     df['bb_pos'] = (df['close'] - df['bb_lower']) / (df['bb_upper'] - df['bb_lower'])
+    return df
+
+def calculate_rsi(df, period=14):
+    """计算 RSI 相对强弱指标"""
+    delta = df['close'].diff()
+    gain = delta.where(delta > 0, 0).rolling(period).mean()
+    loss = (-delta.where(delta < 0, 0)).rolling(period).mean()
+    rs = gain / loss.replace(0, 1e-10)
+    df['rsi'] = 100 - (100 / (1 + rs))
+    return df
+
+def calculate_volume_ratio(df, period=20):
+    """计算量比（当日成交量 / N日均量）"""
+    df['vol_ma'] = df['volume'].rolling(period).mean()
+    df['vol_ratio'] = df['volume'] / df['vol_ma'].replace(0, 1e-10)
     return df
 
 # ==================== 获取历史数据 ====================
@@ -237,25 +538,173 @@ def get_history(code, days=60):
         pass
     return None
 
-# ==================== 交易逻辑 ====================
+# ==================== 交易逻辑（三阶段：做T → 风控 → 策略信号） ====================
 def check_signals():
-    """检查交易信号并执行（腾讯财经 - 主力）"""
-    account = load_account()
+    """
+    三阶段检查交易信号：
+    Phase 1 - 做T（日内高抛低吸）
+    Phase 2 - 风控（止损止盈）
+    Phase 3 - 策略信号（MACD/布林带 建仓/加仓/减仓）
+    """
+    global _t_state, _t_state_date
     
-    log(f"📊 检查交易信号...")
+    account = load_account()
+    migrate_positions(account)  # 兼容旧数据
+    
+    log(f"📊 检查交易信号（三阶段）...")
     
     trades_executed = []
+    today = datetime.now().strftime('%Y-%m-%d')
     
+    # 日期切换时重置做T状态
+    if _t_state_date != today:
+        _t_state = {}
+        _t_state_date = today
+    
+    # ============================================================
+    # Phase 1 - 网格做T（多档高抛低吸）
+    # ============================================================
+    log(f"  📌 Phase 1: 网格做T扫描...")
+    for code, pos in list(account['positions'].items()):
+        name = get_stock_name_from_pool(code)
+        sellable = get_sellable_shares(pos)
+        if sellable <= 0:
+            continue
+        
+        quote = get_price(code)
+        if not quote or quote['current'] <= 0 or quote['open'] <= 0:
+            continue
+        
+        current_price = quote['current']
+        open_price = quote['open']
+        intraday_change = (current_price - open_price) / open_price
+        
+        if code not in _t_state:
+            _t_state[code] = {'sells': [], 'total_sold': 0, 'count': 0, 'bought_back': False}
+        t_info = _t_state[code]
+        
+        # 网格高抛：检查是否触发某档网格线
+        grid_up = TRADE_CONFIG['t_grid_up']
+        grid_step = TRADE_CONFIG['t_grid_step']
+        grid_max = TRADE_CONFIG['t_grid_max']
+        sell_ratio = TRADE_CONFIG['t_sell_ratio']
+        
+        if (not t_info['bought_back']
+                and t_info['count'] < grid_max
+                and sellable > 0):
+            # 当前应触发的网格档位
+            target_level = t_info['count'] + 1
+            trigger_pct = grid_up + (target_level - 1) * grid_step
+            
+            if intraday_change >= trigger_pct:
+                t_sell_shares = int(sellable * sell_ratio / 100) * 100
+                if t_sell_shares >= 100:
+                    trade = execute_sell(account, code, name, t_sell_shares, current_price,
+                                         f'网格做T L{target_level} (日内+{intraday_change*100:.1f}%，触发{trigger_pct*100:.1f}%)',
+                                         '🔄 做T卖出')
+                    if trade:
+                        trades_executed.append(trade)
+                        t_info['sells'].append({'shares': t_sell_shares, 'price': current_price})
+                        t_info['total_sold'] += t_sell_shares
+                        t_info['count'] += 1
+                        # 更新可卖股数
+                        sellable = get_sellable_shares(account['positions'].get(code, pos))
+        
+        # 做T接回：之前高抛过，价格较最后一次卖出价回落 >= 1%
+        if (t_info['total_sold'] > 0
+              and not t_info['bought_back']
+              and len(t_info['sells']) > 0):
+            last_sell_price = t_info['sells'][-1]['price']
+            if current_price <= last_sell_price * (1 - TRADE_CONFIG['t_buyback_dip']):
+                buyback_shares = t_info['total_sold']
+                trade = execute_buy(account, code, name, buyback_shares, current_price,
+                                    f'做T接回 (均卖¥{last_sell_price:.2f}→¥{current_price:.2f}，赚差价)', is_add=True)
+                if trade:
+                    trade['action'] = '🔄 做T接回'
+                    trades_executed.append(trade)
+                    t_info['bought_back'] = True
+    
+    # ============================================================
+    # Phase 2 - 风控（止损 + 跟踪止损 + 分批止盈）
+    # ============================================================
+    log(f"  📌 Phase 2: 风控扫描...")
+    for code, pos in list(account['positions'].items()):
+        name = get_stock_name_from_pool(code)
+        sellable = get_sellable_shares(pos)
+        if sellable <= 0:
+            continue
+        
+        quote = get_price(code)
+        if not quote or quote['current'] <= 0:
+            continue
+        
+        current_price = quote['current']
+        avg_price = pos['avg_price']
+        if avg_price <= 0:
+            continue
+        profit_pct = (current_price - avg_price) / avg_price
+        
+        # 1) 硬止损：亏 >= 8%
+        if profit_pct <= TRADE_CONFIG['stop_loss_pct']:
+            trade = execute_sell(account, code, name, sellable, current_price,
+                                 f'止损 ({profit_pct*100:+.1f}%)', '🔴 止损卖出')
+            if trade:
+                trades_executed.append(trade)
+            if code in _trailing_high:
+                del _trailing_high[code]
+            continue
+        
+        # 2) 跟踪止损：盈利超过激活线后，从最高点回撤超过阈值则卖出
+        trailing_activate = TRADE_CONFIG['trailing_stop_activate']
+        trailing_drawdown = TRADE_CONFIG['trailing_stop_drawdown']
+        
+        if profit_pct >= trailing_activate:
+            # 更新最高价
+            if code not in _trailing_high or current_price > _trailing_high[code]:
+                _trailing_high[code] = current_price
+            
+            high_price = _trailing_high[code]
+            drawdown = (high_price - current_price) / high_price
+            
+            if drawdown >= trailing_drawdown:
+                trade = execute_sell(account, code, name, sellable, current_price,
+                                     f'跟踪止损 (最高¥{high_price:.2f}→¥{current_price:.2f}，回撤{drawdown*100:.1f}%)',
+                                     '🔴 跟踪止损')
+                if trade:
+                    trades_executed.append(trade)
+                if code in _trailing_high:
+                    del _trailing_high[code]
+                continue
+        
+        # 3) 分批止盈
+        profit_taken = pos.get('profit_taken', 0)
+        tp_levels = TRADE_CONFIG['take_profit']
+        
+        if profit_taken < len(tp_levels):
+            tp = tp_levels[profit_taken]
+            if profit_pct >= tp['pct']:
+                tp_shares = int(sellable * tp['sell_ratio'] / 100) * 100
+                if tp_shares >= 100:
+                    label = f'止盈L{profit_taken+1}'
+                    trade = execute_sell(account, code, name, tp_shares, current_price,
+                                         f'{label} (盈{profit_pct*100:+.1f}% 卖{tp["sell_ratio"]*100:.0f}%)',
+                                         f'🔴 {label}')
+                    if trade:
+                        trades_executed.append(trade)
+                        if code in account['positions']:
+                            account['positions'][code]['profit_taken'] = profit_taken + 1
+    
+    # ============================================================
+    # Phase 3 - 策略信号（RSI+量确认 + MACD/布林带 建仓/加仓/减仓）
+    # ============================================================
+    log(f"  📌 Phase 3: 策略信号扫描...")
     for stock in CONFIG['stock_pool']:
-        # 股票池格式：('code', 'name', 'strategy')
         code = stock[0]
         name = stock[1]
         strategy = stock[2]
         
-        # 获取实时价格（腾讯财经）
         quote = get_price(code)
-        if not quote:
-            log(f"  ⚠️ {name}: 获取价格失败")
+        if not quote or quote['current'] <= 0:
             continue
         
         current_price = quote['current']
@@ -265,249 +714,142 @@ def check_signals():
         if df is None or len(df) < 30:
             continue
         
+        # 计算 RSI 和量比（所有策略通用）
+        df = calculate_rsi(df, 14)
+        df = calculate_volume_ratio(df, 20)
+        latest = df.iloc[-1]
+        rsi = latest.get('rsi', 50)
+        vol_ratio = latest.get('vol_ratio', 1.0)
+        
         signal = None
         reason = ''
+        signal_strength = 'normal'  # normal / strong / weak
         
         # === 策略判断 ===
         if strategy == 'macd':
-            df = calculate_macd(df, 12, 26)  # MACD 默认参数
+            df = calculate_macd(df, 12, 26)
             latest = df.iloc[-1]
             prev = df.iloc[-2]
             
-            # 金叉买入
             if latest['ma1'] > latest['ma2'] and prev['ma1'] <= prev['ma2']:
                 signal = 'buy'
                 reason = 'MACD 金叉'
-            # 死叉卖出
+                # 放量金叉 = 强信号
+                if vol_ratio >= TRADE_CONFIG['volume_ratio_buy']:
+                    signal_strength = 'strong'
+                    reason += f' + 放量({vol_ratio:.1f}x)'
             elif latest['ma1'] < latest['ma2'] and prev['ma1'] >= prev['ma2']:
                 signal = 'sell'
                 reason = 'MACD 死叉'
         
         elif strategy == 'bollinger':
-            df = calculate_bollinger(df, 20, 2)  # 布林带默认参数
+            df = calculate_bollinger(df, 20, 2)
             latest = df.iloc[-1]
             
-            # 下轨买入
             if latest['bb_pos'] < 0.1:
                 signal = 'buy'
                 reason = f'布林带下轨 (%B={latest["bb_pos"]:.2f})'
-            # 上轨卖出
+                if vol_ratio >= TRADE_CONFIG['volume_ratio_buy']:
+                    signal_strength = 'strong'
+                    reason += f' + 放量({vol_ratio:.1f}x)'
             elif latest['bb_pos'] > 0.9:
                 signal = 'sell'
                 reason = f'布林带上轨 (%B={latest["bb_pos"]:.2f})'
         
-        # === 执行交易 ===
+        # === RSI 过滤 ===
         if signal == 'buy':
-            # 检查是否已持仓
-            if code in account['positions'] and account['positions'][code]['shares'] > 0:
-                log(f"  ⚪ {name}: 已持仓，跳过买入")
+            if rsi > TRADE_CONFIG['rsi_buy_max']:
+                log(f"  ⚪ {name}: {reason} 但 RSI={rsi:.0f}>{TRADE_CONFIG['rsi_buy_max']}，过滤掉")
                 continue
-            
-            # 智能仓位管理：根据股价和流动性调整
-            # 基础仓位 5%，根据股价灵活调整 3%-8%
-            
-            base_percent = CONFIG['max_position_percent']  # 5%
-            
-            # 股价调整因子：
-            # - 高价股 (>100 元)：增加仓位到 6-7%（因为股数少，波动大）
-            # - 中价股 (30-100 元)：标准仓位 5%
-            # - 低价股 (<30 元)：降低仓位到 3-4%（因为股数多，流动性好）
-            if current_price > 100:
-                price_factor = 1.4  # 高价股 7%
-            elif current_price > 50:
-                price_factor = 1.2  # 6%
-            elif current_price < 30:
-                price_factor = 0.7  # 3.5%
-            elif current_price < 20:
-                price_factor = 0.6  # 3%
-            else:
-                price_factor = 1.0  # 标准 5%
-            
-            # 流动性调整因子：成交量大的可增加仓位
-            volume_factor = 1.0
-            if 'volume' in df.columns and len(df) > 20:
-                avg_volume = df['volume'].iloc[-20:].mean()
-                if avg_volume > 1000000:  # 日均成交>100 万股
-                    volume_factor = 1.2
-                elif avg_volume < 100000:  # 日均成交<10 万股
-                    volume_factor = 0.8
-            
-            # 计算最终仓位比例
-            final_percent = base_percent * price_factor * volume_factor
-            
-            # 限制在 3%-8% 之间
-            final_percent = max(0.03, min(0.08, final_percent))
-            
-            target_amount = CONFIG['initial_capital'] * final_percent
-            shares = int(target_amount / current_price / 100) * 100
-            
-            # 确保至少买 100 股
-            if shares < 100:
-                shares = 100
-            
-            if shares <= 0:
-                continue
-            
-            cost = shares * current_price
-            commission = cost * CONFIG['commission_rate']
-            total_cost = cost + commission
-            
-            # 检查资金
-            if total_cost > account['cash']:
-                log(f"  ⚠️ {name}: 资金不足 (需要¥{total_cost:,.0f}, 可用¥{account['cash']:,.0f})")
-                continue
-            
-            # 执行买入
-            account['cash'] -= total_cost
-            account['positions'][code] = {
-                'shares': shares,
-                'avg_price': current_price,
-                'buy_price': current_price,
-                'buy_date': datetime.now().strftime('%Y-%m-%d'),  # T+1 关键：记录买入日期
-                'buy_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'commission': commission
-            }
-            
-            log(f"  🟢 买入 {name}: {shares}股 @ ¥{current_price:.2f} (手续费¥{commission:.2f})")
-            log(f"     原因：{reason}")
-            
-            # 飞书推送
-            send_feishu(
-                f"🟢 买入信号 - {name}",
-                f"股票：{code} {name}\n"
-                f"操作：买入\n"
-                f"数量：{shares}股\n"
-                f"价格：¥{current_price:.2f}\n"
-                f"金额：¥{cost:,.2f}\n"
-                f"手续费：¥{commission:.2f}\n"
-                f"原因：{reason}\n"
-                f"时间：{datetime.now().strftime('%H:%M:%S')}"
-            )
-            
-            # 记录到交易历史
-            account['trade_history'].append({
-                'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'code': code,
-                'name': name,
-                'action': '买入',
-                'shares': shares,
-                'price': current_price,
-                'amount': cost,
-                'commission': commission
-            })
-            
-            trades_executed.append({
-                'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'code': code,
-                'name': name,
-                'action': '买入',
-                'shares': shares,
-                'price': current_price,
-                'amount': cost,
-                'commission': commission,
-                'reason': reason
-            })
+            reason += f' RSI={rsi:.0f}'
         
+        if signal == 'sell':
+            if rsi > TRADE_CONFIG['rsi_sell_min']:
+                signal_strength = 'strong'
+                reason += f' + RSI超买({rsi:.0f})'
+            reason += f' RSI={rsi:.0f}'
+        
+        # === 成交量确认（可选）===
+        if signal == 'buy' and TRADE_CONFIG['volume_confirm'] and signal_strength != 'strong':
+            if vol_ratio < 0.8:
+                log(f"  ⚪ {name}: {reason} 但缩量({vol_ratio:.1f}x)，信号较弱，跳过")
+                continue
+        
+        # === 买入信号 ===
+        if signal == 'buy':
+            has_position = code in account['positions'] and account['positions'][code]['shares'] > 0
+            
+            if not has_position:
+                # 新建仓：强信号直接上5%，普通信号3%
+                if signal_strength == 'strong':
+                    level_pct = TRADE_CONFIG['pyramid_levels'][1]  # 5%
+                    reason += ' [强信号→5%仓位]'
+                else:
+                    level_pct = TRADE_CONFIG['pyramid_levels'][0]  # 3%
+                
+                target_amount = CONFIG['initial_capital'] * level_pct
+                shares = int(target_amount / current_price / 100) * 100
+                if shares < 100:
+                    shares = 100
+                
+                trade = execute_buy(account, code, name, shares, current_price, reason)
+                if trade:
+                    trades_executed.append(trade)
+            else:
+                # 加仓判断
+                pos = account['positions'][code]
+                add_level = pos.get('add_level', 1)
+                dip_pct = (current_price - pos['avg_price']) / pos['avg_price']
+                
+                if dip_pct <= -TRADE_CONFIG['add_dip_pct'] and add_level < len(TRADE_CONFIG['pyramid_levels']):
+                    next_pct = TRADE_CONFIG['pyramid_levels'][add_level]
+                    target_amount = CONFIG['initial_capital'] * (next_pct - TRADE_CONFIG['pyramid_levels'][add_level - 1])
+                    add_shares = int(target_amount / current_price / 100) * 100
+                    if add_shares >= 100:
+                        trade = execute_buy(account, code, name, add_shares, current_price,
+                                             f'{reason} + 加仓L{add_level+1} (跌{dip_pct*100:.1f}%)', is_add=True)
+                        if trade:
+                            trades_executed.append(trade)
+                else:
+                    log(f"  ⚪ {name}: 已持仓L{add_level}，等待加仓条件")
+        
+        # === 卖出信号 ===
         elif signal == 'sell':
-            # 检查是否持仓
             if code not in account['positions'] or account['positions'][code]['shares'] <= 0:
                 continue
             
             pos = account['positions'][code]
-            
-            # T+1 检查：今天买入的不能卖
-            buy_date = pos.get('buy_date', '')
-            today = datetime.now().strftime('%Y-%m-%d')
-            
-            if buy_date == today:
-                log(f"  ⚪ {name}: T+1 限制，今日买入不可卖出")
+            sellable = get_sellable_shares(pos)
+            if sellable <= 0:
+                log(f"  ⚪ {name}: T+1 限制，无可卖股数")
                 continue
             
-            shares = pos['shares']
+            # 强卖出信号（RSI超买）卖70%，普通卖50%
+            if signal_strength == 'strong':
+                sell_pct = 0.7
+                action_label = '🔴 强势减仓'
+            else:
+                sell_pct = 0.5
+                action_label = '🔴 策略减仓'
             
-            # 执行卖出
-            revenue = shares * current_price
-            commission = revenue * CONFIG['commission_rate']
-            net_revenue = revenue - commission
-            
-            # 计算盈亏
-            profit = net_revenue - (shares * pos['avg_price'] + pos.get('commission', 0))
-            profit_pct = profit / (shares * pos['avg_price']) * 100
-            
-            account['cash'] += net_revenue
-            
-            trade_record = {
-                'sell_price': current_price,
-                'sell_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'revenue': revenue,
-                'commission': commission,
-                'profit': profit,
-                'profit_pct': profit_pct,
-                'reason': reason
-            }
-            
-            # 添加到历史
-            account['trade_history'].append({
-                **pos,
-                **trade_record,
-                'code': code,
-                'name': name
-            })
-            
-            del account['positions'][code]
-            
-            log(f"  🔴 卖出 {name}: {shares}股 @ ¥{current_price:.2f} (手续费¥{commission:.2f})")
-            log(f"     盈亏：¥{profit:,.2f} ({profit_pct:+.1f}%)")
-            log(f"     原因：{reason}")
-            
-            # 飞书推送
-            send_feishu(
-                f"🔴 卖出信号 - {name}",
-                f"股票：{code} {name}\n"
-                f"操作：卖出\n"
-                f"数量：{shares}股\n"
-                f"价格：¥{current_price:.2f}\n"
-                f"金额：¥{revenue:,.2f}\n"
-                f"手续费：¥{commission:.2f}\n"
-                f"盈亏：¥{profit:,.2f} ({profit_pct:+.1f}%)\n"
-                f"原因：{reason}\n"
-                f"时间：{datetime.now().strftime('%H:%M:%S')}"
-            )
-            
-            trades_executed.append({
-                'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'code': code,
-                'name': name,
-                'action': '卖出',
-                'shares': shares,
-                'price': current_price,
-                'amount': revenue,
-                'commission': commission,
-                'profit': profit,
-                'profit_pct': profit_pct,
-                'reason': reason
-            })
+            sell_shares = int(sellable * sell_pct / 100) * 100
+            if sell_shares < 100:
+                sell_shares = min(100, int(sellable / 100) * 100)
+            if sell_shares >= 100:
+                trade = execute_sell(account, code, name, sell_shares, current_price,
+                                     f'策略减仓 ({reason})', action_label)
+                if trade:
+                    trades_executed.append(trade)
     
-    # 保存账户
+    # ============================================================
+    # 保存 + 同步
+    # ============================================================
     if len(trades_executed) > 0:
         save_account(account)
+        sync_trade_log(trades_executed)
         log(f"  ✅ 执行 {len(trades_executed)} 笔交易，账户已更新")
     else:
         log(f"  ⚪ 无交易信号")
-    
-    # 后台测试 iTick（每 10 次检查测试一次）
-    if not hasattr(check_signals, 'test_counter'):
-        check_signals.test_counter = 0
-    check_signals.test_counter += 1
-    
-    if check_signals.test_counter % 10 == 0:
-        log(f"🔬 后台测试 iTick 接口...")
-        test_codes = ['sh.601398', 'sz.000001', 'sh.600519']
-        itick_results = get_price_itick_batch(test_codes)
-        if itick_results:
-            log(f"  ✅ iTick 测试成功，获取到 {len(itick_results)} 只股票数据")
-        else:
-            log(f"  ⚠️ iTick 测试失败")
     
     return trades_executed
 
