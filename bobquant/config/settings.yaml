@@ -1,11 +1,11 @@
 # ==========================================
-# BobQuant 量化交易系统 - 全局配置
+# BobQuant 量化交易系统 - 全局配置 v1.0
 # ==========================================
 
 # --- 系统 ---
 system:
   name: "BobQuant"
-  version: "0.1.0"
+  version: "1.0.0"                 # v1.0: 集成 ML+ 情绪
   log_level: "INFO"                # DEBUG / INFO / WARNING / ERROR
   check_interval: 30               # 行情检查间隔（秒）
 
@@ -76,6 +76,27 @@ strategy:
     rsi_sell_min: 70
     volume_confirm: true
     volume_ratio_buy: 1.5
+
+# --- 智能增强 (v1.0 NEW) ---
+ml:
+  enabled: true                    # 启用 ML 预测
+  lookback_days: 200               # 历史数据回溯天数
+  min_train_samples: 60            # 最小训练样本数
+  probability_threshold: 0.6       # 预测概率阈值（低于此值不交易）
+  model_dir: "ml/models"           # 模型保存目录
+  signal_weight: 0.4               # ML 信号权重
+
+sentiment:
+  enabled: true                    # 启用情绪指数
+  high_threshold: 70               # 情绪高涨阈值
+  low_threshold: 30                # 情绪低迷阈值
+  signal_weight: 0.4               # 情绪信号权重
+  
+  # 仓位控制
+  position:
+    base: 60                       # 基础仓位%
+    min: 30                        # 最小仓位%
+    max: 90                        # 最大仓位%
 
 # --- 通知 ---
 notify:
