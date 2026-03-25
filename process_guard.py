@@ -27,9 +27,9 @@ SERVICES = [
     },
     {
         'name': '模拟盘交易引擎',
-        'command': ['python3', '/home/openclaw/.openclaw/workspace/quant_strategies/ideal_sim_trading.py'],
+        'command': ['python3', '/home/openclaw/.openclaw/workspace/quant_strategies/run.py'],
         'port': None,  # 无端口，按进程名检测
-        'process_keyword': 'ideal_sim_trading.py',
+        'process_keyword': 'run.py',
         'trading_hours_only': True,  # 仅交易时段运行
     },
 ]
