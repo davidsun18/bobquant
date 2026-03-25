@@ -209,7 +209,7 @@ def api_trades():
         if account and 'trade_history' in account:
             trades = account['trade_history']
     
-    return jsonify({'trades': trades[-15:]})  # 返回最近 15 条
+    return jsonify({'trades': trades})  # 返回全部记录
 
 @app.route('/api/stock/<code>')
 def api_stock_detail(code):
