@@ -657,23 +657,8 @@
                     document.getElementById('todayProfit').innerHTML = 
                         `<span class="${todayClass}">${todayText}${formatMoney(todayProfit)}</span>`;
                     
-                    // PC 端表格
-                    let pcPositionsHtml = `
-                        <table class="pc-table">
-                            <thead>
-                                <tr>
-                                    <th>名称</th>
-                                    <th>代码</th>
-                                    <th>持仓/可交易</th>
-                                    <th>成本价</th>
-                                    <th>现价</th>
-                                    <th>市值</th>
-                                    <th>盈亏</th>
-                                    <th>盈亏%</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                    `;
+                    // PC 端卡片 — 双列布局 + 红绿边框
+                    let pcPositionsHtml = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
                     
                     // 手机端卡片 — 双列布局
                     let mobilePositionsHtml = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">';
@@ -682,32 +667,39 @@
                         const profitClass = pos.profit >= 0 ? 'profit-up' : 'profit-down';
                         const profitText = pos.profit >= 0 ? '+' : '';
                         const priceClass = getPriceClass(pos.current_price, pos.avg_price);
+                        const borderColor = pos.profit >= 0 ? '#e74c3c' : '#27ae60';
                         
                         // 计算可交易数量 (T+1 规则：当天买入的不可卖)
                         const totalShares = pos.shares;
                         const todayBought = pos.today_bought || 0;
                         const tradableShares = totalShares - todayBought;
                         
-                        // PC 端表格行
+                        // PC 端卡片
                         pcPositionsHtml += `
-                            <tr>
-                                <td><a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" class="stock-name-link" style="font-weight:bold">${pos.name}</a></td>
-                                <td><a href="javascript:void(0)" class="stock-code-link" onclick="showStockDetail('${pos.code}')">${pos.code}</a></td>
-                                <td>
-                                    <div style="font-weight:bold">${totalShares}</div>
-                                    <div style="font-size:11px;color:#444;font-weight:600">可交易：${tradableShares}</div>
-                                </td>
-                                <td>¥${pos.avg_price.toFixed(2)}</td>
-                                <td class="${priceClass}" style="font-weight:bold">¥${pos.current_price.toFixed(2)}</td>
-                                <td>${formatMoney(pos.market_value)}</td>
-                                <td class="${profitClass}">${profitText}${formatMoney(pos.profit)}</td>
-                                <td class="${profitClass}">${formatPercent(pos.profit_pct)}</td>
-                            </tr>
+                            <div style="background:#fff;border:1px solid #e8e8e8;border-radius:6px;padding:10px 12px;border-left:4px solid ${borderColor};cursor:pointer" onclick="showStockDetail('${pos.code}')">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                                    <div>
+                                        <a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" style="font-size:15px;font-weight:bold;color:#333;text-decoration:none" onclick="event.stopPropagation()">${pos.name}</a>
+                                        <span style="font-size:11px;color:#999;margin-left:6px">${pos.code}</span>
+                                    </div>
+                                    <span class="${profitClass}" style="font-size:16px;font-weight:bold">${formatPercent(pos.profit_pct)}</span>
+                                </div>
+                                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;font-size:12px;color:#666">
+                                    <div>持仓 <b style="color:#333">${totalShares}</b></div>
+                                    <div>可交易 <b style="color:#444">${tradableShares}</b></div>
+                                    <div>现价 <b class="${priceClass}">${pos.current_price.toFixed(2)}</b></div>
+                                    <div>成本 <b>${pos.avg_price.toFixed(2)}</b></div>
+                                </div>
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;padding-top:5px;border-top:1px solid #f0f0f0">
+                                    <span style="font-size:12px;color:#888">市值 ${formatMoney(pos.market_value)}</span>
+                                    <span class="${profitClass}" style="font-size:14px;font-weight:bold">${profitText}${formatMoney(pos.profit)}</span>
+                                </div>
+                            </div>
                         `;
                         
                         // 手机端卡片
                         mobilePositionsHtml += `
-                            <div style="background:#fff;border:1px solid #e8e8e8;border-radius:6px;padding:8px;border-left:3px solid ${pos.profit >= 0 ? '#e74c3c' : '#27ae60'}">
+                            <div style="background:#fff;border:1px solid #e8e8e8;border-radius:6px;padding:8px;border-left:3px solid ${borderColor}">
                                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
                                     <a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" style="font-size:13px;font-weight:bold;color:#333;text-decoration:none">${pos.name}</a>
                                     <span class="${profitClass}" style="font-size:12px;font-weight:bold">${formatPercent(pos.profit_pct)}</span>
@@ -727,7 +719,7 @@
                     
                     mobilePositionsHtml += '</div>';
                     
-                    pcPositionsHtml += '</tbody></table>';
+                    pcPositionsHtml += '</div>';
                     document.getElementById('pcPositionsContent').innerHTML = pcPositionsHtml;
                     document.getElementById('mobilePositionsContent').innerHTML = mobilePositionsHtml;
                 })
