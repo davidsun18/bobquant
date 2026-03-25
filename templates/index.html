@@ -494,7 +494,7 @@
             
             <div class="trades-section">
                 <h2>📝 交易记录</h2>
-                <div class="table-container" id="tradesContent">
+                <div class="table-container" id="tradesContent" style="max-height:450px;overflow-y:auto">
                     <div class="loading">加载中...</div>
                 </div>
             </div>
@@ -751,7 +751,7 @@
                         // 手机端卡片
                         let mobileTradesHtml = '';
                         
-                        data.trades.slice(-20).reverse().forEach(trade => {
+                        data.trades.slice(-15).reverse().forEach(trade => {
                             const actionClass = trade.action === '买入' ? 'profit-up' : 'profit-down';
                             let timeStr = trade.time || '--';
                             let dateStr = timeStr;
