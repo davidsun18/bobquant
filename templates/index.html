@@ -666,8 +666,8 @@
                             <tbody>
                     `;
                     
-                    // 手机端卡片
-                    let mobilePositionsHtml = '';
+                    // 手机端卡片 — 双列布局
+                    let mobilePositionsHtml = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">';
                     
                     data.positions.forEach(pos => {
                         const profitClass = pos.profit >= 0 ? 'profit-up' : 'profit-down';
@@ -686,7 +686,7 @@
                                 <td><a href="javascript:void(0)" class="stock-code-link" onclick="showStockDetail('${pos.code}')">${pos.code}</a></td>
                                 <td>
                                     <div style="font-weight:bold">${totalShares}</div>
-                                    <div style="font-size:11px;color:#999">可交易：${tradableShares}</div>
+                                    <div style="font-size:11px;color:#444;font-weight:600">可交易：${tradableShares}</div>
                                 </td>
                                 <td>¥${pos.avg_price.toFixed(2)}</td>
                                 <td class="${priceClass}" style="font-weight:bold">¥${pos.current_price.toFixed(2)}</td>
@@ -698,40 +698,25 @@
                         
                         // 手机端卡片
                         mobilePositionsHtml += `
-                            <div class="mobile-card">
-                                <div class="mobile-card-header">
-                                    <div class="stock-info">
-                                        <div class="stock-name">
-                                            <a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" class="stock-name-link">${pos.name}</a>
-                                        </div>
-                                        <div class="stock-code">
-                                            <a href="javascript:void(0)" class="stock-code-link" onclick="showStockDetail('${pos.code}')">${pos.code}</a>
-                                        </div>
-                                    </div>
+                            <div style="background:#fff;border:1px solid #e8e8e8;border-radius:6px;padding:8px;border-left:3px solid ${pos.profit >= 0 ? '#e74c3c' : '#27ae60'}">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                                    <a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" style="font-size:13px;font-weight:bold;color:#333;text-decoration:none">${pos.name}</a>
+                                    <span class="${profitClass}" style="font-size:12px;font-weight:bold">${formatPercent(pos.profit_pct)}</span>
                                 </div>
-                                <div class="mobile-card-body">
-                                    <div class="mobile-data-item">
-                                        <div class="mobile-data-label">持仓</div>
-                                        <div class="mobile-data-value">${totalShares}</div>
-                                        <div class="mobile-data-label">可交易</div>
-                                        <div class="mobile-data-value">${tradableShares}</div>
-                                    </div>
-                                    <div class="mobile-data-item">
-                                        <div class="mobile-data-label">现价</div>
-                                        <div class="mobile-data-value ${priceClass}">¥${pos.current_price.toFixed(2)}</div>
-                                        <div class="mobile-data-label">成本</div>
-                                        <div class="mobile-data-value">¥${pos.avg_price.toFixed(2)}</div>
-                                    </div>
-                                    <div class="mobile-data-item">
-                                        <div class="mobile-data-label">盈亏</div>
-                                        <div class="mobile-data-value ${profitClass}">${profitText}${formatMoney(pos.profit)}</div>
-                                        <div class="mobile-data-label">盈亏%</div>
-                                        <div class="mobile-data-value ${profitClass}">${formatPercent(pos.profit_pct)}</div>
-                                    </div>
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;font-size:11px;color:#666">
+                                    <div>持仓 <b style="color:#333">${totalShares}</b></div>
+                                    <div>可交易 <b style="color:#444">${tradableShares}</b></div>
+                                    <div>现价 <b class="${priceClass}">${pos.current_price.toFixed(2)}</b></div>
+                                    <div>成本 <b>${pos.avg_price.toFixed(2)}</b></div>
+                                </div>
+                                <div style="text-align:right;margin-top:3px">
+                                    <span class="${profitClass}" style="font-size:12px;font-weight:bold">${profitText}¥${Math.abs(pos.profit).toFixed(0)}</span>
                                 </div>
                             </div>
                         `;
                     });
+                    
+                    mobilePositionsHtml += '</div>';
                     
                     pcPositionsHtml += '</tbody></table>';
                     document.getElementById('pcPositionsContent').innerHTML = pcPositionsHtml;
@@ -781,21 +766,15 @@
                             // PC 端表格行
                             pcTradesHtml += `
                                 <tr>
-                                    <td style="font-family:monospace">
-                                        <div style="font-weight:bold">${dateStr}</div>
+                                    <td style="font-family:monospace;padding:4px 6px">
+                                        <div>${dateStr}</div>
                                         <div style="font-size:11px;color:#999">${timeOnly}</div>
                                     </td>
-                                    <td>${trade.name}</td>
-                                    <td class="${actionClass}" style="font-weight:bold">${trade.action}</td>
-                                    <td>
-                                        <div>${trade.shares}</div>
-                                        <div style="font-size:11px;color:#999">股</div>
-                                    </td>
-                                    <td>
-                                        <div>¥${trade.price.toFixed(2)}</div>
-                                        <div style="font-size:11px;color:#999">每股</div>
-                                    </td>
-                                    <td style="font-weight:bold">${formatMoney(trade.amount)}</td>
+                                    <td style="padding:4px 6px">${trade.name}</td>
+                                    <td class="${actionClass}" style="font-weight:bold;padding:4px 6px">${trade.action}</td>
+                                    <td style="padding:4px 6px">${trade.shares}</td>
+                                    <td style="padding:4px 6px">${trade.price.toFixed(2)}</td>
+                                    <td style="font-weight:bold;padding:4px 6px">${formatMoney(trade.amount)}</td>
                                 </tr>
                             `;
                             
