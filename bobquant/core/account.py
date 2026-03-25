@@ -17,18 +17,22 @@ class Account:
         self._data = None
 
     def load(self):
-        if self.filepath.exists():
-            with open(self.filepath, 'r', encoding='utf-8') as f:
-                self._data = json.load(f)
-        else:
-            self._data = {
-                'cash': self.initial_capital,
-                'initial_capital': self.initial_capital,
-                'positions': {},
-                'trade_history': [],
-                'start_date': datetime.now().strftime('%Y-%m-%d'),
-                'last_update': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-            }
+        if self.filepath.exists() and self.filepath.stat().st_size > 0:
+            try:
+                with open(self.filepath, 'r', encoding='utf-8') as f:
+                    self._data = json.load(f)
+                return self
+            except (json.JSONDecodeError, ValueError):
+                pass
+        # 新建或文件损坏
+        self._data = {
+            'cash': self.initial_capital,
+            'initial_capital': self.initial_capital,
+            'positions': {},
+            'trade_history': [],
+            'start_date': datetime.now().strftime('%Y-%m-%d'),
+            'last_update': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        }
         return self
 
     def save(self):
