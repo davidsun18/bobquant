@@ -84,11 +84,24 @@ def run_check():
     codes = list(account.positions.keys())
     quotes = data.get_quotes(codes)  # 并行刷新，26 只股票从 2.5 秒降至 0.3 秒
     
+    # v1.1.2 修复：先检查哪些股票触发了止盈/止损，避免做 T 冲突
+    risk_checked = set()
+    for code, pos in list(account.positions.items()):
+        quote = quotes.get(code)
+        if quote and quote['current'] > 0:
+            result = risk.check(code, pos, quote['current'])
+            if result['action']:
+                risk_checked.add(code)  # 标记为风控优先
+    
     for code, pos in list(account.positions.items()):
         name = _find_name(s, code)
         sellable = get_sellable_shares(pos)
         quote = quotes.get(code) if sellable > 0 else None
         if not quote or quote['current'] <= 0:
+            continue
+        
+        # v1.1.2 修复：如果已触发风控，跳过做 T 避免冲突
+        if code in risk_checked:
             continue
 
         # 高抛

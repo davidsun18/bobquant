@@ -58,7 +58,7 @@ from bobquant.config import get_settings, to_legacy_config, PROJECT_ROOT, POSITI
 s = get_settings()
 assert_eq(s.initial_capital, 1000000, "初始资金")
 assert_eq(s.commission_rate, 0.0005, "手续费率")
-assert_eq(s.check_interval, 30, "检查间隔")
+assert_eq(s.check_interval, 10, "检查间隔 (v1.1 优化)")
 assert_eq(s.get('strategy.stop_loss_pct'), -0.08, "止损线")
 assert_eq(s.get('data.primary'), 'tencent', "主数据源")
 assert_eq(s.get('broker.mode'), 'simulator', "券商模式")
