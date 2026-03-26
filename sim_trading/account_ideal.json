@@ -1,7 +1,355 @@
 {
-  "cash": 947526.0,
+  "cash": 319915.16000000003,
   "initial_capital": 1000000,
   "positions": {
+    "sh.600887": {
+      "shares": 1300,
+      "avg_price": 25.61,
+      "buy_price": 25.61,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:50:16",
+      "commission": 24.3295,
+      "buy_lots": [
+        {
+          "shares": 1300,
+          "price": 25.61,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:50:16"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600016": {
+      "shares": 2700,
+      "avg_price": 3.8,
+      "buy_price": 3.8,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:55:55",
+      "commission": 20.900000000000002,
+      "buy_lots": [
+        {
+          "shares": 2700,
+          "price": 3.8,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:55:55"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601658": {
+      "shares": 5900,
+      "avg_price": 5.0,
+      "buy_price": 5.0,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:55:59",
+      "commission": 20.75,
+      "buy_lots": [
+        {
+          "shares": 5900,
+          "price": 5.0,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:55:59"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.603198": {
+      "shares": 300,
+      "avg_price": 32.03,
+      "buy_price": 32.03,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:56:05",
+      "commission": 28.827,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 32.03,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:05"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.603369": {
+      "shares": 400,
+      "avg_price": 27.245,
+      "buy_price": 27.3,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:56:05",
+      "commission": 21.829,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 27.3,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:05"
+        },
+        {
+          "shares": 100,
+          "price": 27.08,
+          "date": "2026-03-26",
+          "time": "2026-03-26 11:25:08"
+        }
+      ],
+      "add_level": 2,
+      "profit_taken": 0
+    },
+    "sh.600085": {
+      "shares": 300,
+      "avg_price": 28.49,
+      "buy_price": 28.49,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:56:19",
+      "commission": 19.943,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 28.49,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:19"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600436": {
+      "shares": 300,
+      "avg_price": 152.72,
+      "buy_price": 152.72,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:56:22",
+      "commission": 38.18,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 152.72,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:22"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600690": {
+      "shares": 300,
+      "avg_price": 23.28,
+      "buy_price": 23.28,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:56:29",
+      "commission": 20.952,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 23.28,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:29"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600547": {
+      "shares": 700,
+      "avg_price": 37.9412,
+      "buy_price": 37.82,
+      "buy_date": "2026-03-24",
+      "buy_time": "2026-03-24 13:56:32",
+      "commission": 30.353,
+      "buy_lots": [
+        {
+          "shares": 700,
+          "price": 37.82,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:32"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601398": {
+      "shares": 4100,
+      "avg_price": 7.31,
+      "buy_price": 7.31,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:36",
+      "commission": 14.9855,
+      "buy_lots": [
+        {
+          "shares": 4100,
+          "price": 7.31,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:36"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601288": {
+      "shares": 4500,
+      "avg_price": 6.53,
+      "buy_price": 6.53,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:37",
+      "commission": 14.6925,
+      "buy_lots": [
+        {
+          "shares": 4500,
+          "price": 6.53,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:37"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601939": {
+      "shares": 3200,
+      "avg_price": 9.36,
+      "buy_price": 9.36,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:38",
+      "commission": 14.976,
+      "buy_lots": [
+        {
+          "shares": 3200,
+          "price": 9.36,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:38"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601988": {
+      "shares": 5400,
+      "avg_price": 5.53,
+      "buy_price": 5.53,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:39",
+      "commission": 14.931000000000001,
+      "buy_lots": [
+        {
+          "shares": 5400,
+          "price": 5.53,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:39"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601328": {
+      "shares": 4400,
+      "avg_price": 6.8,
+      "buy_price": 6.8,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:40",
+      "commission": 14.96,
+      "buy_lots": [
+        {
+          "shares": 4400,
+          "price": 6.8,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:40"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002371": {
+      "shares": 100,
+      "avg_price": 459.56,
+      "buy_price": 459.56,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:55",
+      "commission": 22.978,
+      "buy_lots": [
+        {
+          "shares": 100,
+          "price": 459.56,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:55"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002156": {
+      "shares": 600,
+      "avg_price": 43.6,
+      "buy_price": 43.6,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:58",
+      "commission": 13.08,
+      "buy_lots": [
+        {
+          "shares": 600,
+          "price": 43.6,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:58"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002415": {
+      "shares": 900,
+      "avg_price": 30.73,
+      "buy_price": 30.73,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:01",
+      "commission": 13.8285,
+      "buy_lots": [
+        {
+          "shares": 900,
+          "price": 30.73,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:01"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600584": {
+      "shares": 700,
+      "avg_price": 40.4,
+      "buy_price": 40.4,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:03",
+      "commission": 14.14,
+      "buy_lots": [
+        {
+          "shares": 700,
+          "price": 40.4,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:03"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.603501": {
+      "shares": 200,
+      "avg_price": 101.78,
+      "buy_price": 101.78,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:04",
+      "commission": 10.178,
+      "buy_lots": [
+        {
+          "shares": 200,
+          "price": 101.78,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:04"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
     "sz.002709": {
       "shares": 600,
       "avg_price": 43.04,
@@ -15,6 +363,102 @@
           "price": 43.04,
           "date": "2026-03-26",
           "time": "09:26:00"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600276": {
+      "shares": 800,
+      "avg_price": 52.67625,
+      "buy_price": 53.28,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:16",
+      "commission": 21.0705,
+      "buy_lots": [
+        {
+          "shares": 500,
+          "price": 53.28,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:16"
+        },
+        {
+          "shares": 300,
+          "price": 51.67,
+          "date": "2026-03-26",
+          "time": "2026-03-26 14:09:17"
+        }
+      ],
+      "add_level": 2,
+      "profit_taken": 0
+    },
+    "sh.603259": {
+      "shares": 300,
+      "avg_price": 94.45,
+      "buy_price": 94.45,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:21",
+      "commission": 14.1675,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 94.45,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:21"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600028": {
+      "shares": 5000,
+      "avg_price": 5.89,
+      "buy_price": 5.89,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:37",
+      "commission": 14.725,
+      "buy_lots": [
+        {
+          "shares": 5000,
+          "price": 5.89,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:37"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600309": {
+      "shares": 300,
+      "avg_price": 78.0,
+      "buy_price": 78.0,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:38",
+      "commission": 11.700000000000001,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 78.0,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:38"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601138": {
+      "shares": 500,
+      "avg_price": 50.64,
+      "buy_price": 50.64,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:33:54",
+      "commission": 12.66,
+      "buy_lots": [
+        {
+          "shares": 500,
+          "price": 50.64,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:33:54"
         }
       ],
       "add_level": 1,
