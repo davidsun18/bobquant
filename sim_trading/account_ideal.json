@@ -351,15 +351,15 @@
       "profit_taken": 0
     },
     "sz.002709": {
-      "shares": 500,
+      "shares": 600,
       "avg_price": 43.04,
       "buy_price": 43.04,
       "buy_date": "2026-03-26",
       "buy_time": "09:26:00",
-      "commission": 10.76,
+      "commission": 12.91,
       "buy_lots": [
         {
-          "shares": 500,
+          "shares": 600,
           "price": 43.04,
           "date": "2026-03-26",
           "time": "09:26:00"
@@ -465,18 +465,18 @@
       "profit_taken": 0
     },
     "sz.002466": {
-      "shares": 200,
+      "shares": 500,
       "avg_price": 53.3,
       "buy_price": 53.3,
       "buy_date": "2026-03-26",
-      "buy_time": "14:30:00",
-      "commission": 5.33,
+      "buy_time": "09:30:00",
+      "commission": 13.33,
       "buy_lots": [
         {
-          "shares": 200,
+          "shares": 500,
           "price": 53.3,
           "date": "2026-03-26",
-          "time": "14:30:00"
+          "time": "09:30:00"
         }
       ],
       "add_level": 1,
