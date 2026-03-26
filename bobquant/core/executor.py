@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-BobQuant 交易执行器
+BobQuant 交易执行器 v1.1.4
 统一的买入、卖出、交易记录同步
+支持不同板块交易规则 (主板/创业板/科创板)
 """
 import json
 import os
 from datetime import datetime
 from .account import get_sellable_shares
+from .trading_rules import get_min_shares, get_step_size, get_max_shares, normalize_shares, get_board_type
 
 
 class Executor:
@@ -21,7 +23,8 @@ class Executor:
 
     def buy(self, code, name, shares, price, reason, is_add=False):
         """买入（新建仓或加仓），返回交易记录 dict 或 None"""
-        shares = int(shares / 100) * 100
+        # v1.1.4 修复：根据板块规则规范化股数
+        shares = normalize_shares(code, shares, 'buy')
         if shares <= 0:
             return None
 
@@ -78,13 +81,16 @@ class Executor:
             return None
         pos = self.account.get_position(code)
 
-        shares = int(shares / 100) * 100
-        if shares <= 0:
-            return None
-
+        # v1.1.4 修复：根据板块规则和零股规则规范化股数
         sellable = get_sellable_shares(pos)
-        shares = min(shares, sellable)
-        shares = int(shares / 100) * 100
+        
+        # 零股处理：不足 100 股 (科创板 200 股) 必须一次性卖出
+        min_shares = get_min_shares(code)
+        if sellable < min_shares:
+            shares = sellable  # 零股全部卖出
+        else:
+            shares = normalize_shares(code, min(shares, sellable), 'sell')
+        
         if shares <= 0:
             return None
 

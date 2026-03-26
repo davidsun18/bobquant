@@ -10,6 +10,7 @@ try:
     from .config import get_settings, to_legacy_config, LOG_FILE
     from .core.account import Account, get_sellable_shares
     from .core.executor import Executor
+    from .core.trading_rules import get_min_shares, normalize_shares
     from .data.provider import get_provider
     from .strategy.engine import get_strategy, GridTStrategy, RiskManager, DecisionEngine
     from .notify.feishu import send_feishu
@@ -17,6 +18,7 @@ except ImportError:
     from config import get_settings, to_legacy_config, LOG_FILE
     from core.account import Account, get_sellable_shares
     from core.executor import Executor
+    from core.trading_rules import get_min_shares, normalize_shares
     from data.provider import get_provider
     from strategy.engine import get_strategy, GridTStrategy, RiskManager, DecisionEngine
     from notify.feishu import send_feishu
@@ -202,13 +204,15 @@ def run_check():
                     break
                 
                 # 减仓 30% 或全部可卖（取较小值）
-                sell_shares = min(
-                    int(pos['shares'] * 0.3 / 100) * 100,
-                    int(sellable / 100) * 100
-                )
+                raw_shares = int(pos['shares'] * 0.3)
+                sell_shares = normalize_shares(code, min(raw_shares, sellable), 'sell')
                 
-                if sell_shares < 100:
-                    continue
+                if sell_shares < get_min_shares(code):
+                    # 低于最小数量，如果是零股则全部卖出，否则跳过
+                    if sellable < get_min_shares(code):
+                        sell_shares = sellable
+                    else:
+                        continue
                 
                 sell_value = sell_shares * current_price
                 
@@ -286,9 +290,8 @@ def run_check():
                     continue
                 
                 pct = pyramid[1] if strength == 'strong' else pyramid[0]
-                shares = int(s.initial_capital * pct / quote['current'] / 100) * 100
-                if shares < 100:
-                    shares = 100
+                raw_shares = int(s.initial_capital * pct / quote['current'])
+                shares = normalize_shares(code, raw_shares, 'buy')
                 t = executor.buy(code, name, shares, quote['current'], result['reason'])
                 if t:
                     trades.append(t)
@@ -303,8 +306,9 @@ def run_check():
                     _log(f"  ⚪ {name}: 本轮已加仓，跳过重复信号")
                 elif dip <= -trade_cfg.get('add_dip_pct', 0.03) and level < len(pyramid):
                     add_pct = pyramid[level] - pyramid[level - 1]
-                    add_shares = int(s.initial_capital * add_pct / quote['current'] / 100) * 100
-                    if add_shares >= 100:
+                    raw_add = int(s.initial_capital * add_pct / quote['current'])
+                    add_shares = normalize_shares(code, raw_add, 'buy')
+                    if add_shares >= get_min_shares(code):
                         t = executor.buy(code, name, add_shares, quote['current'],
                                           f'{result["reason"]} + 加仓 L{level+1} (跌{dip*100:.1f}%)', is_add=True)
                         if t:
@@ -325,9 +329,12 @@ def run_check():
             confidence = result.get('confidence', 0.5)
             sell_pct = 0.7 if (result.get('strength') == 'strong' or confidence > 0.8) else 0.5
             label = '🔴 强势减仓' if result.get('strength') == 'strong' else '🔴 策略减仓'
-            sell_n = int(sellable * sell_pct / 100) * 100
-            if sell_n < 100:
-                sell_n = min(100, int(sellable / 100) * 100)
+            raw_sell = int(sellable * sell_pct)
+            sell_n = normalize_shares(code, raw_sell, 'sell')
+            min_shares = get_min_shares(code)
+            if sell_n < min_shares:
+                # 零股必须一次性卖出
+                sell_n = sellable if sellable < min_shares else 0
             if sell_n >= 100:
                 t = executor.sell(code, name, sell_n, quote['current'], f'策略减仓 ({result["reason"]})', label)
                 if t:
