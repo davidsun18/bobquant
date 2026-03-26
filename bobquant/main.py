@@ -177,6 +177,18 @@ def run_check():
                     _log(f"  ⚪ {name}: 已达仓位上限 ({position_limit}%)")
                     continue
                 
+                # v1.0 修复：检查今天是否已经买过这只股票（避免重复交易）
+                today = datetime.now().strftime('%Y-%m-%d')
+                bought_today = False
+                for trade in trades:
+                    if trade.get('code') == code and trade.get('action') == '买入' and trade.get('time', '').startswith(today):
+                        bought_today = True
+                        break
+                
+                if bought_today:
+                    _log(f"  ⚪ {name}: 今日已买入，跳过")
+                    continue
+                
                 pct = pyramid[1] if strength == 'strong' else pyramid[0]
                 shares = int(s.initial_capital * pct / quote['current'] / 100) * 100
                 if shares < 100:
@@ -188,7 +200,18 @@ def run_check():
                 pos = account.get_position(code)
                 level = pos.get('add_level', 1)
                 dip = (quote['current'] - pos['avg_price']) / pos['avg_price']
-                if dip <= -trade_cfg.get('add_dip_pct', 0.03) and level < len(pyramid):
+                
+                # v1.0 修复：检查今天是否已经加仓过（避免重复）
+                today = datetime.now().strftime('%Y-%m-%d')
+                added_today = False
+                for trade in trades:
+                    if trade.get('code') == code and trade.get('action') == '买入' and trade.get('time', '').startswith(today):
+                        added_today = True
+                        break
+                
+                if added_today:
+                    _log(f"  ⚪ {name}: 今日已加仓，跳过")
+                elif dip <= -trade_cfg.get('add_dip_pct', 0.03) and level < len(pyramid):
                     add_pct = pyramid[level] - pyramid[level - 1]
                     add_shares = int(s.initial_capital * add_pct / quote['current'] / 100) * 100
                     if add_shares >= 100:

@@ -198,16 +198,24 @@ def api_account():
 
 @app.route('/api/trades')
 def api_trades():
-    """交易记录 API"""
-    trades = load_trades()
+    """交易记录 API - 从账户文件读取，避免重复"""
+    account = load_account()
+    trades = []
     
-    # 如果交易记录为空，检查账户文件中的 history
-    if not trades:
-        account = load_account()
-        if account and 'trade_history' in account:
-            trades = account['trade_history']
+    if account and 'trade_history' in account:
+        # 从账户文件读取交易记录（这是权威数据源）
+        trades = account['trade_history']
     
-    return jsonify({'trades': trades})  # 返回全部记录
+    # 去重：按 代码 + 时间 + 股数 + 价格 分组，只保留第一条
+    seen = set()
+    unique_trades = []
+    for t in trades:
+        key = f"{t.get('code')}|{t.get('time')}|{t.get('shares')}|{t.get('price')}"
+        if key not in seen:
+            seen.add(key)
+            unique_trades.append(t)
+    
+    return jsonify({'trades': unique_trades})
 
 @app.route('/api/stock/<code>')
 def api_stock_detail(code):
