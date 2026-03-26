@@ -143,39 +143,69 @@ def run_check():
             
             # 选择减仓标的：优先减仓盈利少/亏损的
             positions_to_reduce = []
+            _log(f"     扫描 {len(account.positions)} 只持仓...")
+            
             for code, pos in account.positions.items():
                 q = data.get_quote(code)
-                if q and q['current'] > 0:
-                    current_price = q['current']
-                    avg_price = pos['avg_price']
-                    pnl_pct = (current_price - avg_price) / avg_price * 100
-                    mv = current_price * pos['shares']
-                    positions_to_reduce.append((code, pos, pnl_pct, mv, current_price))
+                if not q or q['current'] <= 0:
+                    continue
+                
+                current_price = q['current']
+                avg_price = pos['avg_price']
+                pnl_pct = (current_price - avg_price) / avg_price * 100
+                
+                # T+1 检查：计算可卖股数
+                today = datetime.now().strftime('%Y-%m-%d')
+                today_bought = sum(lot['shares'] for lot in pos.get('buy_lots', []) if lot.get('date', '') == today)
+                sellable = pos['shares'] - today_bought
+                
+                if sellable <= 0:
+                    continue  # 今日买入，不可卖
+                
+                mv = current_price * pos['shares']
+                positions_to_reduce.append((code, pos, pnl_pct, mv, current_price, sellable))
+            
+            _log(f"     可减仓：{len(positions_to_reduce)} 只")
             
             # 按盈亏排序，优先减仓亏损的
             positions_to_reduce.sort(key=lambda x: x[2])  # 按盈亏率排序
             
             # 计算需要减多少
             reduce_amount = (current_position_pct - target_pct) / 100 * total_assets
-            reduced_value = 0
+            _log(f"     需减仓：¥{reduce_amount:,.0f}")
             
-            for code, pos, pnl_pct, mv, current_price in positions_to_reduce[:5]:  # 最多减 5 只
+            reduced_value = 0
+            reduced_count = 0
+            
+            for code, pos, pnl_pct, mv, current_price, sellable in positions_to_reduce:
                 if reduced_value >= reduce_amount:
                     break
+                if reduced_count >= 5:  # 最多减 5 只
+                    break
                 
-                # 减仓 30%
-                sell_shares = int(pos['shares'] * 0.3 / 100) * 100
-                if sell_shares >= 100:
-                    sell_value = sell_shares * current_price
+                # 减仓 30% 或全部可卖（取较小值）
+                sell_shares = min(
+                    int(pos['shares'] * 0.3 / 100) * 100,
+                    int(sellable / 100) * 100
+                )
+                
+                if sell_shares < 100:
+                    continue
+                
+                sell_value = sell_shares * current_price
+                
+                # 执行卖出
+                t = executor.sell(code, '', sell_shares, current_price, f'主动减仓 ({pnl_pct:+.1f}%)', '🔴 情绪减仓')
+                if t:
+                    trades.append(t)
                     reduced_value += sell_value
-                    
-                    # 执行卖出
-                    t = executor.sell(code, '', sell_shares, current_price, f'主动减仓 ({pnl_pct:+.1f}%)', '🔴 情绪减仓')
-                    if t:
-                        trades.append(t)
-                        _log(f"     减仓 {code}: {sell_shares}股 @ ¥{current_price:.2f} (盈亏{pnl_pct:+.1f}%)")
+                    reduced_count += 1
+                    _log(f"     减仓 {code}: {sell_shares}股 @ ¥{current_price:.2f} (盈亏{pnl_pct:+.1f}%, 可卖{sellable}股)")
             
-            _log(f"     合计减仓：¥{reduced_value:,.0f}")
+            if reduced_count > 0:
+                _log(f"     ✅ 合计减仓：¥{reduced_value:,.0f} ({reduced_count}只)")
+            else:
+                _log(f"     ⚠️ 未能减仓（可能都是今日买入或 T+1 限制）")
     
     # ============ Phase 3: 策略信号 (v1.0 增强) ============
     _log("  📌 Phase 3: 策略信号 (v1.0 智能增强)...")
