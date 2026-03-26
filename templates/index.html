@@ -655,17 +655,20 @@
                 renderAccountData(accountData);
                 renderTrades(tradesData);
             }).catch(error => {
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.error) {
-                        console.error(data.error);
-                        return;
-                    }
-                    
-                    document.getElementById('totalAssets').textContent = formatMoney(data.total_assets);
-                    document.getElementById('marketValue').textContent = formatMoney(data.market_value);
-                    document.getElementById('cash').textContent = formatMoney(data.cash);
+                console.error('加载失败:', error);
+                document.getElementById('totalAssets').textContent = '--';
+                document.getElementById('marketValue').textContent = '--';
+                document.getElementById('cash').textContent = '--';
+                document.getElementById('positionProfit').textContent = '--';
+                document.getElementById('todayProfit').textContent = '--';
+                document.getElementById('updateTime').textContent = '加载失败';
+            });
+        }
+        
+        function renderAccountData(data) {
+            document.getElementById('totalAssets').textContent = formatMoney(data.total_assets);
+            document.getElementById('marketValue').textContent = formatMoney(data.market_value);
+            document.getElementById('cash').textContent = formatMoney(data.cash);
                     
                     // 持仓盈亏 = 所有持仓的浮动盈亏总和
                     const positionProfit = data.position_profit || data.total_profit || 0;
