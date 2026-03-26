@@ -5,9 +5,9 @@
 # --- 系统 ---
 system:
   name: "BobQuant"
-  version: "1.0.0"                 # v1.0: 集成 ML+ 情绪
+  version: "1.1.0"                 # v1.1: 并行刷新 +10 秒间隔
   log_level: "INFO"                # DEBUG / INFO / WARNING / ERROR
-  check_interval: 30               # 行情检查间隔（秒）
+  check_interval: 10               # 行情检查间隔（秒）v1.1 从 30 秒降至 10 秒
 
 # --- 账户 ---
 account:
