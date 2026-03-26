@@ -195,7 +195,7 @@ def run_check():
                 sell_value = sell_shares * current_price
                 
                 # 执行卖出
-                t = executor.sell(code, '', sell_shares, current_price, f'主动减仓 ({pnl_pct:+.1f}%)', '🔴 情绪减仓')
+                t = executor.sell(code, name, sell_shares, current_price, f'主动减仓 ({pnl_pct:+.1f}%)', '🔴 情绪减仓')
                 if t:
                     trades.append(t)
                     reduced_value += sell_value
