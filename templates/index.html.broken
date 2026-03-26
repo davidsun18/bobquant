@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>BobQuant 模拟盘 v2.2.12 - 模拟盘实时监控</title>
+    <title>BOB 量化系统 V2.0 - 模拟盘实时监控</title>
     <style>
         * {
             margin: 0;
@@ -450,7 +450,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 BobQuant 模拟盘 v2.2.12<br>模拟盘实时监控</h1>
+            <h1>🚀 BOB 量化系统 V2.0<br>模拟盘实时监控</h1>
             <p class="update-time">
                 <span id="updateTime">--</span>
                 <button class="refresh-btn" onclick="loadData()">🔄 刷新</button>
