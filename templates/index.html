@@ -645,13 +645,15 @@
                     document.getElementById('marketValue').textContent = formatMoney(data.market_value);
                     document.getElementById('cash').textContent = formatMoney(data.cash);
                     
-                    const totalProfit = data.total_profit;
-                    const profitClass = totalProfit >= 0 ? 'profit-positive' : 'profit-negative';
-                    const profitText = totalProfit >= 0 ? '+' : '';
+                    // 持仓盈亏 = 所有持仓的浮动盈亏总和
+                    const positionProfit = data.position_profit || data.total_profit || 0;
+                    const positionClass = positionProfit >= 0 ? 'profit-positive' : 'profit-negative';
+                    const positionText = positionProfit >= 0 ? '+' : '';
                     document.getElementById('positionProfit').innerHTML = 
-                        `<span class="${profitClass}">${profitText}${formatMoney(totalProfit)}</span>`;
+                        `<span class="${positionClass}">${positionText}${formatMoney(positionProfit)}</span>`;
                     
-                    const todayProfit = data.profit_today;
+                    // 当日盈亏 = 今日买入部分的浮动盈亏
+                    const todayProfit = data.today_profit || 0;
                     const todayClass = todayProfit >= 0 ? 'profit-positive' : 'profit-negative';
                     const todayText = todayProfit >= 0 ? '+' : '';
                     document.getElementById('todayProfit').innerHTML = 

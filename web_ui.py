@@ -133,12 +133,14 @@ def api_account():
     
     # 计算持仓市值和盈亏
     market_value = 0
-    total_profit = 0
+    total_profit = 0  # 持仓盈亏（所有持仓的浮动盈亏）
+    profit_today = 0  # 当日盈亏（已实现 + 未实现）
     position_list = []
     
     for code, pos in positions.items():
         shares = pos.get('shares', 0)
         avg_price = pos.get('avg_price', 0)
+        buy_price = pos.get('buy_price', avg_price)  # 首次买入价
         cost = shares * avg_price
         
         # 获取中文名称
@@ -150,7 +152,7 @@ def api_account():
             current_price = avg_price  # 如果获取失败，用成本价
         
         mv = shares * current_price
-        profit = mv - cost
+        profit = mv - cost  # 持仓盈亏（未实现）
         profit_pct = (profit / cost * 100) if cost > 0 else 0
         
         # T+1 规则：计算今天买入的总股数（不可卖）
@@ -165,6 +167,12 @@ def api_account():
             buy_date = pos.get('buy_date', '')
             if buy_date == today:
                 today_bought = shares
+        
+        # 计算当日盈亏：今日买入部分的浮动盈亏
+        if today_bought > 0:
+            today_cost = today_bought * buy_price
+            today_mv = today_bought * current_price
+            profit_today += (today_mv - today_cost)
         
         market_value += mv
         total_profit += profit
@@ -183,7 +191,9 @@ def api_account():
         })
     
     total_assets = cash + market_value
-    profit_today = total_assets - initial
+    
+    # 总盈亏 = 总资产 - 初始资金
+    total_profit_all = total_assets - initial
     
     return jsonify({
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -191,8 +201,9 @@ def api_account():
         'cash': cash,
         'market_value': market_value,
         'total_assets': total_assets,
-        'total_profit': total_profit,
-        'profit_today': profit_today,
+        'total_profit': total_profit_all,  # 总盈亏（从开始到现在）
+        'position_profit': total_profit,   # 持仓盈亏（未实现）
+        'today_profit': profit_today,      # 当日盈亏（今日买入部分的浮动盈亏）
         'positions': position_list
     })
 
