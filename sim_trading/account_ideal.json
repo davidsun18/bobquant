@@ -1,5 +1,5 @@
 {
-  "cash": 323715.8914999999,
+  "cash": 344414.5369999999,
   "initial_capital": 1000000,
   "positions": {
     "sh.600887": {
@@ -351,7 +351,7 @@
       "profit_taken": 0
     },
     "sz.002709": {
-      "shares": 600,
+      "shares": 500,
       "avg_price": 43.04,
       "buy_price": 43.04,
       "buy_date": "2026-03-26",
@@ -359,7 +359,7 @@
       "commission": 12.912,
       "buy_lots": [
         {
-          "shares": 600,
+          "shares": 500,
           "price": 43.04,
           "date": "2026-03-26",
           "time": "2026-03-26 09:29:12"
@@ -465,7 +465,7 @@
       "profit_taken": 0
     },
     "sz.002466": {
-      "shares": 500,
+      "shares": 200,
       "avg_price": 53.3,
       "buy_price": 53.3,
       "buy_date": "2026-03-26",
@@ -473,7 +473,7 @@
       "commission": 13.325000000000001,
       "buy_lots": [
         {
-          "shares": 500,
+          "shares": 200,
           "price": 53.3,
           "date": "2026-03-26",
           "time": "2026-03-26 09:34:06"
@@ -1235,8 +1235,34 @@
       "amount": 15501.0,
       "commission": 7.75,
       "reason": "ML 预测上涨 (概率65.7%, medium) + 加仓 L2 (跌-3.0%)"
+    },
+    {
+      "time": "2026-03-27 02:57:49",
+      "code": "sz.002709",
+      "name": "天赐材料",
+      "action": "🔄 做 T 卖出",
+      "shares": 100,
+      "price": 44.49,
+      "amount": 4449.0,
+      "commission": 2.22,
+      "profit": 142.78,
+      "profit_pct": 3.32,
+      "reason": "网格做 T L1 (日内+3.4%，触发2.0%)"
+    },
+    {
+      "time": "2026-03-27 02:58:06",
+      "code": "sz.002466",
+      "name": "天齐锂业",
+      "action": "🔴 策略减仓",
+      "shares": 300,
+      "price": 54.2,
+      "amount": 16260.0,
+      "commission": 8.13,
+      "profit": 261.87,
+      "profit_pct": 1.64,
+      "reason": "策略减仓 (ML 预测下跌 (概率81.4%, high))"
     }
   ],
   "start_date": "2026-03-24",
-  "last_update": "2026-03-26 14:09:27"
+  "last_update": "2026-03-27 02:58:14"
 }

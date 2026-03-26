@@ -4,10 +4,10 @@
 
 # --- 系统 ---
 system:
-  name: "BobQuant"
-  version: "1.1.0"                 # v1.1: 并行刷新 +10 秒间隔
+  name: "BobQuant 模拟盘"
+  version: "2.2.0"                 # v2.2: 完整版 (ML+ 情绪 + 并行 + 风控)
   log_level: "INFO"                # DEBUG / INFO / WARNING / ERROR
-  check_interval: 10               # 行情检查间隔（秒）v1.1 从 30 秒降至 10 秒
+  check_interval: 10               # 行情检查间隔（秒）v2.2 优化至 10 秒
 
 # --- 账户 ---
 account:
@@ -76,6 +76,34 @@ strategy:
     rsi_sell_min: 70
     volume_confirm: true
     volume_ratio_buy: 1.5
+    
+    # v2.0 新增：双 MACD 配置
+    use_dual_macd: true  # 启用双 MACD 过滤
+    dual_macd_short: [6, 13, 5]    # 短周期 (fast, slow, signal)
+    dual_macd_long: [24, 52, 18]   # 长周期 (fast, slow, signal)
+    
+    # v2.0 新增：动态布林带配置
+    use_dynamic_bollinger: true  # 启用动态标准差
+    bollinger_window: 20
+    bollinger_std_base: 2.0
+    bollinger_std_high: 2.5   # 高波动股标准差
+    bollinger_std_low: 1.8    # 低波动股标准差
+
+# --- v2.0 风险管理 (NEW) ---
+risk_management:
+  # 风险过滤器
+  filters:
+    enabled: true
+    min_turnover: 50000000      # 最小日均成交额 5000 万
+    max_high_gain: 1.0          # 最大涨幅 100%（60 日内）
+    high_gain_period: 60        # 涨幅统计周期
+  
+  # 大盘风控
+  market_risk:
+    enabled: true
+    ma20_line: 20               # 20 日均线
+    max_position_bear: 0.5      # 熊市最大仓位 50%
+    crash_threshold: -0.03      # 暴跌阈值 -3%
 
 # --- 智能增强 (v1.0 NEW) ---
 ml:
