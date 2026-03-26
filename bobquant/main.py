@@ -123,6 +123,60 @@ def run_check():
                 if result['action'] in ('stop_loss', 'trailing_stop'):
                     risk.clear_trailing(code)
 
+    # ============ Phase 2.5: 情绪指数主动仓位管理 ============
+    # v1.0 新增：如果仓位超限，主动减仓
+    if decision_engine and decision_engine.sentiment_controller:
+        # 计算当前仓位
+        market_value = 0
+        for code, pos in account.positions.items():
+            q = data.get_quote(code)
+            if q and q['current'] > 0:
+                market_value += pos['shares'] * q['current']
+        total_assets = account.cash + market_value
+        current_position_pct = (market_value / total_assets * 100) if total_assets > 0 else 0
+        
+        # 检查是否需要主动减仓
+        should_reduce, target_pct, reason = decision_engine.sentiment_controller.should_reduce_position(current_position_pct)
+        if should_reduce:
+            _log(f"  ⚠️ 主动仓位管理：{reason}")
+            _log(f"     当前仓位：{current_position_pct:.1f}% → 目标：{target_pct}%")
+            
+            # 选择减仓标的：优先减仓盈利少/亏损的
+            positions_to_reduce = []
+            for code, pos in account.positions.items():
+                q = data.get_quote(code)
+                if q and q['current'] > 0:
+                    current_price = q['current']
+                    avg_price = pos['avg_price']
+                    pnl_pct = (current_price - avg_price) / avg_price * 100
+                    mv = current_price * pos['shares']
+                    positions_to_reduce.append((code, pos, pnl_pct, mv, current_price))
+            
+            # 按盈亏排序，优先减仓亏损的
+            positions_to_reduce.sort(key=lambda x: x[2])  # 按盈亏率排序
+            
+            # 计算需要减多少
+            reduce_amount = (current_position_pct - target_pct) / 100 * total_assets
+            reduced_value = 0
+            
+            for code, pos, pnl_pct, mv, current_price in positions_to_reduce[:5]:  # 最多减 5 只
+                if reduced_value >= reduce_amount:
+                    break
+                
+                # 减仓 30%
+                sell_shares = int(pos['shares'] * 0.3 / 100) * 100
+                if sell_shares >= 100:
+                    sell_value = sell_shares * current_price
+                    reduced_value += sell_value
+                    
+                    # 执行卖出
+                    t = executor.sell(code, '', sell_shares, current_price, f'主动减仓 ({pnl_pct:+.1f}%)', '🔴 情绪减仓')
+                    if t:
+                        trades.append(t)
+                        _log(f"     减仓 {code}: {sell_shares}股 @ ¥{current_price:.2f} (盈亏{pnl_pct:+.1f}%)")
+            
+            _log(f"     合计减仓：¥{reduced_value:,.0f}")
+    
     # ============ Phase 3: 策略信号 (v1.0 增强) ============
     _log("  📌 Phase 3: 策略信号 (v1.0 智能增强)...")
     for stock in s.stock_pool:

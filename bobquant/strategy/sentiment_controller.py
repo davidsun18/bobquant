@@ -90,6 +90,28 @@ class SentimentController:
         
         return limit
     
+    def should_reduce_position(self, current_position_pct):
+        """
+        判断是否应该主动减仓
+        
+        Args:
+            current_position_pct: 当前仓位百分比
+            
+        Returns:
+            tuple: (should_reduce: bool, target_pct: int, reason: str)
+        """
+        sentiment = self.get_sentiment()
+        score = sentiment['score']
+        level = sentiment['level']
+        limit = self.get_position_limit()
+        
+        # 如果当前仓位超过上限，建议减仓
+        if current_position_pct > limit + 10:  # 超过上限 10% 才触发
+            excess = current_position_pct - limit
+            return True, limit, f"情绪{level}({score}分)，仓位超限{excess:.1f}%"
+        
+        return False, limit, ''
+    
     def should_filter_buy(self, signal_strength):
         """
         判断是否应该过滤买入信号
