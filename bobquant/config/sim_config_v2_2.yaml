@@ -5,9 +5,10 @@
 # --- 系统 ---
 system:
   name: "BobQuant 模拟盘"
-  version: "2.2"                    # v2.2: 30 只龙头股精选池
+  version: "2.2.12"                 # v2.2.12: 26 只股票精确恢复
   mode: "simulation"                # simulation / real
   log_level: "INFO"
+  check_interval: 10                # 行情检查间隔（秒）
 
 # --- 账户 ---
 account:
