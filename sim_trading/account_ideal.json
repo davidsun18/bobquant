@@ -1,94 +1,486 @@
 {
-  "cash": 436712.94249999995,
+  "cash": 323715.8914999999,
   "initial_capital": 1000000,
   "positions": {
-    "sz.000333": {
-      "shares": 600,
-      "avg_price": 73.99,
-      "buy_price": 73.99,
-      "buy_date": "2026-03-24",
-      "buy_time": "2026-03-24 13:50:15",
-      "commission": 22.197
-    },
     "sh.600887": {
-      "shares": 1900,
+      "shares": 1300,
       "avg_price": 25.61,
       "buy_price": 25.61,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:50:16",
-      "commission": 24.3295
+      "commission": 24.3295,
+      "buy_lots": [
+        {
+          "shares": 1300,
+          "price": 25.61,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:50:16"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
     "sh.600016": {
-      "shares": 11000,
+      "shares": 2700,
       "avg_price": 3.8,
       "buy_price": 3.8,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:55:55",
-      "commission": 20.900000000000002
+      "commission": 20.900000000000002,
+      "buy_lots": [
+        {
+          "shares": 2700,
+          "price": 3.8,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:55:55"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
     "sh.601658": {
-      "shares": 8300,
+      "shares": 5900,
       "avg_price": 5.0,
       "buy_price": 5.0,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:55:59",
-      "commission": 20.75
+      "commission": 20.75,
+      "buy_lots": [
+        {
+          "shares": 5900,
+          "price": 5.0,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:55:59"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
     "sh.603198": {
-      "shares": 1800,
+      "shares": 300,
       "avg_price": 32.03,
       "buy_price": 32.03,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:56:05",
-      "commission": 28.827
+      "commission": 28.827,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 32.03,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:05"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
     "sh.603369": {
-      "shares": 1500,
-      "avg_price": 27.3,
+      "shares": 400,
+      "avg_price": 27.245,
       "buy_price": 27.3,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:56:05",
-      "commission": 20.475
+      "commission": 21.829,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 27.3,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:05"
+        },
+        {
+          "shares": 100,
+          "price": 27.08,
+          "date": "2026-03-26",
+          "time": "2026-03-26 11:25:08"
+        }
+      ],
+      "add_level": 2,
+      "profit_taken": 0
     },
     "sh.600085": {
-      "shares": 1400,
+      "shares": 300,
       "avg_price": 28.49,
       "buy_price": 28.49,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:56:19",
-      "commission": 19.943
+      "commission": 19.943,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 28.49,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:19"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
     "sh.600436": {
-      "shares": 500,
+      "shares": 300,
       "avg_price": 152.72,
       "buy_price": 152.72,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:56:22",
-      "commission": 38.18
+      "commission": 38.18,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 152.72,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:22"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
     "sh.600690": {
-      "shares": 1800,
+      "shares": 300,
       "avg_price": 23.28,
       "buy_price": 23.28,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:56:29",
-      "commission": 20.952
+      "commission": 20.952,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 23.28,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:29"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
     "sh.600547": {
-      "shares": 1600,
+      "shares": 700,
       "avg_price": 37.9412,
       "buy_price": 37.82,
       "buy_date": "2026-03-24",
       "buy_time": "2026-03-24 13:56:32",
-      "commission": 30.353
+      "commission": 30.353,
+      "buy_lots": [
+        {
+          "shares": 700,
+          "price": 37.82,
+          "date": "2026-03-24",
+          "time": "2026-03-24 13:56:32"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     },
-    "sz.002460": {
-      "shares": 1000,
-      "avg_price": 69.21,
-      "buy_price": 69.21,
-      "buy_date": "2026-03-25",
-      "buy_time": "2026-03-25 13:01:21",
-      "commission": 34.605000000000004
+    "sh.601398": {
+      "shares": 4100,
+      "avg_price": 7.31,
+      "buy_price": 7.31,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:36",
+      "commission": 14.9855,
+      "buy_lots": [
+        {
+          "shares": 4100,
+          "price": 7.31,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:36"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601288": {
+      "shares": 4500,
+      "avg_price": 6.53,
+      "buy_price": 6.53,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:37",
+      "commission": 14.6925,
+      "buy_lots": [
+        {
+          "shares": 4500,
+          "price": 6.53,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:37"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601939": {
+      "shares": 3200,
+      "avg_price": 9.36,
+      "buy_price": 9.36,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:38",
+      "commission": 14.976,
+      "buy_lots": [
+        {
+          "shares": 3200,
+          "price": 9.36,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:38"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601988": {
+      "shares": 5400,
+      "avg_price": 5.53,
+      "buy_price": 5.53,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:39",
+      "commission": 14.931000000000001,
+      "buy_lots": [
+        {
+          "shares": 5400,
+          "price": 5.53,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:39"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601328": {
+      "shares": 4400,
+      "avg_price": 6.8,
+      "buy_price": 6.8,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:40",
+      "commission": 14.96,
+      "buy_lots": [
+        {
+          "shares": 4400,
+          "price": 6.8,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:40"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002371": {
+      "shares": 100,
+      "avg_price": 459.56,
+      "buy_price": 459.56,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:55",
+      "commission": 22.978,
+      "buy_lots": [
+        {
+          "shares": 100,
+          "price": 459.56,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:55"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002156": {
+      "shares": 600,
+      "avg_price": 43.6,
+      "buy_price": 43.6,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:28:58",
+      "commission": 13.08,
+      "buy_lots": [
+        {
+          "shares": 600,
+          "price": 43.6,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:28:58"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002415": {
+      "shares": 900,
+      "avg_price": 30.73,
+      "buy_price": 30.73,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:01",
+      "commission": 13.8285,
+      "buy_lots": [
+        {
+          "shares": 900,
+          "price": 30.73,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:01"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600584": {
+      "shares": 700,
+      "avg_price": 40.4,
+      "buy_price": 40.4,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:03",
+      "commission": 14.14,
+      "buy_lots": [
+        {
+          "shares": 700,
+          "price": 40.4,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:03"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.603501": {
+      "shares": 200,
+      "avg_price": 101.78,
+      "buy_price": 101.78,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:04",
+      "commission": 10.178,
+      "buy_lots": [
+        {
+          "shares": 200,
+          "price": 101.78,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:04"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002709": {
+      "shares": 600,
+      "avg_price": 43.04,
+      "buy_price": 43.04,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:12",
+      "commission": 12.912,
+      "buy_lots": [
+        {
+          "shares": 600,
+          "price": 43.04,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:12"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600276": {
+      "shares": 800,
+      "avg_price": 52.67625,
+      "buy_price": 53.28,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:16",
+      "commission": 21.0705,
+      "buy_lots": [
+        {
+          "shares": 500,
+          "price": 53.28,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:16"
+        },
+        {
+          "shares": 300,
+          "price": 51.67,
+          "date": "2026-03-26",
+          "time": "2026-03-26 14:09:17"
+        }
+      ],
+      "add_level": 2,
+      "profit_taken": 0
+    },
+    "sh.603259": {
+      "shares": 300,
+      "avg_price": 94.45,
+      "buy_price": 94.45,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:21",
+      "commission": 14.1675,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 94.45,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:21"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600028": {
+      "shares": 5000,
+      "avg_price": 5.89,
+      "buy_price": 5.89,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:37",
+      "commission": 14.725,
+      "buy_lots": [
+        {
+          "shares": 5000,
+          "price": 5.89,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:37"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600309": {
+      "shares": 300,
+      "avg_price": 78.0,
+      "buy_price": 78.0,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:29:38",
+      "commission": 11.700000000000001,
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 78.0,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:29:38"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601138": {
+      "shares": 500,
+      "avg_price": 50.64,
+      "buy_price": 50.64,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:33:54",
+      "commission": 12.66,
+      "buy_lots": [
+        {
+          "shares": 500,
+          "price": 50.64,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:33:54"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002466": {
+      "shares": 500,
+      "avg_price": 53.3,
+      "buy_price": 53.3,
+      "buy_date": "2026-03-26",
+      "buy_time": "2026-03-26 09:34:06",
+      "commission": 13.325000000000001,
+      "buy_lots": [
+        {
+          "shares": 500,
+          "price": 53.3,
+          "date": "2026-03-26",
+          "time": "2026-03-26 09:34:06"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
     }
   },
   "trade_history": [
@@ -101,8 +493,750 @@
       "price": 69.21,
       "amount": 69210.0,
       "commission": 34.605000000000004
+    },
+    {
+      "time": "2026-03-26 09:26:21",
+      "code": "sz.000333",
+      "name": "美的集团",
+      "action": "🔴 策略减仓",
+      "shares": 400,
+      "price": 74.89,
+      "amount": 29956.0,
+      "commission": 14.98,
+      "profit": 345.02,
+      "profit_pct": 1.17,
+      "reason": "策略减仓 (ML 预测下跌 (概率69.8%, medium))"
+    },
+    {
+      "time": "2026-03-26 09:27:40",
+      "code": "sz.002460",
+      "name": "赣锋锂业",
+      "action": "🔴 策略减仓",
+      "shares": 700,
+      "price": 70.37,
+      "amount": 49259.0,
+      "commission": 24.63,
+      "profit": 787.37,
+      "profit_pct": 1.63,
+      "reason": "策略减仓 (ML 预测下跌 (概率78.9%, high))"
+    },
+    {
+      "time": "2026-03-26 09:27:55",
+      "code": "sz.000333",
+      "name": "美的集团",
+      "action": "🔴 策略减仓",
+      "shares": 100,
+      "price": 74.89,
+      "amount": 7489.0,
+      "commission": 3.74,
+      "profit": 86.26,
+      "profit_pct": 1.17,
+      "reason": "策略减仓 (ML 预测下跌 (概率69.8%, medium))"
+    },
+    {
+      "time": "2026-03-26 09:28:36",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "买入",
+      "shares": 4100,
+      "price": 7.31,
+      "amount": 29971.0,
+      "commission": 14.99,
+      "reason": "ML 预测上涨 (概率84.0%, high)"
+    },
+    {
+      "time": "2026-03-26 09:28:37",
+      "code": "sh.601288",
+      "name": "农业银行",
+      "action": "买入",
+      "shares": 4500,
+      "price": 6.53,
+      "amount": 29385.0,
+      "commission": 14.69,
+      "reason": "ML 预测上涨 (概率88.0%, high)"
+    },
+    {
+      "time": "2026-03-26 09:28:38",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "买入",
+      "shares": 3200,
+      "price": 9.36,
+      "amount": 29952.0,
+      "commission": 14.98,
+      "reason": "ML 预测上涨 (概率82.0%, high)"
+    },
+    {
+      "time": "2026-03-26 09:28:39",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "买入",
+      "shares": 5400,
+      "price": 5.53,
+      "amount": 29862.0,
+      "commission": 14.93,
+      "reason": "ML 预测上涨 (概率83.0%, high)"
+    },
+    {
+      "time": "2026-03-26 09:28:40",
+      "code": "sh.601328",
+      "name": "交通银行",
+      "action": "买入",
+      "shares": 4400,
+      "price": 6.8,
+      "amount": 29920.0,
+      "commission": 14.96,
+      "reason": "ML 预测上涨 (概率75.0%, high)"
+    },
+    {
+      "time": "2026-03-26 09:28:55",
+      "code": "sz.002371",
+      "name": "北方华创",
+      "action": "买入",
+      "shares": 100,
+      "price": 459.56,
+      "amount": 45956.0,
+      "commission": 22.98,
+      "reason": "ML 预测上涨 (概率68.0%, medium)"
+    },
+    {
+      "time": "2026-03-26 09:28:58",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "买入",
+      "shares": 600,
+      "price": 43.6,
+      "amount": 26160.0,
+      "commission": 13.08,
+      "reason": "ML 预测上涨 (概率76.7%, high)"
+    },
+    {
+      "time": "2026-03-26 09:29:01",
+      "code": "sz.002415",
+      "name": "海康威视",
+      "action": "买入",
+      "shares": 900,
+      "price": 30.73,
+      "amount": 27657.0,
+      "commission": 13.83,
+      "reason": "ML 预测上涨 (概率61.0%, medium)"
+    },
+    {
+      "time": "2026-03-26 09:29:03",
+      "code": "sh.600584",
+      "name": "长电科技",
+      "action": "买入",
+      "shares": 700,
+      "price": 40.4,
+      "amount": 28280.0,
+      "commission": 14.14,
+      "reason": "ML 预测上涨 (概率69.7%, medium)"
+    },
+    {
+      "time": "2026-03-26 09:29:04",
+      "code": "sh.603501",
+      "name": "韦尔股份",
+      "action": "买入",
+      "shares": 200,
+      "price": 101.78,
+      "amount": 20356.0,
+      "commission": 10.18,
+      "reason": "ML 预测上涨 (概率66.7%, medium)"
+    },
+    {
+      "time": "2026-03-26 09:29:12",
+      "code": "sz.002709",
+      "name": "天赐材料",
+      "action": "买入",
+      "shares": 600,
+      "price": 43.04,
+      "amount": 25824.0,
+      "commission": 12.91,
+      "reason": "ML 预测上涨 (概率62.0%, medium)"
+    },
+    {
+      "time": "2026-03-26 09:29:16",
+      "code": "sh.600276",
+      "name": "恒瑞医药",
+      "action": "买入",
+      "shares": 500,
+      "price": 53.28,
+      "amount": 26640.0,
+      "commission": 13.32,
+      "reason": "ML 预测上涨 (概率65.7%, medium)"
+    },
+    {
+      "time": "2026-03-26 09:29:21",
+      "code": "sh.603259",
+      "name": "药明康德",
+      "action": "买入",
+      "shares": 300,
+      "price": 94.45,
+      "amount": 28335.0,
+      "commission": 14.17,
+      "reason": "ML 预测上涨 (概率67.7%, medium)"
+    },
+    {
+      "time": "2026-03-26 09:29:37",
+      "code": "sh.600028",
+      "name": "中国石化",
+      "action": "买入",
+      "shares": 5000,
+      "price": 5.89,
+      "amount": 29450.0,
+      "commission": 14.72,
+      "reason": "ML 预测上涨 (概率89.0%, high)"
+    },
+    {
+      "time": "2026-03-26 09:29:38",
+      "code": "sh.600309",
+      "name": "万华化学",
+      "action": "买入",
+      "shares": 300,
+      "price": 78.0,
+      "amount": 23400.0,
+      "commission": 11.7,
+      "reason": "ML 预测上涨 (概率75.7%, high)"
+    },
+    {
+      "time": "2026-03-26 09:31:01",
+      "code": "sz.002460",
+      "name": "赣锋锂业",
+      "action": "🔴 策略减仓",
+      "shares": 200,
+      "price": 70.83,
+      "amount": 14166.0,
+      "commission": 7.08,
+      "profit": 316.92,
+      "profit_pct": 2.29,
+      "reason": "策略减仓 (ML 预测下跌 (概率78.9%, high))"
+    },
+    {
+      "time": "2026-03-26 09:31:12",
+      "code": "sz.000333",
+      "name": "美的集团",
+      "action": "🔴 策略减仓",
+      "shares": 100,
+      "price": 75.14,
+      "amount": 7514.0,
+      "commission": 3.76,
+      "profit": 111.24,
+      "profit_pct": 1.5,
+      "reason": "策略减仓 (ML 预测下跌 (概率69.8%, medium))"
+    },
+    {
+      "time": "2026-03-26 09:32:37",
+      "code": "sz.002460",
+      "name": "赣锋锂业",
+      "action": "🔴 策略减仓",
+      "shares": 100,
+      "price": 70.38,
+      "amount": 7038.0,
+      "commission": 3.52,
+      "profit": 113.48,
+      "profit_pct": 1.64,
+      "reason": "策略减仓 (ML 预测下跌 (概率78.9%, high))"
+    },
+    {
+      "time": "2026-03-26 09:33:54",
+      "code": "sh.601138",
+      "name": "工业富联",
+      "action": "买入",
+      "shares": 500,
+      "price": 50.64,
+      "amount": 25320.0,
+      "commission": 12.66,
+      "reason": "ML 预测上涨 (概率74.7%, high)"
+    },
+    {
+      "time": "2026-03-26 09:34:06",
+      "code": "sz.002466",
+      "name": "天齐锂业",
+      "action": "买入",
+      "shares": 500,
+      "price": 53.3,
+      "amount": 26650.0,
+      "commission": 13.33,
+      "reason": "ML 预测上涨 (概率69.0%, medium)"
+    },
+    {
+      "time": "2026-03-26 10:40:26",
+      "code": "sh.603369",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 400,
+      "price": 27.25,
+      "amount": 10900.0,
+      "commission": 5.45,
+      "profit": -25.45,
+      "profit_pct": -0.23,
+      "reason": "主动减仓 (-0.2%)"
+    },
+    {
+      "time": "2026-03-26 10:40:26",
+      "code": "sh.600436",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 152.98,
+      "amount": 15297.999999999998,
+      "commission": 7.65,
+      "profit": 18.35,
+      "profit_pct": 0.12,
+      "reason": "主动减仓 (+0.2%)"
+    },
+    {
+      "time": "2026-03-26 10:40:26",
+      "code": "sh.600085",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 400,
+      "price": 28.6,
+      "amount": 11440.0,
+      "commission": 5.72,
+      "profit": 38.28,
+      "profit_pct": 0.34,
+      "reason": "主动减仓 (+0.4%)"
+    },
+    {
+      "time": "2026-03-26 10:40:26",
+      "code": "sh.600690",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 500,
+      "price": 23.51,
+      "amount": 11755.0,
+      "commission": 5.88,
+      "profit": 109.12,
+      "profit_pct": 0.94,
+      "reason": "主动减仓 (+1.0%)"
+    },
+    {
+      "time": "2026-03-26 10:40:26",
+      "code": "sh.603198",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 500,
+      "price": 32.39,
+      "amount": 16195.0,
+      "commission": 8.1,
+      "profit": 171.9,
+      "profit_pct": 1.07,
+      "reason": "主动减仓 (+1.1%)"
+    },
+    {
+      "time": "2026-03-26 10:42:09",
+      "code": "sh.603369",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 300,
+      "price": 27.24,
+      "amount": 8171.999999999999,
+      "commission": 4.09,
+      "profit": -22.09,
+      "profit_pct": -0.27,
+      "reason": "主动减仓 (-0.2%)"
+    },
+    {
+      "time": "2026-03-26 10:42:09",
+      "code": "sh.600436",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 152.94,
+      "amount": 15294.0,
+      "commission": 7.65,
+      "profit": 14.35,
+      "profit_pct": 0.09,
+      "reason": "主动减仓 (+0.1%)"
+    },
+    {
+      "time": "2026-03-26 10:42:09",
+      "code": "sh.600085",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 300,
+      "price": 28.61,
+      "amount": 8583.0,
+      "commission": 4.29,
+      "profit": 31.71,
+      "profit_pct": 0.37,
+      "reason": "主动减仓 (+0.4%)"
+    },
+    {
+      "time": "2026-03-26 10:42:09",
+      "code": "sh.600690",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 300,
+      "price": 23.53,
+      "amount": 7059.0,
+      "commission": 3.53,
+      "profit": 71.47,
+      "profit_pct": 1.02,
+      "reason": "主动减仓 (+1.1%)"
+    },
+    {
+      "time": "2026-03-26 10:42:09",
+      "code": "sh.603198",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 300,
+      "price": 32.42,
+      "amount": 9726.0,
+      "commission": 4.86,
+      "profit": 112.14,
+      "profit_pct": 1.17,
+      "reason": "主动减仓 (+1.2%)"
+    },
+    {
+      "time": "2026-03-26 10:43:55",
+      "code": "sh.603369",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 200,
+      "price": 27.25,
+      "amount": 5450.0,
+      "commission": 2.73,
+      "profit": -12.73,
+      "profit_pct": -0.23,
+      "reason": "主动减仓 (-0.2%)"
+    },
+    {
+      "time": "2026-03-26 10:43:55",
+      "code": "sh.600085",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 200,
+      "price": 28.61,
+      "amount": 5722.0,
+      "commission": 2.86,
+      "profit": 21.14,
+      "profit_pct": 0.37,
+      "reason": "主动减仓 (+0.4%)"
+    },
+    {
+      "time": "2026-03-26 10:43:55",
+      "code": "sh.600690",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 300,
+      "price": 23.53,
+      "amount": 7059.0,
+      "commission": 3.53,
+      "profit": 71.47,
+      "profit_pct": 1.02,
+      "reason": "主动减仓 (+1.1%)"
+    },
+    {
+      "time": "2026-03-26 10:43:55",
+      "code": "sh.603198",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 300,
+      "price": 32.4,
+      "amount": 9720.0,
+      "commission": 4.86,
+      "profit": 106.14,
+      "profit_pct": 1.1,
+      "reason": "主动减仓 (+1.2%)"
+    },
+    {
+      "time": "2026-03-26 10:43:55",
+      "code": "sh.600016",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 3300,
+      "price": 3.86,
+      "amount": 12738.0,
+      "commission": 6.37,
+      "profit": 191.63,
+      "profit_pct": 1.53,
+      "reason": "主动减仓 (+1.6%)"
+    },
+    {
+      "time": "2026-03-26 10:45:27",
+      "code": "sh.603369",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 27.25,
+      "amount": 2725.0,
+      "commission": 1.36,
+      "profit": -6.36,
+      "profit_pct": -0.23,
+      "reason": "主动减仓 (-0.2%)"
+    },
+    {
+      "time": "2026-03-26 10:45:27",
+      "code": "sh.600085",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 28.61,
+      "amount": 2861.0,
+      "commission": 1.43,
+      "profit": 10.57,
+      "profit_pct": 0.37,
+      "reason": "主动减仓 (+0.4%)"
+    },
+    {
+      "time": "2026-03-26 10:45:27",
+      "code": "sh.600690",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 200,
+      "price": 23.52,
+      "amount": 4704.0,
+      "commission": 2.35,
+      "profit": 45.65,
+      "profit_pct": 0.98,
+      "reason": "主动减仓 (+1.0%)"
+    },
+    {
+      "time": "2026-03-26 10:45:27",
+      "code": "sh.603198",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 200,
+      "price": 32.42,
+      "amount": 6484.0,
+      "commission": 3.24,
+      "profit": 74.76,
+      "profit_pct": 1.17,
+      "reason": "主动减仓 (+1.2%)"
+    },
+    {
+      "time": "2026-03-26 10:45:27",
+      "code": "sh.600016",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 2300,
+      "price": 3.86,
+      "amount": 8878.0,
+      "commission": 4.44,
+      "profit": 133.56,
+      "profit_pct": 1.53,
+      "reason": "主动减仓 (+1.6%)"
+    },
+    {
+      "time": "2026-03-26 10:47:10",
+      "code": "sh.603369",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 27.24,
+      "amount": 2724.0,
+      "commission": 1.36,
+      "profit": -7.36,
+      "profit_pct": -0.27,
+      "reason": "主动减仓 (-0.2%)"
+    },
+    {
+      "time": "2026-03-26 10:47:10",
+      "code": "sh.600085",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 28.6,
+      "amount": 2860.0,
+      "commission": 1.43,
+      "profit": 9.57,
+      "profit_pct": 0.34,
+      "reason": "主动减仓 (+0.4%)"
+    },
+    {
+      "time": "2026-03-26 10:47:10",
+      "code": "sh.600690",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 23.49,
+      "amount": 2349.0,
+      "commission": 1.17,
+      "profit": 19.83,
+      "profit_pct": 0.85,
+      "reason": "主动减仓 (+0.9%)"
+    },
+    {
+      "time": "2026-03-26 10:47:10",
+      "code": "sh.603198",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 32.44,
+      "amount": 3244.0,
+      "commission": 1.62,
+      "profit": 39.38,
+      "profit_pct": 1.23,
+      "reason": "主动减仓 (+1.3%)"
+    },
+    {
+      "time": "2026-03-26 10:47:10",
+      "code": "sh.600547",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 400,
+      "price": 38.64,
+      "amount": 15456.0,
+      "commission": 7.73,
+      "profit": 271.79,
+      "profit_pct": 1.79,
+      "reason": "主动减仓 (+1.8%)"
+    },
+    {
+      "time": "2026-03-26 10:48:45",
+      "code": "sh.603369",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 27.23,
+      "amount": 2723.0,
+      "commission": 1.36,
+      "profit": -8.36,
+      "profit_pct": -0.31,
+      "reason": "主动减仓 (-0.3%)"
+    },
+    {
+      "time": "2026-03-26 10:48:45",
+      "code": "sh.600690",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 23.47,
+      "amount": 2347.0,
+      "commission": 1.17,
+      "profit": 17.83,
+      "profit_pct": 0.77,
+      "reason": "主动减仓 (+0.8%)"
+    },
+    {
+      "time": "2026-03-26 10:48:45",
+      "code": "sh.603198",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 100,
+      "price": 32.39,
+      "amount": 3239.0,
+      "commission": 1.62,
+      "profit": 34.38,
+      "profit_pct": 1.07,
+      "reason": "主动减仓 (+1.1%)"
+    },
+    {
+      "time": "2026-03-26 10:48:45",
+      "code": "sh.600016",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 1600,
+      "price": 3.86,
+      "amount": 6176.0,
+      "commission": 3.09,
+      "profit": 92.91,
+      "profit_pct": 1.53,
+      "reason": "主动减仓 (+1.6%)"
+    },
+    {
+      "time": "2026-03-26 10:48:45",
+      "code": "sh.600547",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 300,
+      "price": 38.61,
+      "amount": 11583.0,
+      "commission": 5.79,
+      "profit": 194.85,
+      "profit_pct": 1.71,
+      "reason": "主动减仓 (+1.8%)"
+    },
+    {
+      "time": "2026-03-26 10:50:17",
+      "code": "sh.600016",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 1100,
+      "price": 3.86,
+      "amount": 4246.0,
+      "commission": 2.12,
+      "profit": 63.88,
+      "profit_pct": 1.53,
+      "reason": "主动减仓 (+1.6%)"
+    },
+    {
+      "time": "2026-03-26 10:50:17",
+      "code": "sh.600547",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 200,
+      "price": 38.62,
+      "amount": 7723.999999999999,
+      "commission": 3.86,
+      "profit": 131.9,
+      "profit_pct": 1.74,
+      "reason": "主动减仓 (+1.8%)"
+    },
+    {
+      "time": "2026-03-26 10:50:17",
+      "code": "sh.601658",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 2400,
+      "price": 5.1,
+      "amount": 12240.0,
+      "commission": 6.12,
+      "profit": 233.88,
+      "profit_pct": 1.95,
+      "reason": "主动减仓 (+2.0%)"
+    },
+    {
+      "time": "2026-03-26 10:50:17",
+      "code": "sh.600887",
+      "name": "",
+      "action": "🔴 情绪减仓",
+      "shares": 500,
+      "price": 26.14,
+      "amount": 13070.0,
+      "commission": 6.54,
+      "profit": 258.47,
+      "profit_pct": 2.02,
+      "reason": "主动减仓 (+2.1%)"
+    },
+    {
+      "time": "2026-03-26 11:25:08",
+      "code": "sh.603369",
+      "name": "今世缘",
+      "action": "买入",
+      "shares": 100,
+      "price": 27.08,
+      "amount": 2708.0,
+      "commission": 1.35,
+      "reason": "手动买入"
+    },
+    {
+      "time": "2026-03-26 11:25:09",
+      "code": "sh.600887",
+      "name": "内蒙古伊利",
+      "action": "卖出",
+      "shares": 100,
+      "price": 26.09,
+      "amount": 2609.0,
+      "commission": 1.3,
+      "profit": 46.7,
+      "profit_pct": 1.82,
+      "reason": "手动卖出"
+    },
+    {
+      "time": "2026-03-26 14:09:17",
+      "code": "sh.600276",
+      "name": "恒瑞医药",
+      "action": "加仓L2",
+      "shares": 300,
+      "price": 51.67,
+      "amount": 15501.0,
+      "commission": 7.75,
+      "reason": "ML 预测上涨 (概率65.7%, medium) + 加仓 L2 (跌-3.0%)"
     }
   ],
   "start_date": "2026-03-24",
-  "last_update": "2026-03-25 13:14:12"
+  "last_update": "2026-03-26 14:09:27"
 }
