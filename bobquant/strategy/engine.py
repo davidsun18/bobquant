@@ -192,6 +192,18 @@ class GridTStrategy:
         """检查是否应该网格高抛，返回 (shares_to_sell, reason) 或 (0, '')"""
         if sellable <= 0 or quote['open'] <= 0:
             return 0, ''
+        
+        # v2.2 修复：非交易时段不做 T
+        from datetime import datetime
+        now = datetime.now()
+        current_time = now.strftime('%H:%M')
+        
+        # 检查是否在交易时段
+        is_morning = '09:30' <= current_time <= '11:30'
+        is_afternoon = '13:00' <= current_time <= '15:00'
+        
+        if not (is_morning or is_afternoon):
+            return 0, ''  # 非交易时段不做 T
 
         intraday = (quote['current'] - quote['open']) / quote['open']
         info = self._state.get(code, {'sells': [], 'total_sold': 0, 'count': 0, 'bought_back': False})

@@ -469,14 +469,14 @@
       "avg_price": 53.3,
       "buy_price": 53.3,
       "buy_date": "2026-03-26",
-      "buy_time": "2026-03-26 09:34:06",
-      "commission": 13.325000000000001,
+      "buy_time": "14:30:00",
+      "commission": 0.53,
       "buy_lots": [
         {
           "shares": 200,
           "price": 53.3,
           "date": "2026-03-26",
-          "time": "2026-03-26 09:34:06"
+          "time": "14:30:00"
         }
       ],
       "add_level": 1,
