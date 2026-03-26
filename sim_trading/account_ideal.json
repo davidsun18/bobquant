@@ -4,13 +4,13 @@
   "positions": {
     "sh.600887": {
       "shares": 1300,
-      "avg_price": 25.95,
-      "buy_price": 25.95,
+      "avg_price": 25.91,
+      "buy_price": 25.91,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
           "shares": 1300,
-          "price": 25.95,
+          "price": 25.91,
           "date": "2026-03-24"
         }
       ],
@@ -32,6 +32,51 @@
       "add_level": 1,
       "profit_taken": 0
     },
+    "sh.603369": {
+      "shares": 400,
+      "avg_price": 26.64,
+      "buy_price": 26.64,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 400,
+          "price": 26.64,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600436": {
+      "shares": 300,
+      "avg_price": 152.72,
+      "buy_price": 152.72,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 152.72,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600547": {
+      "shares": 700,
+      "avg_price": 37.94,
+      "buy_price": 37.94,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 700,
+          "price": 37.94,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
     "sh.601288": {
       "shares": 4500,
       "avg_price": 6.51,
@@ -47,60 +92,105 @@
       "add_level": 1,
       "profit_taken": 0
     },
-    "sh.601398": {
-      "shares": 4100,
-      "avg_price": 7.31,
-      "buy_price": 7.31,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 4100,
-          "price": 7.31,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sh.601939": {
-      "shares": 3200,
-      "avg_price": 9.36,
-      "buy_price": 9.36,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 3200,
-          "price": 9.36,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sh.601328": {
-      "shares": 4400,
-      "avg_price": 6.8,
-      "buy_price": 6.8,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 4400,
-          "price": 6.8,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
     "sh.601988": {
       "shares": 5400,
-      "avg_price": 5.53,
-      "buy_price": 5.53,
+      "avg_price": 5.58,
+      "buy_price": 5.58,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
           "shares": 5400,
-          "price": 5.53,
+          "price": 5.58,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002371": {
+      "shares": 100,
+      "avg_price": 459.56,
+      "buy_price": 459.56,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 100,
+          "price": 459.56,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sz.002415": {
+      "shares": 900,
+      "avg_price": 30.37,
+      "buy_price": 30.37,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 900,
+          "price": 30.37,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600584": {
+      "shares": 200,
+      "avg_price": 100.0,
+      "buy_price": 100.0,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 200,
+          "price": 100.0,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600276": {
+      "shares": 800,
+      "avg_price": 51.63,
+      "buy_price": 51.63,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 800,
+          "price": 51.63,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600028": {
+      "shares": 5000,
+      "avg_price": 5.88,
+      "buy_price": 5.88,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 5000,
+          "price": 5.88,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601138": {
+      "shares": 500,
+      "avg_price": 49.74,
+      "buy_price": 49.74,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 500,
+          "price": 49.74,
           "date": "2026-03-24"
         }
       ],
@@ -137,60 +227,15 @@
       "add_level": 1,
       "profit_taken": 0
     },
-    "sh.603369": {
-      "shares": 400,
-      "avg_price": 27.25,
-      "buy_price": 27.25,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 400,
-          "price": 27.25,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sh.600436": {
-      "shares": 300,
-      "avg_price": 152.19,
-      "buy_price": 152.19,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 300,
-          "price": 152.19,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
     "sh.600085": {
       "shares": 300,
-      "avg_price": 28.49,
-      "buy_price": 28.49,
+      "avg_price": 28.34,
+      "buy_price": 28.34,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
           "shares": 300,
-          "price": 28.49,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sh.600547": {
-      "shares": 700,
-      "avg_price": 37.94,
-      "buy_price": 37.94,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 700,
-          "price": 37.94,
+          "price": 28.34,
           "date": "2026-03-24"
         }
       ],
@@ -199,43 +244,58 @@
     },
     "sh.600690": {
       "shares": 300,
-      "avg_price": 23.28,
-      "buy_price": 23.28,
+      "avg_price": 23.11,
+      "buy_price": 23.11,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
           "shares": 300,
-          "price": 23.28,
+          "price": 23.11,
           "date": "2026-03-24"
         }
       ],
       "add_level": 1,
       "profit_taken": 0
     },
-    "sh.600276": {
-      "shares": 800,
-      "avg_price": 52.68,
-      "buy_price": 52.68,
+    "sh.601398": {
+      "shares": 4100,
+      "avg_price": 7.42,
+      "buy_price": 7.42,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
-          "shares": 800,
-          "price": 52.68,
+          "shares": 4100,
+          "price": 7.42,
           "date": "2026-03-24"
         }
       ],
       "add_level": 1,
       "profit_taken": 0
     },
-    "sz.002371": {
-      "shares": 100,
-      "avg_price": 459.56,
-      "buy_price": 459.56,
+    "sh.601939": {
+      "shares": 3200,
+      "avg_price": 9.44,
+      "buy_price": 9.44,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
-          "shares": 100,
-          "price": 459.56,
+          "shares": 3200,
+          "price": 9.44,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.601328": {
+      "shares": 4400,
+      "avg_price": 6.86,
+      "buy_price": 6.86,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 4400,
+          "price": 6.86,
           "date": "2026-03-24"
         }
       ],
@@ -244,88 +304,13 @@
     },
     "sz.002156": {
       "shares": 600,
-      "avg_price": 43.6,
-      "buy_price": 43.6,
+      "avg_price": 43.76,
+      "buy_price": 43.76,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
           "shares": 600,
-          "price": 43.6,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sz.002415": {
-      "shares": 900,
-      "avg_price": 30.73,
-      "buy_price": 30.73,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 900,
-          "price": 30.73,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sh.600584": {
-      "shares": 700,
-      "avg_price": 40.4,
-      "buy_price": 40.4,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 700,
-          "price": 40.4,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sh.603501": {
-      "shares": 200,
-      "avg_price": 101.78,
-      "buy_price": 101.78,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 200,
-          "price": 101.78,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sh.600028": {
-      "shares": 5000,
-      "avg_price": 5.89,
-      "buy_price": 5.89,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 5000,
-          "price": 5.89,
-          "date": "2026-03-24"
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0
-    },
-    "sz.002709": {
-      "shares": 600,
-      "avg_price": 44.49,
-      "buy_price": 44.49,
-      "buy_date": "2026-03-24",
-      "buy_lots": [
-        {
-          "shares": 600,
-          "price": 44.49,
+          "price": 43.76,
           "date": "2026-03-24"
         }
       ],
@@ -347,15 +332,30 @@
       "add_level": 1,
       "profit_taken": 0
     },
-    "sh.601138": {
-      "shares": 500,
-      "avg_price": 50.64,
-      "buy_price": 50.64,
+    "sz.002709": {
+      "shares": 600,
+      "avg_price": 43.04,
+      "buy_price": 43.04,
       "buy_date": "2026-03-24",
       "buy_lots": [
         {
-          "shares": 500,
-          "price": 50.64,
+          "shares": 600,
+          "price": 43.04,
+          "date": "2026-03-24"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0
+    },
+    "sh.600309": {
+      "shares": 300,
+      "avg_price": 74.73,
+      "buy_price": 74.73,
+      "buy_date": "2026-03-24",
+      "buy_lots": [
+        {
+          "shares": 300,
+          "price": 74.73,
           "date": "2026-03-24"
         }
       ],
