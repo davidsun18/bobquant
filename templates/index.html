@@ -612,7 +612,12 @@
             document.getElementById('updateTime').textContent = timeStr + ' (非交易时间)';
         }
         
-        function loadData() {
+        // 缓存数据，减少重复请求
+        let cachedAccountData = null;
+        let lastFetchTime = 0;
+        const CACHE_DURATION = 3000; // 3 秒缓存
+        
+        function loadData(forceRefresh = false) {
             const now = new Date();
             const timeStr = now.getFullYear() + '-' + 
                            String(now.getMonth() + 1).padStart(2, '0') + '-' + 
@@ -628,11 +633,25 @@
                 document.getElementById('updateTime').textContent = timeStr;
             }
             
-            fetch('/api/account?_=' + new Date().getTime())
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
+            // 检查缓存（非强制刷新且缓存有效）
+            if (!forceRefresh && cachedAccountData && (Date.now() - lastFetchTime) < CACHE_DURATION) {
+                renderAccountData(cachedAccountData);
+                return;
+            }
+            
+            // 并行加载所有数据
+            Promise.all([
+                fetch('/api/account?_=' + new Date().getTime()).then(r => r.json()),
+                fetch('/api/trades?_=' + new Date().getTime()).then(r => r.json())
+            ]).then(([accountData, tradesData]) => {
+                // 缓存账户数据
+                cachedAccountData = accountData;
+                lastFetchTime = Date.now();
+                
+                // 渲染数据
+                renderAccountData(accountData);
+                renderTrades(tradesData);
+            }).catch(error => {
                     return response.json();
                 })
                 .then(data => {
