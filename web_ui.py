@@ -154,15 +154,13 @@ def api_account():
         profit_pct = (profit / cost * 100) if cost > 0 else 0
         
         # T+1 规则：计算今天买入的总股数（不可卖）
-        # 从交易记录中统计，支持多次加仓场景
+        # 直接从持仓的 buy_lots 计算，避免交易记录重复统计的问题
         today_bought = 0
-        all_trades = load_trades()
-        for t in all_trades:
-            if t.get('code') == code and t.get('action') == '买入':
-                trade_date = t.get('time', '')[:10]
-                if trade_date == today:
-                    today_bought += t.get('shares', 0)
-        # 如果整个持仓都是今天建的（无历史交易记录），用 buy_date 兜底
+        buy_lots = pos.get('buy_lots', [])
+        for lot in buy_lots:
+            if lot.get('date', '') == today:
+                today_bought += lot.get('shares', 0)
+        # 如果没有 buy_lots 或今天买入为 0，用 buy_date 兜底
         if today_bought == 0:
             buy_date = pos.get('buy_date', '')
             if buy_date == today:
