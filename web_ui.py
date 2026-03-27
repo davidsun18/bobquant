@@ -93,6 +93,26 @@ def get_realtime_price(code):
         pass
     return None
 
+def get_stock_quote(code):
+    """获取股票完整行情（包含现价和昨收）"""
+    try:
+        symbol = code.replace('.', '')
+        url = f'http://qt.gtimg.cn/q={symbol}'
+        response = requests.get(url, timeout=2)
+        
+        if response.status_code == 200:
+            data = response.text
+            if '=' in data and '"' in data:
+                parts = data.split('=')[1].strip('"').split('~')
+                if len(parts) >= 5:
+                    return {
+                        'current': float(parts[3]),   # 现价
+                        'pre_close': float(parts[4]), # 昨收
+                    }
+    except:
+        pass
+    return None
+
 def load_account():
     """加载账户数据"""
     if os.path.exists(ACCOUNT_FILE):
@@ -155,14 +175,21 @@ def api_account():
         # 获取中文名称
         name = get_stock_name(code)
         
-        # 获取实时价格
-        current_price = get_realtime_price(code)
-        if current_price is None:
-            current_price = avg_price  # 如果获取失败，用成本价
+        # 获取实时价格和昨收价
+        quote = get_stock_quote(code)
+        if quote:
+            current_price = quote['current']
+            pre_close = quote['pre_close']
+        else:
+            current_price = avg_price
+            pre_close = avg_price  # 如果获取失败，用成本价代替
         
         mv = shares * current_price
         profit = mv - cost
         profit_pct = (profit / cost * 100) if cost > 0 else 0
+        
+        # 当日盈亏 = (现价 - 昨收) × 持仓
+        today_profit = (current_price - pre_close) * shares
         
         # T+1 规则：计算今天买入的总股数（不可卖）
         # 从交易记录中统计，支持多次加仓场景
@@ -192,18 +219,16 @@ def api_account():
             'market_value': mv,
             'profit': profit,
             'profit_pct': profit_pct,
+            'today_profit': today_profit,  # 当日盈亏 (现价 - 昨收) × 持仓
             'today_bought': today_bought  # 今天买入的数量（不可卖）
         })
     
     total_assets = cash + market_value
     total_profit = total_assets - initial  # 总盈亏
     
-    # 当日盈亏 = 从今日交易记录中统计已实现盈亏
-    trades = load_trades()
-    profit_today = 0.0
-    for t in trades:
-        if t.get('profit'):
-            profit_today += t.get('profit', 0)
+    # 当日盈亏 = ∑[(现价 - 昨收) × 持仓]
+    # 这是所有持仓今天的浮动盈亏总和
+    profit_today = sum(p.get('today_profit', 0) for p in position_list)
     
     return jsonify({
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
