@@ -101,14 +101,25 @@ def load_account():
     return None
 
 def load_trades():
-    """加载交易记录"""
+    """加载交易记录 (只统计 B 标识符的已成交交易)"""
     if os.path.exists(TRADE_LOG_FILE):
         with open(TRADE_LOG_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
             if isinstance(data, list):
-                return data
+                trades = data
             elif isinstance(data, dict) and 'history' in data:
-                return data['history']
+                trades = data['history']
+            else:
+                return []
+            
+            # 只统计 B 标识符的已成交交易
+            finalized_trades = []
+            for t in trades:
+                trade_id = t.get('trade_id', '')
+                if trade_id and trade_id.startswith('B'):
+                    finalized_trades.append(t)
+            
+            return finalized_trades
     return []
 
 @app.route('/')

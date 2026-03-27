@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-BobQuant 交易执行器 v1.1.4
+BobQuant 交易执行器 v2.2.13
 统一的买入、卖出、交易记录同步
+支持交易标识符管理 (A→B 标识符系统)
 支持不同板块交易规则 (主板/创业板/科创板)
 """
 import json
@@ -9,6 +10,23 @@ import os
 from datetime import datetime
 from .account import get_sellable_shares
 from .trading_rules import get_min_shares, get_step_size, get_max_shares, normalize_shares, get_board_type
+from .trade_id import get_next_trade_id, finalize_trade_id
+
+
+def finalize_trade(trade):
+    """
+    将交易标识符从 A 转换为 B (标记为已成交)
+    
+    Args:
+        trade: 交易记录 dict
+        
+    Returns:
+        dict: 更新后的交易记录
+    """
+    if trade and 'trade_id' in trade:
+        trade['trade_id'] = finalize_trade_id(trade['trade_id'])
+        trade['status'] = 'completed'
+    return trade
 
 
 class Executor:
@@ -67,13 +85,22 @@ class Executor:
                      f"价格：¥{price:.2f}\n金额：¥{cost:,.2f}\n手续费：¥{commission:.2f}\n"
                      f"原因：{reason}\n时间：{datetime.now().strftime('%H:%M:%S')}")
 
+        # 生成交易标识符 (A+9 位数字)
+        trade_id = get_next_trade_id()
+        
         trade = {
             'time': now_str, 'code': code, 'name': name, 'action': action_label,
             'shares': shares, 'price': price, 'amount': cost,
             'commission': round(commission, 2), 'reason': reason,
+            'trade_id': trade_id,  # A 标识符 (待成交)
+            'status': 'pending',    # 待成交状态
         }
         self.account.add_trade(trade)
-        return trade
+        
+        # 交易完成后，将 A 标识符转换为 B 标识符 (已成交)
+        finalized_trade = finalize_trade(trade)
+        
+        return finalized_trade
 
     def sell(self, code, name, shares, price, reason, action_label='卖出'):
         """卖出（支持部分卖出），返回交易记录 dict 或 None"""
@@ -137,14 +164,24 @@ class Executor:
                      f"时间：{datetime.now().strftime('%H:%M:%S')}")
 
         now_str = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        # 生成交易标识符 (A+9 位数字)
+        trade_id = get_next_trade_id()
+        
         trade = {
             'time': now_str, 'code': code, 'name': name, 'action': action_label,
             'shares': shares, 'price': price, 'amount': revenue,
             'commission': round(commission, 2), 'profit': round(profit, 2),
             'profit_pct': round(profit_pct, 2), 'reason': reason,
+            'trade_id': trade_id,  # A 标识符 (待成交)
+            'status': 'pending',    # 待成交状态
         }
         self.account.add_trade(trade)
-        return trade
+        
+        # 交易完成后，将 A 标识符转换为 B 标识符 (已成交)
+        finalized_trade = finalize_trade(trade)
+        
+        return finalized_trade
 
     def sync_trade_log(self, trades):
         """同步交易到独立的交易记录文件（Web UI 读取）"""
