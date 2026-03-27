@@ -243,10 +243,14 @@ def run_check():
         
         # 获取传统技术指标信号
         ta_signals = []
-        strategy = get_strategy(strat_name)
-        ta_result = strategy.check(code, name, quote, df, account.get_position(code), trade_cfg)
-        if ta_result.get('signal'):
-            ta_signals.append(ta_result)
+        try:
+            strategy = get_strategy(strat_name)
+            ta_result = strategy.check(code, name, quote, df, account.get_position(code), trade_cfg)
+            if ta_result.get('signal'):
+                ta_signals.append(ta_result)
+        except Exception as e:
+            _log(f"  ❌ 错误：{e}")
+            continue
         
         # v1.0: 使用综合决策引擎
         if decision_engine:

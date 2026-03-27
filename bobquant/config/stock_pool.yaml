@@ -27,12 +27,12 @@
   market_cap: 1200000000000
 - code: "sh.601318"
   name: "中国平安"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "保险"
   market_cap: 700000000000
 - code: "sh.601688"
   name: "华泰证券"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "证券"
   market_cap: 150000000000
 
@@ -44,56 +44,56 @@
   market_cap: 2000000000000
 - code: "sh.000858"
   name: "五粮液"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "白酒"
   market_cap: 600000000000
 - code: "sz.000568"
   name: "泸州老窖"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "白酒"
   market_cap: 250000000000
 - code: "sh.600809"
   name: "山西汾酒"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "白酒"
   market_cap: 200000000000
 
 # --- 科技/半导体 (6 只) ---
 - code: "sz.002415"
   name: "海康威视"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "科技"
   market_cap: 300000000000
 - code: "sh.601138"
   name: "工业富联"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "科技"
   market_cap: 400000000000
 - code: "sz.002371"
   name: "北方华创"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "半导体"
   market_cap: 180000000000
 - code: "sh.603986"
   name: "兆易创新"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "半导体"
   market_cap: 150000000000
 - code: "sh.603501"
   name: "韦尔股份"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "半导体"
   market_cap: 120000000000
 - code: "sz.300750"
   name: "宁德时代"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "新能源/科技"
   market_cap: 800000000000
 
 # --- 新能源 (4 只) ---
 - code: "sz.002594"
   name: "比亚迪"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "新能源"
   market_cap: 700000000000
 - code: "sh.601012"
@@ -108,19 +108,19 @@
   market_cap: 150000000000
 - code: "sz.002812"
   name: "恩捷股份"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "锂电"
   market_cap: 120000000000
 
 # --- 医药医疗 (4 只) ---
 - code: "sh.600276"
   name: "恒瑞医药"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "创新药"
   market_cap: 300000000000
 - code: "sz.300760"
   name: "迈瑞医疗"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "医疗器械"
   market_cap: 350000000000
 - code: "sh.600436"
@@ -130,7 +130,7 @@
   market_cap: 200000000000
 - code: "sh.603259"
   name: "药明康德"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "CXO"
   market_cap: 180000000000
 
@@ -159,7 +159,7 @@
 # --- 周期资源 (3 只) ---
 - code: "sh.601899"
   name: "紫金矿业"
-  strategy: "dual_macd"
+  strategy: "macd"
   industry: "有色金属"
   market_cap: 350000000000
 - code: "sh.601088"
