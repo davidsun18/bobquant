@@ -205,9 +205,9 @@
             background: #fff;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
+            padding: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-width: 0;  /* 适应网格布局 */
         }
         
         .mobile-card-header {
@@ -247,10 +247,17 @@
             font-weight: bold;
         }
         
-        .mobile-card-body {
+        /* 手机端持仓卡片容器 - 2 列并排显示多只股票 */
+        #mobilePositionsContent {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
+        }
+        
+        .mobile-card-body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
         }
         
         .mobile-data-item {
@@ -713,24 +720,18 @@
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">持仓</div>
                                         <div class="mobile-data-value">${totalShares}</div>
-                                    </div>
-                                    <div class="mobile-data-item">
                                         <div class="mobile-data-label">可交易</div>
                                         <div class="mobile-data-value">${tradableShares}</div>
                                     </div>
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">现价</div>
                                         <div class="mobile-data-value ${priceClass}">¥${pos.current_price.toFixed(2)}</div>
-                                    </div>
-                                    <div class="mobile-data-item">
                                         <div class="mobile-data-label">成本</div>
                                         <div class="mobile-data-value">¥${pos.avg_price.toFixed(2)}</div>
                                     </div>
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">盈亏</div>
                                         <div class="mobile-data-value ${profitClass}">${profitText}${formatMoney(pos.profit)}</div>
-                                    </div>
-                                    <div class="mobile-data-item">
                                         <div class="mobile-data-label">盈亏%</div>
                                         <div class="mobile-data-value ${profitClass}">${formatPercent(pos.profit_pct)}</div>
                                     </div>
