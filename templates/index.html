@@ -2,377 +2,169 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <title>BOB 量化系统 V2.0.1 - 模拟盘实时监控</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOB 量化系统 V3.0 - 模拟盘实时监控</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            overflow-x: hidden;
+            padding: 20px;
         }
-        
+
         .container {
-            max-width: 100%;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 5px;
         }
-        
-        @media (min-width: 768px) {
-            .container {
-                max-width: 98%;
-                padding: 0 10px;
-            }
-        }
-        
+
+        /* Header */
         .header {
             background: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 20px;
             text-align: center;
-            box-sizing: border-box;
         }
-        
+
         .header h1 {
             color: #667eea;
-            font-size: 18px;
-            margin-bottom: 6px;
-            line-height: 1.3;
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
-        
-        @media (min-width: 768px) {
-            .header h1 {
-                font-size: 28px;
-            }
-        }
-        
+
         .update-time {
             color: #666;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 8px;
+            font-size: 14px;
         }
-        
+
         .refresh-btn {
             background: #667eea;
             color: white;
             border: none;
-            padding: 5px 12px;
-            border-radius: 4px;
+            padding: 6px 14px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 11px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
+            font-size: 12px;
+            margin-left: 10px;
         }
-        
-        .refresh-btn:active {
-            background: #3f51b5;
-            transform: scale(0.95);
+
+        .refresh-btn:hover {
+            background: #5a6fd6;
         }
-        
+
+        /* Assets Overview - 5 cards in 1 row on PC, 2-3 on mobile */
         .assets-overview {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin: 0 20px;
-            box-sizing: border-box;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
         }
-        
-        @media (min-width: 768px) {
-            .assets-overview {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 20px;
-                margin: 0 20px;
-                box-sizing: border-box;
-            }
-        }
-        
+
         .asset-card {
             background: white;
-            padding: 16px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-sizing: border-box;
+            padding: 16px 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
         }
-        
-        @media (max-width: 767px) {
-            .asset-card {
-                padding: 12px 16px;
-            }
-        }
-        }
-        
+
         .asset-card h3 {
             color: #666;
-            font-size: 14px;
+            font-size: 13px;
             margin-bottom: 8px;
-            padding: 0;
-            line-height: 1.4;
+            font-weight: 500;
         }
-        
+
         .asset-card .value {
             font-size: 20px;
             font-weight: bold;
             color: #333;
         }
-        
-        @media (min-width: 768px) {
-            .asset-card .value {
-                font-size: 24px;
-            }
-        }
-        
+
         .asset-card .profit {
-            font-size: 14px;
+            font-size: 13px;
             margin-top: 4px;
         }
-        
+
         .profit-positive {
             color: #e74c3c;
         }
-        
+
         .profit-negative {
             color: #27ae60;
         }
-        
+
+        /* Main Content Area */
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 2fr 1fr;
             gap: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            margin-left: 20px;
-            margin-right: 0;
-            box-sizing: border-box;
         }
-        
-        @media (min-width: 768px) {
-            .content-grid {
-                grid-template-columns: 2fr 1fr;
-                gap: 20px;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                margin-left: 20px;
-                margin-right: 0;
-                box-sizing: border-box;
-            }
-        }
-        
-        .positions-section, .trades-section {
+
+        /* Section Cards */
+        .section-card {
             background: white;
-            padding: 12px 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 0;
-            box-sizing: border-box;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
         }
-        
-        .positions-section h2, .trades-section h2 {
+
+        .section-card h2 {
             color: #667eea;
             font-size: 16px;
-            margin-bottom: 0;
+            padding: 14px 16px;
+            border-bottom: 2px solid #f0f0f0;
+            margin: 0;
+            font-weight: 600;
         }
-        
-        /* 手机端卡片样式 */
-        /* PC 端卡片样式 (三列布局) */
-        .pc-positions-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
+
+        /* Content Containers */
+        .positions-section, .trades-section {
+            padding: 16px;
         }
-        @media (max-width: 1200px) {
-            .pc-positions-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        .pc-position-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 0;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 4px solid #e74c3c;
-            box-sizing: border-box;
-        }
-        .pc-position-card.profit-up {
-            border-left-color: #e74c3c;
-        }
-        .pc-position-card.profit-down {
-            border-left-color: #27ae60;
-        }
-        .pc-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 12px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .pc-card-body {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 10px 12px;
-        }
-        .pc-card-item {
-            text-align: center;
-        }
-        .pc-card-label {
-            font-size: 12px;
-            color: #999;
-            margin-bottom: 5px;
-        }
-        .pc-card-value {
-            font-size: 15px;
-            font-weight: bold;
-        }
-        .mobile-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            box-sizing: border-box;
-        }
-        
-        .mobile-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .stock-info {
-            flex: 1;
-        }
-        
-        .stock-name {
-            font-size: 15px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 4px;
-        }
-        
-        .stock-code {
-            font-size: 11px;
-            color: #666;
-        }
-        
-        .stock-code-link {
-            color: #2196f3;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .stock-name-link {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .mobile-card-body {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        
-        .mobile-data-item {
-            text-align: center;
-        }
-        
-        .mobile-data-label {
-            font-size: 11px;
-            color: #999;
-            margin-bottom: 5px;
-        }
-        
-        .mobile-data-value {
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        .price-up {
-            color: #e74c3c;
-        }
-        
-        .price-down {
-            color: #27ae60;
-        }
-        
-        .price-equal {
-            color: #333;
-        }
-        
-        .profit-up {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        
-        .profit-down {
-            color: #27ae60;
-            font-weight: bold;
-        }
-        
-        /* PC 端样式 */
-        .pc-only {
-            display: none;
-        }
-        
-        @media (min-width: 768px) {
-            .pc-only {
-                display: block;
-            }
-            .mobile-only {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 767px) {
-            .mobile-only {
-                display: block;
-            }
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        
+
+        /* Loading State */
         .loading {
             text-align: center;
-            padding: 30px;
-            color: #666;
-            font-size: 13px;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 14px;
         }
-        
-        /* Modal styles */
+
+        /* Mobile Layout */
+        @media (max-width: 1024px) {
+            .assets-overview {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .assets-overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* PC Only / Mobile Only */
+        .pc-only { display: block; }
+        .mobile-only { display: none; }
+
+        @media (max-width: 1024px) {
+            .pc-only { display: none; }
+            .mobile-only { display: block; }
+        }
+
+        /* Stock Modal */
         .modal {
             display: none;
             position: fixed;
@@ -381,132 +173,96 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.6);
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+            background-color: rgba(0,0,0,0.5);
         }
-        
+
         .modal-content {
-            background-color: white;
+            background-color: #fefefe;
             margin: 10% auto;
-            padding: 15px;
-            border-radius: 10px;
-            width: 95%;
+            padding: 20px;
+            border-radius: 12px;
+            width: 80%;
             max-width: 600px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
-        
-        @media (min-width: 768px) {
-            .modal-content {
-                margin: 5% auto;
-                width: 60%;
-            }
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
-        }
-        
-        .modal-header h2 {
-            color: #667eea;
-            font-size: 16px;
-            flex: 1;
-        }
-        
+
         .close-btn {
             color: #aaa;
-            font-size: 24px;
+            float: right;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
-            background: none;
-            border: none;
-            padding: 5px 10px;
         }
-        
-        .close-btn:active {
+
+        .close-btn:hover {
             color: #000;
         }
-        
-        .modal-body {
-            max-height: 60vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+
+        .modal-header h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 18px;
         }
-        
+
         .stock-detail-info {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 15px;
+            margin-bottom: 20px;
         }
-        
-        @media (min-width: 768px) {
+
+        @media (min-width: 600px) {
             .stock-detail-info {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        
+
         .detail-card {
             background: #f8f9fa;
-            padding: 10px;
-            border-radius: 6px;
+            padding: 12px;
+            border-radius: 8px;
             text-align: center;
         }
-        
+
         .detail-card h4 {
             color: #666;
-            font-size: 10px;
+            font-size: 12px;
             margin-bottom: 6px;
         }
-        
+
         .detail-card .value {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: bold;
             color: #333;
         }
-        
+
         .back-btn {
             background: #667eea;
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 14px;
             margin-top: 15px;
             width: 100%;
         }
-        
+
         .back-btn:active {
             background: #3f51b5;
-        }
-        
-        a, button {
-            -webkit-touch-callout: none;
-            user-select: none;
-        }
-        
-        a:active, button:active {
-            opacity: 0.7;
-            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 BOB 量化系统 V2.0.1<br>模拟盘实时监控</h1>
+            <h1>🚀 BOB 量化系统 V3.0</h1>
             <p class="update-time">
                 <span id="updateTime">--</span>
                 <button class="refresh-btn" onclick="loadData()">🔄 刷新</button>
             </p>
         </div>
-        
+
         <div class="assets-overview">
             <div class="asset-card">
                 <h3>💰 总资产</h3>
@@ -530,101 +286,287 @@
                 <div class="value" id="todayProfit">--</div>
             </div>
         </div>
-        
+
         <div class="content-grid">
-            <div class="positions-section">
+            <div class="section-card">
                 <h2>📋 持仓明细</h2>
-                <div class="mobile-only" id="mobilePositionsContent">
-                    <div class="loading">加载中...</div>
-                </div>
-                <div class="pc-only" id="pcPositionsContent">
-                    <div class="loading">加载中...</div>
+                <div class="positions-section">
+                    <div id="pcPositionsContent">
+                        <div class="loading">加载中...</div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="trades-section">
+
+            <div class="section-card">
                 <h2>📝 交易记录</h2>
-                <div class="table-container" id="tradesContent">
-                    <div class="loading">加载中...</div>
+                <div class="trades-section">
+                    <div id="tradesContent">
+                        <div class="loading">加载中...</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Stock Detail Modal -->
     <div id="stockModal" class="modal">
         <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
             <div class="modal-header">
                 <h2 id="modalTitle">股票详情</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
             </div>
-            <div class="modal-body" id="modalBody">
+            <div id="modalBody" class="stock-detail-info">
                 <div class="loading">加载中...</div>
             </div>
-            <button class="back-btn" onclick="closeModal()">↩ 返回</button>
+            <button class="back-btn" onclick="closeModal()">关闭</button>
         </div>
     </div>
-    
+
     <script>
-        let autoRefreshInterval = null;
-        
-        function isTradingTime() {
-            const now = new Date();
-            const day = now.getDay();
-            const hour = now.getHours();
-            const minute = now.getMinutes();
-            
-            if (day === 0 || day === 6) {
-                return false;
-            }
-            
-            const morningStart = hour * 60 + minute;
-            const morningEnd = 11 * 60 + 30;
-            const morningStartTime = 9 * 60 + 30;
-            
-            const afternoonStart = 13 * 60;
-            const afternoonEnd = 15 * 60;
-            
-            if (morningStart >= morningStartTime && morningStart < morningEnd) {
-                return true;
-            }
-            
-            if (morningStart >= afternoonStart && morningStart < afternoonEnd) {
-                return true;
-            }
-            
-            return false;
-        }
-        
-        function getNextRefreshTime() {
-            if (isTradingTime()) {
-                return 5000;
-            }
-            return 60000;
-        }
-        
+        // Format money
         function formatMoney(amount) {
-            return '¥' + parseFloat(amount).toLocaleString('zh-CN', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
+            if (amount === null || amount === undefined) return '--';
+            return '¥' + amount.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
-        
-        function formatPercent(percent) {
-            const sign = percent >= 0 ? '+' : '';
-            return sign + parseFloat(percent).toFixed(2) + '%';
+
+        // Format percent
+        function formatPercent(value) {
+            if (value === null || value === undefined) return '--';
+            return (value * 100).toFixed(2) + '%';
         }
-        
-        function getPriceClass(current, avg) {
-            if (current > avg) {
-                return 'price-up';
-            } else if (current < avg) {
-                return 'price-down';
-            } else {
-                return 'price-equal';
+
+        // Price comparison class
+        function getPriceClass(currentPrice, avgPrice) {
+            if (currentPrice > avgPrice) return 'profit-positive';
+            if (currentPrice < avgPrice) return 'profit-negative';
+            return '';
+        }
+
+        // Load account data
+        async function loadData() {
+            try {
+                const response = await fetch('/api/account?_=' + new Date().getTime());
+                const data = await response.json();
+                
+                if (data.error) {
+                    console.error(data.error);
+                    document.getElementById('updateTime').textContent = '加载失败';
+                    return;
+                }
+
+                // Update assets
+                document.getElementById('totalAssets').textContent = formatMoney(data.total_assets);
+                document.getElementById('marketValue').textContent = formatMoney(data.market_value);
+                document.getElementById('cash').textContent = formatMoney(data.cash);
+                
+                const positionProfit = data.profit;
+                const positionProfitText = positionProfit >= 0 ? '+' : '';
+                const positionProfitClass = positionProfit >= 0 ? 'profit-positive' : 'profit-negative';
+                document.getElementById('positionProfit').innerHTML = 
+                    `<span class="${positionProfitClass}">${positionProfitText}${formatMoney(positionProfit)}</span>`;
+                
+                const todayProfit = data.profit_today;
+                const todayProfitText = todayProfit >= 0 ? '+' : '';
+                const todayProfitClass = todayProfit >= 0 ? 'profit-positive' : 'profit-negative';
+                document.getElementById('todayProfit').innerHTML = 
+                    `<span class="${todayProfitClass}">${todayProfitText}${formatMoney(todayProfit)}</span>`;
+                
+                document.getElementById('totalProfit').innerHTML = 
+                    `<span class="${positionProfitClass}">${positionProfitText}${formatMoney(data.profit)}</span>`;
+
+                // Update time
+                const now = new Date();
+                const timeStr = now.getFullYear() + '-' + 
+                               String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                               String(now.getDate()).padStart(2, '0') + ' ' + 
+                               String(now.getHours()).padStart(2, '0') + ':' + 
+                               String(now.getMinutes()).padStart(2, '0') + ':' + 
+                               String(now.getSeconds()).padStart(2, '0');
+                document.getElementById('updateTime').textContent = timeStr;
+
+                // Load positions and trades
+                loadPositions();
+                loadTrades();
+            } catch (error) {
+                console.error('Error loading account data:', error);
+                document.getElementById('updateTime').textContent = '加载失败';
             }
         }
-        
+
+        // Load positions
+        async function loadPositions() {
+            try {
+                const response = await fetch('/api/positions?_=' + new Date().getTime());
+                const data = await response.json();
+                
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
+
+                if (!data.positions || data.positions.length === 0) {
+                    document.getElementById('pcPositionsContent').innerHTML = '<p style="text-align:center;color:#999;padding:40px">暂无持仓</p>';
+                    return;
+                }
+
+                let html = '<div class="positions-grid">';
+                data.positions.forEach(pos => {
+                    const profitClass = pos.profit >= 0 ? 'profit-positive' : 'profit-negative';
+                    const profitText = pos.profit >= 0 ? '+' : '';
+                    const priceClass = getPriceClass(pos.current_price, pos.avg_price);
+                    const totalShares = pos.shares;
+                    const tradableShares = totalShares - (pos.today_bought || 0);
+                    
+                    html += `
+                        <div class="position-card ${profitClass}">
+                            <div class="position-header">
+                                <div class="stock-info">
+                                    <a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" class="stock-name-link">${pos.name}</a>
+                                    <span class="stock-code">${pos.code}</span>
+                                </div>
+                            </div>
+                            <div class="position-body">
+                                <div class="stat-item">
+                                    <span class="label">持仓</span>
+                                    <span class="value">${totalShares}</span>
+                                    <span class="label">可交易</span>
+                                    <span class="value">${tradableShares}</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">现价</span>
+                                    <span class="value ${priceClass}">${pos.current_price.toFixed(2)}</span>
+                                    <span class="label">成本</span>
+                                    <span class="value">${pos.avg_price.toFixed(2)}</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="label">盈亏</span>
+                                    <span class="value ${profitClass}">${profitText}${formatMoney(pos.profit)}</span>
+                                    <span class="label">盈亏%</span>
+                                    <span class="value ${profitClass}">${formatPercent(pos.profit_pct)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                document.getElementById('pcPositionsContent').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading positions:', error);
+            }
+        }
+
+        // Load trades
+        async function loadTrades() {
+            try {
+                const response = await fetch('/api/trades?_=' + new Date().getTime());
+                const data = await response.json();
+                
+                if (data.error) {
+                    console.error(data.error);
+                    return;
+                }
+
+                if (!data.trades || data.trades.length === 0) {
+                    document.getElementById('tradesContent').innerHTML = '<p style="text-align:center;color:#999;padding:40px">暂无交易记录</p>';
+                    return;
+                }
+
+                let html = '<div class="trades-list">';
+                data.trades.slice(-20).reverse().forEach(trade => {
+                    const actionClass = trade.action === '买入' ? 'profit-positive' : 'profit-negative';
+                    let timeStr = trade.time || '--';
+                    let dateStr = timeStr;
+                    let timeOnly = '';
+                    
+                    if (timeStr.includes(' ')) {
+                        const parts = timeStr.split(' ');
+                        dateStr = parts[0];
+                        timeOnly = parts[1];
+                        if (timeOnly.length >= 5) {
+                            timeOnly = timeOnly.substring(0, 5);
+                        }
+                    }
+                    
+                    html += `
+                        <div class="trade-item">
+                            <div class="trade-time">
+                                <span class="date">${dateStr}</span>
+                                <span class="time">${timeOnly}</span>
+                            </div>
+                            <div class="trade-info">
+                                <span class="stock-name">${trade.name}</span>
+                                <span class="action ${actionClass}">${trade.action}</span>
+                            </div>
+                            <div class="trade-details">
+                                <span>${trade.shares}股</span>
+                                <span class="price">¥${trade.price.toFixed(2)}</span>
+                                <span class="amount">¥${(trade.shares * trade.price).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                document.getElementById('tradesContent').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading trades:', error);
+            }
+        }
+
+        // Show stock detail
+        function showStockDetail(code) {
+            document.getElementById('stockModal').style.display = 'block';
+            document.getElementById('modalTitle').textContent = code + ' 股票详情';
+            document.getElementById('modalBody').innerHTML = '<div class="loading">加载中...</div>';
+            
+            fetch('/api/stock/' + code + '?_=' + new Date().getTime())
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('modalBody').innerHTML = `<div class="loading">加载失败: ${data.error}</div>`;
+                        return;
+                    }
+                    
+                    let html = `
+                        <div class="detail-card">
+                            <h4>股票代码</h4>
+                            <div class="value">${data.code}</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>股票名称</h4>
+                            <div class="value">${data.name}</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>当前价</h4>
+                            <div class="value">${data.current_price.toFixed(2)}</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>涨跌幅</h4>
+                            <div class="value">${formatPercent(data.change_pct)}</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>昨收价</h4>
+                            <div class="value">${data.prev_close.toFixed(2)}</div>
+                        </div>
+                        <div class="detail-card">
+                            <h4>今开价</h4>
+                            <div class="value">${data.open.toFixed(2)}</div>
+                        </div>
+                    `;
+                    document.getElementById('modalBody').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading stock detail:', error);
+                    document.getElementById('modalBody').innerHTML = '<div class="loading">加载失败</div>';
+                });
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('stockModal').style.display = 'none';
+        }
+
+        // Auto refresh
+        let autoRefreshInterval;
         function startAutoRefresh() {
             if (autoRefreshInterval) {
                 clearInterval(autoRefreshInterval);
@@ -632,371 +574,27 @@
             
             loadData();
             
-            autoRefreshInterval = setInterval(function() {
-                if (isTradingTime()) {
-                    loadData(); // 交易时间加载数据
-                } else {
-                    updateTimeOnly(); // 非交易时间只更新时间
-                }
-            }, getNextRefreshTime());
+            autoRefreshInterval = setInterval(() => {
+                loadData();
+            }, 60000); // 每60秒刷新一次
         }
-        
-        // 只更新时间显示（非交易时间）
-        function updateTimeOnly() {
+
+        // Check trading time
+        function isTradingTime() {
             const now = new Date();
-            const timeStr = now.getFullYear() + '-' + 
-                           String(now.getMonth() + 1).padStart(2, '0') + '-' + 
-                           String(now.getDate()).padStart(2, '0') + ' ' + 
-                           String(now.getHours()).padStart(2, '0') + ':' + 
-                           String(now.getMinutes()).padStart(2, '0') + ':' + 
-                           String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('updateTime').textContent = timeStr + ' (非交易时间)';
-        }
-        
-        function loadData() {
-            const now = new Date();
-            const timeStr = now.getFullYear() + '-' + 
-                           String(now.getMonth() + 1).padStart(2, '0') + '-' + 
-                           String(now.getDate()).padStart(2, '0') + ' ' + 
-                           String(now.getHours()).padStart(2, '0') + ':' + 
-                           String(now.getMinutes()).padStart(2, '0') + ':' + 
-                           String(now.getSeconds()).padStart(2, '0');
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const time = hour * 100 + minute;
             
-            // 非交易时间也加载数据，但刷新频率降低
-            if (!isTradingTime()) {
-                document.getElementById('updateTime').textContent = timeStr + ' (非交易时间)';
-            } else {
-                document.getElementById('updateTime').textContent = timeStr;
-            }
-            
-            fetch('/api/account?_=' + new Date().getTime())
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.error) {
-                        console.error(data.error);
-                        return;
-                    }
-                    
-                    document.getElementById('totalAssets').textContent = formatMoney(data.total_assets);
-                    document.getElementById('marketValue').textContent = formatMoney(data.market_value);
-                    document.getElementById('cash').textContent = formatMoney(data.cash);
-                    
-                    const totalProfit = data.total_profit;
-                    const profitClass = totalProfit >= 0 ? 'profit-positive' : 'profit-negative';
-                    const profitText = totalProfit >= 0 ? '+' : '';
-                    document.getElementById('positionProfit').innerHTML = 
-                        `<span class="${profitClass}">${profitText}${formatMoney(totalProfit)}</span>`;
-                    
-                    const todayProfit = data.profit_today;
-                    const todayClass = todayProfit >= 0 ? 'profit-positive' : 'profit-negative';
-                    const todayText = todayProfit >= 0 ? '+' : '';
-                    document.getElementById('todayProfit').innerHTML = 
-                        `<span class="${todayClass}">${todayText}${formatMoney(todayProfit)}</span>`;
-                    
-                    // PC 端卡片 (三列布局)
-                    let pcPositionsHtml = '<div class="pc-positions-grid">';
-                    
-                    // 手机端卡片
-                    let mobilePositionsHtml = '';
-                    
-                    data.positions.forEach(pos => {
-                        const profitClass = pos.profit >= 0 ? 'profit-up' : 'profit-down';
-                        const profitText = pos.profit >= 0 ? '+' : '';
-                        const priceClass = getPriceClass(pos.current_price, pos.avg_price);
-                        
-                        // 计算可交易数量 (T+1 规则：当天买入的不可卖)
-                        const totalShares = pos.shares;
-                        const todayBought = pos.today_bought || 0;
-                        const tradableShares = totalShares - todayBought;
-                        
-                        // PC 端卡片
-                        pcPositionsHtml += '<div class="pc-position-card ' + profitClass + '">';
-                        pcPositionsHtml += '<div class="pc-card-header"><div><a href="http://guba.eastmoney.com/list,' + pos.code.replace(".", "") + '.html" target="_blank" style="font-weight:bold;color:#667eea;text-decoration:none">' + pos.name + '</a><span style="font-size:11px;color:#999;margin-left:6px">' + pos.code + '</span></div></div>';
-                        pcPositionsHtml += '<div class="pc-card-body">';
-                        pcPositionsHtml += '<div class="pc-card-item"><div class="pc-card-label">持仓</div><div class="pc-card-value">' + totalShares + '</div><div class="pc-card-label" style="font-size:10px">可交易：' + tradableShares + '</div></div>';
-                        pcPositionsHtml += '<div class="pc-card-item"><div class="pc-card-label">现价</div><div class="pc-card-value ' + priceClass + '">¥' + pos.current_price.toFixed(2) + '</div><div class="pc-card-label" style="font-size:10px">成本：¥' + pos.avg_price.toFixed(2) + '</div></div>';
-                        pcPositionsHtml += '<div class="pc-card-item"><div class="pc-card-label">盈亏</div><div class="pc-card-value ' + profitClass + '">' + profitText + formatMoney(pos.profit) + '</div><div class="pc-card-label" style="font-size:10px">' + profitText + formatPercent(pos.profit_pct) + '</div></div>';
-                        pcPositionsHtml += '</div></div>';
-                        
-                        // 手机端卡片
-                        mobilePositionsHtml += `
-                            <div class="mobile-card">
-                                <div class="mobile-card-header">
-                                    <div class="stock-info">
-                                        <div class="stock-name">
-                                            <a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" class="stock-name-link">${pos.name}</a>
-                                        </div>
-                                        <div class="stock-code">
-                                            <a href="javascript:void(0)" class="stock-code-link" onclick="showStockDetail('${pos.code}')">${pos.code}</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mobile-card-body">
-                                    <div class="mobile-data-item">
-                                        <div class="mobile-data-label">持仓</div>
-                                        <div class="mobile-data-value">${totalShares}</div>
-                                        <div class="mobile-data-label">可交易</div>
-                                        <div class="mobile-data-value">${tradableShares}</div>
-                                    </div>
-                                    <div class="mobile-data-item">
-                                        <div class="mobile-data-label">现价</div>
-                                        <div class="mobile-data-value ${priceClass}">¥${pos.current_price.toFixed(2)}</div>
-                                        <div class="mobile-data-label">成本</div>
-                                        <div class="mobile-data-value">¥${pos.avg_price.toFixed(2)}</div>
-                                    </div>
-                                    <div class="mobile-data-item">
-                                        <div class="mobile-data-label">盈亏</div>
-                                        <div class="mobile-data-value ${profitClass}">${profitText}${formatMoney(pos.profit)}</div>
-                                        <div class="mobile-data-label">盈亏%</div>
-                                        <div class="mobile-data-value ${profitClass}">${formatPercent(pos.profit_pct)}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    });
-                    
-                    pcPositionsHtml += '</div>';
-                    document.getElementById('pcPositionsContent').innerHTML = pcPositionsHtml;
-                    document.getElementById('mobilePositionsContent').innerHTML = mobilePositionsHtml;
-                })
-                .catch(error => {
-                    console.error('Error loading account data:', error);
-                    document.getElementById('updateTime').textContent = '加载失败';
-                });
-            
-            fetch('/api/trades?_=' + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    let tradesHtml = '<p style="color:#666;padding:20px;text-align:center;font-size:13px">暂无交易记录</p>';
-                    if (data.trades && data.trades.length > 0) {
-                        // PC 端表格
-                        let pcTradesHtml = `
-                            <div class="table-container">
-                            <table class="pc-table" style="font-size:14px">
-                                <thead>
-                                    <tr>
-                                        <th style="width:140px">时间</th>
-                                        <th>股票</th>
-                                        <th>操作</th>
-                                        <th style="width:80px">数量</th>
-                                        <th style="width:80px">价格</th>
-                                        <th style="width:100px">金额</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                        `;
-                        
-                        // 手机端卡片
-                        let mobileTradesHtml = '';
-                        
-                        data.trades.slice(-20).reverse().forEach(trade => {
-                            const actionClass = trade.action === '买入' ? 'profit-up' : 'profit-down';
-                            let timeStr = trade.time || '--';
-                            let dateStr = timeStr;
-                            let timeOnly = '';
-                            
-                            if (timeStr.includes(' ')) {
-                                const parts = timeStr.split(' ');
-                                dateStr = parts[0];
-                                timeOnly = parts[1];
-                                if (timeOnly.length >= 5) {
-                                    timeOnly = timeOnly.substring(0, 5); // 只显示 HH:MM
-                                }
-                            }
-                            
-                            // PC 端表格行
-                            pcTradesHtml += `
-                                <tr>
-                                    <td style="font-family:monospace;font-size:13px">
-                                        <div style="font-weight:bold;color:#333">${dateStr}</div>
-                                        <div style="font-size:12px;color:#999">${timeOnly}</div>
-                                    </td>
-                                    <td><span style="font-weight:bold;color:#667eea">${trade.name}</span></td>
-                                    <td><span class="${actionClass}" style="font-weight:bold;padding:4px 12px;border-radius:4px;font-size:13px;background:${actionClass === 'profit-up' ? '#ffe6e6' : '#e6ffe6'}">${trade.action}</span></td>
-                                    <td style="text-align:right;font-family:monospace;font-size:13px">${trade.shares}</td>
-                                    <td style="text-align:right;font-family:monospace;font-size:13px">¥${trade.price.toFixed(2)}</td>
-                                    <td style="text-align:right;font-family:monospace;font-weight:bold;font-size:14px">¥${(trade.shares * trade.price).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-                                </tr>
-                            `;
-                            
-                            // 手机端卡片
-                            mobileTradesHtml += `
-                                <div class="mobile-card" style="padding:12px">
-                                    <div class="mobile-card-header" style="margin-bottom:10px;padding-bottom:8px">
-                                        <div class="stock-info">
-                                            <div class="stock-name" style="font-size:14px;margin-bottom:3px">${trade.name}</div>
-                                            <div class="stock-code" style="font-size:11px">${dateStr} ${timeOnly}</div>
-                                        </div>
-                                        <div class="${actionClass}" style="font-size:13px;font-weight:bold">${trade.action}</div>
-                                    </div>
-                                    <div class="mobile-card-body" style="gap:10px">
-                                        <div class="mobile-data-item">
-                                            <div class="mobile-data-label" style="font-size:10px">数量</div>
-                                            <div class="mobile-data-value" style="font-size:13px">${trade.shares}</div>
-                                        </div>
-                                        <div class="mobile-data-item">
-                                            <div class="mobile-data-label" style="font-size:10px">价格</div>
-                                            <div class="mobile-data-value" style="font-size:13px">¥${trade.price.toFixed(2)}</div>
-                                        </div>
-                                        <div class="mobile-data-item">
-                                            <div class="mobile-data-label" style="font-size:10px">金额</div>
-                                            <div class="mobile-data-value" style="font-size:14px">${formatMoney(trade.amount)}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                        });
-                        
-                        pcTradesHtml += '</tbody></table></div>';
-                        
-                        // PC 端和手机端分别显示
-                        let tradesContent = '';
-                        tradesContent += '<div class="pc-only">' + pcTradesHtml + '</div>';
-                        tradesContent += '<div class="mobile-only">' + mobileTradesHtml + '</div>';
-                        
-                        tradesHtml = tradesContent;
-                    }
-                    document.getElementById('tradesContent').innerHTML = tradesHtml;
-                })
-                .catch(error => {
-                    console.error('Error loading trades data:', error);
-                });
+            // 早盘: 09:25 - 11:35
+            // 午盘: 12:55 - 15:05
+            return (time >= 925 && time <= 1135) || (time >= 1255 && time <= 1505);
         }
-        
-        function showStockDetail(code) {
-            document.getElementById('stockModal').style.display = 'block';
-            document.getElementById('modalTitle').textContent = code + ' 股票详情';
-            document.getElementById('modalBody').innerHTML = '<div class="loading">加载中...</div>';
-            
-            document.body.style.overflow = 'hidden';
-            
-            fetch('/api/stock/' + code + '?_=' + new Date().getTime())
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        document.getElementById('modalBody').innerHTML = '<p style="color:red;text-align:center;padding:20px;font-size:13px">' + data.error + '</p>';
-                        return;
-                    }
-                    
-                    const profitClass = data.profit >= 0 ? 'profit-positive' : 'profit-negative';
-                    const profitText = data.profit >= 0 ? '+' : '';
-                    
-                    let html = `
-                        <div class="stock-detail-info">
-                            <div class="detail-card">
-                                <h4>股票代码</h4>
-                                <div class="value">${data.code}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>股票名称</h4>
-                                <div class="value">${data.name}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>持仓数量</h4>
-                                <div class="value">${data.shares} 股</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>成本价</h4>
-                                <div class="value">¥${data.avg_price.toFixed(2)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>当前价</h4>
-                                <div class="value">${data.current_price >= data.avg_price ? '<span class="profit-positive">¥'+data.current_price.toFixed(2)+'</span>' : '<span class="profit-negative">¥'+data.current_price.toFixed(2)+'</span>'}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>持仓市值</h4>
-                                <div class="value">${formatMoney(data.market_value)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>持仓成本</h4>
-                                <div class="value">${formatMoney(data.cost)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>盈亏金额</h4>
-                                <div class="value ${profitClass}">${profitText}${formatMoney(data.profit)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>盈亏比例</h4>
-                                <div class="value ${profitClass}">${formatPercent(data.profit_pct)}</div>
-                            </div>
-                        </div>
-                    `;
-                    
-                    if (data.trades && data.trades.length > 0) {
-                        html += `
-                            <h3 style="color:#667eea;margin:15px 0 10px 0;font-size:14px">📝 交易记录</h3>
-                            <div class="table-container">
-                                <table style="width:100%;border-collapse:collapse;font-size:12px">
-                                    <thead>
-                                        <tr>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">时间</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">操作</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">数量</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">价格</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">金额</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                        `;
-                        
-                        data.trades.forEach(trade => {
-                            const actionClass = trade.action === '买入' ? 'profit-up' : 'profit-down';
-                            let timeStr = trade.time || '--';
-                            let dateStr = timeStr;
-                            let timeOnly = '';
-                            
-                            if (timeStr.includes(' ')) {
-                                const parts = timeStr.split(' ');
-                                dateStr = parts[0];
-                                timeOnly = parts[1];
-                            }
-                            
-                            html += `
-                                <tr style="border-bottom:1px solid #eee">
-                                    <td style="padding:8px 4px;font-family:monospace">
-                                        <div style="font-weight:bold;font-size:11px">${dateStr}</div>
-                                        <div style="font-size:10px;color:#999">${timeOnly}</div>
-                                    </td>
-                                    <td style="padding:8px 4px" class="${actionClass}" style="font-weight:bold">${trade.action}</td>
-                                    <td style="padding:8px 4px">${trade.shares}</td>
-                                    <td style="padding:8px 4px">¥${trade.price.toFixed(2)}</td>
-                                    <td style="padding:8px 4px;font-weight:bold">${formatMoney(trade.amount)}</td>
-                                </tr>
-                            `;
-                        });
-                        
-                        html += '</tbody></table></div>';
-                    } else {
-                        html += '<p style="color:#666;text-align:center;padding:20px;font-size:13px">暂无交易记录</p>';
-                    }
-                    
-                    document.getElementById('modalBody').innerHTML = html;
-                })
-                .catch(error => {
-                    console.error('Error loading stock detail:', error);
-                    document.getElementById('modalBody').innerHTML = '<p style="color:red;text-align:center;padding:20px;font-size:13px">加载失败</p>';
-                });
-        }
-        
-        function closeModal() {
-            document.getElementById('stockModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        window.onclick = function(event) {
-            const modal = document.getElementById('stockModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-        
-        loadData();
-        startAutoRefresh();
+
+        // Initialize
+        window.onload = function() {
+            startAutoRefresh();
+        };
     </script>
 </body>
 </html>
