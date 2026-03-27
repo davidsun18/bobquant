@@ -729,9 +729,9 @@
                                     </div>
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">盈亏</div>
-                                        <div class="mobile-data-value ${profitClass}">${formatMoney(pos.profit)}</div>
+                                        <div class="mobile-data-value ${profitClass}">${Math.abs(pos.profit).toFixed(0)}</div>
                                         <div class="mobile-data-label">盈亏%</div>
-                                        <div class="mobile-data-value ${profitClass}">${formatPercent(pos.profit_pct)}</div>
+                                        <div class="mobile-data-value ${profitClass}">${Math.abs(pos.profit_pct).toFixed(2)}%</div>
                                     </div>
                                 </div>
                             </div>
