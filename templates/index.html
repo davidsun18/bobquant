@@ -741,15 +741,16 @@
                     if (data.trades && data.trades.length > 0) {
                         // PC 端表格
                         let pcTradesHtml = `
+                            <div class="table-container">
                             <table class="pc-table">
                                 <thead>
                                     <tr>
-                                        <th>时间</th>
+                                        <th style="width:140px">时间</th>
                                         <th>股票</th>
                                         <th>操作</th>
-                                        <th>数量</th>
-                                        <th>价格</th>
-                                        <th>金额</th>
+                                        <th style="width:80px">数量</th>
+                                        <th style="width:80px">价格</th>
+                                        <th style="width:100px">金额</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -768,23 +769,25 @@
                                 const parts = timeStr.split(' ');
                                 dateStr = parts[0];
                                 timeOnly = parts[1];
+                                if (timeOnly.length >= 5) {
+                                    timeOnly = timeOnly.substring(0, 5); // 只显示 HH:MM
+                                }
                             }
                             
                             // PC 端表格行
                             pcTradesHtml += `
                                 <tr>
-                                    <td style="font-family:monospace">
-                                        <div style="font-weight:bold">${dateStr}</div>
+                                    <td style="font-family:monospace;font-size:12px">
+                                        <div style="font-weight:bold;color:#333">${dateStr}</div>
                                         <div style="font-size:11px;color:#999">${timeOnly}</div>
                                     </td>
-                                    <td>${trade.name}</td>
-                                    <td class="${actionClass}" style="font-weight:bold">${trade.action}</td>
-                                    <td>
-                                        <div>${trade.shares}</div>
-                                        <div style="font-size:11px;color:#999">股</div>
-                                    </td>
-                                    <td>
-                                        <div>¥${trade.price.toFixed(2)}</div>
+                                    <td><span style="font-weight:bold;color:#667eea">${trade.name}</span></td>
+                                    <td><span class="${actionClass}" style="font-weight:bold;padding:2px 8px;border-radius:3px;background:${actionClass === 'profit-up' ? '#ffe6e6' : '#e6ffe6'}">${trade.action}</span></td>
+                                    <td style="text-align:right;font-family:monospace">${trade.shares}</td>
+                                    <td style="text-align:right;font-family:monospace">¥${trade.price.toFixed(2)}</td>
+                                    <td style="text-align:right;font-family:monospace;font-weight:bold">¥${(trade.shares * trade.price).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                                </tr>
+                            `;
                                         <div style="font-size:11px;color:#999">每股</div>
                                     </td>
                                     <td style="font-weight:bold">${formatMoney(trade.amount)}</td>
@@ -819,7 +822,7 @@
                             `;
                         });
                         
-                        pcTradesHtml += '</tbody></table>';
+                        pcTradesHtml += '</tbody></table></div>';
                         
                         // PC 端和手机端分别显示
                         let tradesContent = '';
