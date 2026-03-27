@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOB 量化系统 - 模拟盘实时监控</title>
+    <title>BOB 量化系统 V2.0 - 模拟盘实时监控</title>
     <style>
         * {
             margin: 0;
@@ -13,413 +13,239 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            background: #f0f2f5;
             min-height: 100vh;
-            color: #2c3e50;
+            padding: 20px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 24px;
-            border-radius: 16px;
+            background: #5b7cfa;
+            padding: 20px;
+            border-radius: 12px;
             margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .header h1 {
             color: #ffffff;
-            font-size: 28px;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
-        .update-time {
+        .header-info {
             color: rgba(255,255,255,0.9);
             font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .refresh-btn {
-            background: #ffffff;
-            color: #667eea;
+            background: #4a6de5;
+            color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 13px;
-            margin-left: 10px;
-            transition: all 0.3s;
-            font-weight: 600;
         }
 
         .refresh-btn:hover {
-            background: #f0f0f0;
-            transform: translateY(-1px);
+            background: #3d5dd1;
         }
 
-        /* Assets Card */
-        .assets-card {
-            background: #ffffff;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .assets-grid {
+        /* Assets Overview */
+        .assets-overview {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 16px;
+            margin-bottom: 20px;
         }
 
-        .asset-item {
-            text-align: center;
-            padding: 16px;
-            background: #f8f9fa;
+        .asset-card {
+            background: #ffffff;
+            padding: 20px;
             border-radius: 12px;
-            transition: all 0.3s;
-            border: 1px solid #e9ecef;
-        }
-
-        .asset-item:hover {
-            background: #e9ecef;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .asset-label {
-            color: #6c757d;
+            color: #666;
             font-size: 14px;
             margin-bottom: 8px;
-            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .asset-value {
-            color: #2c3e50;
-            font-size: 20px;
+            color: #333;
+            font-size: 22px;
             font-weight: bold;
         }
 
         .asset-value.profit {
-            color: #e74c3c;
+            color: #ff4d4f;
         }
 
         .asset-value.loss {
-            color: #27ae60;
+            color: #52c41a;
         }
 
         /* Main Content */
         .content-area {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 20px;
         }
 
-        /* Cards */
+        /* Card */
         .card {
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .card-header {
-            background: #f8f9fa;
             padding: 16px 20px;
-            border-bottom: 2px solid #e9ecef;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .card-header h2 {
-            color: #667eea;
+            color: #333;
             font-size: 16px;
             font-weight: 600;
-        }
-
-        /* Positions Grid */
-        .positions-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            padding: 20px;
-        }
-
-        @media (min-width: 1400px) {
-            .positions-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .position-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 20px;
-            border-left: 5px solid #e74c3c;
-            transition: all 0.3s;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            border: 1px solid #e9ecef;
-        }
-
-        .position-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-        }
-
-        .position-card.loss {
-            border-left-color: #27ae60;
-        }
-
-        .position-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 16px;
-            padding-bottom: 14px;
-            border-bottom: 2px solid #f8f9fa;
+            align-items: center;
+            gap: 8px;
         }
 
-        .stock-info-main {
-            display: flex;
-            flex-direction: column;
+        /* Table Styles */
+        .table-container {
+            padding: 0;
         }
 
-        .stock-name {
-            color: #2c3e50;
-            font-weight: 700;
-            font-size: 18px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
 
-        .stock-code {
-            color: #95a5a6;
+        th {
+            background: #fafafa;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        td {
+            padding: 12px 16px;
             font-size: 14px;
-            margin-top: 4px;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .stock-profit {
+        tr:hover {
+            background: #fafafa;
+        }
+
+        /* Position Table Specific */
+        .position-table th,
+        .position-table td {
             text-align: right;
         }
 
-        .profit-value {
-            font-size: 22px;
-            font-weight: 800;
+        .position-table th:first-child,
+        .position-table td:first-child,
+        .position-table th:nth-child(2),
+        .position-table td:nth-child(2) {
+            text-align: left;
         }
 
-        .profit-value.profit {
-            color: #e74c3c;
+        .code-cell {
+            color: #666;
+            font-size: 13px;
         }
 
-        .profit-value.loss {
-            color: #27ae60;
-        }
-
-        .profit-percent {
-            font-size: 14px;
-            color: #7f8c8d;
-            margin-top: 4px;
+        .name-cell {
+            color: #333;
             font-weight: 500;
         }
 
-        .position-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+        .profit-cell {
+            color: #ff4d4f;
+            font-weight: 500;
         }
 
-        .stat-box {
-            background: #f8f9fa;
-            padding: 12px;
-            border-radius: 10px;
+        .profit-cell.loss {
+            color: #52c41a;
+        }
+
+        .percent-cell {
+            color: #ff4d4f;
+            font-weight: 500;
+        }
+
+        .percent-cell.loss {
+            color: #52c41a;
+        }
+
+        /* Trade Table Specific */
+        .trade-table th,
+        .trade-table td {
             text-align: center;
         }
 
-        .stat-label {
-            color: #7f8c8d;
+        .trade-table th:first-child,
+        .trade-table td:first-child {
+            text-align: left;
+        }
+
+        .trade-table th:nth-child(2),
+        .trade-table td:nth-child(2) {
+            text-align: left;
+        }
+
+        .time-cell {
+            color: #666;
             font-size: 13px;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .stat-value {
-            color: #2c3e50;
-            font-weight: 700;
-            font-size: 16px;
-            display: block;
-        }
-
-        .stat-value.profit {
-            color: #e74c3c;
-        }
-
-        .stat-value.loss {
-            color: #27ae60;
-        }
-
-        /* Trades List */
-        .trades-list {
-            padding: 20px;
-        }
-
-        .trade-item {
-            background: #ffffff;
-            padding: 16px 20px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            display: grid;
-            grid-template-columns: 70px 60px 1fr 80px 100px;
-            gap: 16px;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border: 1px solid #e9ecef;
-            transition: all 0.3s;
-        }
-
-        .trade-item:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
-
-        .trade-time {
-            text-align: center;
-        }
-
-        .trade-date {
-            color: #95a5a6;
-            font-size: 12px;
-            display: block;
-        }
-
-        .trade-time-text {
-            color: #667eea;
-            font-size: 13px;
-            font-weight: 600;
-            display: block;
-            margin-top: 2px;
-        }
-
-        .trade-shares {
-            text-align: center;
-            font-size: 15px;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-
-        .trade-info {
-            min-width: 0;
-        }
-
-        .trade-stock {
-            color: #2c3e50;
-            font-size: 16px;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .trade-action {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 700;
+            line-height: 1.4;
         }
 
         .action-buy {
-            background: #ffebee;
-            color: #e74c3c;
+            color: #ff4d4f;
+            font-weight: 500;
         }
 
         .action-sell {
-            background: #e8f5e9;
-            color: #27ae60;
-        }
-
-        .trade-price {
-            text-align: right;
-            font-size: 15px;
-            color: #7f8c8d;
-        }
-
-        .trade-amount {
-            text-align: right;
-            font-size: 17px;
-            font-weight: 800;
-            color: #667eea;
-        }
-
-        /* Charts Section */
-        .charts-section {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .chart-header {
-            color: #667eea;
-            font-size: 16px;
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .chart-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .chart-item {
-            background: #f8f9fa;
-            padding: 16px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #e9ecef;
-        }
-
-        .chart-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .chart-label {
-            color: #6c757d;
-            font-size: 13px;
-            margin-top: 8px;
+            color: #52c41a;
+            font-weight: 500;
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
-            .assets-grid {
+        @media (max-width: 1200px) {
+            .assets-overview {
                 grid-template-columns: repeat(3, 1fr);
             }
             
             .content-area {
                 grid-template-columns: 1fr;
             }
-            
-            .positions-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
 
-        @media (max-width: 600px) {
-            .assets-grid {
+        @media (max-width: 768px) {
+            .assets-overview {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .positions-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .trade-item {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto;
             }
         }
     </style>
@@ -428,36 +254,35 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>🚀 BOB 量化系统</h1>
-            <p class="update-time">
-                <span id="updateTime">--</span>
+            <h1>🚀 BOB 量化系统 V2.0 - 模拟盘实时监控</h1>
+            <div class="header-info">
+                <span id="updateTime">最后更新：--</span>
+                <span id="tradingStatus"></span>
                 <button class="refresh-btn" onclick="loadData()">🔄 刷新</button>
-            </p>
+            </div>
         </div>
 
         <!-- Assets Overview -->
-        <div class="assets-card">
-            <div class="assets-grid">
-                <div class="asset-item">
-                    <div class="asset-label">💰 总资产</div>
-                    <div class="asset-value" id="totalAssets">--</div>
-                </div>
-                <div class="asset-item">
-                    <div class="asset-label">📈 证券市值</div>
-                    <div class="asset-value" id="marketValue">--</div>
-                </div>
-                <div class="asset-item">
-                    <div class="asset-label">💵 可用现金</div>
-                    <div class="asset-value" id="cash">--</div>
-                </div>
-                <div class="asset-item">
-                    <div class="asset-label">📊 持仓盈亏</div>
-                    <div class="asset-value profit" id="positionProfit">--</div>
-                </div>
-                <div class="asset-item">
-                    <div class="asset-label">📉 当日盈亏</div>
-                    <div class="asset-value profit" id="todayProfit">--</div>
-                </div>
+        <div class="assets-overview">
+            <div class="asset-card">
+                <div class="asset-label">💰 总资产</div>
+                <div class="asset-value" id="totalAssets">--</div>
+            </div>
+            <div class="asset-card">
+                <div class="asset-label">📈 证券市值</div>
+                <div class="asset-value" id="marketValue">--</div>
+            </div>
+            <div class="asset-card">
+                <div class="asset-label">💵 可用现金</div>
+                <div class="asset-value" id="cash">--</div>
+            </div>
+            <div class="asset-card">
+                <div class="asset-label">📊 持仓盈亏</div>
+                <div class="asset-value profit" id="positionProfit">--</div>
+            </div>
+            <div class="asset-card">
+                <div class="asset-label">📉 当日盈亏</div>
+                <div class="asset-value profit" id="todayProfit">--</div>
             </div>
         </div>
 
@@ -468,8 +293,24 @@
                 <div class="card-header">
                     <h2>📋 持仓明细</h2>
                 </div>
-                <div class="positions-grid" id="positionsContent">
-                    <p style="color: #a0a0a0; text-align: center; padding: 40px;">加载中...</p>
+                <div class="table-container">
+                    <table class="position-table">
+                        <thead>
+                            <tr>
+                                <th>代码</th>
+                                <th>名称</th>
+                                <th>持仓</th>
+                                <th>成本价</th>
+                                <th>当前价</th>
+                                <th>市值</th>
+                                <th>盈亏</th>
+                                <th>盈亏%</th>
+                            </tr>
+                        </thead>
+                        <tbody id="positionsContent">
+                            <tr><td colspan="8" style="text-align: center; color: #999; padding: 40px;">加载中...</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -478,24 +319,22 @@
                 <div class="card-header">
                     <h2>📝 交易记录</h2>
                 </div>
-                <div class="trades-list" id="tradesContent">
-                    <p style="color: #a0a0a0; text-align: center; padding: 40px;">加载中...</p>
-                </div>
-        </div>
-            </div>
-        </div>
-
-        <!-- Recent Activities -->
-        <div class="charts-section">
-            <div class="chart-header">📈 近期表现</div>
-            <div class="chart-content">
-                <div class="chart-item">
-                    <div class="chart-value" id="recentProfit">0.00%</div>
-                    <div class="chart-label">近5日收益率</div>
-                </div>
-                <div class="chart-item">
-                    <div class="chart-value" id="totalTrades">0</div>
-                    <div class="chart-label">总交易次数</div>
+                <div class="table-container">
+                    <table class="trade-table">
+                        <thead>
+                            <tr>
+                                <th>时间</th>
+                                <th>股票</th>
+                                <th>操作</th>
+                                <th>数量</th>
+                                <th>价格</th>
+                                <th>金额</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tradesContent">
+                            <tr><td colspan="6" style="text-align: center; color: #999; padding: 40px;">加载中...</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -511,7 +350,21 @@
         // Format percent
         function formatPercent(value) {
             if (value === null || value === undefined) return '--';
-            return (value * 100).toFixed(2) + '%';
+            return (value >= 0 ? '+' : '') + (value * 100).toFixed(2) + '%';
+        }
+
+        // Check trading time
+        function isTradingTime() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const time = hour * 100 + minute;
+            return (time >= 915 && time <= 1130) || (time >= 1300 && time <= 1500);
+        }
+
+        // Get trading status
+        function getTradingStatus() {
+            return isTradingTime() ? '<span style="color: #ff4d4f;">● 交易中</span>' : '<span style="color: #52c41a;">● 休市中</span>';
         }
 
         // Load data
@@ -542,18 +395,19 @@
                 document.getElementById('todayProfit').className = `asset-value ${todayProfitClass}`;
                 document.getElementById('todayProfit').textContent = `${todayProfitText}${formatMoney(todayProfit)}`;
 
-                // Update time
+                // Update time and status
                 const now = new Date();
                 const timeStr = now.getFullYear() + '-' + 
                                String(now.getMonth() + 1).padStart(2, '0') + '-' + 
                                String(now.getDate()).padStart(2, '0') + ' ' + 
                                String(now.getHours()).padStart(2, '0') + ':' + 
-                               String(now.getMinutes()).padStart(2, '0');
-                const tradingStatus = getTradingStatus();
-                document.getElementById('updateTime').innerHTML = `更新时间: ${timeStr} <span style="margin-left: 10px; font-weight: 600;">${tradingStatus}</span>`;
+                               String(now.getMinutes()).padStart(2, '0') + ':' + 
+                               String(now.getSeconds()).padStart(2, '0');
+                document.getElementById('updateTime').textContent = `最后更新：${timeStr}`;
+                document.getElementById('tradingStatus').innerHTML = getTradingStatus();
 
                 // Load positions and trades
-                loadPositions();
+                loadPositions(data.positions);
                 loadTrades();
             } catch (error) {
                 console.error('Error loading data:', error);
@@ -561,64 +415,33 @@
         }
 
         // Load positions
-        async function loadPositions() {
-            try {
-                const response = await fetch('/api/account?_=' + new Date().getTime());
-                const data = await response.json();
-                
-                if (data.error || !data.positions || data.positions.length === 0) {
-                    document.getElementById('positionsContent').innerHTML = '<p style="color: #a0a0a0; text-align: center; padding: 40px;">暂无持仓</p>';
-                    return;
-                }
-
-                let html = '';
-                data.positions.forEach(pos => {
-                    const profit = pos.profit;
-                    const profitClass = profit >= 0 ? '' : 'loss';
-                    const profitText = profit >= 0 ? '+' : '';
-                    const priceClass = pos.current_price > pos.avg_price ? 'profit' : (pos.current_price < pos.avg_price ? 'loss' : '');
-                    
-                    const totalShares = pos.shares;
-                    const tradableShares = totalShares - (pos.today_bought || 0);
-                    
-                    html += `
-                        <div class="position-card ${profitClass}">
-                            <div class="position-header">
-                                <div class="stock-info-main">
-                                    <span class="stock-name">${pos.name}</span>
-                                    <span class="stock-code">${pos.code}</span>
-                                </div>
-                                <div class="stock-profit">
-                                    <span class="profit-value ${profitClass}">${profitText}${formatMoney(profit)}</span>
-                                    <span class="profit-percent">${formatPercent(pos.profit_pct)}</span>
-                                </div>
-                            </div>
-                            <div class="position-stats">
-                                <div class="stat-box">
-                                    <span class="stat-label">持仓数量</span>
-                                    <span class="stat-value">${totalShares}</span>
-                                </div>
-                                <div class="stat-box">
-                                    <span class="stat-label">可交易</span>
-                                    <span class="stat-value">${tradableShares}</span>
-                                </div>
-                                <div class="stat-box">
-                                    <span class="stat-label">当前价格</span>
-                                    <span class="stat-value ${priceClass}">¥${pos.current_price.toFixed(2)}</span>
-                                </div>
-                                <div class="stat-box">
-                                    <span class="stat-label">成本价格</span>
-                                    <span class="stat-value">¥${pos.avg_price.toFixed(2)}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                document.getElementById('positionsContent').innerHTML = html;
-            } catch (error) {
-                console.error('Error loading positions:', error);
-                document.getElementById('positionsContent').innerHTML = '<p style="color: #a0a0a0; text-align: center; padding: 40px;">加载失败</p>';
+        function loadPositions(positions) {
+            if (!positions || positions.length === 0) {
+                document.getElementById('positionsContent').innerHTML = '<tr><td colspan="8" style="text-align: center; color: #999; padding: 40px;">暂无持仓</td></tr>';
+                return;
             }
+
+            let html = '';
+            positions.forEach(pos => {
+                const profit = pos.profit;
+                const profitClass = profit >= 0 ? '' : 'loss';
+                const profitText = profit >= 0 ? '+' : '';
+                const marketValue = pos.shares * pos.current_price;
+                
+                html += `
+                    <tr>
+                        <td class="code-cell">${pos.code}</td>
+                        <td class="name-cell">${pos.name}</td>
+                        <td>${pos.shares}</td>
+                        <td>¥${pos.avg_price.toFixed(2)}</td>
+                        <td>¥${pos.current_price.toFixed(2)}</td>
+                        <td>${formatMoney(marketValue)}</td>
+                        <td class="profit-cell ${profitClass}">${profitText}${formatMoney(profit)}</td>
+                        <td class="percent-cell ${profitClass}">${formatPercent(pos.profit_pct)}</td>
+                    </tr>
+                `;
+            });
+            document.getElementById('positionsContent').innerHTML = html;
         }
 
         // Load trades
@@ -628,7 +451,7 @@
                 const data = await response.json();
                 
                 if (data.error || !data.trades || data.trades.length === 0) {
-                    document.getElementById('tradesContent').innerHTML = '<p style="color: #a0a0a0; text-align: center; padding: 40px;">暂无交易记录</p>';
+                    document.getElementById('tradesContent').innerHTML = '<tr><td colspan="6" style="text-align: center; color: #999; padding: 40px;">暂无交易记录</td></tr>';
                     return;
                 }
 
@@ -650,72 +473,44 @@
                         }
                     }
                     
-                    const amount = trade.shares * trade.price;
+                    const amount = trade.shares * trade.price
+                    ;
                     
                     html += `
-                        <div class="trade-item">
-                            <div class="trade-time">
-                                <span class="trade-date">${dateStr}</span>
-                                <span class="trade-time-text">${timeOnly}</span>
-                            </div>
-                            <div class="trade-shares">${trade.shares}股</div>
-                            <div class="trade-info">
-                                <span class="trade-stock">${trade.name}</span>
-                                <span class="trade-action ${actionClass}">${actionText}</span>
-                            </div>
-                            <div class="trade-price">¥${trade.price.toFixed(2)}</div>
-                            <div class="trade-amount">¥${amount.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
-                        </div>
+                        <tr>
+                            <td class="time-cell">${dateStr}<br>${timeOnly}</td>
+                            <td>${trade.name}</td>
+                            <td class="${actionClass}">${actionText}</td>
+                            <td>${trade.shares}</td>
+                            <td>¥${trade.price.toFixed(2)}</td>
+                            <td>${formatMoney(amount)}</td>
+                        </tr>
                     `;
                 });
                 document.getElementById('tradesContent').innerHTML = html;
             } catch (error) {
                 console.error('Error loading trades:', error);
-                document.getElementById('tradesContent').innerHTML = '<p style="color: #a0a0a0; text-align: center; padding: 40px;">加载失败</p>';
             }
         }
 
         // Auto refresh
-        let autoRefreshInterval;
-        function startAutoRefresh() {
-            if (autoRefreshInterval) {
-                clearInterval(autoRefreshInterval);
+        let autoRefreshTimeout;
+        function scheduleRefresh() {
+            if (autoRefreshTimeout) {
+                clearTimeout(autoRefreshTimeout);
             }
             
-            loadData();
-            
-            // 动态调整刷新间隔
-            const scheduleNextRefresh = () => {
-                const interval = isTradingTime() ? 5000 : 60000;
-                autoRefreshInterval = setTimeout(() => {
-                    loadData();
-                    scheduleNextRefresh();
-                }, interval);
-            };
-            
-            scheduleNextRefresh();
-        }
-
-        // Check trading time
-        function isTradingTime() {
-            const now = new Date();
-            const hour = now.getHours();
-            const minute = now.getMinutes();
-            const time = hour * 100 + minute;
-            
-            // 早盘: 09:15 - 11:30
-            // 午盘: 13:00 - 15:00
-            return (time >= 915 && time <= 1130) || (time >= 1300 && time <= 1500);
-        }
-
-        // Get trading status text
-        function getTradingStatus() {
-            return isTradingTime() ? '🔴 交易中' : '🟢 休市中';
+            const interval = isTradingTime() ? 5000 : 60000;
+            autoRefreshTimeout = setTimeout(() => {
+                loadData();
+                scheduleRefresh();
+            }, interval);
         }
 
         // Initialize
         window.onload = function() {
-            startAutoRefresh();
+            loadData();
+            scheduleRefresh();
         };
     </script>
 </body>
