@@ -161,61 +161,46 @@
             margin-bottom: 10px;
         }
         
-        
-        
-        /* 手机端卡片样式 */
-        /* PC 端卡片样式 (三列布局) */
-        .pc-positions-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
+        /* PC 端表格样式 */
+        .pc-table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
-        @media (max-width: 1200px) {
-            .pc-positions-grid {
-                grid-template-columns: repeat(2, 1fr);
+        
+        .pc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 700px;
+        }
+        
+        @media (min-width: 768px) {
+            .pc-table {
+                font-size: 15px;
             }
         }
-        .pc-position-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 0;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 4px solid #e74c3c;
+        
+        .pc-table th, .pc-table td {
+            padding: 8px 6px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
         }
-        .pc-position-card.profit-up {
-            border-left-color: #e74c3c;
+        
+        .pc-table th {
+            background: #f8f9fa;
+            color: #666;
+            font-weight: 600;
+            font-size: 13px;
+            position: sticky;
+            top: 0;
         }
-        .pc-position-card.profit-down {
-            border-left-color: #27ae60;
+        
+        .pc-table tr:hover {
+            background: #f8f9fa;
         }
-        .pc-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 12px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .pc-card-body {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 10px 12px;
-        }
-        .pc-card-item {
-            text-align: center;
-        }
-        .pc-card-label {
-            font-size: 11px;
-            color: #999;
-            margin-bottom: 4px;
-        }
-        .pc-card-value {
-            font-size: 14px;
-            font-weight: bold;
-        }
+        
+        /* 手机端卡片样式 */
         .mobile-card {
             background: #fff;
             border: 1px solid #e0e0e0;
@@ -502,7 +487,7 @@
                 <div class="mobile-only" id="mobilePositionsContent">
                     <div class="loading">加载中...</div>
                 </div>
-                <div class="pc-only" id="pcPositionsContent">
+                <div class="pc-only table-container" id="pcPositionsContent">
                     <div class="loading">加载中...</div>
                 </div>
             </div>
@@ -663,8 +648,23 @@
                     document.getElementById('todayProfit').innerHTML = 
                         `<span class="${todayClass}">${todayText}${formatMoney(todayProfit)}</span>`;
                     
-                    // PC 端卡片 (三列布局)
-                    let pcPositionsHtml = '<div class="pc-positions-grid">';
+                    // PC 端表格
+                    let pcPositionsHtml = `
+                        <table class="pc-table">
+                            <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>代码</th>
+                                    <th>持仓/可交易</th>
+                                    <th>成本价</th>
+                                    <th>现价</th>
+                                    <th>市值</th>
+                                    <th>盈亏</th>
+                                    <th>盈亏%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
                     
                     // 手机端卡片
                     let mobilePositionsHtml = '';
@@ -679,14 +679,22 @@
                         const todayBought = pos.today_bought || 0;
                         const tradableShares = totalShares - todayBought;
                         
-                        // PC 端卡片
-                        pcPositionsHtml += '<div class="pc-position-card ' + profitClass + '">';
-                        pcPositionsHtml += '<div class="pc-card-header"><div><a href="http://guba.eastmoney.com/list,' + pos.code.replace(".", "") + '.html" target="_blank" style="font-weight:bold;color:#667eea;text-decoration:none">' + pos.name + '</a><span style="font-size:11px;color:#999;margin-left:6px">' + pos.code + '</span></div></div>';
-                        pcPositionsHtml += '<div class="pc-card-body">';
-                        pcPositionsHtml += '<div class="pc-card-item"><div class="pc-card-label">持仓</div><div class="pc-card-value">' + totalShares + '</div><div class="pc-card-label" style="font-size:10px">可交易：' + tradableShares + '</div></div>';
-                        pcPositionsHtml += '<div class="pc-card-item"><div class="pc-card-label">现价</div><div class="pc-card-value ' + priceClass + '">¥' + pos.current_price.toFixed(2) + '</div><div class="pc-card-label" style="font-size:10px">成本：¥' + pos.avg_price.toFixed(2) + '</div></div>';
-                        pcPositionsHtml += '<div class="pc-card-item"><div class="pc-card-label">盈亏</div><div class="pc-card-value ' + profitClass + '">' + profitText + formatMoney(pos.profit) + '</div><div class="pc-card-label" style="font-size:10px">' + profitText + formatPercent(pos.profit_pct) + '</div></div>';
-                        pcPositionsHtml += '</div></div>';
+                        // PC 端表格行
+                        pcPositionsHtml += `
+                            <tr>
+                                <td><a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" class="stock-name-link" style="font-weight:bold">${pos.name}</a></td>
+                                <td><a href="javascript:void(0)" class="stock-code-link" onclick="showStockDetail('${pos.code}')">${pos.code}</a></td>
+                                <td>
+                                    <div style="font-weight:bold">${totalShares}</div>
+                                    <div style="font-size:11px;color:#999">可交易：${tradableShares}</div>
+                                </td>
+                                <td>¥${pos.avg_price.toFixed(2)}</td>
+                                <td class="${priceClass}" style="font-weight:bold">¥${pos.current_price.toFixed(2)}</td>
+                                <td>${formatMoney(pos.market_value)}</td>
+                                <td class="${profitClass}">${profitText}${formatMoney(pos.profit)}</td>
+                                <td class="${profitClass}">${formatPercent(pos.profit_pct)}</td>
+                            </tr>
+                        `;
                         
                         // 手机端卡片
                         mobilePositionsHtml += `
@@ -725,7 +733,7 @@
                         `;
                     });
                     
-                    pcPositionsHtml += '</div>';
+                    pcPositionsHtml += '</tbody></table>';
                     document.getElementById('pcPositionsContent').innerHTML = pcPositionsHtml;
                     document.getElementById('mobilePositionsContent').innerHTML = mobilePositionsHtml;
                 })
