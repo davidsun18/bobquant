@@ -244,8 +244,224 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+            
+            .header {
+                padding: 16px;
+                border-radius: 10px;
+            }
+            
+            .header h1 {
+                font-size: 18px;
+            }
+            
+            .header-info {
+                font-size: 12px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
             .assets-overview {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+            
+            .asset-card {
+                padding: 14px;
+                border-radius: 10px;
+            }
+            
+            .asset-label {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+            
+            .asset-value {
+                font-size: 16px;
+            }
+            
+            /* Mobile Position Cards */
+            .position-table {
+                display: none;
+            }
+            
+            .mobile-positions {
+                display: block;
+                padding: 12px;
+            }
+            
+            .mobile-position-card {
+                background: #ffffff;
+                border-radius: 12px;
+                padding: 16px;
+                margin-bottom: 12px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                border: 1px solid #e9ecef;
+                border-left: 4px solid #ff4d4f;
+            }
+            
+            .mobile-position-card.loss {
+                border-left-color: #52c41a;
+            }
+            
+            .mobile-position-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 12px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .mobile-stock-name {
+                font-size: 16px;
+                font-weight: 700;
+                color: #333;
+            }
+            
+            .mobile-stock-code {
+                font-size: 12px;
+                color: #999;
+                margin-top: 2px;
+            }
+            
+            .mobile-profit {
+                text-align: right;
+            }
+            
+            .mobile-profit-value {
+                font-size: 18px;
+                font-weight: 700;
+                color: #ff4d4f;
+            }
+            
+            .mobile-profit-value.loss {
+                color: #52c41a;
+            }
+            
+            .mobile-profit-percent {
+                font-size: 12px;
+                color: #999;
+                margin-top: 2px;
+            }
+            
+            .mobile-position-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .mobile-stat-item {
+                background: #f8f9fa;
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+            }
+            
+            .mobile-stat-label {
+                font-size: 11px;
+                color: #999;
+                margin-bottom: 4px;
+                display: block;
+            }
+            
+            .mobile-stat-value {
+                font-size: 14px;
+                font-weight: 600;
+                color: #333;
+                display: block;
+            }
+            
+            /* Mobile Trade Cards */
+            .trade-table {
+                display: none;
+            }
+            
+            .mobile-trades {
+                display: block;
+                padding: 12px;
+            }
+            
+            .mobile-trade-card {
+                background: #ffffff;
+                border-radius: 12px;
+                padding: 14px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                border: 1px solid #e9ecef;
+            }
+            
+            .mobile-trade-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            
+            .mobile-trade-time {
+                font-size: 12px;
+                color: #999;
+            }
+            
+            .mobile-trade-action {
+                padding: 3px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                font-weight: 600;
+            }
+            
+            .mobile-action-buy {
+                background: #ffebee;
+                color: #ff4d4f;
+            }
+            
+            .mobile-action-sell {
+                background: #e8f5e9;
+                color: #52c41a;
+            }
+            
+            .mobile-trade-body {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .mobile-trade-stock {
+                font-size: 15px;
+                font-weight: 600;
+                color: #333;
+            }
+            
+            .mobile-trade-details {
+                text-align: right;
+            }
+            
+            .mobile-trade-shares {
+                font-size: 13px;
+                color: #666;
+            }
+            
+            .mobile-trade-price {
+                font-size: 12px;
+                color: #999;
+                margin-top: 2px;
+            }
+            
+            .mobile-trade-amount {
+                font-size: 15px;
+                font-weight: 700;
+                color: #5b7cfa;
+                margin-top: 2px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-positions,
+            .mobile-trades {
+                display: none;
             }
         }
     </style>
@@ -311,6 +527,10 @@
                             <tr><td colspan="8" style="text-align: center; color: #999; padding: 40px;">加载中...</td></tr>
                         </tbody>
                     </table>
+                    <!-- Mobile Positions -->
+                    <div class="mobile-positions" id="mobilePositionsContent">
+                        <div style="color: #999; text-align: center; padding: 40px;">加载中...</div>
+                    </div>
                 </div>
             </div>
 
@@ -335,6 +555,10 @@
                             <tr><td colspan="6" style="text-align: center; color: #999; padding: 40px;">加载中...</td></tr>
                         </tbody>
                     </table>
+                    <!-- Mobile Trades -->
+                    <div class="mobile-trades" id="mobileTradesContent">
+                        <div style="color: #999; text-align: center; padding: 40px;">加载中...</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -416,11 +640,14 @@
 
         // Load positions
         function loadPositions(positions) {
+            // Desktop table
             if (!positions || positions.length === 0) {
                 document.getElementById('positionsContent').innerHTML = '<tr><td colspan="8" style="text-align: center; color: #999; padding: 40px;">暂无持仓</td></tr>';
+                document.getElementById('mobilePositionsContent').innerHTML = '<div style="color: #999; text-align: center; padding: 40px;">暂无持仓</div>';
                 return;
             }
 
+            // Desktop
             let html = '';
             positions.forEach(pos => {
                 const profit = pos.profit;
@@ -442,6 +669,50 @@
                 `;
             });
             document.getElementById('positionsContent').innerHTML = html;
+
+            // Mobile cards
+            let mobileHtml = '';
+            positions.forEach(pos => {
+                const profit = pos.profit;
+                const profitClass = profit >= 0 ? '' : 'loss';
+                const profitText = profit >= 0 ? '+' : '';
+                const marketValue = pos.shares * pos.current_price;
+                const tradableShares = pos.shares - (pos.today_bought || 0);
+                
+                mobileHtml += `
+                    <div class="mobile-position-card ${profitClass}">
+                        <div class="mobile-position-header">
+                            <div>
+                                <div class="mobile-stock-name">${pos.name}</div>
+                                <div class="mobile-stock-code">${pos.code}</div>
+                            </div>
+                            <div class="mobile-profit">
+                                <div class="mobile-profit-value ${profitClass}">${profitText}${formatMoney(profit)}</div>
+                                <div class="mobile-profit-percent">${formatPercent(pos.profit_pct)}</div>
+                            </div>
+                        </div>
+                        <div class="mobile-position-grid">
+                            <div class="mobile-stat-item">
+                                <span class="mobile-stat-label">持仓</span>
+                                <span class="mobile-stat-value">${pos.shares}</span>
+                            </div>
+                            <div class="mobile-stat-item">
+                                <span class="mobile-stat-label">可交易</span>
+                                <span class="mobile-stat-value">${tradableShares}</span>
+                            </div>
+                            <div class="mobile-stat-item">
+                                <span class="mobile-stat-label">现价</span>
+                                <span class="mobile-stat-value">¥${pos.current_price.toFixed(2)}</span>
+                            </div>
+                            <div class="mobile-stat-item">
+                                <span class="mobile-stat-label">成本</span>
+                                <span class="mobile-stat-value">¥${pos.avg_price.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('mobilePositionsContent').innerHTML = mobileHtml;
         }
 
         // Load trades
@@ -473,8 +744,7 @@
                         }
                     }
                     
-                    const amount = trade.shares * trade.price
-                    ;
+                    const amount = trade.shares * trade.price;
                     
                     html += `
                         <tr>
@@ -488,6 +758,46 @@
                     `;
                 });
                 document.getElementById('tradesContent').innerHTML = html;
+
+                // Mobile cards
+                let mobileHtml = '';
+                data.trades.slice(-10).reverse().forEach(trade => {
+                    const actionClass = trade.action === '买入' ? 'mobile-action-buy' : 'mobile-action-sell';
+                    const actionText = trade.action.includes('卖出') ? '卖出' : trade.action;
+                    
+                    let timeStr = trade.time || '--';
+                    let dateStr = timeStr;
+                    let timeOnly = '';
+                    
+                    if (timeStr.includes(' ')) {
+                        const parts = timeStr.split(' ');
+                        dateStr = parts[0];
+                        timeOnly = parts[1];
+                        if (timeOnly.length >= 5) {
+                            timeOnly = timeOnly.substring(0, 5);
+                        }
+                    }
+                    
+                    const amount = trade.shares * trade.price;
+                    
+                    mobileHtml += `
+                        <div class="mobile-trade-card">
+                            <div class="mobile-trade-header">
+                                <span class="mobile-trade-time">${dateStr} ${timeOnly}</span>
+                                <span class="mobile-trade-action ${actionClass}">${actionText}</span>
+                            </div>
+                            <div class="mobile-trade-body">
+                                <span class="mobile-trade-stock">${trade.name}</span>
+                                <div class="mobile-trade-details">
+                                    <span class="mobile-trade-shares">${trade.shares}股</span>
+                                    <span class="mobile-trade-price">¥${trade.price.toFixed(2)}</span>
+                                    <span class="mobile-trade-amount">¥${amount.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById('mobileTradesContent').innerHTML = mobileHtml;
             } catch (error) {
                 console.error('Error loading trades:', error);
             }
