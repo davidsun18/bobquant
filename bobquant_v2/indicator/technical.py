@@ -233,13 +233,18 @@ def momentum(df: pd.DataFrame, periods=[5, 10, 20]) -> pd.DataFrame:
     return df
 
 
-# ===== 组合指标 =====
+# ===== 组合指标（P0+P1+P2） =====
 
-def all_indicators(df: pd.DataFrame) -> pd.DataFrame:
+def all_indicators(df: pd.DataFrame, include_p2: bool = False) -> pd.DataFrame:
     """
-    计算所有P0+P1指标
+    计算所有技术指标
     
-    链式调用，一次性计算所有指标
+    Args:
+        df: 原始数据
+        include_p2: 是否包含P2高级因子
+    
+    Returns:
+        DataFrame with all indicators
     """
     if not TechnicalIndicator.validate_df(df):
         return df
@@ -255,6 +260,11 @@ def all_indicators(df: pd.DataFrame) -> pd.DataFrame:
     df = bollinger(df)
     df = kdj(df)
     df = atr(df)
+    
+    # P2: 高级指标（可选）
+    if include_p2:
+        from .advanced import AdvancedFactors
+        df = AdvancedFactors.all_p2_factors(df)
     
     return df
 
