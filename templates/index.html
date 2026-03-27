@@ -607,7 +607,7 @@
                 document.getElementById('marketValue').textContent = formatMoney(data.market_value);
                 document.getElementById('cash').textContent = formatMoney(data.cash);
                 
-                const positionProfit = data.profit;
+                const positionProfit = data.position_profit;
                 const positionProfitClass = positionProfit >= 0 ? 'profit' : 'loss';
                 const positionProfitText = positionProfit >= 0 ? '+' : '';
                 document.getElementById('positionProfit').className = `asset-value ${positionProfitClass}`;
