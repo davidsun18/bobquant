@@ -145,15 +145,21 @@
         /* Positions Grid */
         .positions-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
             padding: 16px;
+        }
+
+        @media (min-width: 1200px) {
+            .positions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .position-card {
             background: #ffffff;
             border-radius: 12px;
-            padding: 14px;
+            padding: 16px;
             border-left: 4px solid #e74c3c;
             transition: all 0.3s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -172,35 +178,73 @@
         .position-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stock-info-main {
+            display: flex;
+            flex-direction: column;
         }
 
         .stock-name {
             color: #2c3e50;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         .stock-code {
             color: #6c757d;
             font-size: 12px;
+            margin-top: 2px;
         }
 
-        .stat-row {
+        .stock-profit {
+            text-align: right;
+        }
+
+        .profit-value {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .profit-value.profit {
+            color: #e74c3c;
+        }
+
+        .profit-value.loss {
+            color: #27ae60;
+        }
+
+        .profit-percent {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 2px;
+        }
+
+        .position-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .stat-item {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
-            font-size: 13px;
+            flex-direction: column;
         }
 
         .stat-label {
             color: #6c757d;
+            font-size: 11px;
+            margin-bottom: 2px;
         }
 
         .stat-value {
             color: #2c3e50;
             font-weight: 500;
+            font-size: 13px;
         }
 
         .stat-value.profit {
@@ -218,13 +262,12 @@
 
         .trade-item {
             background: #ffffff;
-            padding: 14px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            display: grid;
-            grid-template-columns: 80px 1fr auto;
-            gap: 10px;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
             align-items: center;
+            gap: 16px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid #e9ecef;
             transition: all 0.3s;
@@ -235,42 +278,49 @@
         }
 
         .trade-time {
-            display: flex;
-            flex-direction: column;
+            min-width: 70px;
+            text-align: center;
         }
 
         .trade-date {
             color: #6c757d;
             font-size: 12px;
+            display: block;
         }
 
         .trade-time-text {
             color: #667eea;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .trade-divider {
+            width: 1px;
+            height: 40px;
+            background: #e9ecef;
         }
 
         .trade-info {
             flex: 1;
+            min-width: 0;
         }
 
         .trade-stock {
             color: #2c3e50;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
-        }
-
-        .trade-stock:hover {
-            color: #667eea;
+            display: block;
+            margin-bottom: 4px;
         }
 
         .trade-action {
             display: inline-block;
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 4px;
             font-size: 12px;
-            margin-top: 4px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .action-buy {
@@ -284,25 +334,33 @@
         }
 
         .trade-details {
-            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
         }
 
-        .trade-details .shares {
+        .trade-details-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .trade-shares {
             color: #6c757d;
-            font-size: 12px;
-        }
-
-        .trade-details .price {
-            color: #2c3e50;
             font-size: 13px;
-            margin-top: 4px;
         }
 
-        .trade-details .amount {
-            color: #667eea;
+        .trade-price {
+            color: #2c3e50;
             font-size: 14px;
+            font-weight: 500;
+        }
+
+        .trade-amount {
+            color: #667eea;
+            font-size: 16px;
             font-weight: 700;
-            margin-top: 4px;
         }
 
         /* Charts Section */
@@ -458,7 +516,7 @@
     <script>
         // Format money
         function formatMoney(amount) {
-            if (amount === null || amount === undefined || amount === 0) return '--';
+            if (amount === null || amount === undefined) return '--';
             return '¥' + amount.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
@@ -503,7 +561,8 @@
                                String(now.getDate()).padStart(2, '0') + ' ' + 
                                String(now.getHours()).padStart(2, '0') + ':' + 
                                String(now.getMinutes()).padStart(2, '0');
-                document.getElementById('updateTime').textContent = `更新时间: ${timeStr}`;
+                const tradingStatus = getTradingStatus();
+                document.getElementById('updateTime').innerHTML = `更新时间: ${timeStr} <span style="margin-left: 10px; font-weight: 600;">${tradingStatus}</span>`;
 
                 // Load positions and trades
                 loadPositions();
@@ -537,32 +596,24 @@
                     html += `
                         <div class="position-card ${profitClass}">
                             <div class="position-header">
-                                <span class="stock-name">${pos.name}</span>
-                                <span class="stock-code">${pos.code}</span>
+                                <div class="stock-info-main">
+                                    <span class="stock-name">${pos.name}</span>
+                                    <span class="stock-code">${pos.code}</span>
+                                </div>
+                                <div class="stock-profit">
+                                    <span class="profit-value ${profitClass}">${profitText}${formatMoney(profit)}</span>
+                                    <span class="profit-percent">${formatPercent(pos.profit_pct)}</span>
+                                </div>
                             </div>
-                            <div class="stat-row">
-                                <span class="stat-label">持仓</span>
-                                <span class="stat-value">${totalShares}</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">可交易</span>
-                                <span class="stat-value">${tradableShares}</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">现价</span>
-                                <span class="stat-value ${priceClass}">¥${pos.current_price.toFixed(2)}</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">成本</span>
-                                <span class="stat-value">¥${pos.avg_price.toFixed(2)}</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">盈亏</span>
-                                <span class="stat-value ${profitClass}">${profitText}${formatMoney(profit)}</span>
-                            </div>
-                            <div class="stat-row">
-                                <span class="stat-label">盈亏%</span>
-                                <span class="stat-value ${profitClass}">${formatPercent(pos.profit_pct)}</span>
+                            <div class="position-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">持仓/可交易</span>
+                                    <span class="stat-value">${totalShares} / ${tradableShares}</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">现价/成本</span>
+                                    <span class="stat-value">¥${pos.current_price.toFixed(2)} / ¥${pos.avg_price.toFixed(2)}</span>
+                                </div>
                             </div>
                         </div>
                     `;
@@ -611,14 +662,17 @@
                                 <span class="trade-date">${dateStr}</span>
                                 <span class="trade-time-text">${timeOnly}</span>
                             </div>
+                            <div class="trade-divider"></div>
                             <div class="trade-info">
                                 <span class="trade-stock">${trade.name}</span>
                                 <span class="trade-action ${actionClass}">${actionText}</span>
                             </div>
                             <div class="trade-details">
-                                <span class="trade-details shares">${trade.shares}股</span>
-                                <span class="trade-details price">¥${trade.price.toFixed(2)}</span>
-                                <span class="trade-details amount">¥${amount.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                                <div class="trade-details-row">
+                                    <span class="trade-shares">${trade.shares}股</span>
+                                    <span class="trade-price">¥${trade.price.toFixed(2)}</span>
+                                </div>
+                                <span class="trade-amount">¥${amount.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                             </div>
                         </div>
                     `;
@@ -639,9 +693,33 @@
             
             loadData();
             
-            autoRefreshInterval = setInterval(() => {
-                loadData();
-            }, 60000); // 每60秒刷新一次
+            // 动态调整刷新间隔
+            const scheduleNextRefresh = () => {
+                const interval = isTradingTime() ? 5000 : 60000;
+                autoRefreshInterval = setTimeout(() => {
+                    loadData();
+                    scheduleNextRefresh();
+                }, interval);
+            };
+            
+            scheduleNextRefresh();
+        }
+
+        // Check trading time
+        function isTradingTime() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const time = hour * 100 + minute;
+            
+            // 早盘: 09:15 - 11:30
+            // 午盘: 13:00 - 15:00
+            return (time >= 915 && time <= 1130) || (time >= 1300 && time <= 1500);
+        }
+
+        // Get trading status text
+        function getTradingStatus() {
+            return isTradingTime() ? '🔴 交易中' : '🟢 休市中';
         }
 
         // Initialize
