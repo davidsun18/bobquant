@@ -11,6 +11,8 @@ import requests
 from datetime import datetime
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 
 # 配置
 ACCOUNT_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/account_ideal.json'
