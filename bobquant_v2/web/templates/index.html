@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOB Quant V2</title>
+    <style>
+        /* ===== 基础样式 ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #f5f7fa; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        /* ===== Header ===== */
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; text-align: center; }
+        .header h1 { font-size: 24px; margin-bottom: 8px; }
+        .status { font-size: 14px; opacity: 0.9; }
+        
+        /* ===== Assets ===== */
+        .assets { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 20px; }
+        .asset { background: white; padding: 16px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .asset-label { color: #666; font-size: 13px; margin-bottom: 4px; }
+        .asset-value { font-size: 20px; font-weight: bold; color: #333; }
+        .asset-value.up { color: #e74c3c; }
+        .asset-value.down { color: #27ae60; }
+        
+        /* ===== Content ===== */
+        .content { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
+        .panel { background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden; }
+        .panel-header { padding: 16px; border-bottom: 1px solid #eee; font-weight: 600; }
+        
+        /* ===== Table ===== */
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8f9fa; padding: 12px; text-align: left; font-size: 12px; color: #666; font-weight: 500; }
+        td { padding: 12px; border-bottom: 1px solid #eee; font-size: 13px; }
+        tr:hover { background: #f8f9fa; }
+        .right { text-align: right; }
+        .up { color: #e74c3c; }
+        .down { color: #27ae60; }
+        
+        /* ===== Mobile ===== */
+        @media (max-width: 768px) {
+            .assets { grid-template-columns: repeat(2, 1fr); }
+            .content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 BOB Quant V2</h1>
+            <div class="status" id="status">加载中...</div>
+        </div>
+
+        <div class="assets" id="assets">
+            <!-- 动态填充 -->
+        </div>
+
+        <div class="content">
+            <div class="panel">
+                <div class="panel-header">📊 持仓明细</div>
+                <table id="positions">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th class="right">持仓</th>
+                            <th class="right">现价</th>
+                            <th class="right">市值</th>
+                            <th class="right">盈亏</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">📝 交易记录</div>
+                <table id="trades">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>操作</th>
+                            <th class="right">金额</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== API客户端 =====
+        const API = {
+            async fetch(endpoint) {
+                const res = await fetch(`/api${endpoint}`);
+                return res.json();
+            },
+            
+            account: () => API.fetch('/account'),
+            trades: (limit=20) => API.fetch(`/trades?limit=${limit}`),
+            status: () => API.fetch('/status')
+        };
+
+        // ===== 格式化工具 =====
+        const fmt = {
+            money: (v) => '¥' + (v || 0).toLocaleString('zh-CN', {minimumFractionDigits: 2}),
+            pct: (v) => (v >= 0 ? '+' : '') + (v * 100).toFixed(2) + '%',
+            time: (t) => t ? t.split(' ')[1]?.slice(0,5) || t : '--'
+        };
+
+        // ===== 渲染器 =====
+        const render = {
+            assets(data) {
+                const assets = [
+                    {label: '总资产', value: data.total_assets},
+                    {label: '市值', value: data.market_value},
+                    {label: '现金', value: data.cash},
+                    {label: '持仓盈亏', value: data.position_profit, isProfit: true},
+                    {label: '当日盈亏', value: data.today_profit, isProfit: true}
+                ];
+                
+                document.getElementById('assets').innerHTML = assets.map(a => {
+                    const cls = a.isProfit ? (a.value >= 0 ? 'up' : 'down') : '';
+                    const sign = a.isProfit && a.value >= 0 ? '+' : '';
+                    return `
+                        <div class="asset">
+                            <div class="asset-label">${a.label}</div>
+                            <div class="asset-value ${cls}">${sign}${fmt.money(a.value)}</div>
+                        </div>
+                    `;
+                }).join('');
+            },
+
+            positions(list) {
+                const tbody = document.querySelector('#positions tbody');
+                tbody.innerHTML = list.map(p => {
+                    const cls = p.profit >= 0 ? 'up' : 'down';
+                    return `
+                        <tr>
+                            <td>${p.name}</td>
+                            <td class="right">${p.shares}</td>
+                            <td class="right">${p.current_price.toFixed(2)}</td>
+                            <td class="right">${fmt.money(p.market_value)}</td>
+                            <td class="right ${cls}">${fmt.money(p.profit)}</td>
+                        </tr>
+                    `;
+                }).join('');
+            },
+
+            trades(list) {
+                const tbody = document.querySelector('#trades tbody');
+                tbody.innerHTML = list.map(t => {
+                    const cls = t.is_buy ? 'up' : 'down';
+                    return `
+                        <tr>
+                            <td>${fmt.time(t.time)}</td>
+                            <td><span class="${cls}">${t.action}</span> ${t.name}</td>
+                            <td class="right">${fmt.money(t.amount)}</td>
+                        </tr>
+                    `;
+                }).join('');
+            },
+
+            status(data) {
+                const status = data.is_trading_time ? '🟢 交易中' : '⚪ 休市';
+                document.getElementById('status').textContent = status + ' | V2.0';
+            }
+        };
+
+        // ===== 主程序 =====
+        async function load() {
+            try {
+                const [account, trades, status] = await Promise.all([
+                    API.account(),
+                    API.trades(10),
+                    API.status()
+                ]);
+
+                if (account) {
+                    render.assets(account);
+                    render.positions(account.positions || []);
+                }
+                
+                if (trades.trades) render.trades(trades.trades);
+                if (status) render.status(status);
+                
+            } catch (e) {
+                console.error('Load failed:', e);
+            }
+        }
+
+        // 初始化
+        load();
+        setInterval(load, 5000); // 5秒刷新
+    </script>
+</body>
+</html>
