@@ -212,27 +212,28 @@
         
         .mobile-card-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 8px;
+            margin-bottom: 6px;
+            padding-bottom: 6px;
             border-bottom: 1px solid #f0f0f0;
         }
         
         .stock-info {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
             flex: 1;
         }
         
         .stock-name {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             color: #667eea;
-            margin-bottom: 4px;
         }
         
         .stock-code {
             font-size: 11px;
-            color: #666;
+            color: #999;
         }
         
         .stock-code-link {
@@ -257,7 +258,7 @@
         .mobile-card-body {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 6px;
         }
         
         .mobile-data-item {
@@ -265,13 +266,14 @@
         }
         
         .mobile-data-label {
-            font-size: 10px;
+            font-size: 9px;
             color: #999;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
+            white-space: nowrap;
         }
         
         .mobile-data-value {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
         }
         
@@ -708,12 +710,8 @@
                             <div class="mobile-card">
                                 <div class="mobile-card-header">
                                     <div class="stock-info">
-                                        <div class="stock-name">
-                                            <a href="http://guba.eastmoney.com/list,${pos.code.replace('.', '')}.html" target="_blank" class="stock-name-link">${pos.name}</a>
-                                        </div>
-                                        <div class="stock-code">
-                                            <a href="javascript:void(0)" class="stock-code-link" onclick="showStockDetail('${pos.code}')">${pos.code}</a>
-                                        </div>
+                                        <span class="stock-name">${pos.name}</span>
+                                        <span class="stock-code">${pos.code}</span>
                                     </div>
                                 </div>
                                 <div class="mobile-card-body">
@@ -725,13 +723,13 @@
                                     </div>
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">现价</div>
-                                        <div class="mobile-data-value ${priceClass}">¥${pos.current_price.toFixed(2)}</div>
+                                        <div class="mobile-data-value ${priceClass}">${pos.current_price.toFixed(2)}</div>
                                         <div class="mobile-data-label">成本</div>
-                                        <div class="mobile-data-value">¥${pos.avg_price.toFixed(2)}</div>
+                                        <div class="mobile-data-value">${pos.avg_price.toFixed(2)}</div>
                                     </div>
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">盈亏</div>
-                                        <div class="mobile-data-value ${profitClass}">${profitText}${formatMoney(pos.profit)}</div>
+                                        <div class="mobile-data-value ${profitClass}">${formatMoney(pos.profit)}</div>
                                         <div class="mobile-data-label">盈亏%</div>
                                         <div class="mobile-data-value ${profitClass}">${formatPercent(pos.profit_pct)}</div>
                                     </div>
