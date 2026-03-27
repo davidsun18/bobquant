@@ -728,7 +728,7 @@
 
                 let html = '';
                 data.trades.slice(-20).reverse().forEach(trade => {
-                    const actionClass = trade.action === '买入' ? 'action-buy' : 'action-sell';
+                    const actionClass = trade.action.includes('买入') ? 'action-buy' : 'action-sell';
                     const actionText = trade.action.includes('卖出') ? '卖出' : trade.action;
                     
                     let timeStr = trade.time || '--';
@@ -762,7 +762,7 @@
                 // Mobile cards
                 let mobileHtml = '';
                 data.trades.slice(-10).reverse().forEach(trade => {
-                    const actionClass = trade.action === '买入' ? 'mobile-action-buy' : 'mobile-action-sell';
+                    const actionClass = trade.action.includes('买入') ? 'mobile-action-buy' : 'mobile-action-sell';
                     const actionText = trade.action.includes('卖出') ? '卖出' : trade.action;
                     
                     let timeStr = trade.time || '--';
