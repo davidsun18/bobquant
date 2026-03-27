@@ -216,7 +216,6 @@ class GridTStrategy:
                 return 0, ''  # 强势股不做 T
             
             # 计算 RSI
-            from ..indicator import technical as ta
             df_with_rsi = ta.rsi(df.copy())
             rsi = df_with_rsi['rsi'].iloc[-1]
             
