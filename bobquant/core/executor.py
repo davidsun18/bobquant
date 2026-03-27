@@ -45,6 +45,9 @@ class Executor:
         shares = normalize_shares(code, shares, 'buy')
         if shares <= 0:
             return None
+        
+        # 保存股票名称到持仓
+        stock_name = name if name else code
 
         cost = shares * price
         commission = cost * self.commission_rate
@@ -75,6 +78,7 @@ class Executor:
                 'shares': shares, 'avg_price': price, 'buy_price': price,
                 'buy_date': today_str, 'buy_time': now_str, 'commission': commission,
                 'buy_lots': [new_lot], 'add_level': 1, 'profit_taken': 0,
+                'name': stock_name,  # 保存股票名称
             })
             action_label = "买入"
 
@@ -107,6 +111,10 @@ class Executor:
         if not self.account.has_position(code):
             return None
         pos = self.account.get_position(code)
+        
+        # 如果 name 为空，尝试从持仓中获取
+        if not name:
+            name = pos.get('name', '')
 
         # v1.1.4 修复：根据板块规则和零股规则规范化股数
         sellable = get_sellable_shares(pos)

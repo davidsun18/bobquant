@@ -15,7 +15,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "伊利股份"
     },
     "sh.600016": {
       "shares": 2700,
@@ -30,7 +31,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "民生银行"
     },
     "sh.601658": {
       "shares": 5900,
@@ -45,7 +47,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "邮储银行"
     },
     "sh.603198": {
       "shares": 300,
@@ -60,7 +63,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "迎驾贡酒"
     },
     "sh.603369": {
       "shares": 400,
@@ -75,7 +79,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "今世缘"
     },
     "sh.600085": {
       "shares": 300,
@@ -90,7 +95,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "同仁堂"
     },
     "sh.600436": {
       "shares": 300,
@@ -105,7 +111,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "片仔癀"
     },
     "sh.600690": {
       "shares": 1200,
@@ -127,7 +134,8 @@
       ],
       "add_level": 2,
       "profit_taken": 0,
-      "commission": 9.828
+      "commission": 9.828,
+      "name": "海尔智家"
     },
     "sh.600547": {
       "shares": 400,
@@ -142,7 +150,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "山东黄金"
     },
     "sh.601398": {
       "shares": 4100,
@@ -157,7 +166,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "工商银行"
     },
     "sh.601288": {
       "shares": 4500,
@@ -172,7 +182,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "农业银行"
     },
     "sh.601939": {
       "shares": 3200,
@@ -187,7 +198,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "建设银行"
     },
     "sh.601988": {
       "shares": 5400,
@@ -202,7 +214,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "中国银行"
     },
     "sh.601328": {
       "shares": 4400,
@@ -217,7 +230,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "交通银行"
     },
     "sz.002371": {
       "shares": 100,
@@ -232,7 +246,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "北方华创"
     },
     "sz.002156": {
       "shares": 600,
@@ -247,7 +262,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "通富微电"
     },
     "sz.002415": {
       "shares": 900,
@@ -262,7 +278,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "海康威视"
     },
     "sh.600584": {
       "shares": 700,
@@ -277,7 +294,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "长电科技"
     },
     "sh.603501": {
       "shares": 200,
@@ -292,7 +310,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "韦尔股份"
     },
     "sz.002709": {
       "shares": 400,
@@ -307,7 +326,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "天赐材料"
     },
     "sh.600276": {
       "shares": 400,
@@ -322,7 +342,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "恒瑞医药"
     },
     "sh.603259": {
       "shares": 300,
@@ -337,7 +358,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "药明康德"
     },
     "sh.600028": {
       "shares": 5000,
@@ -352,7 +374,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "中国石化"
     },
     "sh.600309": {
       "shares": 300,
@@ -367,7 +390,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "万华化学"
     },
     "sh.601138": {
       "shares": 900,
@@ -389,7 +413,8 @@
       ],
       "add_level": 2,
       "profit_taken": 0,
-      "commission": 9.816
+      "commission": 9.816,
+      "name": "工业富联"
     },
     "sz.002466": {
       "shares": 500,
@@ -404,7 +429,8 @@
         }
       ],
       "add_level": 1,
-      "profit_taken": 0
+      "profit_taken": 0,
+      "name": "天齐锂业"
     }
   },
   "snapshot": {
