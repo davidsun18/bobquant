@@ -249,8 +249,8 @@
         
         .mobile-card-body {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
         }
         
         .mobile-data-item {
@@ -713,18 +713,24 @@
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">持仓</div>
                                         <div class="mobile-data-value">${totalShares}</div>
+                                    </div>
+                                    <div class="mobile-data-item">
                                         <div class="mobile-data-label">可交易</div>
                                         <div class="mobile-data-value">${tradableShares}</div>
                                     </div>
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">现价</div>
                                         <div class="mobile-data-value ${priceClass}">¥${pos.current_price.toFixed(2)}</div>
+                                    </div>
+                                    <div class="mobile-data-item">
                                         <div class="mobile-data-label">成本</div>
                                         <div class="mobile-data-value">¥${pos.avg_price.toFixed(2)}</div>
                                     </div>
                                     <div class="mobile-data-item">
                                         <div class="mobile-data-label">盈亏</div>
                                         <div class="mobile-data-value ${profitClass}">${profitText}${formatMoney(pos.profit)}</div>
+                                    </div>
+                                    <div class="mobile-data-item">
                                         <div class="mobile-data-label">盈亏%</div>
                                         <div class="mobile-data-value ${profitClass}">${formatPercent(pos.profit_pct)}</div>
                                     </div>
