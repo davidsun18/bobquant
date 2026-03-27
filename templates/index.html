@@ -146,11 +146,11 @@
         .positions-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            padding: 16px;
+            gap: 20px;
+            padding: 20px;
         }
 
-        @media (min-width: 1200px) {
+        @media (min-width: 1400px) {
             .positions-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -158,17 +158,17 @@
 
         .position-card {
             background: #ffffff;
-            border-radius: 12px;
-            padding: 16px;
-            border-left: 4px solid #e74c3c;
+            border-radius: 16px;
+            padding: 20px;
+            border-left: 5px solid #e74c3c;
             transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             border: 1px solid #e9ecef;
         }
 
         .position-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
 
         .position-card.loss {
@@ -179,9 +179,9 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 12px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #f8f9fa;
         }
 
         .stock-info-main {
@@ -191,14 +191,14 @@
 
         .stock-name {
             color: #2c3e50;
-            font-weight: 600;
-            font-size: 15px;
+            font-weight: 700;
+            font-size: 18px;
         }
 
         .stock-code {
-            color: #6c757d;
-            font-size: 12px;
-            margin-top: 2px;
+            color: #95a5a6;
+            font-size: 14px;
+            margin-top: 4px;
         }
 
         .stock-profit {
@@ -206,8 +206,8 @@
         }
 
         .profit-value {
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
         }
 
         .profit-value.profit {
@@ -219,32 +219,37 @@
         }
 
         .profit-percent {
-            font-size: 12px;
-            color: #6c757d;
-            margin-top: 2px;
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 4px;
+            font-weight: 500;
         }
 
         .position-stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
-        .stat-item {
-            display: flex;
-            flex-direction: column;
+        .stat-box {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
         }
 
         .stat-label {
-            color: #6c757d;
-            font-size: 11px;
-            margin-bottom: 2px;
+            color: #7f8c8d;
+            font-size: 13px;
+            margin-bottom: 6px;
+            display: block;
         }
 
         .stat-value {
             color: #2c3e50;
-            font-weight: 500;
-            font-size: 13px;
+            font-weight: 700;
+            font-size: 16px;
+            display: block;
         }
 
         .stat-value.profit {
@@ -257,17 +262,18 @@
 
         /* Trades List */
         .trades-list {
-            padding: 16px;
+            padding: 20px;
         }
 
         .trade-item {
             background: #ffffff;
-            padding: 16px;
+            padding: 16px 20px;
             border-radius: 12px;
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 70px 60px 1fr 80px 100px;
             gap: 16px;
+            align-items: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border: 1px solid #e9ecef;
             transition: all 0.3s;
@@ -278,89 +284,71 @@
         }
 
         .trade-time {
-            min-width: 70px;
             text-align: center;
         }
 
         .trade-date {
-            color: #6c757d;
+            color: #95a5a6;
             font-size: 12px;
             display: block;
         }
 
         .trade-time-text {
             color: #667eea;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             display: block;
             margin-top: 2px;
         }
 
-        .trade-divider {
-            width: 1px;
-            height: 40px;
-            background: #e9ecef;
+        .trade-shares {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+            color: #2c3e50;
         }
 
         .trade-info {
-            flex: 1;
             min-width: 0;
         }
 
         .trade-stock {
             color: #2c3e50;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             display: block;
             margin-bottom: 4px;
         }
 
         .trade-action {
             display: inline-block;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 13px;
+            font-weight: 700;
         }
 
         .action-buy {
-            background: rgba(39, 174, 96, 0.15);
-            color: #27ae60;
-        }
-
-        .action-sell {
-            background: rgba(231, 76, 60, 0.15);
+            background: #ffebee;
             color: #e74c3c;
         }
 
-        .trade-details {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
-        }
-
-        .trade-details-row {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .trade-shares {
-            color: #6c757d;
-            font-size: 13px;
+        .action-sell {
+            background: #e8f5e9;
+            color: #27ae60;
         }
 
         .trade-price {
-            color: #2c3e50;
-            font-size: 14px;
-            font-weight: 500;
+            text-align: right;
+            font-size: 15px;
+            color: #7f8c8d;
         }
 
         .trade-amount {
+            text-align: right;
+            font-size: 17px;
+            font-weight: 800;
             color: #667eea;
-            font-size: 16px;
-            font-weight: 700;
         }
 
         /* Charts Section */
@@ -606,13 +594,21 @@
                                 </div>
                             </div>
                             <div class="position-stats">
-                                <div class="stat-item">
-                                    <span class="stat-label">持仓/可交易</span>
-                                    <span class="stat-value">${totalShares} / ${tradableShares}</span>
+                                <div class="stat-box">
+                                    <span class="stat-label">持仓数量</span>
+                                    <span class="stat-value">${totalShares}</span>
                                 </div>
-                                <div class="stat-item">
-                                    <span class="stat-label">现价/成本</span>
-                                    <span class="stat-value">¥${pos.current_price.toFixed(2)} / ¥${pos.avg_price.toFixed(2)}</span>
+                                <div class="stat-box">
+                                    <span class="stat-label">可交易</span>
+                                    <span class="stat-value">${tradableShares}</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">当前价格</span>
+                                    <span class="stat-value ${priceClass}">¥${pos.current_price.toFixed(2)}</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">成本价格</span>
+                                    <span class="stat-value">¥${pos.avg_price.toFixed(2)}</span>
                                 </div>
                             </div>
                         </div>
@@ -662,18 +658,13 @@
                                 <span class="trade-date">${dateStr}</span>
                                 <span class="trade-time-text">${timeOnly}</span>
                             </div>
-                            <div class="trade-divider"></div>
+                            <div class="trade-shares">${trade.shares}股</div>
                             <div class="trade-info">
                                 <span class="trade-stock">${trade.name}</span>
                                 <span class="trade-action ${actionClass}">${actionText}</span>
                             </div>
-                            <div class="trade-details">
-                                <div class="trade-details-row">
-                                    <span class="trade-shares">${trade.shares}股</span>
-                                    <span class="trade-price">¥${trade.price.toFixed(2)}</span>
-                                </div>
-                                <span class="trade-amount">¥${amount.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
-                            </div>
+                            <div class="trade-price">¥${trade.price.toFixed(2)}</div>
+                            <div class="trade-amount">¥${amount.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
                         </div>
                     `;
                 });
