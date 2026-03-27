@@ -51,6 +51,7 @@ class Executor:
 
         cost = shares * price
         commission = cost * self.commission_rate
+        commission = max(commission, 5)  # 最低 5 元
         total_cost = cost + commission
 
         if total_cost > self.account.cash:
@@ -131,7 +132,9 @@ class Executor:
 
         revenue = shares * price
         commission = revenue * self.commission_rate
-        net_revenue = revenue - commission
+        commission = max(commission, 5)  # 最低 5 元
+        stamp_duty = revenue * 0.001  # 印花税千一（卖出收）
+        net_revenue = revenue - commission - stamp_duty
         cost_basis = shares * pos['avg_price']
         profit = net_revenue - cost_basis
         profit_pct = (profit / cost_basis * 100) if cost_basis > 0 else 0

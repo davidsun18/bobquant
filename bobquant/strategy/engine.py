@@ -212,10 +212,14 @@ class GridTStrategy:
             return 0, ''
 
         target_level = info['count'] + 1
-        trigger = self.config.get('t_grid_up', 0.02) + (target_level - 1) * self.config.get('t_grid_step', 0.015)
+        trigger = self.config.get('t_grid_up', 0.03) + (target_level - 1) * self.config.get('t_grid_step', 0.015)
 
         if intraday >= trigger:
-            shares = int(sellable * self.config.get('t_sell_ratio', 0.2) / 100) * 100
+            # 优化：提高做 T 数量，降低手续费占比
+            sell_ratio = self.config.get('t_sell_ratio', 0.5)  # 50% 仓位
+            shares = int(sellable * sell_ratio / 100) * 100
+            # 确保最小 300 股
+            shares = max(shares, 300)
             if shares >= 100:
                 return shares, f'网格做 T L{target_level} (日内+{intraday*100:.1f}%，触发{trigger*100:.1f}%)'
         return 0, ''
@@ -233,7 +237,7 @@ class GridTStrategy:
             return 0, ''
 
         last_price = info['sells'][-1]['price']
-        dip = self.config.get('t_buyback_dip', 0.01)
+        dip = self.config.get('t_buyback_dip', 0.005)  # 回落 0.5% 接回
         if current_price <= last_price * (1 - dip):
             return info['total_sold'], f'做 T 接回 (卖¥{last_price:.2f}→¥{current_price:.2f})'
         return 0, ''

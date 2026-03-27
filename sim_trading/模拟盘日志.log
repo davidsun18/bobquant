@@ -50110,3 +50110,90 @@ python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/ru
 [2026-03-27 10:19:25]   ⚪ 海康威视: 已持仓 L1，等待加仓条件
 python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
 [2026-03-27 10:19:27]   ⚪ 工业富联: 已持仓 L2，等待加仓条件
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+[2026-03-27 10:27:14] 🚀 BobQuant v1.0 启动
+[2026-03-27 10:27:14] 📍 模拟盘模式
+[2026-03-27 10:27:14] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-27 10:27:14] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-27 10:27:14]   📌 Phase 1: 网格做 T...
+[2026-03-27 10:27:15]   🔴 🔄 做 T 卖出 山东黄金: 300股 @ ¥38.10 (剩余100股)
+[2026-03-27 10:27:15]      盈亏：¥30.85 (+0.3%)
+[2026-03-27 10:27:15]      原因：网格做 T L1 (日内+2.8%，触发2.0%)
+[2026-03-27 10:27:15]   🔴 🔄 做 T 卖出 天赐材料: 300股 @ ¥45.12 (剩余100股)
+[2026-03-27 10:27:15]      盈亏：¥603.70 (+4.7%)
+[2026-03-27 10:27:15]      原因：网格做 T L1 (日内+2.8%，触发2.0%)
+[2026-03-27 10:27:15]   🔴 🔄 做 T 卖出 恒瑞医药: 300股 @ ¥54.58 (剩余100股)
+[2026-03-27 10:27:15]      盈亏：¥545.44 (+3.5%)
+[2026-03-27 10:27:15]      原因：网格做 T L1 (日内+6.4%，触发2.0%)
+[2026-03-27 10:27:15]   🔴 🔄 做 T 卖出 药明康德: 300股 @ ¥96.43 (清仓)
+[2026-03-27 10:27:15]      盈亏：¥550.61 (+1.9%)
+[2026-03-27 10:27:15]      原因：网格做 T L1 (日内+2.7%，触发2.0%)
+[2026-03-27 10:27:15]   📌 Phase 2: 风控...
+[2026-03-27 10:27:15]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+[2026-03-27 10:27:16]   ⚪ 工商银行: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:17]   ⚪ 农业银行: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:18]   ⚪ 海康威视: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:19]   ⚪ 工业富联: 已持仓 L2，等待加仓条件
+[2026-03-27 10:27:19]   ⚪ 韦尔股份: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:22]   ⚪ 海尔智家: 已持仓 L2，等待加仓条件
+[2026-03-27 10:27:22]   ⚪ 伊利股份: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:22]   ⚪ 中国石化: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:22]   ✅ 交易记录已同步
+[2026-03-27 10:27:22]   ✅ 执行 4 笔交易
+[2026-03-27 10:27:25] 
+============================================================
+[2026-03-27 10:27:25] 📊 账户汇总
+[2026-03-27 10:27:25] ============================================================
+[2026-03-27 10:27:25] 总资产：¥1,005,641 (现金¥396,923 + 持仓¥608,718)
+[2026-03-27 10:27:25] 盈亏：¥+5,641 (+0.56%)
+[2026-03-27 10:27:25] 持仓：25 只
+[2026-03-27 10:27:25] ============================================================
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
+[2026-03-27 10:27:55] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-27 10:27:55] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-27 10:27:55]   📌 Phase 1: 网格做 T...
+[2026-03-27 10:27:55]   🔴 🔄 做 T 卖出 山东黄金: 100股 @ ¥38.12 (清仓)
+[2026-03-27 10:27:55]      盈亏：¥9.19 (+0.2%)
+[2026-03-27 10:27:55]      原因：网格做 T L1 (日内+2.9%，触发2.0%)
+[2026-03-27 10:27:55]   🔴 🔄 做 T 卖出 天赐材料: 100股 @ ¥45.19 (清仓)
+[2026-03-27 10:27:55]      盈亏：¥205.48 (+4.8%)
+[2026-03-27 10:27:55]      原因：网格做 T L1 (日内+2.9%，触发2.0%)
+[2026-03-27 10:27:55]   🔴 🔄 做 T 卖出 恒瑞医药: 100股 @ ¥54.57 (清仓)
+[2026-03-27 10:27:55]      盈亏：¥178.54 (+3.4%)
+[2026-03-27 10:27:55]      原因：网格做 T L1 (日内+6.4%，触发2.0%)
+[2026-03-27 10:27:55]   🔴 🔄 做 T 卖出 天齐锂业: 300股 @ ¥54.90 (剩余200股)
+[2026-03-27 10:27:55]      盈亏：¥455.29 (+2.8%)
+[2026-03-27 10:27:55]      原因：网格做 T L1 (日内+2.4%，触发2.0%)
+[2026-03-27 10:27:55]   📌 Phase 2: 风控...
+[2026-03-27 10:27:55]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+[2026-03-27 10:27:56]   ⚪ 工商银行: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:57]   ⚪ 农业银行: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:57]   ⚪ 海康威视: 已持仓 L1，等待加仓条件
+[2026-03-27 10:27:59]   ⚪ 工业富联: 已持仓 L2，等待加仓条件
+[2026-03-27 10:27:59]   ⚪ 韦尔股份: 已持仓 L1，等待加仓条件
+[2026-03-27 10:28:03]   ⚪ 海尔智家: 已持仓 L2，等待加仓条件
+[2026-03-27 10:28:03]   ⚪ 伊利股份: 已持仓 L1，等待加仓条件
+[2026-03-27 10:28:05]   ⚪ 中国石化: 已持仓 L1，等待加仓条件
+[2026-03-27 10:28:05]   ✅ 交易记录已同步
+[2026-03-27 10:28:05]   ✅ 执行 4 笔交易
+[2026-03-27 10:28:07] 
+============================================================
+[2026-03-27 10:28:07] 📊 账户汇总
+[2026-03-27 10:28:07] ============================================================
+[2026-03-27 10:28:07] 总资产：¥1,005,709 (现金¥427,127 + 持仓¥578,582)
+[2026-03-27 10:28:07] 盈亏：¥+5,709 (+0.57%)
+[2026-03-27 10:28:07] 持仓：22 只
+[2026-03-27 10:28:07] ============================================================
+python3: can't open file '/home/openclaw/.openclaw/workspace/quant_strategies/run.py': [Errno 2] No such file or directory
