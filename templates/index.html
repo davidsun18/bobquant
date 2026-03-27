@@ -74,6 +74,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             text-align: center;
         }
+        
+        .asset-card:last-child {
+            margin-right: 0;
+        }
 
         .asset-card h3 {
             color: #666;
@@ -104,7 +108,7 @@
         /* Main Content Area */
         .content-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1fr 2fr;
             gap: 20px;
         }
 
@@ -126,22 +130,160 @@
         }
 
         /* Content Containers */
-        .positions-section, .trades-section {
+        .positions-section {
             padding: 16px;
+            overflow: hidden;
+        }
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        @media (max-width: 1200px) {
+            .positions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 900px) {
+            .positions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .trades-section {
+            padding: 16px;
+        }
+        .trades-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .trade-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            align-items: center;
+        }
+        .trade-time {
+            display: flex;
+            flex-direction: column;
+        }
+        .trade-time .date {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+        }
+        .trade-time .time {
+            font-size: 12px;
+            color: #999;
+        }
+        .trade-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .trade-info .stock-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .trade-info .action {
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+        .trade-details {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+        .trade-details .price {
+            font-size: 13px;
+            color: #666;
+        }
+        .trade-details .amount {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 4px;
+        }
+
+        .position-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 12px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .position-card.profit-positive {
+            border-left-color: #e74c3c;
+        }
+        
+        .position-card.profit-negative {
+            border-left-color: #27ae60;
+        }
+        
+        .position-header {
+            margin-bottom: 8px;
+        }
+        
+        .stock-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stock-name-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .stock-code {
+            color: #999;
+            font-size: 12px;
+            margin-left: 6px;
+        }
+        
+        .position-body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item .label {
+            color: #999;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+        
+        .stat-item .value {
+            font-size: 13px;
+            font-weight: bold;
         }
 
         /* Loading State */
         .loading {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 30px;
             color: #999;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         /* Mobile Layout */
         @media (max-width: 1024px) {
             .assets-overview {
                 grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .positions-grid {
+                grid-template-columns: 1fr;
             }
         }
 
