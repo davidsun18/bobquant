@@ -761,114 +761,34 @@
             document.getElementById('stockModal').style.display = 'block';
             document.getElementById('modalTitle').textContent = code + ' 股票详情';
             document.getElementById('modalBody').innerHTML = '<div class="loading">加载中...</div>';
-            
             document.body.style.overflow = 'hidden';
             
             fetch('/api/stock/' + code + '?_=' + new Date().getTime())
                 .then(response => response.json())
                 .then(data => {
                     if (data.error) {
-                        document.getElementById('modalBody').innerHTML = '<p style="color:red;text-align:center;padding:20px;font-size:13px">' + data.error + '</p>';
+                        document.getElementById('modalBody').innerHTML = '<p style="color:red;">' + data.error + '</p>';
                         return;
                     }
                     
-                    const profitClass = data.profit >= 0 ? 'profit-positive' : 'profit-negative';
+                    const profitClass = data.profit >= 0 ? 'profit-positive' : 'profit-down';
                     const profitText = data.profit >= 0 ? '+' : '';
                     
-                    let html = `
-                        <div class="stock-detail-info">
-                            <div class="detail-card">
-                                <h4>股票代码</h4>
-                                <div class="value">${data.code}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>股票名称</h4>
-                                <div class="value">${data.name}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>持仓数量</h4>
-                                <div class="value">${data.shares} 股</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>成本价</h4>
-                                <div class="value">¥${data.avg_price.toFixed(2)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>当前价</h4>
-                                <div class="value">${data.current_price >= data.avg_price ? '<span class="profit-positive">¥'+data.current_price.toFixed(2)+'</span>' : '<span class="profit-negative">¥'+data.current_price.toFixed(2)+'</span>'}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>持仓市值</h4>
-                                <div class="value">${formatMoney(data.market_value)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>持仓成本</h4>
-                                <div class="value">${formatMoney(data.cost)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>盈亏金额</h4>
-                                <div class="value ${profitClass}">${profitText}${formatMoney(data.profit)}</div>
-                            </div>
-                            <div class="detail-card">
-                                <h4>盈亏比例</h4>
-                                <div class="value ${profitClass}">${formatPercent(data.profit_pct)}</div>
-                            </div>
-                        </div>
-                    `;
-                    
-                    if (data.trades && data.trades.length > 0) {
-                        html += `
-                            <h3 style="color:#667eea;margin:15px 0 10px 0;font-size:14px">📝 交易记录</h3>
-                            <div class="table-container">
-                                <table style="width:100%;border-collapse:collapse;font-size:12px">
-                                    <thead>
-                                        <tr>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">时间</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">操作</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">数量</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">价格</th>
-                                            <th style="padding:8px 4px;text-align:left;background:#f8f9fa;color:#666;font-weight:600;font-size:11px">金额</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                        `;
-                        
-                        data.trades.forEach(trade => {
-                            const actionClass = trade.action === '买入' ? 'profit-up' : 'profit-down';
-                            let timeStr = trade.time || '--';
-                            let dateStr = timeStr;
-                            let timeOnly = '';
-                            
-                            if (timeStr.includes(' ')) {
-                                const parts = timeStr.split(' ');
-                                dateStr = parts[0];
-                                timeOnly = parts[1];
-                            }
-                            
-                            html += `
-                                <tr style="border-bottom:1px solid #eee">
-                                    <td style="padding:8px 4px;font-family:monospace">
-                                        <div style="font-weight:bold;font-size:11px">${dateStr}</div>
-                                        <div style="font-size:10px;color:#999">${timeOnly}</div>
-                                    </td>
-                                    <td style="padding:8px 4px" class="${actionClass}" style="font-weight:bold">${trade.action}</td>
-                                    <td style="padding:8px 4px">${trade.shares}</td>
-                                    <td style="padding:8px 4px">¥${trade.price.toFixed(2)}</td>
-                                    <td style="padding:8px 4px;font-weight:bold">${formatMoney(trade.amount)}</td>
-                                </tr>
-                            `;
-                        });
-                        
-                        html += '</tbody></table></div>';
-                    } else {
-                        html += '<p style="color:#666;text-align:center;padding:20px;font-size:13px">暂无交易记录</p>';
-                    }
+                    let html = '<div class="stock-detail-info">';
+                    html += '<div class="detail-card"><h4>股票代码</h4><div class="value">' + data.code + '</div></div>';
+                    html += '<div class="detail-card"><h4>股票名称</h4><div class="value">' + data.name + '</div></div>';
+                    html += '<div class="detail-card"><h4>持仓数量</h4><div class="value">' + data.shares + ' 股</div></div>';
+                    html += '<div class="detail-card"><h4>成本价</h4><div class="value">¥' + data.avg_price.toFixed(2) + '</div></div>';
+                    html += '<div class="detail-card"><h4>当前价</h4><div class="value">' + data.current_price.toFixed(2) + '</div></div>';
+                    html += '<div class="detail-card"><h4>持仓市值</h4><div class="value">' + formatMoney(data.market_value) + '</div></div>';
+                    html += '<div class="detail-card"><h4>盈亏金额</h4><div class="value ' + profitClass + '">' + profitText + formatMoney(data.profit) + '</div></div>';
+                    html += '<div class="detail-card"><h4>盈亏比例</h4><div class="value ' + profitClass + '">' + formatPercent(data.profit_pct) + '</div></div>';
+                    html += '</div>';
                     
                     document.getElementById('modalBody').innerHTML = html;
                 })
                 .catch(error => {
-                    console.error('Error loading stock detail:', error);
-                    document.getElementById('modalBody').innerHTML = '<p style="color:red;text-align:center;padding:20px;font-size:13px">加载失败</p>';
+                    document.getElementById('modalBody').innerHTML = '<p style="color:red;">加载失败</p>';
                 });
         }
         
