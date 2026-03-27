@@ -198,10 +198,12 @@ def api_account():
     total_assets = cash + market_value
     total_profit = total_assets - initial  # 总盈亏
     
-    # 当日盈亏：今天开盘后产生的盈亏（今天还没开盘，所以为 0）
-    # 如果有昨日收盘数据，可以计算：当前市值 - 昨日收盘市值
-    # 目前简化为 0，等今天收盘后保存昨日数据再计算
-    profit_today = 0
+    # 当日盈亏 = 从今日交易记录中统计已实现盈亏
+    trades = load_trades()
+    profit_today = 0.0
+    for t in trades:
+        if t.get('profit'):
+            profit_today += t.get('profit', 0)
     
     return jsonify({
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
@@ -211,7 +213,7 @@ def api_account():
         'total_assets': total_assets,
         'total_profit': total_profit,  # 总盈亏（从建仓到现在）
         'position_profit': total_profit,  # 持仓盈亏（浮动盈亏）
-        'profit_today': profit_today,  # 当日盈亏（今天还没开盘，为 0）
+        'profit_today': profit_today,  # 当日盈亏（今日已实现盈亏）
         'positions': position_list
     })
 
