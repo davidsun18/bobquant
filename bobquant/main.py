@@ -105,6 +105,9 @@ def run_check():
         # v1.1.2 修复：如果已触发风控，跳过做 T 避免冲突
         if code in risk_checked:
             continue
+        
+        # 获取历史数据 (用于趋势判断)
+        df = data.get_history(code, days=30)
 
         # 高抛 (v2.2.18: 传入 df 用于趋势判断)
         sell_n, sell_reason = grid_t.check_sell(code, quote, sellable, df)
