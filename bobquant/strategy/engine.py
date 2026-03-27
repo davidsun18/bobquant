@@ -188,7 +188,7 @@ class GridTStrategy:
             self._state = {}
             self._state_date = today
 
-    def check_sell(self, code, quote, sellable):
+    def check_sell(self, code, quote, sellable, df=None):
         """检查是否应该网格高抛，返回 (shares_to_sell, reason) 或 (0, '')"""
         if sellable <= 0 or quote['open'] <= 0:
             return 0, ''
@@ -204,6 +204,25 @@ class GridTStrategy:
         
         if not (is_morning or is_afternoon):
             return 0, ''  # 非交易时段不做 T
+        
+        # v2.2.18 优化：趋势判断，避免卖飞强势股
+        if df is not None and len(df) >= 10:
+            # 计算 5 日均线
+            ma5 = df['close'].rolling(window=5).mean().iloc[-1]
+            current = quote['current']
+            
+            # 股价在 5 日均线上方 2% 以上 → 强势上涨，不做 T
+            if current > ma5 * 1.02:
+                return 0, ''  # 强势股不做 T
+            
+            # 计算 RSI
+            from ..indicator import technical as ta
+            df_with_rsi = ta.rsi(df.copy())
+            rsi = df_with_rsi['rsi'].iloc[-1]
+            
+            # RSI < 65 → 未超买，不做 T
+            if rsi < 65:
+                return 0, ''  # 未超买不做 T
 
         intraday = (quote['current'] - quote['open']) / quote['open']
         info = self._state.get(code, {'sells': [], 'total_sold': 0, 'count': 0, 'bought_back': False})

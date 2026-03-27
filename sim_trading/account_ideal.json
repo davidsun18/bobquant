@@ -1,5 +1,5 @@
 {
-  "cash": 427127.1635,
+  "cash": 506841.4125,
   "initial_capital": 1000000,
   "positions": {
     "sh.600887": {
@@ -217,22 +217,6 @@
       "profit_taken": 0,
       "name": "交通银行"
     },
-    "sz.002371": {
-      "shares": 100,
-      "avg_price": 459.56,
-      "current_price": 446.11,
-      "buy_lots": [
-        {
-          "shares": 100,
-          "price": 459.56,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0,
-      "name": "北方华创"
-    },
     "sz.002156": {
       "shares": 600,
       "avg_price": 43.6,
@@ -313,22 +297,6 @@
       "profit_taken": 0,
       "name": "中国石化"
     },
-    "sh.600309": {
-      "shares": 300,
-      "avg_price": 78.0,
-      "current_price": 79.23,
-      "buy_lots": [
-        {
-          "shares": 300,
-          "price": 78.0,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0,
-      "name": "万华化学"
-    },
     "sh.601138": {
       "shares": 900,
       "avg_price": 49.946666666666665,
@@ -351,22 +319,6 @@
       "profit_taken": 0,
       "commission": 9.816,
       "name": "工业富联"
-    },
-    "sz.002466": {
-      "shares": 200,
-      "avg_price": 53.3,
-      "current_price": 54.2,
-      "buy_lots": [
-        {
-          "shares": 200,
-          "price": 53.3,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0,
-      "name": "天齐锂业"
     }
   },
   "snapshot": {
@@ -656,7 +608,52 @@
       "reason": "网格做 T L1 (日内+2.4%，触发2.0%)",
       "trade_id": "B000000024",
       "status": "completed"
+    },
+    {
+      "time": "2026-03-27 10:28:38",
+      "code": "sh.600309",
+      "name": "万华化学",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 79.64,
+      "amount": 23892.0,
+      "commission": 11.95,
+      "profit": 456.16,
+      "profit_pct": 1.95,
+      "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
+      "trade_id": "B000000025",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-27 10:28:38",
+      "code": "sz.002466",
+      "name": "天齐锂业",
+      "action": "🔄 做 T 卖出",
+      "shares": 200,
+      "price": 55.01,
+      "amount": 11002.0,
+      "commission": 5.5,
+      "profit": 325.5,
+      "profit_pct": 3.05,
+      "reason": "网格做 T L1 (日内+2.6%，触发2.0%)",
+      "trade_id": "B000000026",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-27 10:50:00",
+      "code": "sz.002371",
+      "name": "北方华创",
+      "action": "🔄 做 T 卖出",
+      "shares": 100,
+      "price": 449.4,
+      "amount": 44940.0,
+      "commission": 22.47,
+      "profit": -1083.41,
+      "profit_pct": -2.36,
+      "reason": "网格做 T L1 (日内+2.3%，触发2.0%)",
+      "trade_id": "B000000027",
+      "status": "completed"
     }
   ],
-  "last_update": "2026-03-27 10:28:05"
+  "last_update": "2026-03-27 10:50:06"
 }

@@ -106,8 +106,8 @@ def run_check():
         if code in risk_checked:
             continue
 
-        # 高抛
-        sell_n, sell_reason = grid_t.check_sell(code, quote, sellable)
+        # 高抛 (v2.2.18: 传入 df 用于趋势判断)
+        sell_n, sell_reason = grid_t.check_sell(code, quote, sellable, df)
         if sell_n > 0:
             t = executor.sell(code, name, sell_n, quote['current'], sell_reason, '🔄 做 T 卖出')
             if t:
