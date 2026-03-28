@@ -1,0 +1,204 @@
+# ==========================================
+# V2 策略配置 - QuantaAlpha 多因子
+# ==========================================
+# 股票池:15 只 (半导体/科技/新能源/医药)
+# 特点:高成长，适合波段交易
+# ==========================================
+
+strategy:
+  name: "QuantaAlpha V2"
+  version: "2.0"
+  description: "多因子波段策略，集成 RSV5/ROC10/Volatility 因子"
+
+# 股票池 (15 只)
+stock_pool:
+  # === 半导体 (5 只，超配 1.2x) ===
+  - code: "sh.603986"
+    name: "兆易创新"
+    industry: "半导体"
+    weight: 1.2
+    
+  - code: "sz.002371"
+    name: "北方华创"
+    industry: "半导体"
+    weight: 1.2
+    
+  - code: "sh.603501"
+    name: "韦尔股份"
+    industry: "半导体"
+    weight: 1.2
+    
+  - code: "sh.688981"
+    name: "中芯国际"
+    industry: "半导体"
+    weight: 1.2
+    
+  - code: "sz.002156"
+    name: "通富微电"
+    industry: "半导体"
+    weight: 1.2
+    
+  # === 科技 (5 只，超配 1.1x) ===
+  - code: "sz.002415"
+    name: "海康威视"
+    industry: "科技"
+    weight: 1.1
+    
+  - code: "sh.601138"
+    name: "工业富联"
+    industry: "科技"
+    weight: 1.1
+    
+  - code: "sz.002049"
+    name: "紫光国微"
+    industry: "科技"
+    weight: 1.1
+    
+  - code: "sh.600584"
+    name: "长电科技"
+    industry: "科技"
+    weight: 1.1
+    
+  - code: "sz.002185"
+    name: "华天科技"
+    industry: "科技"
+    weight: 1.1
+    
+  # === 新能源 (3 只，低配 0.7x) ===
+  - code: "sz.300750"
+    name: "宁德时代"
+    industry: "新能源"
+    weight: 0.7
+    
+  - code: "sz.002594"
+    name: "比亚迪"
+    industry: "新能源"
+    weight: 0.7
+    
+  - code: "sh.601012"
+    name: "隆基绿能"
+    industry: "新能源"
+    weight: 0.7
+    
+  # === 医药 (2 只，标配 1.0x) ===
+  - code: "sh.600276"
+    name: "恒瑞医药"
+    industry: "医药"
+    weight: 1.0
+    
+  - code: "sh.600436"
+    name: "片仔癀"
+    industry: "医药"
+    weight: 1.0
+
+# 交易参数
+trading:
+  # 止损止盈
+  stop_loss: -0.10      # -10% 硬止损
+  take_profit: 0.25     # +25% 止盈
+  
+  # 动态止损 (根据持仓天数调整)
+  dynamic_stop:
+    enabled: true
+    short_term:
+      days: 5
+      stop: -0.10
+      profit: 0.20
+    mid_term:
+      days: 15
+      stop: -0.15
+      profit: 0.30
+    long_term:
+      days: 999
+      stop: -0.20
+      profit: 0.40
+  
+  # 信号阈值
+  signal:
+    buy_threshold: 70       # 买入阈值 (70-100)
+    sell_threshold: 40      # 卖出阈值 (0-40)
+    strong_buy: 85          # 强烈买入
+    strong_sell: 25         # 强烈卖出
+  
+  # 仓位管理
+  position:
+    max_position_per_stock: 0.15  # 单只股票最大 15%
+    max_total_position: 0.80      # 总仓位最大 80%
+    min_cash_reserve: 0.20        # 最少 20% 现金
+    initial_position: 0.10        # 初始建仓 10%
+    
+  # 交易限制
+  limits:
+    min_trade_amount: 10000   # 最小交易金额 1 万
+    max_daily_trades: 10      # 每日最多 10 笔交易
+    cooldown_days: 3          # 卖出后 3 天内不再买入同一股票
+
+# 行业权重 (用于调整信号阈值)
+industry_weights:
+  "半导体": 1.2
+  "科技": 1.1
+  "医药": 1.0
+  "新能源": 0.7
+  "白酒": 0.0
+  "银行": 0.0
+
+# QuantaAlpha 因子配置
+factors:
+  # RSV5 (超买超卖)
+  rsv5:
+    enabled: true
+    weight: 25
+    oversold: 0.15    # <0.15 超卖买入
+    overbought: 0.85  # >0.85 超买卖出
+  
+  # ROC10 (均值回归)
+  roc10:
+    enabled: true
+    weight: 25
+    oversold: -8.0    # <-8% 超跌买入
+    overbought: 8.0   # >8% 超涨卖出
+  
+  # Volatility10 (波动率)
+  volatility10:
+    enabled: true
+    weight: 20
+    optimal_low: 6.0   # >6% 适中波动加分
+    optimal_high: 12.0 # >12% 过高波动减分
+  
+  # MA_Ratio (均线偏离)
+  ma_ratio:
+    enabled: true
+    weight: 20
+    undervalued: -2.0  # <-2% 低估买入
+    overvalued: 4.0    # >4% 高估卖出
+
+# 市场状态配置
+market_state:
+  enabled: true
+  volatile_threshold: 15.0  # >15% 高波动市场
+  low_vol_threshold: 5.0    # <5% 低波动市场
+  
+  # 不同市场状态的调整
+  adjustments:
+    volatile:
+      factor_multiplier: 0.7   # 降低因子权重
+      buy_threshold_add: 5     # 提高买入门槛
+    low_vol:
+      factor_multiplier: 1.15  # 增加因子权重
+      buy_threshold_add: -5    # 降低买入门槛
+    normal:
+      factor_multiplier: 1.0
+      buy_threshold_add: 0
+
+# 日志与监控
+logging:
+  level: "INFO"
+  file: "logs/v2_strategy.log"
+  max_size: "10MB"
+  backup_count: 5
+  
+# 回测配置 (用于验证)
+backtest:
+  initial_capital: 500000   # 初始资金 50 万
+  commission: 0.001         # 手续费 0.1%
+  slippage: 0.001           # 滑点 0.1%

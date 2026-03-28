@@ -1,0 +1,50 @@
+# BobQuant 量化交易系统 - 依赖包
+# 适用于 Windows/Linux/Mac
+
+# Web 框架
+Flask==2.3.0
+Flask-CORS==4.0.0
+Werkzeug==2.3.0
+
+# 数据处理
+pandas==2.0.0
+numpy==1.24.0
+
+# 数据源
+baostock==0.8.8
+requests==2.31.0
+
+# 技术分析
+TA-Lib==0.4.25
+# Windows 预编译包：https://www.lfd.uci.edu/~gohlke/pythonlibs/#ta-lib
+
+# 机器学习
+scikit-learn==1.2.0
+xgboost==1.7.0
+
+# 数据库
+sqlite3  # Python 内置
+
+# 配置管理
+PyYAML==6.0
+
+# 日志
+colorama==0.4.6  # Windows 彩色日志支持
+
+# 交易时间
+python-dateutil==2.8.2
+pytz==2023.3
+
+# 打包工具 (仅开发环境需要)
+# PyInstaller==5.7.0
+# cx_Freeze==6.13.0
+
+# 可选：实时行情
+# akshare==1.9.0
+# tushare==1.2.88
+
+# 可选：回测框架
+# backtrader==1.9.76.123
+
+# Windows 特定依赖
+# pywin32==305  # Windows API 支持
