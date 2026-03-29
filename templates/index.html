@@ -620,7 +620,8 @@
         // Format percent
         function formatPercent(value) {
             if (value === null || value === undefined) return '--';
-            return (value >= 0 ? '+' : '') + (value * 100).toFixed(2) + '%';
+            // profit_pct 已经是百分比，不需要再乘 100
+            return (value >= 0 ? '+' : '') + value.toFixed(2) + '%';
         }
 
         // Check trading time
