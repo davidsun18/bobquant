@@ -355,67 +355,70 @@
             }
             
             body {
-                padding: 12px;
+                padding: 8px;
+                background: #f5f6fa;
             }
             
             .header {
-                padding: 16px;
-                border-radius: 10px;
+                padding: 12px;
+                border-radius: 8px;
+                margin-bottom: 12px;
             }
             
             .header h1 {
-                font-size: 18px;
-            }
-            
-            .header-info {
-                font-size: 12px;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-            
-            .assets-overview {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                margin-bottom: 16px;
-            }
-            
-            .asset-card {
-                padding: 14px;
-                border-radius: 10px;
-            }
-            
-            .asset-label {
-                font-size: 12px;
-                margin-bottom: 6px;
-            }
-            
-            .asset-value {
                 font-size: 16px;
             }
             
-            .asset-sub {
+            .header-info {
                 font-size: 11px;
-                margin-top: 3px;
+                flex-wrap: wrap;
+                gap: 6px;
             }
             
-            /* Mobile Position Cards */
+            /* 统计卡片 - 2 列紧凑布局 */
+            .assets-overview {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+            
+            .asset-card {
+                padding: 10px;
+                border-radius: 8px;
+            }
+            
+            .asset-label {
+                font-size: 11px;
+                margin-bottom: 4px;
+            }
+            
+            .asset-value {
+                font-size: 15px;
+            }
+            
+            .asset-sub {
+                font-size: 10px;
+                margin-top: 2px;
+            }
+            
+            /* 持仓卡片 - 紧凑布局 */
             .table {
                 display: none;
             }
             
             .mobile-positions {
                 display: block;
-                padding: 12px;
+                padding: 0;
             }
             
             .mobile-position-card {
                 background: #ffffff;
-                border-radius: 12px;
-                padding: 16px;
-                margin-bottom: 12px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 8px;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.06);
                 border: 1px solid #e9ecef;
-                border-left: 4px solid #10b981;
+                border-left: 3px solid #10b981;
             }
             
             .mobile-position-card.loss {
@@ -426,22 +429,22 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
-                margin-bottom: 12px;
-                padding-bottom: 10px;
+                margin-bottom: 8px;
+                padding-bottom: 6px;
                 border-bottom: 1px solid #f0f0f0;
             }
             
             .mobile-stock-name {
-                font-size: 16px;
-                font-weight: 700;
+                font-size: 14px;
+                font-weight: 600;
                 color: #333;
                 flex: 1;
             }
             
             .mobile-stock-code {
-                font-size: 12px;
+                font-size: 11px;
                 color: #999;
-                margin-top: 2px;
+                margin-top: 1px;
             }
             
             .mobile-profit {
@@ -449,8 +452,8 @@
             }
             
             .mobile-profit-value {
-                font-size: 18px;
-                font-weight: 700;
+                font-size: 16px;
+                font-weight: 600;
                 color: #10b981;
             }
             
@@ -459,39 +462,40 @@
             }
             
             .mobile-profit-percent {
-                font-size: 12px;
+                font-size: 11px;
                 color: #999;
-                margin-top: 2px;
+                margin-top: 1px;
             }
             
+            /* 4 列网格 - 更紧凑 */
             .mobile-position-grid {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
             }
             
             .mobile-stat-item {
                 background: #f8f9fa;
-                padding: 10px;
-                border-radius: 8px;
+                padding: 6px 4px;
+                border-radius: 6px;
                 text-align: center;
             }
             
             .mobile-stat-label {
-                font-size: 11px;
+                font-size: 9px;
                 color: #999;
-                margin-bottom: 4px;
+                margin-bottom: 2px;
                 display: block;
             }
             
             .mobile-stat-value {
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: 600;
                 color: #333;
                 display: block;
             }
             
-            /* Mobile Trade Cards */
+            /* 交易卡片 - 紧凑布局 */
             .trade-list {
                 display: block;
                 padding: 0;
@@ -499,12 +503,12 @@
             
             .mobile-trade-card {
                 background: #ffffff;
-                border-radius: 12px;
-                padding: 14px;
-                margin-bottom: 10px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                border-radius: 8px;
+                padding: 8px;
+                margin-bottom: 6px;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.06);
                 border: 1px solid #e9ecef;
-                border-left: 4px solid #3b82f6;
+                border-left: 3px solid #3b82f6;
             }
             
             .mobile-trade-card.sell {
@@ -515,18 +519,18 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                margin-bottom: 10px;
+                margin-bottom: 6px;
             }
             
             .mobile-trade-time {
-                font-size: 12px;
+                font-size: 10px;
                 color: #999;
             }
             
             .mobile-trade-action {
-                padding: 3px 10px;
-                border-radius: 4px;
-                font-size: 12px;
+                padding: 2px 8px;
+                border-radius: 3px;
+                font-size: 10px;
                 font-weight: 600;
             }
             
@@ -547,7 +551,7 @@
             }
             
             .mobile-trade-stock {
-                font-size: 15px;
+                font-size: 13px;
                 font-weight: 600;
                 color: #333;
             }
@@ -557,47 +561,84 @@
             }
             
             .mobile-trade-shares {
-                font-size: 13px;
+                font-size: 11px;
                 color: #666;
             }
             
             .mobile-trade-price {
-                font-size: 12px;
+                font-size: 10px;
                 color: #999;
-                margin-top: 2px;
+                margin-top: 1px;
             }
             
             .mobile-trade-profit {
-                font-size: 15px;
-                font-weight: 700;
+                font-size: 13px;
+                font-weight: 600;
                 color: #10b981;
-                margin-top: 4px;
+                margin-top: 2px;
             }
             
             .mobile-trade-profit.loss {
                 color: #ef4444;
             }
             
-            /* Strategy Cards Mobile */
+            /* 策略卡片 - 紧凑布局 */
             .strategy-item {
-                padding: 12px;
+                padding: 10px;
+                margin-bottom: 8px;
             }
             
             .strategy-item h3 {
-                font-size: 15px;
+                font-size: 13px;
+                margin-bottom: 6px;
             }
             
             .strategy-item p {
-                font-size: 12px;
+                font-size: 11px;
+                margin-bottom: 6px;
             }
             
             .strategy-stats {
-                grid-template-columns: 1fr;
-                gap: 6px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 4px;
             }
             
             .strategy-stat {
-                font-size: 12px;
+                font-size: 10px;
+            }
+            
+            .strategy-stat strong {
+                font-size: 11px;
+            }
+            
+            /* 卡片标题 */
+            .card-header {
+                padding: 10px 12px;
+            }
+            
+            .card-header h2 {
+                font-size: 14px;
+            }
+            
+            .card-body {
+                padding: 10px;
+            }
+            
+            /* 导航链接 */
+            .nav-link {
+                padding: 4px 10px;
+                font-size: 11px;
+            }
+            
+            .refresh-btn {
+                padding: 4px 10px;
+                font-size: 11px;
+            }
+            
+            /* 徽章 */
+            .badge {
+                padding: 2px 8px;
+                font-size: 10px;
             }
         }
         
