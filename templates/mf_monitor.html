@@ -86,6 +86,23 @@
             background: rgba(255,255,255,0.3);
             color: white;
         }
+        
+        .status-badge {
+            background: rgba(255,255,255,0.25);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .status-badge.trading {
+            background: #ff6b6b;
+        }
+        
+        .status-badge.closed {
+            background: #51cf66;
+        }
 
         /* Assets Overview */
         .assets-overview {
@@ -904,9 +921,11 @@
 
         // 获取交易状态
         function getTradingStatus() {
-            return isTradingTime() 
-                ? '<span class="badge badge-success">● 交易中</span>' 
-                : '<span class="badge" style="background: #52c41a; color: white;">● 休市中</span>';
+            if (isTradingTime()) {
+                return '<span class="status-badge trading">🔴 交易中</span>';
+            } else {
+                return '<span class="status-badge closed">🟢 休市中</span>';
+            }
         }
 
         async function loadData() {

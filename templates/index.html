@@ -29,14 +29,18 @@
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 20px;
-            text-align: center;
+            text-align: left;
             box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
         }
 
         .header h1 {
             color: #ffffff;
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .header-info {
@@ -44,9 +48,26 @@
             font-size: 14px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            justify-content: flex-start;
+            gap: 12px;
             flex-wrap: wrap;
+        }
+        
+        .status-badge {
+            background: rgba(255,255,255,0.25);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .status-badge.trading {
+            background: #ff6b6b;
+        }
+        
+        .status-badge.closed {
+            background: #51cf66;
         }
 
         .nav-link {
@@ -510,12 +531,12 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>🚀 BOB 量化系统</h1>
-            <div class="header-info" style="justify-content: center; gap: 6px; margin-top: 8px;">
+            <h1>
+                🚀 BOB 量化系统
                 <span class="badge" style="background: rgba(255,255,255,0.9); color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">日线 v2.0</span>
                 <span class="badge" style="background: rgba(255,255,255,0.9); color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">中频 v3.0</span>
                 <span class="badge" style="background: rgba(255,255,255,0.9); color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">模拟盘</span>
-            </div>
+            </h1>
             <div class="header-info">
                 <span id="updateTime">最后更新：--</span>
                 <span id="tradingStatus"></span>
@@ -676,7 +697,11 @@
 
         // Get trading status
         function getTradingStatus() {
-            return isTradingTime() ? '<span style="color: #ff4d4f;">● 交易中</span>' : '<span style="color: #52c41a;">● 休市中</span>';
+            if (isTradingTime()) {
+                return '<span class="status-badge trading">🔴 交易中</span>';
+            } else {
+                return '<span class="status-badge closed">🟢 休市中</span>';
+            }
         }
 
         // Load data
