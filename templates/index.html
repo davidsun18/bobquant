@@ -311,52 +311,56 @@
                 display: none;
             }
             
+            /* 持仓卡片 2 列布局 */
             .mobile-positions {
-                display: block;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
                 padding: 0;
             }
             
             .mobile-position-card {
                 background: #ffffff;
                 border-radius: 8px;
-                padding: 10px;
-                margin-bottom: 8px;
+                padding: 8px;
+                margin-bottom: 0;
                 box-shadow: 0 1px 4px rgba(0,0,0,0.06);
                 border: 1px solid #e9ecef;
-                border-left: 3px solid #ff4d4f;
+                border-top: 3px solid #ff4d4f;
             }
             
             .mobile-position-card.loss {
-                border-left-color: #52c41a;
+                border-top-color: #52c41a;
             }
             
             .mobile-position-header {
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
                 align-items: flex-start;
-                margin-bottom: 8px;
+                margin-bottom: 6px;
                 padding-bottom: 6px;
                 border-bottom: 1px solid #f0f0f0;
             }
             
             .mobile-stock-name {
-                font-size: 14px;
+                font-size: 13px;
                 font-weight: 600;
                 color: #333;
+                margin-bottom: 2px;
             }
             
             .mobile-stock-code {
-                font-size: 11px;
+                font-size: 10px;
                 color: #999;
-                margin-top: 1px;
             }
             
             .mobile-profit {
-                text-align: right;
+                text-align: left;
+                margin-top: 4px;
             }
             
             .mobile-profit-value {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 600;
                 color: #ff4d4f;
             }
@@ -366,15 +370,15 @@
             }
             
             .mobile-profit-percent {
-                font-size: 11px;
+                font-size: 10px;
                 color: #999;
                 margin-top: 1px;
             }
             
             .mobile-position-grid {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                grid-template-columns: 1fr;
+                gap: 6px;
             }
             
             .mobile-stat-item {
@@ -747,10 +751,8 @@
                 mobileHtml += `
                     <div class="mobile-position-card ${profitClass}">
                         <div class="mobile-position-header">
-                            <div>
-                                <div class="mobile-stock-name">${pos.name}</div>
-                                <div class="mobile-stock-code">${pos.code}</div>
-                            </div>
+                            <div class="mobile-stock-name">${pos.name}</div>
+                            <div class="mobile-stock-code">${pos.code}</div>
                             <div class="mobile-profit">
                                 <div class="mobile-profit-value ${profitClass}">${profitText}${formatMoney(profit)}</div>
                                 <div class="mobile-profit-percent">${formatPercent(pos.profit_pct)}</div>
