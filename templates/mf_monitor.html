@@ -430,11 +430,15 @@
             
             .mobile-position-header {
                 display: flex;
-                flex-direction: column;
+                justify-content: space-between;
                 align-items: flex-start;
                 margin-bottom: 6px;
                 padding-bottom: 6px;
                 border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .mobile-stock-info {
+                flex: 1;
             }
             
             .mobile-stock-name {
@@ -450,14 +454,16 @@
             }
             
             .mobile-profit {
-                text-align: left;
-                margin-top: 4px;
+                text-align: right;
+                flex-shrink: 0;
+                margin-left: 6px;
             }
             
             .mobile-profit-value {
                 font-size: 14px;
                 font-weight: 600;
                 color: #10b981;
+                white-space: nowrap;
             }
             
             .mobile-profit-value.loss {
@@ -468,6 +474,7 @@
                 font-size: 10px;
                 color: #999;
                 margin-top: 1px;
+                text-align: right;
             }
             
             /* 单列网格 - 显示成本/现价等 */
@@ -986,8 +993,10 @@
                 mobileHtml += `
                     <div class="mobile-position-card ${isProfit ? '' : 'loss'}">
                         <div class="mobile-position-header">
-                            <div class="mobile-stock-name">${pos.name || code}</div>
-                            <div class="mobile-stock-code">${code}</div>
+                            <div class="mobile-stock-info">
+                                <div class="mobile-stock-name">${pos.name || code}</div>
+                                <div class="mobile-stock-code">${code}</div>
+                            </div>
                             <div class="mobile-profit">
                                 <div class="mobile-profit-value ${isProfit ? '' : 'loss'}">
                                     ${isProfit ? '+' : ''}¥${profit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})}

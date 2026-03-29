@@ -335,11 +335,15 @@
             
             .mobile-position-header {
                 display: flex;
-                flex-direction: column;
+                justify-content: space-between;
                 align-items: flex-start;
                 margin-bottom: 4px;
                 padding-bottom: 4px;
                 border-bottom: 1px solid #f0f0f0;
+            }
+            
+            .mobile-stock-info {
+                flex: 1;
             }
             
             .mobile-stock-name {
@@ -355,14 +359,16 @@
             }
             
             .mobile-profit {
-                text-align: left;
-                margin-top: 2px;
+                text-align: right;
+                flex-shrink: 0;
+                margin-left: 6px;
             }
             
             .mobile-profit-value {
                 font-size: 13px;
                 font-weight: 600;
                 color: #ff4d4f;
+                white-space: nowrap;
             }
             
             .mobile-profit-value.loss {
@@ -373,6 +379,7 @@
                 font-size: 9px;
                 color: #999;
                 margin-top: 1px;
+                text-align: right;
             }
             
             /* 2x2 网格 */
@@ -752,8 +759,10 @@
                 mobileHtml += `
                     <div class="mobile-position-card ${profitClass}">
                         <div class="mobile-position-header">
-                            <div class="mobile-stock-name">${pos.name}</div>
-                            <div class="mobile-stock-code">${pos.code}</div>
+                            <div class="mobile-stock-info">
+                                <div class="mobile-stock-name">${pos.name}</div>
+                                <div class="mobile-stock-code">${pos.code}</div>
+                            </div>
                             <div class="mobile-profit">
                                 <div class="mobile-profit-value ${profitClass}">${profitText}${formatMoney(profit)}</div>
                                 <div class="mobile-profit-percent">${formatPercent(pos.profit_pct)}</div>
