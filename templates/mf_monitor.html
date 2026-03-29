@@ -406,53 +406,56 @@
                 display: none;
             }
             
+            /* 持仓卡片 2 列布局 */
             .mobile-positions {
-                display: block;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
                 padding: 0;
             }
             
             .mobile-position-card {
                 background: #ffffff;
                 border-radius: 8px;
-                padding: 10px;
-                margin-bottom: 8px;
+                padding: 8px;
+                margin-bottom: 0;
                 box-shadow: 0 1px 4px rgba(0,0,0,0.06);
                 border: 1px solid #e9ecef;
-                border-left: 3px solid #10b981;
+                border-top: 3px solid #10b981;
             }
             
             .mobile-position-card.loss {
-                border-left-color: #ef4444;
+                border-top-color: #ef4444;
             }
             
             .mobile-position-header {
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
                 align-items: flex-start;
-                margin-bottom: 8px;
+                margin-bottom: 6px;
                 padding-bottom: 6px;
                 border-bottom: 1px solid #f0f0f0;
             }
             
             .mobile-stock-name {
-                font-size: 14px;
+                font-size: 13px;
                 font-weight: 600;
                 color: #333;
-                flex: 1;
+                margin-bottom: 2px;
             }
             
             .mobile-stock-code {
-                font-size: 11px;
+                font-size: 10px;
                 color: #999;
-                margin-top: 1px;
             }
             
             .mobile-profit {
-                text-align: right;
+                text-align: left;
+                margin-top: 4px;
             }
             
             .mobile-profit-value {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 600;
                 color: #10b981;
             }
@@ -462,16 +465,16 @@
             }
             
             .mobile-profit-percent {
-                font-size: 11px;
+                font-size: 10px;
                 color: #999;
                 margin-top: 1px;
             }
             
-            /* 4 列网格 - 更紧凑 */
+            /* 单列网格 - 显示成本/现价等 */
             .mobile-position-grid {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                grid-template-columns: 1fr;
+                gap: 6px;
             }
             
             .mobile-stat-item {
@@ -983,10 +986,8 @@
                 mobileHtml += `
                     <div class="mobile-position-card ${isProfit ? '' : 'loss'}">
                         <div class="mobile-position-header">
-                            <div>
-                                <div class="mobile-stock-name">${pos.name || code}</div>
-                                <div class="mobile-stock-code">${code}</div>
-                            </div>
+                            <div class="mobile-stock-name">${pos.name || code}</div>
+                            <div class="mobile-stock-code">${code}</div>
                             <div class="mobile-profit">
                                 <div class="mobile-profit-value ${isProfit ? '' : 'loss'}">
                                     ${isProfit ? '+' : ''}¥${profit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})}
@@ -996,11 +997,7 @@
                         </div>
                         <div class="mobile-position-grid">
                             <div class="mobile-stat-item">
-                                <span class="mobile-stat-label">股数</span>
-                                <span class="mobile-stat-value">${shares.toLocaleString()}</span>
-                            </div>
-                            <div class="mobile-stat-item">
-                                <span class="mobile-stat-label">成本价</span>
+                                <span class="mobile-stat-label">成本</span>
                                 <span class="mobile-stat-value">¥${avgPrice.toFixed(2)}</span>
                             </div>
                             <div class="mobile-stat-item">
@@ -1008,8 +1005,12 @@
                                 <span class="mobile-stat-value">¥${currentPrice.toFixed(2)}</span>
                             </div>
                             <div class="mobile-stat-item">
+                                <span class="mobile-stat-label">股数</span>
+                                <span class="mobile-stat-value">${shares.toLocaleString()}</span>
+                            </div>
+                            <div class="mobile-stat-item">
                                 <span class="mobile-stat-label">市值</span>
-                                <span class="mobile-stat-value">¥${marketValue.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})}</span>
+                                <span class="mobile-stat-value">¥${(marketValue/10000).toFixed(1)}万</span>
                             </div>
                         </div>
                     </div>
