@@ -159,7 +159,7 @@ def mf_monitor():
     return render_template('mf_monitor.html')
 
 @app.route('/mf_account')
-def mf_account_page():
+def mf_account_page_func():
     """中频账户页面（别名）"""
     return render_template('mf_monitor.html')
 
@@ -279,7 +279,7 @@ def api_trades():
     return jsonify({'trades': trades[-20:]})  # 返回最近 20 条
 
 @app.route('/api/mf_account')
-def api-mf_account():
+def api_mf_account():
     """中频账户数据 API"""
     if not os.path.exists(MF_ACCOUNT_FILE):
         return jsonify({'error': '中频账户不存在'})

@@ -45,6 +45,28 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255,255,255,0.4);
+            font-weight: bold;
         }
 
         .refresh-btn {
@@ -474,6 +496,7 @@
             <div class="header-info">
                 <span id="updateTime">最后更新：--</span>
                 <span id="tradingStatus"></span>
+                <a href="/mf" class="nav-link">📊 中频交易监控</a>
                 <button class="refresh-btn" onclick="loadData()">🔄 刷新</button>
             </div>
         </div>
