@@ -66,7 +66,7 @@ STRATEGY = {
     'volume_ratio': 1.5,
     'index_code': 'sh.000001',
     'crash_threshold': -0.05,
-    'crash_position': 0.30,
+    'crash_position': 0.60,  # ⭐ 提高到 60%
     'commission': 0.0003,
     'stamp_duty': 0.001,
 }

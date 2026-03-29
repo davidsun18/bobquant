@@ -99,7 +99,7 @@ STRATEGY = {
     # 大盘风控 (暴跌反向买入)
     'index_code': 'sh.000001',
     'crash_threshold': -0.05,  # 大盘跌 5%
-    'crash_position': 0.30,    # 反向买入 30%
+    'crash_position': 0.60,    # 反向买入 60% ⭐ 提高仓位
     
     # 交易成本
     'commission': 0.0003,
