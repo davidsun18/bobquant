@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f5f6fa;
             min-height: 100vh;
             padding: 20px;
         }
@@ -25,14 +25,12 @@
 
         /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
-            border-radius: 16px;
+            border-radius: 12px;
             margin-bottom: 20px;
             text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
         }
 
         .header h1 {
@@ -52,38 +50,40 @@
         }
 
         .nav-link {
-            background: rgba(255,255,255,0.2);
-            color: white;
+            background: #ffffff;
+            color: #667eea;
             padding: 6px 14px;
             border-radius: 6px;
             text-decoration: none;
             font-size: 13px;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
             display: inline-block;
         }
 
         .nav-link:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.9);
         }
 
         .nav-link.active {
-            background: rgba(255,255,255,0.4);
-            font-weight: bold;
+            background: #667eea;
+            color: white;
         }
 
         .refresh-btn {
-            background: #4a6de5;
-            color: white;
+            background: #ffffff;
+            color: #667eea;
             border: none;
             padding: 6px 14px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .refresh-btn:hover {
-            background: #3d5dd1;
+            background: rgba(255, 255, 255, 0.9);
         }
 
         /* Assets Overview */
@@ -141,11 +141,13 @@
 
         .card-header {
             padding: 16px 20px;
-            border-bottom: 1px solid #f0f0f0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .card-header h2 {
-            color: #333;
+            color: #ffffff;
             font-size: 16px;
             font-weight: 600;
             display: flex;
@@ -510,9 +512,9 @@
         <div class="header">
             <h1>🚀 BOB 量化系统</h1>
             <div class="header-info" style="justify-content: center; gap: 6px; margin-top: 8px;">
-                <span class="badge" style="background: rgba(255,255,255,0.25); color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">日线 v2.0</span>
-                <span class="badge" style="background: rgba(255,255,255,0.25); color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">中频 v3.0</span>
-                <span class="badge" style="background: rgba(255,255,255,0.25); color: white; padding: 2px 8px; border-radius: 10px; font-size: 11px;">模拟盘</span>
+                <span class="badge" style="background: rgba(255,255,255,0.9); color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">日线 v2.0</span>
+                <span class="badge" style="background: rgba(255,255,255,0.9); color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">中频 v3.0</span>
+                <span class="badge" style="background: rgba(255,255,255,0.9); color: #667eea; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">模拟盘</span>
             </div>
             <div class="header-info">
                 <span id="updateTime">最后更新：--</span>
