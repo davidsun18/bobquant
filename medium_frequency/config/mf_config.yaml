@@ -1,0 +1,156 @@
+# ==========================================
+# 中频交易策略配置
+# ==========================================
+# 频率：5-30 分钟调仓
+# 持仓：1-5 天
+# ==========================================
+
+medium_frequency:
+  # ========== 时间配置 ==========
+  check_interval: 300              # 检查间隔 (秒) = 5 分钟
+  trading_hours:
+    morning: "09:30-11:30"
+    afternoon: "13:00-15:00"
+  
+  # ========== 数据配置 ==========
+  kline_periods: [5, 15, 30]       # K 线周期 (分钟)
+  kline_limit: 100                 # 获取 K 线数量
+  cache_duration: 60               # 数据缓存时间 (秒)
+  
+  # ========== 股票池 (15 只高波动股票) ==========
+  stock_pool:
+    # 半导体 (5 只)
+    - code: "sh.603986"
+      name: "兆易创新"
+      weight: 1.2
+    
+    - code: "sz.002371"
+      name: "北方华创"
+      weight: 1.2
+    
+    - code: "sh.603501"
+      name: "韦尔股份"
+      weight: 1.2
+    
+    - code: "sh.688981"
+      name: "中芯国际"
+      weight: 1.2
+    
+    - code: "sz.002156"
+      name: "通富微电"
+      weight: 1.2
+    
+    # 科技 (5 只)
+    - code: "sz.002415"
+      name: "海康威视"
+      weight: 1.1
+    
+    - code: "sh.601138"
+      name: "工业富联"
+      weight: 1.1
+    
+    - code: "sz.002049"
+      name: "紫光国微"
+      weight: 1.1
+    
+    - code: "sh.600584"
+      name: "长电科技"
+      weight: 1.1
+    
+    - code: "sz.002185"
+      name: "华天科技"
+      weight: 1.1
+    
+    # 新能源 (3 只)
+    - code: "sz.300750"
+      name: "宁德时代"
+      weight: 0.8
+    
+    - code: "sz.002594"
+      name: "比亚迪"
+      weight: 0.8
+    
+    - code: "sh.601012"
+      name: "隆基绿能"
+      weight: 0.8
+    
+    # 医药 (2 只)
+    - code: "sh.600276"
+      name: "恒瑞医药"
+      weight: 1.0
+    
+    - code: "sh.600436"
+      name: "片仔癀"
+      weight: 1.0
+
+# ========== 策略配置 ==========
+strategies:
+  # 网格策略
+  grid:
+    enabled: true
+    grid_size: 0.015             # 网格间距 1.5%
+    position_per_grid: 0.03      # 每格仓位 3%
+    max_grids: 8                 # 最多 8 格
+    auto_reset_base: true        # 自动重置基准价
+  
+  # 波段策略
+  swing:
+    enabled: true
+    rsi_oversold: 30             # RSI 超卖
+    rsi_overbought: 70           # RSI 超买
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+    min_confidence: 0.70         # 最小置信度
+  
+  # 动量策略
+  momentum:
+    enabled: true
+    breakout_period: 20          # 突破周期
+    volume_confirm: 1.5          # 成交量确认倍数
+    min_confidence: 0.65         # 最小置信度
+
+# ========== 风控配置 ==========
+risk_control:
+  # 仓位限制
+  max_position_per_stock: 0.10   # 单只≤10%
+  max_total_position: 0.60       # 总仓位≤60%
+  min_cash_reserve: 0.40         # 现金≥40%
+  
+  # 交易限制
+  max_trades_per_day: 5          # 每日最多 5 笔/只
+  min_trade_interval: 300        # 最小间隔 5 分钟
+  max_daily_trades: 30           # 每日总交易上限
+  
+  # 止损止盈
+  stop_loss: -0.03               # -3% 硬止损
+  take_profit: 0.08              # +8% 止盈
+  trailing_stop: true            # 启用移动止盈
+  trailing_threshold: 0.50       # 从最高点回撤 50% 利润时止盈
+  
+  # 异常检测
+  max_consecutive_losses: 3      # 连续亏损 3 笔暂停
+  max_daily_loss: -0.05          # 日亏损>-5%
+  pause_after_loss: 1800         # 亏损后暂停 30 分钟
+
+# ========== 执行配置 ==========
+execution:
+  dry_run: false                 # 模拟模式 (true=不实际下单)
+  log_level: "INFO"
+  log_file: "logs/medium_frequency.log"
+  
+  # 通知配置
+  notify:
+    enabled: false
+    feishu_webhook: ""
+    notify_on_trade: true
+    notify_on_error: true
+
+# ========== 回测配置 ==========
+backtest:
+  enabled: false
+  start_date: "2026-01-01"
+  end_date: "2026-03-29"
+  initial_capital: 500000
+  commission: 0.0003             # 0.03% 手续费
+  slippage: 0.001                # 0.1% 滑点
