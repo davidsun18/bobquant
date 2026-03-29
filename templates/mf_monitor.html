@@ -664,15 +664,23 @@
             }
             
             /* 导航链接 */
-            .nav-link {
-                padding: 4px 10px;
-                font-size: 11px;
-            }
-            
-            .refresh-btn {
-                padding: 4px 10px;
-                font-size: 11px;
-            }
+                    .nav-link,
+        .refresh-btn {
+            background: #ffffff;
+            color: #667eea;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-link:hover,
+        .refresh-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
             
             /* 徽章 */
             .badge {
