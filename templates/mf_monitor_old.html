@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中频交易 - 实时监控</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-info {
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .nav-link-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-link-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .nav-link-secondary {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .nav-link-secondary:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge-info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stat-value.positive {
+            color: #10b981;
+        }
+
+        .stat-value.negative {
+            color: #ef4444;
+        }
+
+        .stat-sub {
+            font-size: 13px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Strategy Cards */
+        .strategy-section {
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .strategy-section h2 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .strategy-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .strategy-card h3 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .strategy-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .strategy-stat {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .strategy-stat strong {
+            color: #333;
+        }
+
+        /* Positions Table */
+        .positions-section {
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .positions-section h2 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .positions-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .positions-table th {
+            background: #f8fafc;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .positions-table td {
+            padding: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .positions-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .profit-cell {
+            font-weight: bold;
+        }
+
+        .profit-cell.positive {
+            color: #10b981;
+        }
+
+        .profit-cell.negative {
+            color: #ef4444;
+        }
+
+        /* Trades Timeline */
+        .trades-section {
+            background: rgba(255,255,255,0.95);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .trades-section h2 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .trade-item {
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .trade-info {
+            flex: 1;
+        }
+
+        .trade-stock {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .trade-time {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .trade-action {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .trade-action.buy {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .trade-action.sell {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .trade-profit {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .trade-profit.positive {
+            color: #10b981;
+        }
+
+        .trade-profit.negative {
+            color: #ef4444;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .header-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .stat-card {
+                padding: 15px;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+            
+            .strategy-section {
+                padding: 15px;
+            }
+            
+            .strategy-section h2 {
+                font-size: 18px;
+            }
+            
+            .strategy-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .strategy-card {
+                padding: 15px;
+            }
+            
+            .positions-section {
+                padding: 15px;
+            }
+            
+            .positions-section h2 {
+                font-size: 18px;
+            }
+            
+            /* 移动端表格优化 */
+            .positions-table {
+                font-size: 12px;
+            }
+            
+            .positions-table th,
+            .positions-table td {
+                padding: 8px 4px;
+            }
+            
+            /* 移动端卡片式表格 */
+            .positions-table thead {
+                display: none;
+            }
+            
+            .positions-table tbody tr {
+                display: block;
+                background: #f8fafc;
+                border-radius: 8px;
+                margin-bottom: 12px;
+                padding: 12px;
+                border: 1px solid #e2e8f0;
+            }
+            
+            .positions-table tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 6px 0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .positions-table tbody td:last-child {
+                border-bottom: none;
+            }
+            
+            .positions-table tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #666;
+                margin-right: 10px;
+            }
+            
+            .trades-section {
+                padding: 15px;
+            }
+            
+            .trades-section h2 {
+                font-size: 18px;
+            }
+            
+            .trade-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .trade-info {
+                width: 100%;
+            }
+            
+            .trade-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>
+                🚀 中频交易实时监控
+                <span class="badge badge-info">模拟盘</span>
+            </h1>
+            <div class="header-info">
+                <span>🕐 更新时间：<span id="update-time">-</span></span>
+                <span>📊 状态：<span id="market-status">-</span></span>
+                <a href="/" class="nav-link nav-link-secondary">🏠 返回主页</a>
+                <span>🔄 自动刷新：5 秒</span>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>加载中频交易数据...</p>
+        </div>
+
+        <!-- Content (hidden initially) -->
+        <div id="content" style="display: none;">
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">💰 初始资金</div>
+                    <div class="stat-value" id="initial-capital">¥0</div>
+                    <div class="stat-sub">中频交易专用账户</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">📈 总资产</div>
+                    <div class="stat-value" id="total-assets">¥0</div>
+                    <div class="stat-sub">现金 + 持仓市值</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">📊 总盈亏</div>
+                    <div class="stat-value" id="total-pnl">¥0</div>
+                    <div class="stat-sub" id="pnl-percent">0.00%</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">💵 可用现金</div>
+                    <div class="stat-value" id="available-cash">¥0</div>
+                    <div class="stat-sub">可交易资金</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-label">📦 持仓数量</div>
+                    <div class="stat-value" id="position-count">0</div>
+                    <div class="stat-sub">只股票</div>
+                </div>
+            </div>
+
+            <!-- Strategy Section -->
+            <div class="strategy-section">
+                <h2>🎯 策略配置</h2>
+                <div class="strategy-grid">
+                    <div class="strategy-card">
+                        <h3>📐 网格策略</h3>
+                        <p style="color: #666; font-size: 13px; margin-top: 5px;">价格每波动 1% 触发买卖</p>
+                        <div class="strategy-stats">
+                            <div class="strategy-stat">网格间距：<strong>1.0%</strong></div>
+                            <div class="strategy-stat">每格仓位：<strong>3%</strong></div>
+                            <div class="strategy-stat">最大格数：<strong>10 格</strong></div>
+                            <div class="strategy-stat">状态：<span class="badge badge-success">运行中</span></div>
+                        </div>
+                    </div>
+
+                    <div class="strategy-card">
+                        <h3>🌊 波段策略</h3>
+                        <p style="color: #666; font-size: 13px; margin-top: 5px;">RSI+MACD 金叉死叉信号</p>
+                        <div class="strategy-stats">
+                            <div class="strategy-stat">RSI 超卖：<strong>35</strong></div>
+                            <div class="strategy-stat">RSI 超买：<strong>65</strong></div>
+                            <div class="strategy-stat">MACD 周期：<strong>12,26,9</strong></div>
+                            <div class="strategy-stat">状态：<span class="badge badge-success">运行中</span></div>
+                        </div>
+                    </div>
+
+                    <div class="strategy-card">
+                        <h3>🚀 动量策略</h3>
+                        <p style="color: #666; font-size: 13px; margin-top: 5px;">突破 15 周期 + 成交量确认</p>
+                        <div class="strategy-stats">
+                            <div class="strategy-stat">突破周期：<strong>15</strong></div>
+                            <div class="strategy-stat">成交量确认：<strong>1.3x</strong></div>
+                            <div class="strategy-stat">置信度：<strong>60%</strong></div>
+                            <div class="strategy-stat">状态：<span class="badge badge-success">运行中</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Positions Section -->
+            <div class="positions-section">
+                <h2>📦 当前持仓</h2>
+                <div id="positions-container">
+                    <table class="positions-table">
+                        <thead>
+                            <tr>
+                                <th>代码</th>
+                                <th>名称</th>
+                                <th>股数</th>
+                                <th>成本价</th>
+                                <th>现价</th>
+                                <th>市值</th>
+                                <th>盈亏</th>
+                                <th>盈亏率</th>
+                            </tr>
+                        </thead>
+                        <tbody id="positions-body">
+                            <!-- 持仓数据会动态加载到这里 -->
+                            <tr>
+                                <td colspan="8" class="empty-state">
+                                    <div class="empty-state-icon">📭</div>
+                                    <p>暂无持仓</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Trades Section -->
+            <div class="trades-section">
+                <h2>📝 最近交易</h2>
+                <div id="trades-container">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📝</div>
+                        <p>暂无交易记录</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 格式化金额
+        function formatMoney(amount) {
+            return '¥' + parseFloat(amount).toLocaleString('zh-CN', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        // 格式化百分比
+        function formatPercent(value) {
+            const sign = value >= 0 ? '+' : '';
+            return sign + value.toFixed(2) + '%';
+        }
+
+        // 加载数据
+        async function loadData() {
+            try {
+                // 加载中频账户数据
+                const response = await fetch('/api/mf_account');
+                if (!response.ok) {
+                    throw new Error('数据加载失败');
+                }
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    showEmptyState();
+                    return;
+                }
+                
+                // 更新统计数据
+                document.getElementById('initial-capital').textContent = formatMoney(data.initial_capital || 200000);
+                document.getElementById('total-assets').textContent = formatMoney(data.total_value || 0);
+                
+                const pnl = data.total_pnl || 0;
+                const pnlElement = document.getElementById('total-pnl');
+                pnlElement.textContent = (pnl >= 0 ? '+' : '') + formatMoney(pnl);
+                pnlElement.className = 'stat-value ' + (pnl >= 0 ? 'positive' : 'negative');
+                
+                const pnlPercent = (pnl / (data.initial_capital || 200000)) * 100;
+                document.getElementById('pnl-percent').textContent = formatPercent(pnlPercent);
+                document.getElementById('pnl-percent').style.color = pnl >= 0 ? '#10b981' : '#ef4444';
+                
+                document.getElementById('available-cash').textContent = formatMoney(data.cash || 0);
+                document.getElementById('position-count').textContent = Object.keys(data.positions || {}).length;
+                
+                // 更新时间
+                document.getElementById('update-time').textContent = new Date().toLocaleString('zh-CN');
+                
+                // 更新持仓表格
+                updatePositions(data.positions || {});
+                
+                // 显示内容
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                
+            } catch (error) {
+                console.error('加载失败:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">❌</div>
+                        <p>数据加载失败</p>
+                        <p style="font-size: 12px; margin-top: 10px;">${error.message}</p>
+                        <button onclick="loadData()" style="margin-top: 15px; padding: 8px 20px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer;">重试</button>
+                    </div>
+                `;
+            }
+        }
+
+        // 更新持仓表格
+        function updatePositions(positions) {
+            const tbody = document.getElementById('positions-body');
+            
+            if (Object.keys(positions).length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="empty-state">
+                            <div class="empty-state-icon">📭</div>
+                            <p>暂无持仓</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            let html = '';
+            for (const [code, pos] of Object.entries(positions)) {
+                const shares = pos.shares || 0;
+                const avgPrice = pos.avg_price || 0;
+                const currentPrice = pos.current_price || avgPrice;
+                const cost = shares * avgPrice;
+                const marketValue = shares * currentPrice;
+                const profit = marketValue - cost;
+                const profitPercent = cost > 0 ? (profit / cost * 100) : 0;
+                
+                // 添加 data-label 属性用于移动端显示
+                html += `
+                    <tr>
+                        <td data-label="代码"><strong>${code}</strong></td>
+                        <td data-label="名称">${pos.name || code}</td>
+                        <td data-label="股数">${shares.toLocaleString()}</td>
+                        <td data-label="成本价">¥${avgPrice.toFixed(2)}</td>
+                        <td data-label="现价">¥${currentPrice.toFixed(2)}</td>
+                        <td data-label="市值">¥${marketValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td class="profit-cell ${profit >= 0 ? 'positive' : 'negative'}" data-label="盈亏">
+                            ${profit >= 0 ? '+' : ''}¥${profit.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        </td>
+                        <td class="profit-cell ${profitPercent >= 0 ? 'positive' : 'negative'}" data-label="盈亏率">
+                            ${formatPercent(profitPercent)}
+                        </td>
+                    </tr>
+                `;
+            }
+            
+            tbody.innerHTML = html;
+        }
+
+        // 显示空状态
+        function showEmptyState() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('initial-capital').textContent = formatMoney(200000);
+            document.getElementById('total-assets').textContent = formatMoney(200000);
+            document.getElementById('total-pnl').textContent = formatMoney(0);
+            document.getElementById('pnl-percent').textContent = '0.00%';
+            document.getElementById('available-cash').textContent = formatMoney(200000);
+            document.getElementById('position-count').textContent = '0';
+        }
+
+        // 页面加载时获取数据
+        loadData();
+        
+        // 每 5 秒刷新一次
+        setInterval(loadData, 5000);
+    </script>
+</body>
+</html>
