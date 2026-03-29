@@ -164,18 +164,32 @@ class RiskMonitor:
         # 更新最后交易时间
         self._last_trade_time[code] = now
         
-        # 更新连续亏损
-        if profit < 0:
+        # 更新连续亏损 (只统计卖出交易的盈亏)
+        if action == '卖出' and profit < 0:
             self._consecutive_losses[code] = self._consecutive_losses.get(code, 0) + 1
-        else:
+            print(f"  📉 {code} 连续亏损：{self._consecutive_losses[code]}笔")
+        elif action == '卖出' and profit >= 0:
+            # 盈利后重置连续亏损计数
             self._consecutive_losses[code] = 0
+        # 买入交易不影响连续亏损计数
     
     def check_consecutive_losses(self, code: str) -> Tuple[bool, str]:
-        """检查连续亏损"""
+        """
+        检查连续亏损
+        
+        逻辑：
+        - 只统计卖出交易的盈亏
+        - 连续亏损 3 笔后暂停该股票交易
+        - 需要手动重置或次日自动重置
+        """
         losses = self._consecutive_losses.get(code, 0)
         
         if losses >= self.max_consecutive_losses:
-            return True, f"连续亏损{losses}笔，暂停交易"
+            return True, f"连续亏损{losses}笔 (>= {self.max_consecutive_losses})，暂停交易"
+        
+        # 预警：连续亏损 2 笔时提醒
+        if losses >= 2:
+            print(f"  ⚠️ {code} 连续亏损{losses}笔，注意风险")
         
         return False, ""
     
@@ -229,6 +243,24 @@ class RiskMonitor:
                 new_trades[code] = today_trades
         
         self._today_trades = new_trades
+        
+        # 重置连续亏损计数 (新的一天重新开始)
+        self._consecutive_losses.clear()
+        print("  📅 已重置每日数据 (包括连续亏损计数)")
+    
+    def reset_consecutive_losses(self, code: str = None):
+        """
+        重置连续亏损计数
+        
+        Args:
+            code: 股票代码，如果为 None 则重置所有
+        """
+        if code:
+            self._consecutive_losses[code] = 0
+            print(f"  ✅ 已重置 {code} 的连续亏损计数")
+        else:
+            self._consecutive_losses.clear()
+            print(f"  ✅ 已重置所有股票的连续亏损计数")
 
 
 # ========== 测试 ==========
