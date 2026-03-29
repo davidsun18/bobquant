@@ -360,12 +360,129 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .header-info {
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+            }
+            
             .stats-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .stat-card {
+                padding: 15px;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+            
+            .strategy-section {
+                padding: 15px;
+            }
+            
+            .strategy-section h2 {
+                font-size: 18px;
             }
             
             .strategy-grid {
                 grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .strategy-card {
+                padding: 15px;
+            }
+            
+            .positions-section {
+                padding: 15px;
+            }
+            
+            .positions-section h2 {
+                font-size: 18px;
+            }
+            
+            /* 移动端表格优化 */
+            .positions-table {
+                font-size: 12px;
+            }
+            
+            .positions-table th,
+            .positions-table td {
+                padding: 8px 4px;
+            }
+            
+            /* 移动端卡片式表格 */
+            .positions-table thead {
+                display: none;
+            }
+            
+            .positions-table tbody tr {
+                display: block;
+                background: #f8fafc;
+                border-radius: 8px;
+                margin-bottom: 12px;
+                padding: 12px;
+                border: 1px solid #e2e8f0;
+            }
+            
+            .positions-table tbody td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 6px 0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .positions-table tbody td:last-child {
+                border-bottom: none;
+            }
+            
+            .positions-table tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #666;
+                margin-right: 10px;
+            }
+            
+            .trades-section {
+                padding: 15px;
+            }
+            
+            .trades-section h2 {
+                font-size: 18px;
+            }
+            
+            .trade-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .trade-info {
+                width: 100%;
+            }
+            
+            .trade-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 8px;
             }
         }
     </style>
@@ -484,6 +601,7 @@
                             </tr>
                         </thead>
                         <tbody id="positions-body">
+                            <!-- 持仓数据会动态加载到这里 -->
                             <tr>
                                 <td colspan="8" class="empty-state">
                                     <div class="empty-state-icon">📭</div>
@@ -604,18 +722,19 @@
                 const profit = marketValue - cost;
                 const profitPercent = cost > 0 ? (profit / cost * 100) : 0;
                 
+                // 添加 data-label 属性用于移动端显示
                 html += `
                     <tr>
-                        <td><strong>${code}</strong></td>
-                        <td>${pos.name || code}</td>
-                        <td>${shares.toLocaleString()}</td>
-                        <td>¥${avgPrice.toFixed(2)}</td>
-                        <td>¥${currentPrice.toFixed(2)}</td>
-                        <td>¥${marketValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
-                        <td class="profit-cell ${profit >= 0 ? 'positive' : 'negative'}">
+                        <td data-label="代码"><strong>${code}</strong></td>
+                        <td data-label="名称">${pos.name || code}</td>
+                        <td data-label="股数">${shares.toLocaleString()}</td>
+                        <td data-label="成本价">¥${avgPrice.toFixed(2)}</td>
+                        <td data-label="现价">¥${currentPrice.toFixed(2)}</td>
+                        <td data-label="市值">¥${marketValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td class="profit-cell ${profit >= 0 ? 'positive' : 'negative'}" data-label="盈亏">
                             ${profit >= 0 ? '+' : ''}¥${profit.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                         </td>
-                        <td class="profit-cell ${profitPercent >= 0 ? 'positive' : 'negative'}">
+                        <td class="profit-cell ${profitPercent >= 0 ? 'positive' : 'negative'}" data-label="盈亏率">
                             ${formatPercent(profitPercent)}
                         </td>
                     </tr>
