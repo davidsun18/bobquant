@@ -603,6 +603,13 @@
         // Check trading time
         function isTradingTime() {
             const now = new Date();
+            const dayOfWeek = now.getDay(); // 0=周日，6=周六
+            
+            // 周末休市
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                return false;
+            }
+            
             const hour = now.getHours();
             const minute = now.getMinutes();
             const time = hour * 100 + minute;
