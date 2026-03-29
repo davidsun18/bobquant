@@ -35,7 +35,7 @@ SIM_TRADE_LOG = Path('/home/openclaw/.openclaw/workspace/quant_strategies/sim_tr
 SIM_REPORT_DIR = Path('/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/mf_reports')
 
 
-def create_sim_account(initial_capital: float = 200000.0):
+def create_sim_account(initial_capital: float = 1000000.0):
     """创建模拟账户"""
     account = {
         'type': 'medium_frequency_sim',

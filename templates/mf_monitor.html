@@ -920,7 +920,7 @@
                 pnlElement.textContent = (pnl >= 0 ? '+' : '') + formatMoney(pnl);
                 pnlElement.className = 'asset-value ' + (pnl >= 0 ? 'profit' : 'loss');
                 
-                const pnlPercent = (pnl / (data.initial_capital || 200000)) * 100;
+                const pnlPercent = (pnl / (data.initial_capital || 1000000)) * 100;
                 document.getElementById('pnlPercent').textContent = formatPercent(pnlPercent);
                 document.getElementById('pnlPercent').style.color = pnl >= 0 ? '#10b981' : '#ef4444';
                 
@@ -1091,11 +1091,11 @@
         function showEmptyState() {
             document.getElementById('loading').style.display = 'none';
             document.getElementById('content').style.display = 'block';
-            document.getElementById('initialCapital').textContent = formatMoney(200000);
-            document.getElementById('totalAssets').textContent = formatMoney(200000);
+            document.getElementById('initialCapital').textContent = formatMoney(1000000);
+            document.getElementById('totalAssets').textContent = formatMoney(1000000);
             document.getElementById('totalPnl').textContent = formatMoney(0);
             document.getElementById('pnlPercent').textContent = '0.00%';
-            document.getElementById('availableCash').textContent = formatMoney(200000);
+            document.getElementById('availableCash').textContent = formatMoney(1000000);
             document.getElementById('positionCount').textContent = '0';
         }
 
