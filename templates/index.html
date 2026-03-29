@@ -603,6 +603,9 @@
         // Check trading time
         function isTradingTime() {
             const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1; // 1-12
+            const day = now.getDate(); // 1-31
             const dayOfWeek = now.getDay(); // 0=周日，6=周六
             
             // 周末休市
@@ -610,6 +613,48 @@
                 return false;
             }
             
+            // 中国节假日判断 (简化版，常见固定节假日)
+            const holidayDate = `${month}-${day}`;
+            const majorHolidays = [
+                '1-1',    // 元旦
+                '5-1',    // 劳动节
+                '5-2',
+                '5-3',
+                '5-4',
+                '5-5',
+                '10-1',   // 国庆节
+                '10-2',
+                '10-3',
+                '10-4',
+                '10-5',
+                '10-6',
+                '10-7',
+                '4-4',    // 清明节
+                '4-5',
+                '4-6',
+                '6-10',   // 端午节 (近似)
+                '6-11',
+                '6-12',
+                '9-29',   // 中秋节 (近似)
+                '9-30',
+                '1-21',   // 春节 (近似，每年不同)
+                '1-22',
+                '1-23',
+                '1-24',
+                '1-25',
+                '1-26',
+                '1-27',
+                '1-28',
+                '1-29',
+                '1-30',
+            ];
+            
+            // 节假日休市
+            if (majorHolidays.includes(holidayDate)) {
+                return false;
+            }
+            
+            // 交易时间：09:15-11:30, 13:00-15:00
             const hour = now.getHours();
             const minute = now.getMinutes();
             const time = hour * 100 + minute;
