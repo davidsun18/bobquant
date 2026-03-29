@@ -311,22 +311,22 @@
                 display: none;
             }
             
-            /* 持仓卡片 2 列布局 */
+            /* 持仓卡片 - 极致紧凑 2 列 */
             .mobile-positions {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                gap: 6px;
                 padding: 0;
             }
             
             .mobile-position-card {
                 background: #ffffff;
-                border-radius: 8px;
-                padding: 8px;
+                border-radius: 6px;
+                padding: 6px;
                 margin-bottom: 0;
-                box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
                 border: 1px solid #e9ecef;
-                border-top: 3px solid #ff4d4f;
+                border-top: 2px solid #ff4d4f;
             }
             
             .mobile-position-card.loss {
@@ -337,30 +337,30 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                margin-bottom: 6px;
-                padding-bottom: 6px;
+                margin-bottom: 4px;
+                padding-bottom: 4px;
                 border-bottom: 1px solid #f0f0f0;
             }
             
             .mobile-stock-name {
-                font-size: 13px;
+                font-size: 12px;
                 font-weight: 600;
                 color: #333;
-                margin-bottom: 2px;
+                margin-bottom: 1px;
             }
             
             .mobile-stock-code {
-                font-size: 10px;
+                font-size: 9px;
                 color: #999;
             }
             
             .mobile-profit {
                 text-align: left;
-                margin-top: 4px;
+                margin-top: 2px;
             }
             
             .mobile-profit-value {
-                font-size: 14px;
+                font-size: 13px;
                 font-weight: 600;
                 color: #ff4d4f;
             }
@@ -370,33 +370,34 @@
             }
             
             .mobile-profit-percent {
-                font-size: 10px;
+                font-size: 9px;
                 color: #999;
                 margin-top: 1px;
             }
             
+            /* 2x2 网格 */
             .mobile-position-grid {
                 display: grid;
-                grid-template-columns: 1fr;
-                gap: 6px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 4px;
             }
             
             .mobile-stat-item {
                 background: #f8f9fa;
-                padding: 8px 6px;
-                border-radius: 6px;
+                padding: 4px 3px;
+                border-radius: 4px;
                 text-align: center;
             }
             
             .mobile-stat-label {
-                font-size: 10px;
+                font-size: 8px;
                 color: #999;
-                margin-bottom: 3px;
+                margin-bottom: 1px;
                 display: block;
             }
             
             .mobile-stat-value {
-                font-size: 13px;
+                font-size: 11px;
                 font-weight: 600;
                 color: #333;
                 display: block;
