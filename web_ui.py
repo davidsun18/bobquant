@@ -153,6 +153,16 @@ def index():
     """主页"""
     return render_template('index.html')
 
+@app.route('/mf')
+def mf_monitor():
+    """中频交易监控页面"""
+    return render_template('mf_monitor.html')
+
+@app.route('/mf_account')
+def mf_account_page():
+    """中频账户页面（别名）"""
+    return render_template('mf_monitor.html')
+
 @app.route('/api/account')
 def api_account():
     """账户数据 API (合并日线 + 中频)"""
