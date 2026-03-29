@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>中频交易 - 实时监控</title>
     <style>
         * {
@@ -716,7 +719,7 @@
                 <span id="updateTime">最后更新：--</span>
                 <span id="tradingStatus"></span>
                 <a href="/" class="nav-link">🏠 返回主页</a>
-                <button class="refresh-btn" onclick="loadData()">🔄 刷新</button>
+                <a href="javascript:void(0);" class="nav-link" onclick="loadData()">🔄 刷新</a>
             </div>
         </div>
 
