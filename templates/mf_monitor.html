@@ -67,10 +67,10 @@
         .nav-link {
             background: rgba(255,255,255,0.2);
             color: white;
-            padding: 6px 14px;
+            padding: 4px 10px;
             border-radius: 6px;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
             transition: all 0.3s;
             display: inline-block;
         }
@@ -775,6 +775,7 @@
                                         <th>代码</th>
                                         <th>名称</th>
                                         <th>股数</th>
+                                        <th>可卖</th>
                                         <th>成本价</th>
                                         <th>现价</th>
                                         <th>市值</th>
@@ -784,7 +785,7 @@
                                 </thead>
                                 <tbody id="positionsBody">
                                     <tr>
-                                        <td colspan="8" class="empty-state">
+                                        <td colspan="9" class="empty-state">
                                             <div>📭 暂无持仓</div>
                                         </td>
                                     </tr>
@@ -998,7 +999,7 @@
             const mobileContainer = document.getElementById('mobilePositionsContainer');
             
             if (Object.keys(positions).length === 0) {
-                tbody.innerHTML = `<tr><td colspan="8" class="empty-state"><div>📭 暂无持仓</div></td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="9" class="empty-state"><div>📭 暂无持仓</div></td></tr>`;
                 if (mobileContainer) mobileContainer.innerHTML = '<div class="empty-state">📭 暂无持仓</div>';
                 return;
             }
@@ -1018,11 +1019,13 @@
                 const isProfit = profit >= 0;
                 
                 // Desktop row
+                const sellable = pos.sellable !== undefined ? pos.sellable : shares;
                 html += `
                     <tr>
                         <td data-label="代码"><strong>${code}</strong></td>
                         <td data-label="名称">${pos.name || code}</td>
                         <td data-label="股数">${shares.toLocaleString()}</td>
+                        <td data-label="可卖"><span style="color: #667eea; font-weight: bold;">${sellable.toLocaleString()}</span></td>
                         <td data-label="成本价">¥${avgPrice.toFixed(2)}</td>
                         <td data-label="现价">¥${currentPrice.toFixed(2)}</td>
                         <td data-label="市值">¥${marketValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
@@ -1062,6 +1065,10 @@
                             <div class="mobile-stat-item">
                                 <span class="mobile-stat-label">股数</span>
                                 <span class="mobile-stat-value">${shares.toLocaleString()}</span>
+                            </div>
+                            <div class="mobile-stat-item">
+                                <span class="mobile-stat-label" style="color: #667eea;">可卖</span>
+                                <span class="mobile-stat-value" style="color: #667eea; font-weight: bold;">${sellable.toLocaleString()}</span>
                             </div>
                             <div class="mobile-stat-item">
                                 <span class="mobile-stat-label">市值</span>

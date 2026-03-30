@@ -422,7 +422,7 @@ print("\n" + "=" * 60)
 if trades:
     print("\n📋 部分交易记录:")
     for t in trades[:10]:
-        action = '🟢 买入' if t['action'] == 'buy' else '🔴 卖出'
+        action = '🔴 买入' if t['action'] == 'buy' else '🟢 卖出'
         profit_str = f" 盈亏：{t.get('profit', 0):+.0f}元" if t['action'] == 'sell' else ""
         print(f"  {t['date']} {action} {t['name']} {t['shares']}股 @ {t['price']:.2f}元 - {t['reason']}{profit_str}")
     if len(trades) > 10:

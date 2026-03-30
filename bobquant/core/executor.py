@@ -83,9 +83,9 @@ class Executor:
             })
             action_label = "买入"
 
-        self.log(f"  🟢 {action_label} {name}: {shares}股 @ ¥{price:.2f} (手续费¥{commission:.2f})")
+        self.log(f"  🔴 {action_label} {name}: {shares}股 @ ¥{price:.2f} (手续费¥{commission:.2f})")
         self.log(f"     原因：{reason}")
-        self.notify(f"🟢 {action_label} - {name}",
+        self.notify(f"🔴 {action_label} - {name}",
                      f"股票：{code} {name}\n操作：{action_label}\n数量：{shares}股\n"
                      f"价格：¥{price:.2f}\n金额：¥{cost:,.2f}\n手续费：¥{commission:.2f}\n"
                      f"原因：{reason}\n时间：{datetime.now().strftime('%H:%M:%S')}")
@@ -158,17 +158,19 @@ class Executor:
         pos['buy_lots'] = new_lots
         pos['shares'] -= shares
 
-        emoji = "🔄" if "做T" in action_label else "🔴"
+        # 如果 action_label 已包含 emoji（如"🟢 策略减仓"），则不再添加
+        has_emoji = any(c in action_label for c in "🟢🔴🔄⚪")
+        prefix_emoji = "" if has_emoji else ("🔄" if "做 T" in action_label else "🟢")
         if pos['shares'] <= 0:
             self.account.remove_position(code)
-            self.log(f"  {emoji} {action_label} {name}: {shares}股 @ ¥{price:.2f} (清仓)")
+            self.log(f"  {prefix_emoji} {action_label} {name}: {shares}股 @ ¥{price:.2f} (清仓)")
         else:
-            self.log(f"  {emoji} {action_label} {name}: {shares}股 @ ¥{price:.2f} (剩余{pos['shares']}股)")
+            self.log(f"  {prefix_emoji} {action_label} {name}: {shares}股 @ ¥{price:.2f} (剩余{pos['shares']}股)")
 
         self.log(f"     盈亏：¥{profit:,.2f} ({profit_pct:+.1f}%)")
         self.log(f"     原因：{reason}")
 
-        self.notify(f"{emoji} {action_label} - {name}",
+        self.notify(f"{prefix_emoji} {action_label} - {name}",
                      f"股票：{code} {name}\n操作：{action_label}\n数量：{shares}股\n"
                      f"价格：¥{price:.2f}\n金额：¥{revenue:,.2f}\n手续费：¥{commission:.2f}\n"
                      f"盈亏：¥{profit:,.2f} ({profit_pct:+.1f}%)\n原因：{reason}\n"

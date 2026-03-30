@@ -583,6 +583,7 @@
                                 <th>代码</th>
                                 <th>名称</th>
                                 <th>持仓</th>
+                                <th>可卖</th>
                                 <th>成本价</th>
                                 <th>当前价</th>
                                 <th>市值</th>
@@ -755,7 +756,7 @@
         function loadPositions(positions) {
             // Desktop table
             if (!positions || positions.length === 0) {
-                document.getElementById('positionsContent').innerHTML = '<tr><td colspan="8" style="text-align: center; color: #999; padding: 40px;">暂无持仓</td></tr>';
+                document.getElementById('positionsContent').innerHTML = '<tr><td colspan="9" style="text-align: center; color: #999; padding: 40px;">暂无持仓</td></tr>';
                 document.getElementById('mobilePositionsContent').innerHTML = '<div style="color: #999; text-align: center; padding: 40px;">暂无持仓</div>';
                 return;
             }
@@ -767,12 +768,14 @@
                 const profitClass = profit >= 0 ? '' : 'loss';
                 const profitText = profit >= 0 ? '+' : '';
                 const marketValue = pos.shares * pos.current_price;
+                const sellable = pos.sellable !== undefined ? pos.sellable : pos.shares;
                 
                 html += `
                     <tr>
                         <td class="code-cell">${pos.code}</td>
                         <td class="name-cell">${pos.name}</td>
                         <td>${pos.shares}</td>
+                        <td style="color: #667eea; font-weight: bold;">${sellable}</td>
                         <td>¥${pos.avg_price.toFixed(2)}</td>
                         <td>¥${pos.current_price.toFixed(2)}</td>
                         <td>${formatMoney(marketValue)}</td>
@@ -790,7 +793,7 @@
                 const profitClass = profit >= 0 ? '' : 'loss';
                 const profitText = profit >= 0 ? '+' : '';
                 const marketValue = pos.shares * pos.current_price;
-                const tradableShares = pos.shares - (pos.today_bought || 0);
+                const sellable = pos.sellable !== undefined ? pos.sellable : pos.shares;
                 
                 mobileHtml += `
                     <div class="mobile-position-card ${profitClass}">
@@ -810,8 +813,8 @@
                                 <span class="mobile-stat-value">${pos.shares}</span>
                             </div>
                             <div class="mobile-stat-item">
-                                <span class="mobile-stat-label">可交易</span>
-                                <span class="mobile-stat-value">${tradableShares}</span>
+                                <span class="mobile-stat-label" style="color: #667eea;">可卖</span>
+                                <span class="mobile-stat-value" style="color: #667eea; font-weight: bold;">${sellable}</span>
                             </div>
                             <div class="mobile-stat-item">
                                 <span class="mobile-stat-label">现价</span>

@@ -255,10 +255,18 @@ class GridTStrategy:
             return 0, ''
 
         last_price = info['sells'][-1]['price']
-        dip = self.config.get('t_buyback_dip', 0.005)  # 回落 0.5% 接回
+        dip = self.config.get('t_buyback_dip', 0.002)  # v2.2.19: 回落 0.2% 接回 (原 0.5%)
         if current_price <= last_price * (1 - dip):
             return info['total_sold'], f'做 T 接回 (卖¥{last_price:.2f}→¥{current_price:.2f})'
         return 0, ''
+    
+    def force_buyback_all(self):
+        """v2.2.19 新增：强制接回所有做 T 卖出的股票 (收盘兜底)"""
+        buybacks = []
+        for code, info in list(self._state.items()):
+            if info.get('total_sold', 0) > 0 and not info.get('bought_back', False):
+                buybacks.append((code, info['total_sold']))
+        return buybacks
 
     def record_buyback(self, code):
         if code in self._state:
@@ -289,7 +297,7 @@ class RiskManager:
         # 1) 硬止损
         if pnl <= self.config.get('stop_loss_pct', -0.08):
             return {'action': 'stop_loss', 'shares': sellable,
-                    'reason': f'止损 ({pnl*100:+.1f}%)', 'label': '🔴 止损卖出'}
+                    'reason': f'止损 ({pnl*100:+.1f}%)', 'label': '🟢 止损卖出'}
 
         # 2) 跟踪止损
         prev_high = self._trailing_high.get(code, avg)
@@ -300,7 +308,7 @@ class RiskManager:
             if current_price <= trailing_threshold:
                 return {'action': 'trailing_stop', 'shares': sellable,
                         'reason': f'跟踪止损 (最高¥{self._trailing_high[code]:.2f}→回撤{self.config.get("trailing_dip", 0.02)*100:.0f}%)',
-                        'label': '🔴 跟踪止损'}
+                        'label': '🟢 跟踪止损'}
 
         # 3) 分批止盈
         if pnl >= self.config.get('take_profit_start', 0.05):
@@ -319,7 +327,7 @@ class RiskManager:
                 if tp_shares >= 100:
                     return {'action': f'take_profit_L{taken}', 'shares': tp_shares,
                             'reason': f'止盈 L{taken} (盈{pnl*100:+.1f}% 卖{tp["sell_ratio"]*100:.0f}%)',
-                            'label': f'🔴 止盈 L{taken}'}
+                            'label': f'🟢 止盈 L{taken}'}
 
         return {'action': None}
 

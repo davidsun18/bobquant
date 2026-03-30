@@ -81,6 +81,11 @@ if [ -f "$SCRIPT_DIR/bobquant_v2/run_v2_strategy.py" ]; then
     fi
 fi
 
+# 5. 检查并启动中频交易进程
+if ! check_process "中频交易" "run_medium_frequency.py"; then
+    start_process "中频交易" "PYTHONUNBUFFERED=1 python3 scripts/run_medium_frequency.py --config medium_frequency/config/mf_config.yaml --dry-run" "$LOG_DIR/medium_frequency_run.log"
+fi
+
 echo ""
 echo "=========================================="
 echo "✅ 所有服务启动完成"
@@ -95,7 +100,7 @@ echo ""
 
 # 显示进程状态
 echo "📋 进程状态:"
-ps aux | grep -E "web_ui|bobquant|streamlit" | grep -v grep | awk '{print "   PID: "$2" - "$11" "$12}'
+ps aux | grep -E "web_ui|bobquant|streamlit|medium_frequency" | grep -v grep | awk '{print "   PID: "$2" - "$11" "$12}'
 echo ""
 
 # 显示日志查看命令

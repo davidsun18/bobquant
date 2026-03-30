@@ -34,6 +34,14 @@ stock_pool:
 
 # --- 策略 ---
 strategy:
+  # 日内做 T 策略 v2.2.19
+  day_trading:
+    enabled: true
+    t_grid_up: 0.02                 # 上涨 2% 触发做 T 卖出
+    t_grid_max: 3                   # 最多 3 层
+    t_sell_ratio: 0.5               # 每次卖 50% 可卖股数
+    t_buyback_dip: 0.002            # v2.2.19: 回落 0.2% 接回 (原 0.5%)
+  
   # 双 MACD 策略
   dual_macd:
     enabled: true

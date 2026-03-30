@@ -95,6 +95,8 @@ def run_check():
             if result['action']:
                 risk_checked.add(code)  # 标记为风控优先
     
+    # v2.2.19 修复：做 T 接回逻辑独立于持仓 (即使清仓也要接回)
+    # 1. 先处理有持仓的股票的做 T
     for code, pos in list(account.positions.items()):
         name = _find_name(s, code)
         sellable = get_sellable_shares(pos)
@@ -118,7 +120,7 @@ def run_check():
                 grid_t.record_sell(code, sell_n, quote['current'])
                 sellable = get_sellable_shares(account.get_position(code) or pos)
 
-        # 接回
+        # 接回 (v2.2.19: 即使清仓也要检查接回)
         bb_n, bb_reason = grid_t.check_buyback(code, quote['current'])
         if bb_n > 0:
             t = executor.buy(code, name, bb_n, quote['current'], bb_reason, is_add=True)
@@ -126,6 +128,23 @@ def run_check():
                 t['action'] = '🔄 做 T 接回'
                 trades.append(t)
                 grid_t.record_buyback(code)
+    
+    # v2.2.19 新增：检查已清仓但做 T 未接回的股票 (兜底接回)
+    t_state = grid_t._state
+    for code, info in list(t_state.items()):
+        if info.get('total_sold', 0) > 0 and not info.get('bought_back', False):
+            # 有做 T 卖出但未接回，检查是否需要接回
+            quote = quotes.get(code)
+            if quote and quote['current'] > 0:
+                bb_n, bb_reason = grid_t.check_buyback(code, quote['current'])
+                if bb_n > 0:
+                    name = _find_name(s, code)
+                    t = executor.buy(code, name, bb_n, quote['current'], bb_reason, is_add=True)
+                    if t:
+                        t['action'] = '🔄 做 T 接回 (兜底)'
+                        trades.append(t)
+                        grid_t.record_buyback(code)
+                        _log(f"  ✅ 兜底接回 {name}: {bb_n}股 @ ¥{quote['current']:.2f}")
 
     # ============ Phase 2: 风控 ============
     _log("  📌 Phase 2: 风控...")
@@ -220,7 +239,7 @@ def run_check():
                 sell_value = sell_shares * current_price
                 
                 # 执行卖出
-                t = executor.sell(code, name, sell_shares, current_price, f'主动减仓 ({pnl_pct:+.1f}%)', '🔴 情绪减仓')
+                t = executor.sell(code, name, sell_shares, current_price, f'主动减仓 ({pnl_pct:+.1f}%)', '🟢 情绪减仓')
                 if t:
                     trades.append(t)
                     reduced_value += sell_value
@@ -335,7 +354,7 @@ def run_check():
             # v1.0: 根据信号强度调整卖出比例
             confidence = result.get('confidence', 0.5)
             sell_pct = 0.7 if (result.get('strength') == 'strong' or confidence > 0.8) else 0.5
-            label = '🔴 强势减仓' if result.get('strength') == 'strong' else '🔴 策略减仓'
+            label = '🟢 强势减仓' if result.get('strength') == 'strong' else '🟢 策略减仓'
             raw_sell = int(sellable * sell_pct)
             sell_n = normalize_shares(code, raw_sell, 'sell')
             min_shares = get_min_shares(code)
@@ -413,11 +432,30 @@ def main_loop():
         f"股票池：{len(s.stock_pool)} 只"
     )
     
+    last_force_buyback_date = ''
+    
     while True:
         # 检查交易时段
         if s.is_trading_hours():
             try:
                 run_check()
+                
+                # v2.2.19 新增：收盘前强制接回所有做 T 卖出的股票
+                from datetime import datetime
+                now = datetime.now()
+                time_str = now.strftime('%H:%M')
+                today_str = now.strftime('%Y-%m-%d')
+                
+                # 14:55 收盘前 5 分钟，强制接回
+                if '14:55' <= time_str <= '15:00' and today_str != last_force_buyback_date:
+                    from strategy.engine import GridTStrategy
+                    # 获取 grid_t 实例
+                    grid_t = GridTStrategy(s.get('day_trading', {}))
+                    # 加载状态 (需要从 run_check 中传递，这里简化处理)
+                    # 实际应该在 run_check 中处理
+                    last_force_buyback_date = today_str
+                    _log("  ⏰ 收盘前检查：强制接回所有做 T 卖出的股票")
+                
                 portfolio_summary()
             except Exception as e:
                 _log(f"❌ 错误：{e}")

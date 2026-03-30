@@ -1,14 +1,14 @@
 {
-  "cash": 506841.4125,
+  "cash": 706218.9094999997,
   "initial_capital": 1000000,
   "positions": {
     "sh.600887": {
-      "shares": 1300,
+      "shares": 100,
       "avg_price": 25.61,
       "current_price": 25.95,
       "buy_lots": [
         {
-          "shares": 1300,
+          "shares": 100,
           "price": 25.61,
           "date": "2026-03-24",
           "time": ""
@@ -50,22 +50,6 @@
       "profit_taken": 0,
       "name": "邮储银行"
     },
-    "sh.603198": {
-      "shares": 300,
-      "avg_price": 32.03,
-      "current_price": 31.73,
-      "buy_lots": [
-        {
-          "shares": 300,
-          "price": 32.03,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0,
-      "name": "迎驾贡酒"
-    },
     "sh.603369": {
       "shares": 400,
       "avg_price": 27.25,
@@ -98,25 +82,9 @@
       "profit_taken": 0,
       "name": "同仁堂"
     },
-    "sh.600436": {
-      "shares": 300,
-      "avg_price": 152.72,
-      "current_price": 152.15,
-      "buy_lots": [
-        {
-          "shares": 300,
-          "price": 152.72,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0,
-      "name": "片仔癀"
-    },
     "sh.600690": {
-      "shares": 1200,
-      "avg_price": 22.2,
+      "shares": 2100,
+      "avg_price": 21.904285714285713,
       "current_price": 23.11,
       "buy_lots": [
         {
@@ -130,20 +98,26 @@
           "price": 21.84,
           "date": "2026-03-27",
           "time": "2026-03-27 10:12:34"
+        },
+        {
+          "shares": 900,
+          "price": 21.51,
+          "date": "2026-03-30",
+          "time": "2026-03-30 11:04:55"
         }
       ],
-      "add_level": 2,
+      "add_level": 3,
       "profit_taken": 0,
-      "commission": 9.828,
+      "commission": 19.5075,
       "name": "海尔智家"
     },
     "sh.601398": {
-      "shares": 4100,
+      "shares": 100,
       "avg_price": 7.31,
       "current_price": 7.42,
       "buy_lots": [
         {
-          "shares": 4100,
+          "shares": 100,
           "price": 7.31,
           "date": "2026-03-24",
           "time": ""
@@ -168,22 +142,6 @@
       "add_level": 1,
       "profit_taken": 0,
       "name": "农业银行"
-    },
-    "sh.601939": {
-      "shares": 3200,
-      "avg_price": 9.36,
-      "current_price": 9.44,
-      "buy_lots": [
-        {
-          "shares": 3200,
-          "price": 9.36,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0,
-      "name": "建设银行"
     },
     "sh.601988": {
       "shares": 5400,
@@ -234,12 +192,12 @@
       "name": "通富微电"
     },
     "sz.002415": {
-      "shares": 900,
+      "shares": 100,
       "avg_price": 30.73,
       "current_price": 30.37,
       "buy_lots": [
         {
-          "shares": 900,
+          "shares": 100,
           "price": 30.73,
           "date": "2026-03-24",
           "time": ""
@@ -266,12 +224,12 @@
       "name": "长电科技"
     },
     "sh.603501": {
-      "shares": 200,
+      "shares": 100,
       "avg_price": 101.78,
       "current_price": 100.0,
       "buy_lots": [
         {
-          "shares": 200,
+          "shares": 100,
           "price": 101.78,
           "date": "2026-03-24",
           "time": ""
@@ -298,18 +256,12 @@
       "name": "中国石化"
     },
     "sh.601138": {
-      "shares": 900,
+      "shares": 100,
       "avg_price": 49.946666666666665,
       "current_price": 49.74,
       "buy_lots": [
         {
-          "shares": 500,
-          "price": 50.64,
-          "date": "2026-03-24",
-          "time": ""
-        },
-        {
-          "shares": 400,
+          "shares": 100,
           "price": 49.08,
           "date": "2026-03-27",
           "time": "2026-03-27 10:12:25"
@@ -653,7 +605,350 @@
       "reason": "网格做 T L1 (日内+2.3%，触发2.0%)",
       "trade_id": "B000000027",
       "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:28:03",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "🔴 策略减仓",
+      "shares": 2800,
+      "price": 7.37,
+      "amount": 20636.0,
+      "commission": 10.32,
+      "profit": 137.05,
+      "profit_pct": 0.67,
+      "reason": "策略减仓 (ML 预测下跌 (概率69.9%, medium))",
+      "trade_id": "B000000028",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:28:15",
+      "code": "sz.002415",
+      "name": "海康威视",
+      "action": "🔴 策略减仓",
+      "shares": 600,
+      "price": 30.0,
+      "amount": 18000.0,
+      "commission": 9.0,
+      "profit": -465.0,
+      "profit_pct": -2.52,
+      "reason": "策略减仓 (ML 预测下跌 (概率80.0%, high))",
+      "trade_id": "B000000029",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:28:17",
+      "code": "sh.601138",
+      "name": "工业富联",
+      "action": "🔴 策略减仓",
+      "shares": 600,
+      "price": 48.46,
+      "amount": 29076.0,
+      "commission": 14.54,
+      "profit": -935.61,
+      "profit_pct": -3.12,
+      "reason": "策略减仓 (ML 预测下跌 (概率78.0%, high))",
+      "trade_id": "B000000030",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:28:20",
+      "code": "sh.603501",
+      "name": "韦尔股份",
+      "action": "🔴 策略减仓",
+      "shares": 100,
+      "price": 99.43,
+      "amount": 9943.0,
+      "commission": 5,
+      "profit": -249.94,
+      "profit_pct": -2.46,
+      "reason": "策略减仓 (ML 预测下跌 (概率74.0%, high))",
+      "trade_id": "B000000031",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:28:31",
+      "code": "sh.600436",
+      "name": "片仔癀",
+      "action": "🔴 策略减仓",
+      "shares": 200,
+      "price": 151.7,
+      "amount": 30339.999999999996,
+      "commission": 15.17,
+      "profit": -249.51,
+      "profit_pct": -0.82,
+      "reason": "策略减仓 (ML 预测下跌 (概率81.0%, high))",
+      "trade_id": "B000000032",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:28:55",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "🔴 策略减仓",
+      "shares": 900,
+      "price": 25.97,
+      "amount": 23373.0,
+      "commission": 11.69,
+      "profit": 288.94,
+      "profit_pct": 1.25,
+      "reason": "策略减仓 (ML 预测下跌 (概率84.4%, high))",
+      "trade_id": "B000000033",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:32:35",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "🔴 策略减仓",
+      "shares": 900,
+      "price": 7.37,
+      "amount": 6633.0,
+      "commission": 5,
+      "profit": 42.37,
+      "profit_pct": 0.64,
+      "reason": "策略减仓 (ML 预测下跌 (概率69.9%, medium))",
+      "trade_id": "B000000034",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:32:48",
+      "code": "sz.002415",
+      "name": "海康威视",
+      "action": "🔴 策略减仓",
+      "shares": 200,
+      "price": 30.0,
+      "amount": 6000.0,
+      "commission": 5,
+      "profit": -157.0,
+      "profit_pct": -2.55,
+      "reason": "策略减仓 (ML 预测下跌 (概率80.0%, high))",
+      "trade_id": "B000000035",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:32:54",
+      "code": "sh.601138",
+      "name": "工业富联",
+      "action": "🔴 策略减仓",
+      "shares": 200,
+      "price": 48.46,
+      "amount": 9692.0,
+      "commission": 5,
+      "profit": -312.03,
+      "profit_pct": -3.12,
+      "reason": "策略减仓 (ML 预测下跌 (概率78.0%, high))",
+      "trade_id": "B000000036",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:33:22",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "🔴 策略减仓",
+      "shares": 200,
+      "price": 25.97,
+      "amount": 5194.0,
+      "commission": 5,
+      "profit": 61.81,
+      "profit_pct": 1.21,
+      "reason": "策略减仓 (ML 预测下跌 (概率84.4%, high))",
+      "trade_id": "B000000037",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:36:12",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "🔴 策略减仓",
+      "shares": 200,
+      "price": 7.4,
+      "amount": 1480.0,
+      "commission": 5,
+      "profit": 11.52,
+      "profit_pct": 0.79,
+      "reason": "策略减仓 (ML 预测下跌 (概率69.9%, medium))",
+      "trade_id": "B000000038",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:37:50",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "🔴 策略减仓",
+      "shares": 100,
+      "price": 26.1,
+      "amount": 2610.0,
+      "commission": 5,
+      "profit": 41.39,
+      "profit_pct": 1.62,
+      "reason": "策略减仓 (ML 预测下跌 (概率84.4%, high))",
+      "trade_id": "B000000039",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 09:42:03",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "🔴 策略减仓",
+      "shares": 100,
+      "price": 7.42,
+      "amount": 742.0,
+      "commission": 5,
+      "profit": 5.26,
+      "profit_pct": 0.72,
+      "reason": "策略减仓 (ML 预测下跌 (概率69.9%, medium))",
+      "trade_id": "B000000040",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 11:04:55",
+      "code": "sh.600690",
+      "name": "海尔智家",
+      "action": "加仓L3",
+      "shares": 900,
+      "price": 21.51,
+      "amount": 19359.0,
+      "commission": 9.68,
+      "reason": "布林带下轨 (%B=-0.02, σ=2.5x) + 放量 (2.9x) RSI=27 + ML 预测上涨 (概率67.0%, medium) + 加仓 L3 (跌-3.1%)",
+      "trade_id": "B000000041",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:08:13",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 600,
+      "price": 9.52,
+      "amount": 5712.0,
+      "commission": 5,
+      "profit": 85.29,
+      "profit_pct": 1.52,
+      "reason": "网格做 T L1 (日内+2.0%，触发2.0%)",
+      "trade_id": "B000000042",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:10:08",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 500,
+      "price": 9.53,
+      "amount": 4765.0,
+      "commission": 5,
+      "profit": 75.23,
+      "profit_pct": 1.61,
+      "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
+      "trade_id": "B000000043",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:11:21",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 400,
+      "price": 9.53,
+      "amount": 3811.9999999999995,
+      "commission": 5,
+      "profit": 59.19,
+      "profit_pct": 1.58,
+      "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
+      "trade_id": "B000000044",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:12:23",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 9.52,
+      "amount": 2856.0,
+      "commission": 5,
+      "profit": 40.14,
+      "profit_pct": 1.43,
+      "reason": "网格做 T L1 (日内+2.0%，触发2.0%)",
+      "trade_id": "B000000045",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:13:26",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 9.52,
+      "amount": 2856.0,
+      "commission": 5,
+      "profit": 40.14,
+      "profit_pct": 1.43,
+      "reason": "网格做 T L1 (日内+2.0%，触发2.0%)",
+      "trade_id": "B000000046",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:14:23",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 9.52,
+      "amount": 2856.0,
+      "commission": 5,
+      "profit": 40.14,
+      "profit_pct": 1.43,
+      "reason": "网格做 T L1 (日内+2.0%，触发2.0%)",
+      "trade_id": "B000000047",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:18:21",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 9.52,
+      "amount": 2856.0,
+      "commission": 5,
+      "profit": 40.14,
+      "profit_pct": 1.43,
+      "reason": "网格做 T L1 (日内+2.0%，触发2.0%)",
+      "trade_id": "B000000048",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:19:14",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 9.53,
+      "amount": 2859.0,
+      "commission": 5,
+      "profit": 43.14,
+      "profit_pct": 1.54,
+      "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
+      "trade_id": "B000000049",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-30 13:20:03",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "🔄 做 T 卖出",
+      "shares": 200,
+      "price": 9.53,
+      "amount": 1905.9999999999998,
+      "commission": 5,
+      "profit": 27.09,
+      "profit_pct": 1.45,
+      "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
+      "trade_id": "B000000050",
+      "status": "completed"
     }
   ],
-  "last_update": "2026-03-27 10:50:06"
+  "last_update": "2026-03-30 13:20:19"
 }

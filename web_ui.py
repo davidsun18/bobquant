@@ -7,8 +7,13 @@ BOB 量化系统 - Web UI 界面
 from flask import Flask, render_template, jsonify, request
 import json
 import os
+import sys
 import requests
 from datetime import datetime
+
+# 添加路径以导入 bobquant 模块
+sys.path.insert(0, '/home/openclaw/.openclaw/workspace/quant_strategies')
+from bobquant.core.account import get_sellable_shares
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -232,6 +237,9 @@ def api_account():
         market_value += mv
         total_profit += profit
         
+        # 计算 T+1 可卖股数
+        sellable = get_sellable_shares(pos)
+        
         position_list.append({
             'code': code,
             'name': name,
@@ -243,7 +251,8 @@ def api_account():
             'profit': profit,
             'profit_pct': profit_pct,
             'today_profit': today_profit,  # 当日盈亏 (现价 - 昨收) × 持仓
-            'today_bought': today_bought  # 今天买入的数量（不可卖）
+            'today_bought': today_bought,  # 今天买入的数量（不可卖）
+            'sellable': sellable  # T+1 可卖股数
         })
     
     total_assets = cash + market_value
