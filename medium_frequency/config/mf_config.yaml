@@ -12,6 +12,9 @@ medium_frequency:
     morning: "09:30-11:30"
     afternoon: "13:00-15:00"
   
+  # ========== 告警配置 ==========
+  alert_threshold: 3               # 连续 N 次"有信号无执行"触发告警
+  
   # ========== 数据配置 ==========
   kline_periods: [5, 15, 30]       # K 线周期 (分钟)
   kline_limit: 100                 # 获取 K 线数量
@@ -141,10 +144,11 @@ execution:
   
   # 通知配置
   notify:
-    enabled: false
-    feishu_webhook: ""
-    notify_on_trade: true
-    notify_on_error: true
+    enabled: true                # 启用通知
+    feishu_user_id: "ou_973651ccbc692b7cd90a7d561f6885b3"  # 接收通知的用户
+    notify_on_trade: true        # 交易时通知
+    notify_on_error: true        # 错误时通知
+    notify_on_alert: true        # 告警时通知
 
 # ========== 回测配置 ==========
 backtest:

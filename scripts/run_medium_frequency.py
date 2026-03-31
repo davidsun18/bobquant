@@ -75,6 +75,16 @@ class MediumFrequencyTrader:
         # 运行状态
         self.running = False
         self.check_interval = self.mf_config.get('check_interval', 300)
+        
+        # 告警状态
+        self.consecutive_signal_no_exec = 0  # 连续"有信号无执行"次数
+        self.alert_threshold = self.mf_config.get('alert_threshold', 3)  # 告警阈值
+        
+        # 通知配置
+        self.notify_config = self.config.get('execution', {}).get('notify', {})
+        self.notify_enabled = self.notify_config.get('enabled', False)
+        self.feishu_user_id = self.notify_config.get('feishu_user_id', '')
+        self.last_alert_time = None  # 上次告警时间（用于限制频率）
     
     def is_trading_time(self) -> bool:
         """检查是否在交易时间"""
@@ -102,6 +112,100 @@ class MediumFrequencyTrader:
             return True
         
         return False
+    
+    def send_feishu_alert(self, title: str, content: str, urgent: bool = False):
+        """
+        发送飞书告警通知
+        
+        Args:
+            title: 告警标题
+            content: 告警内容
+            urgent: 是否紧急（紧急会@用户）
+        """
+        if not self.notify_enabled or not self.feishu_user_id:
+            return
+        
+        # 限制告警频率：同一类型告警至少间隔 5 分钟
+        now = datetime.now()
+        if self.last_alert_time and (now - self.last_alert_time).total_seconds() < 300:
+            return  # 频率太高，跳过
+        
+        try:
+            import subprocess
+            
+            emoji = "🚨" if urgent else "⚠️"
+            
+            # 使用 openclaw message 发送（后台运行，不阻塞）
+            message = f"{emoji} **{title}**\n\n{content}\n\n---\n📊 中频量化策略"
+            
+            # 使用 base64 编码避免 shell 转义问题
+            import base64
+            msg_b64 = base64.b64encode(message.encode('utf-8')).decode('ascii')
+            
+            # 使用 shell 后台运行
+            cmd = f"echo '{msg_b64}' | base64 -d | xargs -0 openclaw message send --target 'user:{self.feishu_user_id}' --message &"
+            subprocess.call(cmd, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            
+            print(f"  📱 ✅ 飞书通知已发送（后台）")
+            self.last_alert_time = now
+                
+        except Exception as e:
+            print(f"  ⚠️ 飞书通知异常：{e}")
+    
+    def check_alert(self, signals_generated: int, signals_executed: int):
+        """
+        检查是否需要告警
+        
+        告警条件：连续 N 次检查都是"有信号但无执行"
+        """
+        # 判断本次是否"有信号但无执行"
+        has_signal_no_exec = (signals_generated > 0 and signals_executed == 0)
+        
+        if has_signal_no_exec:
+            self.consecutive_signal_no_exec += 1
+        else:
+            # 重置计数器
+            self.consecutive_signal_no_exec = 0
+            return
+        
+        # 检查是否达到告警阈值
+        if self.consecutive_signal_no_exec >= self.alert_threshold:
+            print(f"\n{'='*60}")
+            print(f"🚨 🚨 🚨  风控告警  🚨 🚨 🚨")
+            print(f"{'='*60}")
+            print(f"连续 {self.consecutive_signal_no_exec} 次检查发现：生成信号 > 0 但 执行交易 = 0")
+            print(f"告警阈值：{self.alert_threshold} 次")
+            print(f"\n可能原因:")
+            print(f"  1. 风控策略过于严格（如频率限制、仓位限制）")
+            print(f"  2. 资金不足")
+            print(f"  3. 执行引擎 Bug")
+            print(f"\n建议检查:")
+            print(f"  - 查看日志中的'执行失败'原因")
+            print(f"  - 检查风控配置 (risk_control)")
+            print(f"  - 验证账户资金和仓位")
+            print(f"{'='*60}\n")
+            
+            # 发送飞书告警
+            if self.notify_config.get('notify_on_alert', True):
+                alert_content = f"""**连续 {self.consecutive_signal_no_exec} 次** 检查发现：生成信号 > 0 但 执行交易 = 0
+
+**告警阈值：** {self.alert_threshold} 次
+
+**可能原因:**
+  1. 风控策略过于严格（如频率限制、仓位限制）
+  2. 资金不足
+  3. 执行引擎 Bug
+
+**建议检查:**
+  - 查看日志中的'执行失败'原因
+  - 检查风控配置 (risk_control)
+  - 验证账户资金和仓位"""
+                
+                self.send_feishu_alert(
+                    title="中频策略风控告警",
+                    content=alert_content,
+                    urgent=(self.consecutive_signal_no_exec >= 5)  # 连续 5 次以上标记为紧急
+                )
     
     def run_once(self):
         """执行一次交易检查"""
@@ -190,8 +294,37 @@ class MediumFrequencyTrader:
                         print(f"        {mode} {result['action']} {result['shares']}股 "
                               f"@ ¥{result['price']:.2f} (¥{result['amount']/10000:.2f}万)")
                         print(f"        原因：{result['reason']}")
+                        
+                        # 发送交易通知
+                        if self.notify_config.get('notify_on_trade', True):
+                            trade_content = f"""**{result['action']} {result['name']}**
+
+- 数量：{result['shares']}股
+- 价格：¥{result['price']:.2f}
+- 金额：¥{result['amount']/10000:.2f}万
+- 模式：{mode}
+- 原因：{result['reason']}"""
+                            
+                            self.send_feishu_alert(
+                                title=f"{'✅' if '买入' in result['action'] else '💰'} 中频交易执行",
+                                content=trade_content,
+                                urgent=False
+                            )
                     else:
                         print(f"        ❌ 执行失败：{result['reason']}")
+                        
+                        # 发送错误通知（可选，避免刷屏）
+                        if self.notify_config.get('notify_on_error', False):
+                            error_content = f"""**{signal.name}** 执行失败
+
+原因：{result['reason']}
+模式：{'模拟' if self.dry_run else '实盘'}"""
+                            
+                            self.send_feishu_alert(
+                                title="❌ 中频交易失败",
+                                content=error_content,
+                                urgent=False
+                            )
             else:
                 print(f"    暂无信号")
         
@@ -202,6 +335,9 @@ class MediumFrequencyTrader:
         print(f"  执行交易：{signals_executed}笔")
         print(f"  模式：{'模拟' if self.dry_run else '实盘'}")
         print(f"{'='*60}")
+        
+        # 告警检查
+        self.check_alert(signals_generated, signals_executed)
     
     def run_loop(self):
         """运行交易循环"""

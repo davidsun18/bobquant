@@ -1,5 +1,5 @@
 {
-  "cash": 706218.9094999997,
+  "cash": 735822.2314999996,
   "initial_capital": 1000000,
   "positions": {
     "sh.600887": {
@@ -144,19 +144,19 @@
       "name": "农业银行"
     },
     "sh.601988": {
-      "shares": 5400,
+      "shares": 300,
       "avg_price": 5.53,
       "current_price": 5.58,
       "buy_lots": [
         {
-          "shares": 5400,
+          "shares": 300,
           "price": 5.53,
           "date": "2026-03-24",
           "time": ""
         }
       ],
       "add_level": 1,
-      "profit_taken": 0,
+      "profit_taken": 9,
       "name": "中国银行"
     },
     "sh.601328": {
@@ -948,7 +948,142 @@
       "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
       "trade_id": "B000000050",
       "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:35:02",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 1700,
+      "price": 5.82,
+      "amount": 9894.0,
+      "commission": 5,
+      "profit": 478.11,
+      "profit_pct": 5.09,
+      "reason": "止盈 L1 (盈+5.2% 卖33%)",
+      "trade_id": "B000000051",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:36:43",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 1200,
+      "price": 5.82,
+      "amount": 6984.0,
+      "commission": 5,
+      "profit": 336.02,
+      "profit_pct": 5.06,
+      "reason": "止盈 L1 (盈+5.2% 卖33%)",
+      "trade_id": "B000000052",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:40:45",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 800,
+      "price": 5.82,
+      "amount": 4656.0,
+      "commission": 5,
+      "profit": 222.34,
+      "profit_pct": 5.03,
+      "reason": "止盈 L1 (盈+5.2% 卖33%)",
+      "trade_id": "B000000053",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:42:16",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 500,
+      "price": 5.83,
+      "amount": 2915.0,
+      "commission": 5,
+      "profit": 142.09,
+      "profit_pct": 5.14,
+      "reason": "止盈 L1 (盈+5.4% 卖33%)",
+      "trade_id": "B000000054",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:43:37",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 300,
+      "price": 5.81,
+      "amount": 1742.9999999999998,
+      "commission": 5,
+      "profit": 77.26,
+      "profit_pct": 4.66,
+      "reason": "止盈 L1 (盈+5.1% 卖33%)",
+      "trade_id": "B000000055",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:45:25",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 200,
+      "price": 5.81,
+      "amount": 1162.0,
+      "commission": 5,
+      "profit": 49.84,
+      "profit_pct": 4.51,
+      "reason": "止盈 L1 (盈+5.1% 卖33%)",
+      "trade_id": "B000000056",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:47:05",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 200,
+      "price": 5.81,
+      "amount": 1162.0,
+      "commission": 5,
+      "profit": 49.84,
+      "profit_pct": 4.51,
+      "reason": "止盈 L1 (盈+5.1% 卖33%)",
+      "trade_id": "B000000057",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:49:32",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 100,
+      "price": 5.81,
+      "amount": 581.0,
+      "commission": 5,
+      "profit": 22.42,
+      "profit_pct": 4.05,
+      "reason": "止盈 L1 (盈+5.1% 卖33%)",
+      "trade_id": "B000000058",
+      "status": "completed"
+    },
+    {
+      "time": "2026-03-31 09:56:30",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "🟢 止盈 L1",
+      "shares": 100,
+      "price": 5.81,
+      "amount": 581.0,
+      "commission": 5,
+      "profit": 22.42,
+      "profit_pct": 4.05,
+      "reason": "止盈 L1 (盈+5.1% 卖33%)",
+      "trade_id": "B000000059",
+      "status": "completed"
     }
   ],
-  "last_update": "2026-03-30 13:20:19"
+  "last_update": "2026-03-31 09:56:44"
 }

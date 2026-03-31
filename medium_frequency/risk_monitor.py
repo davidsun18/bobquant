@@ -81,14 +81,14 @@ class RiskMonitor:
         检查交易频率
         
         Returns:
-            (是否允许，原因)
+            (是否需要暂停，原因) - True=需要暂停，False=允许交易
         """
         now = datetime.now()
         
         # 今日交易次数
         today_trades = self._today_trades.get(code, [])
         if len(today_trades) >= self.max_trades_per_day:
-            return False, f"今日交易次数已达上限 ({len(today_trades)}/{self.max_trades_per_day})"
+            return True, f"今日交易次数已达上限 ({len(today_trades)}/{self.max_trades_per_day})"
         
         # 最小交易间隔
         if code in self._last_trade_time:
@@ -96,9 +96,9 @@ class RiskMonitor:
             elapsed = (now - last_trade).total_seconds()
             
             if elapsed < self.min_trade_interval:
-                return False, f"交易间隔过短 ({elapsed:.0f}s < {self.min_trade_interval}s)"
+                return True, f"交易间隔过短 ({elapsed:.0f}s < {self.min_trade_interval}s)"
         
-        return True, "频率检查通过"
+        return False, "频率检查通过"
     
     def check_stop_loss(
         self,
