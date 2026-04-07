@@ -69,9 +69,12 @@ class RiskMonitor:
         if total_position > self.max_total_position:
             return False, f"总仓位超标 ({total_position*100:.1f}% > {self.max_total_position*100:.1f}%)"
         
-        # 现金储备限制
-        if total_position < (1 - self.min_cash_reserve):
-            if target_position > current_position:  # 买入
+        # 现金储备限制：检查买入后是否会导致现金储备不足
+        if target_position > current_position:  # 买入操作
+            # 计算买入后的总仓位
+            new_total_position = total_position + (target_position - current_position)
+            # 如果买入后总仓位超过 (1 - min_cash_reserve)，则阻止
+            if new_total_position > (1 - self.min_cash_reserve):
                 return False, f"现金储备不足 (需保留{self.min_cash_reserve*100:.1f}%)"
         
         return True, "仓位检查通过"

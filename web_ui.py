@@ -4,11 +4,12 @@ BOB 量化系统 - Web UI 界面
 实时显示持仓、盈亏、资产等信息，每 5 秒刷新
 """
 
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, make_response
 import json
 import os
 import sys
 import requests
+import yaml
 from datetime import datetime
 
 # 添加路径以导入 bobquant 模块
@@ -22,10 +23,6 @@ app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
 # 配置
 ACCOUNT_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/account_ideal.json'
 TRADE_LOG_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/交易记录.json'
-
-# 中频交易配置
-MF_ACCOUNT_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/mf_sim_account.json'
-MF_TRADE_LOG_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/mf_sim_trades.json'
 
 # 股票代码转中文名称映射
 STOCK_NAMES = {
@@ -158,26 +155,10 @@ def index():
     """主页"""
     return render_template('index.html')
 
-@app.route('/mf')
-def mf_monitor():
-    """中频交易监控页面"""
-    return render_template('mf_monitor.html')
-
-@app.route('/mf_account')
-def mf_account_page_func():
-    """中频账户页面（别名）"""
-    return render_template('mf_monitor.html')
-
 @app.route('/api/account')
 def api_account():
-    """账户数据 API (合并日线 + 中频)"""
+    """账户数据 API"""
     account = load_account()
-    mf_account = None
-    
-    # 加载中频账户
-    if os.path.exists(MF_ACCOUNT_FILE):
-        with open(MF_ACCOUNT_FILE, 'r', encoding='utf-8') as f:
-            mf_account = json.load(f)
     
     if not account:
         return jsonify({'error': '账户数据不存在'})
@@ -286,82 +267,6 @@ def api_trades():
             trades = account['trade_history']
     
     return jsonify({'trades': trades[-20:]})  # 返回最近 20 条
-
-@app.route('/api/mf_account')
-def api_mf_account():
-    """中频账户数据 API"""
-    if not os.path.exists(MF_ACCOUNT_FILE):
-        return jsonify({'error': '中频账户不存在'})
-    
-    with open(MF_ACCOUNT_FILE, 'r', encoding='utf-8') as f:
-        account = json.load(f)
-    
-    return jsonify(account)
-
-
-@app.route('/api/combined')
-def api_combined():
-    """合并账户数据 API (日线 + 中频)"""
-    result = {
-        'day_trading': None,
-        'medium_frequency': None,
-        'combined': None
-    }
-    
-    # 日线账户
-    day_account = load_account()
-    if day_account:
-        day_initial = day_account.get('initial_capital', 1000000)
-        day_cash = day_account.get('cash', 0)
-        day_positions = day_account.get('positions', {})
-        
-        day_market_value = sum(
-            pos['shares'] * pos.get('current_price', pos.get('avg_price', 0))
-            for pos in day_positions.values()
-        )
-        day_total = day_cash + day_market_value
-        day_pnl = day_total - day_initial
-        
-        result['day_trading'] = {
-            'initial': day_initial,
-            'total': day_total,
-            'pnl': day_pnl,
-            'pnl_pct': day_pnl / day_initial * 100 if day_initial > 0 else 0,
-            'positions': len(day_positions)
-        }
-    
-    # 中频账户
-    if os.path.exists(MF_ACCOUNT_FILE):
-        with open(MF_ACCOUNT_FILE, 'r', encoding='utf-8') as f:
-            mf_account = json.load(f)
-        
-        mf_initial = mf_account.get('initial_capital', 200000)
-        mf_total = mf_account.get('total_value', 0)
-        mf_pnl = mf_account.get('total_pnl', 0)
-        
-        result['medium_frequency'] = {
-            'initial': mf_initial,
-            'total': mf_total,
-            'pnl': mf_pnl,
-            'pnl_pct': mf_pnl / mf_initial * 100 if mf_initial > 0 else 0,
-            'positions': len(mf_account.get('positions', {}))
-        }
-    
-    # 合并统计
-    if result['day_trading'] and result['medium_frequency']:
-        combined_initial = result['day_trading']['initial'] + result['medium_frequency']['initial']
-        combined_total = result['day_trading']['total'] + result['medium_frequency']['total']
-        combined_pnl = combined_total - combined_initial
-        
-        result['combined'] = {
-            'initial': combined_initial,
-            'total': combined_total,
-            'pnl': combined_pnl,
-            'pnl_pct': combined_pnl / combined_initial * 100 if combined_initial > 0 else 0
-        }
-    
-    return jsonify(result)
-
 
 @app.route('/api/stock/<code>')
 def api_stock_detail(code):

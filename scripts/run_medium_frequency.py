@@ -59,9 +59,9 @@ class MediumFrequencyTrader:
         
         self.signal_generator = SignalGenerator(strategy_cfg)
         
-        # 执行引擎
-        account_file = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/account_ideal.json'
-        trade_log_file = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/交易记录.json'
+        # 执行引擎（使用中频专用账户，避免与 bobquant 日线交易冲突）
+        account_file = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/mf_sim_account.json'
+        trade_log_file = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/mf_sim_trades.json'
         
         self.execution_engine = ExecutionEngine(
             account_file,

@@ -96,7 +96,13 @@ class ExecutionEngine:
         target_position = signal.target_position
         total_capital = self._calculate_total_capital(account)
         target_value = total_capital * target_position
-        target_shares = int(target_value / signal.price / 100) * 100
+        raw_shares = int(target_value / signal.price)
+        # 向下取整到 100 的倍数，但至少 100 股（避免高价股计算结果为 0）
+        # 如果 raw_shares >= 100，取最小的 100 的倍数（至少 100）
+        if raw_shares >= 100:
+            target_shares = max(100, int(raw_shares / 100) * 100)
+        else:
+            target_shares = 0  # 真的买不起 100 股
         
         # 5. 计算交易数量
         if signal.signal_type == SignalType.BUY:

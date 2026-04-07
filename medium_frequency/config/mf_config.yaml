@@ -92,7 +92,7 @@ strategies:
   grid:
     enabled: true
     grid_size: 0.005             # 网格间距 0.5% (原 1.0%，更灵敏)
-    position_per_grid: 0.02      # 每格仓位 2% (原 3%，降低单次风险)
+    position_per_grid: 0.05      # 每格仓位 5% (提高最小交易量，避免高价股无法交易)
     max_grids: 15                # 最多 15 格 (原 10 格，增加网格数)
     auto_reset_base: true        # 自动重置基准价
   
