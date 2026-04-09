@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-BobQuant 交易引擎主入口 v1.0
+BobQuant 交易引擎主入口 v2.2
 三阶段：做 T → 风控 → 策略信号 (集成 ML+ 情绪)
+
+v2.2 新增:
+- TA-Lib 高性能指标计算
+- quantstats 专业绩效分析
+- 三重障碍法标签生成
+- 新风控管理器
 """
 import time
 from datetime import datetime
@@ -14,6 +20,7 @@ try:
     from .data.provider import get_provider
     from .strategy.engine import get_strategy, GridTStrategy, RiskManager, DecisionEngine
     from .notify.feishu import send_feishu
+    from .analysis.performance import generate_report, format_report
 except ImportError:
     from config import get_settings, to_legacy_config, LOG_FILE
     from core.account import Account, get_sellable_shares
@@ -22,6 +29,7 @@ except ImportError:
     from data.provider import get_provider
     from strategy.engine import get_strategy, GridTStrategy, RiskManager, DecisionEngine
     from notify.feishu import send_feishu
+    from analysis.performance import generate_report, format_report
 
 
 # ==================== 日志 ====================
@@ -409,6 +417,33 @@ def portfolio_summary():
     _log(f"总资产：¥{total:,.0f} (现金¥{cash:,.0f} + 持仓¥{mv:,.0f})")
     _log(f"盈亏：¥{pnl:+,.0f} ({pnl_pct:+.2f}%)")
     _log(f"持仓：{len(account.positions)} 只")
+    
+    # v2.2: 绩效分析 (如果有交易记录)
+    try:
+        import pandas as pd
+        trades_file = s.get('trade_log_file', 'sim_trading/交易记录.json')
+        import json
+        from pathlib import Path
+        
+        trades_path = Path(trades_file)
+        if trades_path.exists():
+            with open(trades_path, 'r', encoding='utf-8') as f:
+                trades_data = json.load(f)
+            
+            if isinstance(trades_data, list) and len(trades_data) > 0:
+                trades_df = pd.DataFrame(trades_data)
+                if 'date' in trades_df.columns and 'pnl' in trades_df.columns:
+                    _log("\n📈 绩效分析 (quantstats):")
+                    report = generate_report(trades_df, initial_capital=s.initial_capital)
+                    if 'error' not in report:
+                        _log(format_report(report))
+                        
+                        # 如果有 HTML 报告，记录路径
+                        if 'html_report' in report.get('metrics', {}):
+                            _log(f"\n📄 HTML 报告：{report['metrics']['html_report']}")
+    except Exception as e:
+        _log(f"[绩效分析] 跳过：{e}")
+    
     _log("=" * 60)
 
     return {'total': total, 'cash': cash, 'market_value': mv, 'pnl': pnl, 'pnl_pct': pnl_pct}

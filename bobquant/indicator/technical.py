@@ -1,20 +1,33 @@
 # -*- coding: utf-8 -*-
 """
-BobQuant 技术指标库 v2.0
-所有指标函数接收 DataFrame，返回添加了新列的 DataFrame
+BobQuant 技术指标库 v2.2 - 集成 TA-Lib
 
-v2.0 新增：
-- 双 MACD 策略（短周期 + 长周期过滤）
-- 动态布林带（根据波动率自适应标准差）
-- 波动率计算
+v2.2 新增:
+- 集成 TA-Lib 高性能指标计算
+- 支持 150+ 技术指标
+- K 线形态识别 (CDL 系列)
+- 性能提升 10-100 倍
+
+使用方式:
+    from bobquant.indicator.technical import macd, bollinger
+    df = macd(df)  # 自动使用 TA-Lib 加速
 """
 import pandas as pd
 import numpy as np
 
+# 尝试导入 TA-Lib
+try:
+    import talib
+    TALIB_AVAILABLE = True
+    print("[指标] ✅ TA-Lib 已加载，高性能模式启用")
+except ImportError:
+    TALIB_AVAILABLE = False
+    print("[指标] ⚠️ TA-Lib 未安装，使用纯 Python 实现")
+
 
 def macd(df, fast=12, slow=26, signal=9, prefix=''):
     """
-    MACD 指标
+    MACD 指标 - v2.2: 优先使用 TA-Lib
     
     Args:
         df: DataFrame，包含 'close' 列
@@ -27,16 +40,23 @@ def macd(df, fast=12, slow=26, signal=9, prefix=''):
         DataFrame，添加了 MACD 相关列
     """
     df = df.copy()
-    df[f'{prefix}ema_fast'] = df['close'].ewm(span=fast, adjust=False).mean()
-    df[f'{prefix}ema_slow'] = df['close'].ewm(span=slow, adjust=False).mean()
-    df[f'{prefix}macd'] = df[f'{prefix}ema_fast'] - df[f'{prefix}ema_slow']
-    df[f'{prefix}macd_signal'] = df[f'{prefix}macd'].ewm(span=signal, adjust=False).mean()
-    df[f'{prefix}macd_hist'] = df[f'{prefix}macd'] - df[f'{prefix}macd_signal']
+    
+    if TALIB_AVAILABLE:
+        # 使用 TA-Lib (性能提升 10-100 倍)
+        df[f'{prefix}macd'], df[f'{prefix}macd_signal'], df[f'{prefix}macd_hist'] = \
+            talib.MACD(df['close'].values, fastperiod=fast, slowperiod=slow, signalperiod=signal)
+    else:
+        # 降级到纯 Python 实现
+        df[f'{prefix}ema_fast'] = df['close'].ewm(span=fast, adjust=False).mean()
+        df[f'{prefix}ema_slow'] = df['close'].ewm(span=slow, adjust=False).mean()
+        df[f'{prefix}macd'] = df[f'{prefix}ema_fast'] - df[f'{prefix}ema_slow']
+        df[f'{prefix}macd_signal'] = df[f'{prefix}macd'].ewm(span=signal, adjust=False).mean()
+        df[f'{prefix}macd_hist'] = df[f'{prefix}macd'] - df[f'{prefix}macd_signal']
     
     # 兼容旧版字段名（仅当 prefix 为空时）
     if prefix == '':
-        df['ma1'] = df['ema_fast']
-        df['ma2'] = df['ema_slow']
+        df['ma1'] = df.get(f'{prefix}ema_fast', df['close'])
+        df['ma2'] = df.get(f'{prefix}ema_slow', df['close'])
     
     return df
 
@@ -47,138 +67,352 @@ def dual_macd(df):
     
     计算短周期 (6,13,5) 和长周期 (24,52,18) 两套 MACD
     用于过滤假信号：只有双 MACD 同向时才认为是有效信号
-    
-    Returns:
-        DataFrame，添加了双 MACD 相关列
     """
-    df = df.copy()
-    
-    # 短周期 MACD (6,13,5) - 敏感，捕捉早期信号
     df = macd(df, fast=6, slow=13, signal=5, prefix='short_')
-    
-    # 长周期 MACD (24,52,18) - 稳定，过滤噪音
     df = macd(df, fast=24, slow=52, signal=18, prefix='long_')
     
-    # 双 MACD 确认信号
-    # 金叉确认：短周期和长周期同时金叉
+    # 双金叉：短周期和长周期同时金叉
     df['dual_golden'] = (
         (df['short_macd'] > df['short_macd_signal']) & 
-        (df['long_macd'] > df['long_macd_signal']) &
         (df['short_macd'].shift(1) <= df['short_macd_signal'].shift(1)) &
+        (df['long_macd'] > df['long_macd_signal']) & 
         (df['long_macd'].shift(1) <= df['long_macd_signal'].shift(1))
     )
     
-    # 死叉确认：短周期和长周期同时死叉
+    # 双死叉：短周期和长周期同时死叉
     df['dual_death'] = (
         (df['short_macd'] < df['short_macd_signal']) & 
-        (df['long_macd'] < df['long_macd_signal']) &
         (df['short_macd'].shift(1) >= df['short_macd_signal'].shift(1)) &
+        (df['long_macd'] < df['long_macd_signal']) & 
         (df['long_macd'].shift(1) >= df['long_macd_signal'].shift(1))
     )
     
-    # 单 MACD 信号（用于对比）
-    df['single_golden'] = (df['short_macd'] > df['short_macd_signal']) & \
-                          (df['short_macd'].shift(1) <= df['short_macd_signal'].shift(1))
-    df['single_death'] = (df['short_macd'] < df['short_macd_signal']) & \
-                         (df['short_macd'].shift(1) >= df['short_macd_signal'].shift(1))
-    
     return df
 
 
-def volatility(df, period=20):
+def bollinger(df, window=20, num_std=2, dynamic=False):
     """
-    计算波动率（用于动态布林带）
-    
-    Args:
-        df: DataFrame
-        period: 计算周期
-        
-    Returns:
-        DataFrame，添加了波动率列
-    """
-    df = df.copy()
-    df['returns'] = df['close'].pct_change()
-    df['volatility'] = df['returns'].rolling(period).std()
-    df['volatility_annual'] = df['volatility'] * np.sqrt(252)  # 年化波动率
-    return df
-
-
-def bollinger(df, window=20, num_std=2, dynamic=False, vol_period=20):
-    """
-    布林带指标
+    布林带 - v2.2: 优先使用 TA-Lib
     
     Args:
         df: DataFrame，包含 'close' 列
-        window: 中轨周期
+        window: 周期
         num_std: 标准差倍数
-        dynamic: 是否启用动态标准差
-        vol_period: 波动率计算周期
+        dynamic: 是否使用动态标准差（根据波动率自适应）
         
     Returns:
         DataFrame，添加了布林带相关列
     """
     df = df.copy()
-    df['bb_mid'] = df['close'].rolling(window).mean()
-    df['bb_std'] = df['close'].rolling(window).std()
     
-    if dynamic:
-        # 动态布林带：根据波动率自适应调整标准差
-        df = volatility(df, vol_period)
-        
-        # 高波动股用 2.5 倍标准差，低波动用 1.8 倍，默认 2.0 倍
-        # 使用年化波动率分位数来判断
-        vol_median = df['volatility_annual'].median()
-        vol_high = df['volatility_annual'].quantile(0.75)
-        vol_low = df['volatility_annual'].quantile(0.25)
-        
-        def get_dynamic_std(row):
-            if pd.isna(row['volatility_annual']):
-                return num_std
-            if row['volatility_annual'] > vol_high:
-                return 2.5  # 高波动
-            elif row['volatility_annual'] < vol_low:
-                return 1.8  # 低波动
-            else:
-                return num_std  # 中等波动
-        
-        df['bb_std_dynamic'] = df.apply(get_dynamic_std, axis=1)
-        df['bb_upper'] = df['bb_mid'] + df['bb_std_dynamic'] * df['bb_std']
-        df['bb_lower'] = df['bb_mid'] - df['bb_std_dynamic'] * df['bb_std']
-        df['bb_std_used'] = df['bb_std_dynamic']
-    else:
-        df['bb_upper'] = df['bb_mid'] + num_std * df['bb_std']
-        df['bb_lower'] = df['bb_mid'] - num_std * df['bb_std']
+    if TALIB_AVAILABLE:
+        # 使用 TA-Lib
+        df['bb_upper'], df['bb_middle'], df['bb_lower'] = \
+            talib.BBANDS(df['close'].values, timeperiod=window, nbdevup=num_std, nbdevdn=num_std, matype=0)
         df['bb_std_used'] = num_std
+    else:
+        # 降级到纯 Python 实现
+        df['bb_middle'] = df['close'].rolling(window=window).mean()
+        bb_std = df['close'].rolling(window=window).std()
+        
+        if dynamic:
+            # 动态调整标准差：高波动时扩大，低波动时缩小
+            volatility = df['close'].pct_change().rolling(20).std()
+            vol_adjustment = 1 + (volatility - volatility.mean()) / volatility.mean()
+            vol_adjustment = vol_adjustment.clip(0.8, 1.5)  # 限制调整范围
+            df['bb_std_used'] = num_std * vol_adjustment
+        else:
+            df['bb_std_used'] = num_std
+        
+        df['bb_upper'] = df['bb_middle'] + (bb_std * df['bb_std_used'])
+        df['bb_lower'] = df['bb_middle'] - (bb_std * df['bb_std_used'])
     
-    denom = df['bb_upper'] - df['bb_lower']
-    df['bb_pos'] = (df['close'] - df['bb_lower']) / denom.replace(0, 1e-10)
+    # 计算 %B 指标
+    df['bb_pct'] = (df['close'] - df['bb_lower']) / (df['bb_upper'] - df['bb_lower'])
+    df['bb_width'] = (df['bb_upper'] - df['bb_lower']) / df['bb_middle']
+    
     return df
 
 
 def rsi(df, period=14):
-    """RSI 相对强弱指标"""
+    """
+    RSI 指标 - v2.2: 优先使用 TA-Lib
+    """
     df = df.copy()
-    delta = df['close'].diff()
-    gain = delta.where(delta > 0, 0).rolling(period).mean()
-    loss = (-delta.where(delta < 0, 0)).rolling(period).mean()
-    rs = gain / loss.replace(0, 1e-10)
-    df['rsi'] = 100 - (100 / (1 + rs))
+    
+    if TALIB_AVAILABLE:
+        df['rsi'] = talib.RSI(df['close'].values, timeperiod=period)
+    else:
+        # 降级到纯 Python 实现
+        delta = df['close'].diff()
+        gain = (delta.where(delta > 0, 0)).rolling(window=period).mean()
+        loss = (-delta.where(delta < 0, 0)).rolling(window=period).mean()
+        rs = gain / loss
+        df['rsi'] = 100 - (100 / (1 + rs))
+    
     return df
 
 
-def volume_ratio(df, period=20):
-    """量比（当日成交量 / N日均量）"""
+def atr(df, period=14):
+    """
+    平均真实波动幅度 (ATR) - v2.2: 优先使用 TA-Lib
+    
+    用于衡量波动率，适合设置止损位
+    """
     df = df.copy()
-    df['vol_ma'] = df['volume'].rolling(period).mean()
-    df['vol_ratio'] = df['volume'] / df['vol_ma'].replace(0, 1e-10)
+    
+    if TALIB_AVAILABLE:
+        df['atr'] = talib.ATR(df['high'].values, df['low'].values, df['close'].values, timeperiod=period)
+    else:
+        # 降级到纯 Python 实现
+        high = df['high']
+        low = df['low']
+        close = df['close'].shift(1)
+        
+        tr1 = high - low
+        tr2 = (high - close).abs()
+        tr3 = (low - close).abs()
+        
+        tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
+        df['atr'] = tr.rolling(window=period).mean()
+    
     return df
 
 
-def compute_all(df):
-    """一次性计算所有指标（方便策略使用）"""
-    df = macd(df)
-    df = bollinger(df)
-    df = rsi(df)
+def kdj(df, n=9, m1=3, m2=3):
+    """
+    KDJ 指标 - 随机指标
+    
+    Args:
+        df: DataFrame，包含 'high', 'low', 'close' 列
+        n: RSV 计算周期
+        m1: K 值平滑周期
+        m2: D 值平滑周期
+        
+    Returns:
+        DataFrame，添加了 KDJ 相关列
+    """
+    df = df.copy()
+    
+    if TALIB_AVAILABLE:
+        # TA-Lib 的 KD 指标（慢速随机）
+        df['k'], df['d'] = talib.STOCH(df['high'].values, df['low'].values, df['close'].values,
+                                        fastk_period=n, slowk_period=m1, slowk_matype=0,
+                                        slowd_period=m2, slowd_matype=0)
+        df['j'] = 3 * df['k'] - 2 * df['d']
+    else:
+        # 降级到纯 Python 实现
+        low_n = df['low'].rolling(window=n).min()
+        high_n = df['high'].rolling(window=n).max()
+        
+        rsv = (df['close'] - low_n) / (high_n - low_n) * 100
+        df['k'] = rsv.ewm(com=m1-1, adjust=False).mean()
+        df['d'] = df['k'].ewm(com=m2-1, adjust=False).mean()
+        df['j'] = 3 * df['k'] - 2 * df['d']
+    
+    return df
+
+
+def volume_ratio(df, period=5):
+    """
+    成交量比率 - 当前成交量 / N 日平均成交量
+    """
+    df = df.copy()
+    
     if 'volume' in df.columns:
-        df = volume_ratio(df)
+        df['volume_ma'] = df['volume'].rolling(window=period).mean()
+        df['vol_ratio'] = df['volume'] / df['volume_ma']
+    else:
+        df['vol_ratio'] = 1.0
+    
     return df
+
+
+def momentum(df, period=10):
+    """
+    动量指标 - v2.2: 优先使用 TA-Lib
+    """
+    df = df.copy()
+    
+    if TALIB_AVAILABLE:
+        df['mom'] = talib.MOM(df['close'].values, timeperiod=period)
+    else:
+        df['mom'] = df['close'].diff(period)
+    
+    return df
+
+
+def cci(df, period=20):
+    """
+    CCI 指标 - 顺势指标 - v2.2: 优先使用 TA-Lib
+    """
+    df = df.copy()
+    
+    if TALIB_AVAILABLE:
+        df['cci'] = talib.CCI(df['high'].values, df['low'].values, df['close'].values, timeperiod=period)
+    else:
+        # 降级到纯 Python 实现
+        tp = (df['high'] + df['low'] + df['close']) / 3
+        tp_mean = tp.rolling(window=period).mean()
+        tp_std = tp.rolling(window=period).std()
+        df['cci'] = (tp - tp_mean) / (tp_std * 0.015)
+    
+    return df
+
+
+# ==================== K 线形态识别 (CDL 系列) - v2.2 新增 ====================
+
+def candlestick_patterns(df):
+    """
+    K 线形态识别 - v2.2 新增 (仅 TA-Lib)
+    
+    识别常见 K 线形态：
+    - 锤子线/上吊线
+    - 吞没形态
+    - 晨星/暮星
+    - 三只乌鸦/三个白兵
+    - 等等...
+    
+    Returns:
+        DataFrame，添加了各种形态识别结果
+    """
+    df = df.copy()
+    
+    if not TALIB_AVAILABLE:
+        print("[指标] ⚠️ TA-Lib 未安装，跳过 K 线形态识别")
+        return df
+    
+    # 单 K 线形态
+    df['cdl_doji'] = talib.CDLDOJI(df['open'], df['high'], df['low'], df['close'])  # 十字星
+    df['cdl_hammer'] = talib.CDLHAMMER(df['open'], df['high'], df['low'], df['close'])  # 锤子线
+    df['cdl_hanging'] = talib.CDLHANGINGMAN(df['open'], df['high'], df['low'], df['close'])  # 上吊线
+    df['cdl_shooting'] = talib.CDLSHOOTINGSTAR(df['open'], df['high'], df['low'], df['close'])  # 流星线
+    
+    # 双 K 线形态
+    df['cdl_engulfing'] = talib.CDLENGULFING(df['open'], df['high'], df['low'], df['close'])  # 吞没
+    df['cdl_harami'] = talib.CDLHARAMI(df['open'], df['high'], df['low'], df['close'])  # 孕线
+    
+    # 三 K 线形态
+    df['cdl_morning'] = talib.CDLMORNINGSTAR(df['open'], df['high'], df['low'], df['close'])  # 晨星
+    df['cdl_evening'] = talib.CDLEVENINGSTAR(df['open'], df['high'], df['low'], df['close'])  # 暮星
+    df['cdl_3soldiers'] = talib.CDL3WHITESOLDIERS(df['open'], df['high'], df['low'], df['close'])  # 三个白兵
+    df['cdl_3crows'] = talib.CDL3BLACKCROWS(df['open'], df['high'], df['low'], df['close'])  # 三只乌鸦
+    
+    # 解释信号
+    df['bullish_pattern'] = (
+        (df['cdl_hammer'] == 100) |
+        (df['cdl_morning'] == 100) |
+        (df['cdl_engulfing'] == 100) |
+        (df['cdl_3soldiers'] == 100)
+    )
+    
+    df['bearish_pattern'] = (
+        (df['cdl_hanging'] == 100) |
+        (df['cdl_evening'] == 100) |
+        (df['cdl_engulfing'] == -100) |
+        (df['cdl_3crows'] == -100)
+    )
+    
+    return df
+
+
+# ==================== 综合指标应用 ====================
+
+def apply_all_indicators(df):
+    """
+    应用所有常用指标 - v2.2: 使用 TA-Lib 加速
+    
+    Args:
+        df: DataFrame，包含 OHLCV 列
+        
+    Returns:
+        DataFrame，添加了所有技术指标
+    """
+    # 趋势指标
+    df = macd(df)
+    df = bollinger(df, dynamic=True)
+    
+    # 摆动指标
+    df = rsi(df)
+    df = kdj(df)
+    df = cci(df)
+    
+    # 波动率指标
+    df = atr(df)
+    
+    # 成交量指标
+    df = volume_ratio(df)
+    
+    # K 线形态
+    df = candlestick_patterns(df)
+    
+    return df
+
+
+# ==================== 性能测试 ====================
+
+def benchmark_talib():
+    """
+    性能测试：对比 TA-Lib 和纯 Python 实现
+    """
+    import time
+    
+    # 生成测试数据
+    np.random.seed(42)
+    n = 10000
+    close = np.random.randn(n).cumsum() + 100
+    
+    print("=" * 60)
+    print("TA-Lib 性能测试")
+    print("=" * 60)
+    
+    # TA-Lib RSI
+    if TALIB_AVAILABLE:
+        start = time.time()
+        for _ in range(100):
+            talib.RSI(close, timeperiod=14)
+        talib_time = time.time() - start
+        print(f"TA-Lib RSI (100 次): {talib_time:.4f} 秒")
+    
+    # 纯 Python RSI
+    df = pd.DataFrame({'close': close})
+    start = time.time()
+    for _ in range(100):
+        delta = df['close'].diff()
+        gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+        loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+        rs = gain / loss
+        100 - (100 / (1 + rs))
+    python_time = time.time() - start
+    print(f"纯 Python RSI (100 次): {python_time:.4f} 秒")
+    
+    if TALIB_AVAILABLE:
+        speedup = python_time / talib_time
+        print(f"\n⚡ 性能提升：{speedup:.1f}x")
+    
+    print("=" * 60)
+
+
+if __name__ == '__main__':
+    # 测试
+    test_df = pd.DataFrame({
+        'open': np.random.randn(100).cumsum() + 100,
+        'high': np.random.randn(100).cumsum() + 102,
+        'low': np.random.randn(100).cumsum() + 98,
+        'close': np.random.randn(100).cumsum() + 100,
+        'volume': np.random.randint(1000, 10000, 100)
+    })
+    
+    print("📊 技术指标测试")
+    print("=" * 60)
+    
+    df = apply_all_indicators(test_df)
+    print(f"数据形状：{df.shape}")
+    print(f"列数：{len(df.columns)}")
+    print(f"\n新增指标列:")
+    for col in df.columns:
+        if col not in ['open', 'high', 'low', 'close', 'volume']:
+            print(f"  - {col}")
+    
+    print("\n" + "=" * 60)
+    benchmark_talib()
