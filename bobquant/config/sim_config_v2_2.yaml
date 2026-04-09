@@ -5,10 +5,10 @@
 # --- 系统 ---
 system:
   name: "BobQuant 模拟盘"
-  version: "2.2.12"                 # v2.2.12: 26 只股票精确恢复
+  version: "2.3.0-freq"             # v2.3.0: 高频做 T 模式
   mode: "simulation"                # simulation / real
   log_level: "INFO"
-  check_interval: 10                # 行情检查间隔（秒）
+  check_interval: 5                 # 行情检查间隔 5 秒（原 10 秒）
 
 # --- 账户 ---
 account:
@@ -34,13 +34,16 @@ stock_pool:
 
 # --- 策略 ---
 strategy:
-  # 日内做 T 策略 v2.2.19
+  # 日内做 T 策略 v2.3（高频版）
   day_trading:
     enabled: true
-    t_grid_up: 0.02                 # 上涨 2% 触发做 T 卖出
-    t_grid_max: 3                   # 最多 3 层
-    t_sell_ratio: 0.5               # 每次卖 50% 可卖股数
-    t_buyback_dip: 0.002            # v2.2.19: 回落 0.2% 接回 (原 0.5%)
+    t_grid_up: 0.003                # 上涨 0.3% 触发做 T 卖出（原 2%）
+    t_grid_down: 0.003              # 下跌 0.3% 触发做 T 买入（新增）
+    t_grid_max: 5                   # 最多 5 层（原 3 层）
+    t_sell_ratio: 0.3               # 每次卖 30% 可卖股数（原 50%，更细分）
+    t_buyback_dip: 0.0015           # 回落 0.15% 接回（原 0.2%）
+    min_profit_tick: 2              # 最小盈利 2 个价位即做 T（新增）
+    enable_scalping: true           # 启用超短线剥头皮（新增）
   
   # 双 MACD 策略
   dual_macd:
@@ -55,12 +58,13 @@ strategy:
     num_std: 2
     dynamic: true                   # 动态标准差
   
-  # 信号过滤
+  # 信号过滤（宽松模式）
   signal:
-    rsi_buy_max: 35
-    rsi_sell_min: 70
-    volume_confirm: true
-    volume_ratio_buy: 1.5
+    rsi_buy_max: 50                 # 放宽到 50（原 35）
+    rsi_sell_min: 60                # 放宽到 60（原 70）
+    volume_confirm: false           # 不强制成交量确认（新增）
+    volume_ratio_buy: 1.2           # 降低到 1.2 倍（原 1.5）
+    enable_micro_trend: true        # 启用微趋势跟踪（新增）
 
 # --- 仓位管理 ---
 position:
