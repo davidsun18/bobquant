@@ -315,9 +315,18 @@ def run_check():
                     _log(f"  ⚪ {name}: 本轮已买入，跳过重复信号")
                     continue
                 
+                # v2.1: 新风控检查
                 pct = pyramid[1] if strength == 'strong' else pyramid[0]
                 raw_shares = int(s.initial_capital * pct / quote['current'])
                 shares = normalize_shares(code, raw_shares, 'buy')
+                
+                order_check = risk.check_order(code, 'buy', shares, quote['current'], account.cash + sum(p['shares'] * quotes.get(p['code'], {}).get('current', 0) for p in account.positions.values()))
+                if not order_check.get('allowed', True):
+                    _log(f"  ⚪ {name}: 风控拦截 - {order_check.get('reason', '未知')}")
+                    continue
+                if order_check.get('level') == 'warning':
+                    _log(f"  ⚠️ {name}: 风控警告 - {order_check.get('reason', '未知')}")
+                
                 t = executor.buy(code, name, shares, quote['current'], result['reason'])
                 if t:
                     trades.append(t)

@@ -112,8 +112,26 @@ class MLPredictor:
         features['returns'] = df['close'].pct_change()
         features['high_low_range'] = (df['high'] - df['low']) / df['close']
         
-        # 7. 目标变量 (T+1 是否上涨)
-        features['target'] = (df['close'].shift(-1) > df['close']).astype(int)
+        # 7. 目标变量 - v2.1 使用三重障碍法 (mlfinlab 核心算法)
+        # 传统方法：T+1 是否上涨 → 新方法和实际交易场景更匹配
+        try:
+            from .features import apply_triple_barrier
+            events = df[['close']].copy()
+            labels = apply_triple_barrier(
+                close=df['close'],
+                high=df['high'],
+                low=df['low'],
+                events=events,
+                pt_sl=(1.0, 1.0),
+                t1=pd.Timedelta('5D'),  # 5 天时间窗口
+                min_ret=0.02  # 2% 最小预期收益
+            )
+            features['target'] = labels
+            print("[ML] ✅ 使用三重障碍法生成标签 (mlfinlab)")
+        except Exception as e:
+            # 降级到传统方法
+            features['target'] = (df['close'].shift(-1) > df['close']).astype(int)
+            print(f"[ML] ⚠️ 三重障碍法失败，降级到传统方法：{e}")
         
         # 删除 NaN 值
         features = features.dropna()

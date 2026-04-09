@@ -274,11 +274,77 @@ class GridTStrategy:
 
 
 class RiskManager:
-    """风控管理器（止损 + 跟踪止损 + 分批止盈）"""
+    """风控管理器（止损 + 跟踪止损 + 分批止盈）v2.1
+    
+    v2.1 新增：
+    - 集成新风险管理器 (risk_management/risk_manager.py)
+    - 组合级风控检查
+    - 回撤控制
+    """
 
     def __init__(self, config):
         self.config = config
         self._trailing_high = {}
+        
+        # v2.1: 初始化新风险管理器
+        try:
+            import sys
+            import os
+            sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+            from risk_management.risk_manager import RiskManager as NewRiskManager, RiskLimits
+            
+            self.new_risk_mgr = NewRiskManager(
+                limits=RiskLimits(
+                    max_position_value=config.get('max_position_value', 500000),
+                    max_portfolio_exposure=config.get('max_portfolio_exposure', 2000000),
+                    max_drawdown=config.get('max_drawdown', 0.10),
+                    max_daily_loss=config.get('max_daily_loss', 50000),
+                    max_order_value=config.get('max_order_value', 100000),
+                    concentration_limit=config.get('concentration_limit', 0.30)
+                ),
+                initial_capital=config.get('initial_capital', 1000000)
+            )
+            print("[风控] ✅ 新风险管理器已加载")
+        except Exception as e:
+            self.new_risk_mgr = None
+            print(f"[风控] ⚠️ 新风险管理器加载失败：{e}")
+    
+    def update_portfolio(self, positions, prices, cash, daily_pnl):
+        """更新组合状态（用于新风控检查）"""
+        if self.new_risk_mgr:
+            # 更新持仓
+            self.new_risk_mgr.positions = {}
+            for code, pos in positions.items():
+                from risk_management.risk_manager import Position
+                self.new_risk_mgr.positions[code] = Position(
+                    symbol=code,
+                    quantity=pos.get('quantity', 0),
+                    avg_cost=pos.get('avg_price', 0),
+                    current_price=prices.get(code, 0)
+                )
+            
+            # 更新价格和组合价值
+            self.new_risk_mgr.cash = cash
+            self.new_risk_mgr.daily_pnl = daily_pnl
+            self.new_risk_mgr._recalculate_portfolio()
+    
+    def check_order(self, code, side, quantity, price, account_value=0):
+        """
+        v2.1: 使用新风控检查订单
+        
+        返回：{'allowed': bool, 'reason': str}
+        """
+        if self.new_risk_mgr:
+            from risk_management.risk_manager import RiskCheckResult
+            result, message = self.new_risk_mgr.check_order(code, side, quantity, price)
+            return {
+                'allowed': result != RiskCheckResult.FAIL,
+                'reason': message,
+                'level': 'fail' if result == RiskCheckResult.FAIL else 'warning' if result == RiskCheckResult.WARNING else 'pass'
+            }
+        else:
+            # 降级到简单检查
+            return {'allowed': True, 'reason': '新风控不可用，跳过检查', 'level': 'pass'}
 
     def check(self, code, pos, current_price):
         """
