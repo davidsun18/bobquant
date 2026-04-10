@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-BobQuant 交易引擎主入口 v2.2
-三阶段：做 T → 风控 → 策略信号 (集成 ML+ 情绪)
+BobQuant 交易引擎主入口 v2.4
+三阶段：高频交易 → 做 T → 风控 → 策略信号 (集成 ML+ 情绪)
+
+v2.4 新增:
+- 高频激进策略模式
+- 剥头皮/动量/突破/均值回归
+- 3 秒行情检查间隔
+- 0.15% 触发做 T
+- 5 分钟最长持仓
 
 v2.2 新增:
 - TA-Lib 高性能指标计算
@@ -19,6 +26,7 @@ try:
     from .core.trading_rules import get_min_shares, normalize_shares
     from .data.provider import get_provider
     from .strategy.engine import get_strategy, GridTStrategy, RiskManager, DecisionEngine
+    from .strategy.high_frequency import HighFrequencyEngine, create_high_frequency_strategy
     from .notify.feishu import send_feishu
     from .analysis.performance import generate_report, format_report
 except ImportError:
@@ -28,6 +36,7 @@ except ImportError:
     from core.trading_rules import get_min_shares, normalize_shares
     from data.provider import get_provider
     from strategy.engine import get_strategy, GridTStrategy, RiskManager, DecisionEngine
+    from strategy.high_frequency import HighFrequencyEngine, create_high_frequency_strategy
     from notify.feishu import send_feishu
     from analysis.performance import generate_report, format_report
 
@@ -58,10 +67,45 @@ def run_check():
     data = get_provider(s.get('data.primary', 'tencent'))
     account = Account(s.positions_file, s.initial_capital).load()
     account.migrate_positions()
-    executor = Executor(account, s.commission_rate, s.trade_log_file, _log, _notify)
+    
+    # TWAP 配置
+    twap_enabled = s.get('twap.enabled', False)
+    twap_threshold = s.get('twap.threshold', 10000)
+    twap_slices = s.get('twap.slices', 5)
+    twap_duration = s.get('twap.duration_minutes', 10)
+    
+    executor = Executor(
+        account, 
+        s.commission_rate, 
+        s.trade_log_file, 
+        _log, 
+        _notify,
+        twap_enabled=twap_enabled,
+        twap_threshold=twap_threshold,
+        twap_slices=twap_slices,
+        twap_duration=twap_duration
+    )
+    
+    if twap_enabled:
+        _log(f"  ✅ TWAP 执行器已启用 (阈值：{twap_threshold}股，拆分：{twap_slices}份，时长：{twap_duration}分钟)")
     grid_t = GridTStrategy(trade_cfg)
     risk = RiskManager(trade_cfg)
     grid_t.reset_if_new_day()
+    
+    # v2.4 NEW: 初始化高频交易引擎
+    enable_high_freq = s.get('high_frequency.enabled', False)
+    hf_engine = None
+    if enable_high_freq:
+        hf_config = {
+            'scalping_threshold': s.get('strategy.day_trading.scalping_threshold', 0.001),
+            'max_holding_time': s.get('strategy.day_trading.max_holding_time', 300),
+            'min_profit_tick': s.get('strategy.day_trading.min_profit_tick', 1),
+            'momentum_threshold': s.get('strategy.signal.enable_momentum', True),
+            'reversion_threshold': s.get('strategy.signal.reversion_threshold', 0.002),
+            'breakout_window': s.get('strategy.signal.breakout_window', 5)
+        }
+        hf_engine = HighFrequencyEngine(hf_config)
+        _log(f"⚡ 高频交易引擎就绪 (剥头皮/动量/突破/均值回归)")
     
     # v1.0 NEW: 初始化综合决策引擎
     enable_ml = s.get('ml.enabled', True)
@@ -84,7 +128,7 @@ def run_check():
         decision_engine = DecisionEngine(config)
         _log(f"🧠 综合决策引擎就绪 (ML={enable_ml}, 情绪={enable_sentiment})")
 
-    _log("📊 检查交易信号（三阶段 + v1.0 智能增强）...")
+    _log("📊 检查交易信号（高频优先 + 三阶段 + v1.0 智能增强）...")
     trades = []
 
     # ============ Phase 1: 网格做 T ============

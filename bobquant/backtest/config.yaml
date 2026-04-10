@@ -49,6 +49,12 @@ settings:
   export_trades: true        # 导出交易记录
   export_equity_curve: true  # 导出权益曲线
 
+# --- 回测引擎选择 ---
+# 可选：traditional (传统循环回测) 或 vectorbt (向量化回测)
+backtest:
+  engine: vectorbt  # 默认使用 VectorBT 引擎
+  # engine: traditional  # 或使用传统回测引擎
+
 # --- 策略对比 ---
 # 用于多策略对比回测
 strategy_comparison:

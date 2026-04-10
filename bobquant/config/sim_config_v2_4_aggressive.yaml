@@ -1,0 +1,202 @@
+# ==========================================
+# BobQuant 模拟盘配置 v2.4（高频激进版）
+# ==========================================
+
+# --- 系统 ---
+system:
+  name: "BobQuant 高频激进版"
+  version: "2.4.0-aggressive"
+  mode: "simulation"
+  log_level: "INFO"
+  check_interval: 3                 # 行情检查间隔 3 秒（原 5 秒）
+
+# --- 账户 ---
+account:
+  initial_capital: 1000000          # 初始资金 100 万
+  commission_rate: 0.0005           # 手续费万分之五
+  stamp_duty_rate: 0.001            # 印花税千分之一
+
+# --- 股票池 ---
+stock_pool:
+  config_file: "config/stock_pool_50_active.yaml"  # 50 只高活跃度股票
+  enable_fundamental_filter: false  # 关闭基本面筛选（更激进）
+  min_fundamental_score: 50         # 降低到 50 分
+  
+  # 基本面筛选标准（宽松）
+  fundamentals:
+    min_roe: 0.05                   # ROE ≥5%（原 12%）
+    min_revenue_growth: 0.0         # 不要求增长
+    min_profit_growth: -0.50        # 允许亏损
+    max_debt_ratio: 0.80            # 放宽到 80%
+    max_pe: 100                     # 放宽到 100
+    max_pb: 10                      # 放宽到 10
+    min_market_cap: 50000000000     # 市值≥500 亿（原 2000 亿）
+
+# --- 策略 ---
+strategy:
+  # 日内做 T 策略 v2.4（超高频版）
+  day_trading:
+    enabled: true
+    t_grid_up: 0.0015               # 上涨 0.15% 触发做 T 卖出（原 0.3%）
+    t_grid_down: 0.0015             # 下跌 0.15% 触发做 T 买入
+    t_grid_max: 10                  # 最多 10 层（原 5 层）
+    t_sell_ratio: 0.2               # 每次卖 20% 可卖股数（更细分）
+    t_buyback_dip: 0.0008           # 回落 0.08% 接回（原 0.15%）
+    min_profit_tick: 1              # 最小盈利 1 个价位即做 T
+    enable_scalping: true           # 启用超短线剥头皮
+    scalping_threshold: 0.001       # 0.1% 即可触发剥头皮
+    max_holding_time: 300           # 最长持仓 5 分钟（秒）
+    enable_momentum: true           # 启用动量交易（新增）
+    momentum_threshold: 0.002       # 2 分钟内涨跌≥0.2%
+  
+  # 双 MACD 策略（快速版）
+  dual_macd:
+    enabled: true
+    short_period: [3, 8, 3]         # 更短周期（原 6,13,5）
+    long_period: [12, 26, 9]        # 更短周期（原 24,52,18）
+  
+  # 布林带策略（激进版）
+  bollinger:
+    enabled: true
+    window: 12                      # 缩短到 12（原 20）
+    num_std: 1.5                    # 降低到 1.5 倍（原 2 倍）
+    dynamic: true
+  
+  # RSI 策略（敏感版）
+  rsi:
+    enabled: true
+    period: 6                       # 缩短到 6（原 14）
+    oversold: 30                    # 超卖线
+    overbought: 70                  # 超买线
+  
+  # KDJ 策略（新增）
+  kdj:
+    enabled: true
+    n: 6                            # 更短周期
+    m1: 2
+    m2: 2
+  
+  # 信号过滤（激进模式）
+  signal:
+    rsi_buy_max: 60                 # 放宽到 60（原 50）
+    rsi_sell_min: 50                # 放宽到 50（原 60）
+    volume_confirm: false           # 不强制成交量确认
+    volume_ratio_buy: 1.0           # 不要求放量
+    enable_micro_trend: true        # 启用微趋势跟踪
+    enable_breakout: true           # 启用突破交易（新增）
+    breakout_window: 5              # 突破 N 日高点
+    enable_mean_reversion: true     # 启用均值回归（新增）
+    reversion_threshold: 0.002      # 偏离均线 0.2% 触发
+
+# --- 仓位管理 ---
+position:
+  max_position_pct: 0.15            # 单票最大仓位 15%（原 10%）
+  max_stocks: 15                    # 最大同时持仓 15 只（原 10 只）
+  min_buy_shares: 100               # 最小买入 100 股
+  enable_full_position: true        # 允许满仓操作（新增）
+  
+  # 金字塔加仓（激进版）
+  pyramid:
+    enabled: true
+    levels: [0.02, 0.035, 0.05, 0.07]  # 更密集（原 3%,5%,7%）
+    add_dip_pct: 0.02               # 加仓间隔 2%（原 3%）
+    max_add_levels: 5               # 最多加仓 5 层（原 3 层）
+
+# --- 止盈止损 ---
+risk_control:
+  # 硬止损（收紧）
+  stop_loss:
+    enabled: true
+    pct: -0.05                      # -5% 止损（原 -8%）
+    trailing: true                  # 启用移动止损
+  
+  # 跟踪止损（激进）
+  trailing_stop:
+    enabled: true
+    activation_pct: 0.02            # 盈利 2% 后激活（原 5%）
+    drawdown_pct: 0.01              # 回撤 1% 止盈（原 2%）
+  
+  # 分批止盈（快速版）
+  take_profit:
+    enabled: true
+    levels:
+      - threshold: 0.02             # 盈利 2% 即开始止盈（原 5%）
+        sell_ratio: 0.25            # 卖出 25%
+      - threshold: 0.04
+        sell_ratio: 0.35            # 盈利 4% 卖出 35%
+      - threshold: 0.06
+        sell_ratio: 0.40            # 盈利 6% 卖出 40%
+  
+  # 时间止损（新增）
+  time_stop:
+    enabled: true
+    max_holding_minutes: 30         # 最长持仓 30 分钟
+    break_even_stop: true           # 保本止损
+
+# --- 大盘风控 ---
+market_risk:
+  enabled: true
+  index_code: "sh.000001"           # 上证指数
+  ma20_line: 20
+  max_position_bear: 0.70           # 跌破 20 日线仓位≤70%（原 50%）
+  crash_threshold: -0.04            # 暴跌 -4% 禁止买入（原 -3%）
+
+# --- 数据源 ---
+data:
+  primary: "tencent"                # 腾讯财经
+  fallback: "tencent"
+  history_provider: "baostock"
+  history_days: 120                 # 增加历史数据
+  realtime_refresh: 2               # 实时数据 2 秒刷新（原 5 秒）
+
+# --- 交易时段 ---
+trading_hours:
+  morning_start: "09:25"
+  morning_end: "11:35"
+  afternoon_start: "12:55"
+  afternoon_end: "15:05"
+  
+  # 盘前准备
+  pre_market: "09:15"
+  # 盘后总结
+  post_market: "15:30"
+  
+  # 高频交易时段（新增）
+  high_freq_window:
+    - "09:30-10:00"                 # 开盘 30 分钟
+    - "10:00-10:30"                 # 上午第二时段
+    - "13:00-13:30"                 # 午后开盘
+    - "14:30-15:00"                 # 尾盘时段
+
+# --- 通知 ---
+notify:
+  feishu:
+    enabled: true
+    user_id: "ou_973651ccbc692b7cd90a7d561f6885b3"
+  
+  # 通知类型（高频模式）
+  events:
+    trade_executed: true            # 交易执行
+    stop_loss: true                 # 止损触发
+    take_profit: true               # 止盈触发
+    scalping_signal: true           # 剥头皮信号（新增）
+    high_freq_alert: true           # 高频交易提醒（新增）
+    daily_report: true              # 日报
+    risk_warning: true              # 风险预警
+
+# --- 日志 ---
+log:
+  dir: "logs/sim_trading_highfreq"
+  max_size: 20971520                # 20MB（增加日志量）
+  backup_count: 20
+  detail_level: "debug"             # 详细日志级别
+
+# --- 高频交易特殊配置 ---
+high_frequency:
+  enabled: true                     # 启用高频模式
+  max_trades_per_minute: 5          # 每分钟最多 5 笔交易
+  min_spread: 0.001                 # 最小价差 0.1%
+  order_book_depth: 5               # 盘口深度 5 档
+  enable_market_making: false       # 暂不做市策略
+  latency_target_ms: 100            # 目标延迟<100ms
+  enable_smart_routing: true        # 智能订单路由

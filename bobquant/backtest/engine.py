@@ -23,12 +23,12 @@ import os
 try:
     from ..indicator import technical as ta
     from ..strategy.engine import get_strategy, DecisionEngine
-    from ..data import fetcher
+    from ..data.provider import DataProvider, get_provider
     from ..core.account import Account
 except ImportError:
     from indicator import technical as ta
     from strategy.engine import get_strategy, DecisionEngine
-    from data import fetcher
+    from data.provider import DataProvider, get_provider
     from core.account import Account
 
 
@@ -400,22 +400,62 @@ class BacktestEngine:
         return report
 
 
-def run_backtest(config, stock_pool, start_date, end_date, strategy='macd'):
-    """快捷回测函数"""
-    engine = BacktestEngine(config)
-    results = engine.run(stock_pool, start_date, end_date, strategy)
+def run_backtest(config, stock_pool, start_date, end_date, strategy='macd', engine_type=None):
+    """
+    快捷回测函数
+    
+    Args:
+        config: 配置字典
+        stock_pool: 股票池
+        start_date: 开始日期
+        end_date: 结束日期
+        strategy: 策略名称
+        engine_type: 回测引擎类型 ('traditional' 或 'vectorbt')，默认从 config 读取
+    """
+    # 确定使用哪个引擎
+    if engine_type is None:
+        engine_type = config.get('backtest', {}).get('engine', 'traditional')
+    
+    if engine_type == 'vectorbt':
+        # 使用 VectorBT 引擎
+        try:
+            from .vectorbt_backtest import run_vectorbt_backtest
+            print(f"\n🚀 使用 VectorBT 向量化回测引擎")
+            results = run_vectorbt_backtest(config, stock_pool, start_date, end_date, strategy)
+            results['engine'] = 'vectorbt'
+        except ImportError as e:
+            print(f"⚠️  VectorBT 未安装，回退到传统引擎：{e}")
+            engine_type = 'traditional'
+    
+    if engine_type == 'traditional':
+        # 使用传统引擎
+        print(f"\n🚀 使用传统回测引擎")
+        engine = BacktestEngine(config)
+        results = engine.run(stock_pool, start_date, end_date, strategy)
+        results['engine'] = 'traditional'
     
     # 打印回测摘要
     print("\n" + "=" * 60)
     print("📊 回测结果摘要")
     print("=" * 60)
-    metrics = results['metrics']
-    print(f"总收益率：  {metrics.get('total_return_pct', 'N/A')}")
-    print(f"年化收益：  {metrics.get('annual_return_pct', 'N/A')}")
-    print(f"最大回撤：  {metrics.get('max_drawdown_pct', 'N/A')}")
-    print(f"夏普比率：  {metrics.get('sharpe_ratio', 0):.2f}")
-    print(f"交易次数：  {metrics.get('total_trades', 0)}")
-    print(f"胜率：      {metrics.get('win_rate', 0)*100:.1f}%")
+    
+    if results.get('engine') == 'vectorbt':
+        # VectorBT 结果格式
+        print(f"回测引擎：  {results.get('engine', 'N/A')}")
+        print(f"策略：      {results.get('strategy', 'N/A')}")
+        print(f"股票数量：  {results.get('stock_count', 0)}")
+        print(f"平均收益：  {results.get('avg_return', 0)*100:.2f}%")
+        print(f"平均夏普：  {results.get('avg_sharpe', 0):.2f}")
+    else:
+        # 传统结果格式
+        metrics = results.get('metrics', {})
+        print(f"总收益率：  {metrics.get('total_return_pct', 'N/A')}")
+        print(f"年化收益：  {metrics.get('annual_return_pct', 'N/A')}")
+        print(f"最大回撤：  {metrics.get('max_drawdown_pct', 'N/A')}")
+        print(f"夏普比率：  {metrics.get('sharpe_ratio', 0):.2f}")
+        print(f"交易次数：  {metrics.get('total_trades', 0)}")
+        print(f"胜率：      {metrics.get('win_rate', 0)*100:.1f}%")
+    
     print("=" * 60)
     
     return results

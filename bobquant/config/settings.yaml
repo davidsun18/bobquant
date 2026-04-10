@@ -116,6 +116,37 @@ trading_hours:
   # 盘后总结
   post_market: "15:30"
 
+# --- TWAP 算法执行 ---
+twap:
+  enabled: false                    # 是否启用 TWAP 大单拆分
+  threshold: 10000                  # 触发 TWAP 的股数阈值（>10000 股自动拆分）
+  slices: 5                         # 拆分份数
+  duration_minutes: 10              # 执行时长（分钟）
+
+# --- 强化学习 (RL) ---
+rl:
+  enabled: false                    # 是否启用 RL 策略
+  algorithm: "ppo"                  # 算法选择：ppo / a2c / dqn
+  model_path: "rl/models"           # 模型保存路径
+  
+  # 训练配置
+  training:
+    total_timesteps: 10000          # 训练总步数
+    eval_freq: 1000                 # 评估频率
+    n_eval_episodes: 5              # 评估回合数
+    window_size: 60                 # 状态窗口大小
+  
+  # 交易配置
+  trading:
+    max_stocks: 10                  # 最大持仓数量
+    max_position_pct: 0.10          # 单票最大仓位
+    initial_capital: 1000000        # 初始资金
+  
+  # 预测配置
+  prediction:
+    use_trained_model: true         # 使用已训练模型
+    deterministic: true             # 确定性预测
+
 # --- 通知 ---
 notify:
   feishu:
