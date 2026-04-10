@@ -37,17 +37,18 @@ strategy:
   # 日内做 T 策略 v2.4（超高频版）
   day_trading:
     enabled: true
-    t_grid_up: 0.0015               # 上涨 0.15% 触发做 T 卖出（原 0.3%）
-    t_grid_down: 0.0015             # 下跌 0.15% 触发做 T 买入
-    t_grid_max: 10                  # 最多 10 层（原 5 层）
-    t_sell_ratio: 0.2               # 每次卖 20% 可卖股数（更细分）
-    t_buyback_dip: 0.0008           # 回落 0.08% 接回（原 0.15%）
-    min_profit_tick: 1              # 最小盈利 1 个价位即做 T
+    t_grid_up: 0.002                # 上涨 0.2% 触发做 T 卖出（手续费后保本）
+    t_grid_down: 0.002              # 下跌 0.2% 触发做 T 买入
+    t_grid_max: 8                   # 最多 8 层
+    t_sell_ratio: 0.25              # 每次卖 25% 可卖股数
+    t_buyback_dip: 0.001            # 回落 0.1% 接回
+    min_profit_tick: 2              # 最小盈利 2 个价位即做 T（覆盖手续费）
     enable_scalping: true           # 启用超短线剥头皮
-    scalping_threshold: 0.001       # 0.1% 即可触发剥头皮
+    scalping_threshold: 0.0015      # 0.15% 触发剥头皮
     max_holding_time: 300           # 最长持仓 5 分钟（秒）
-    enable_momentum: true           # 启用动量交易（新增）
-    momentum_threshold: 0.002       # 2 分钟内涨跌≥0.2%
+    enable_momentum: true           # 启用动量交易
+    momentum_threshold: 0.0025      # 2 分钟内涨跌≥0.25%
+    min_trade_value: 10000          # 最小交易金额 1 万（避免最低 5 元收费）
   
   # 双 MACD 策略（快速版）
   dual_macd:

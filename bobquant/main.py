@@ -131,6 +131,57 @@ def run_check():
     _log("📊 检查交易信号（高频优先 + 三阶段 + v1.0 智能增强）...")
     trades = []
 
+    # ============ Phase 0: 高频交易策略 (v2.4 新增) ============
+    if hf_engine:
+        _log("  ⚡ Phase 0: 高频交易策略...")
+        # 检查所有股票池中的股票（包括无持仓的）
+        for stock in s.stock_pool:
+            code, name = stock['code'], stock['name']
+            quote = data.get_quote(code)
+            if not quote or quote['current'] <= 0:
+                continue
+            
+            # 获取历史数据
+            df = data.get_history(code, days=30)
+            pos = account.get_position(code)
+            
+            # 高频策略检查
+            hf_signal = hf_engine.check(code, name, quote, df, pos)
+            
+            if hf_signal.get('signal'):
+                _log(f"  🎯 高频信号：{name} - {hf_signal.get('strategy')} - {hf_signal.get('reason')}")
+                
+                if hf_signal['signal'] == 'buy':
+                    # 检查是否已有持仓（高频不做加仓，只开新仓）
+                    if not pos:
+                        # 计算买入金额（确保≥最小交易金额）
+                        min_shares = max(s.get('strategy.day_trading.min_trade_value', 10000) // quote['current'], 100)
+                        shares = normalize_shares(code, min_shares, 'buy')
+                        
+                        if shares >= get_min_shares(code):
+                            t = executor.buy(code, name, shares, quote['current'], 
+                                           f"{hf_signal.get('strategy')}:{hf_signal.get('reason')}",
+                                           label='⚡ 高频买入')
+                            if t:
+                                trades.append(t)
+                                hf_engine.on_trade(code, 'buy')
+                                _log(f"  ✅ 高频买入 {name}: {shares}股 @ ¥{quote['current']:.2f}")
+                
+                elif hf_signal['signal'] == 'sell':
+                    if pos:
+                        sellable = get_sellable_shares(pos)
+                        if sellable > 0:
+                            # 高频策略默认卖出 50%
+                            sell_shares = normalize_shares(code, sellable // 2, 'sell')
+                            if sell_shares >= get_min_shares(code):
+                                t = executor.sell(code, name, sell_shares, quote['current'],
+                                                f"{hf_signal.get('strategy')}:{hf_signal.get('reason')}",
+                                                label='⚡ 高频卖出')
+                                if t:
+                                    trades.append(t)
+                                    hf_engine.on_trade(code, 'sell')
+                                    _log(f"  ✅ 高频卖出 {name}: {sell_shares}股 @ ¥{quote['current']:.2f}")
+    
     # ============ Phase 1: 网格做 T ============
     _log("  📌 Phase 1: 网格做 T...")
     

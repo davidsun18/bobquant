@@ -1,5 +1,5 @@
 {
-  "cash": 758196.1014999995,
+  "cash": 790374.3199999995,
   "initial_capital": 1000000,
   "positions": {
     "sh.600887": {
@@ -176,19 +176,19 @@
       "name": "交通银行"
     },
     "sz.002156": {
-      "shares": 600,
+      "shares": 400,
       "avg_price": 43.6,
       "current_price": 42.76,
       "buy_lots": [
         {
-          "shares": 600,
+          "shares": 400,
           "price": 43.6,
           "date": "2026-03-24",
           "time": ""
         }
       ],
       "add_level": 1,
-      "profit_taken": 0,
+      "profit_taken": 2,
       "name": "通富微电"
     },
     "sz.002415": {
@@ -206,22 +206,6 @@
       "add_level": 1,
       "profit_taken": 0,
       "name": "海康威视"
-    },
-    "sh.600584": {
-      "shares": 400,
-      "avg_price": 40.4,
-      "current_price": 39.43,
-      "buy_lots": [
-        {
-          "shares": 400,
-          "price": 40.4,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 2,
-      "name": "长电科技"
     },
     "sh.603501": {
       "shares": 300,
@@ -261,23 +245,6 @@
       "add_level": 1,
       "profit_taken": 0,
       "name": "中国石化"
-    },
-    "sh.601138": {
-      "shares": 100,
-      "avg_price": 49.946666666666665,
-      "current_price": 49.74,
-      "buy_lots": [
-        {
-          "shares": 100,
-          "price": 49.08,
-          "date": "2026-03-27",
-          "time": "2026-03-27 10:12:25"
-        }
-      ],
-      "add_level": 2,
-      "profit_taken": 0,
-      "commission": 9.816,
-      "name": "工业富联"
     }
   },
   "snapshot": {
@@ -1268,7 +1235,82 @@
       "reason": "止盈 L1 (盈+5.1% 卖33%)",
       "trade_id": "B000000071",
       "status": "completed"
+    },
+    {
+      "time": "2026-04-10 09:27:31",
+      "code": "sh.600584",
+      "name": "长电科技",
+      "action": "🟢 止盈 L1",
+      "shares": 100,
+      "price": 42.74,
+      "amount": 4274.0,
+      "commission": 5,
+      "profit": 224.73,
+      "profit_pct": 5.56,
+      "reason": "止盈 L1 (盈+5.8% 卖33%)",
+      "trade_id": "B000000141",
+      "status": "completed"
+    },
+    {
+      "time": "2026-04-10 09:35:03",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "🟢 止盈 L1",
+      "shares": 100,
+      "price": 46.13,
+      "amount": 4613.0,
+      "commission": 5,
+      "profit": 243.39,
+      "profit_pct": 5.58,
+      "reason": "止盈 L1 (盈+5.8% 卖33%)",
+      "trade_id": "B000000143",
+      "status": "completed"
+    },
+    {
+      "time": "2026-04-10 09:47:42",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "🟢 止盈 L1",
+      "shares": 100,
+      "price": 45.84,
+      "amount": 4584.0,
+      "commission": 5,
+      "profit": 214.42,
+      "profit_pct": 4.92,
+      "reason": "止盈 L1 (盈+5.1% 卖33%)",
+      "trade_id": "B000000144",
+      "status": "completed"
+    },
+    {
+      "time": "2026-04-10 10:13:12",
+      "code": "sh.601138",
+      "name": "工业富联",
+      "action": "🔄 做 T 卖出",
+      "shares": 100,
+      "price": 56.77,
+      "amount": 5677.0,
+      "commission": 5,
+      "profit": 671.66,
+      "profit_pct": 13.45,
+      "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
+      "trade_id": "B000000145",
+      "status": "completed"
+    },
+    {
+      "time": "2026-04-10 10:25:37",
+      "code": "sh.600584",
+      "name": "长电科技",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 43.63,
+      "amount": 13089.0,
+      "commission": 6.54,
+      "profit": 949.37,
+      "profit_pct": 7.83,
+      "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
+      "trade_id": "B000000146",
+      "status": "completed"
     }
   ],
-  "last_update": "2026-04-09 10:58:36"
+  "last_update": "2026-04-10 10:26:00"
 }
