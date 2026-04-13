@@ -1,5 +1,5 @@
 {
-  "cash": 790374.3199999995,
+  "cash": 602098.6749999995,
   "initial_capital": 1000000,
   "positions": {
     "sh.600887": {
@@ -175,41 +175,9 @@
       "profit_taken": 0,
       "name": "交通银行"
     },
-    "sz.002156": {
-      "shares": 400,
-      "avg_price": 43.6,
-      "current_price": 42.76,
-      "buy_lots": [
-        {
-          "shares": 400,
-          "price": 43.6,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 2,
-      "name": "通富微电"
-    },
-    "sz.002415": {
-      "shares": 100,
-      "avg_price": 30.73,
-      "current_price": 30.37,
-      "buy_lots": [
-        {
-          "shares": 100,
-          "price": 30.73,
-          "date": "2026-03-24",
-          "time": ""
-        }
-      ],
-      "add_level": 1,
-      "profit_taken": 0,
-      "name": "海康威视"
-    },
     "sh.603501": {
-      "shares": 300,
-      "avg_price": 97.59333333333333,
+      "shares": 500,
+      "avg_price": 96.272,
       "current_price": 100.0,
       "buy_lots": [
         {
@@ -223,12 +191,18 @@
           "price": 95.5,
           "date": "2026-04-01",
           "time": "2026-04-01 09:38:20"
+        },
+        {
+          "shares": 200,
+          "price": 94.29,
+          "date": "2026-04-13",
+          "time": "2026-04-13 09:27:52"
         }
       ],
-      "add_level": 2,
+      "add_level": 3,
       "profit_taken": 0,
       "name": "韦尔股份",
-      "commission": 9.55
+      "commission": 18.979
     },
     "sh.600028": {
       "shares": 5000,
@@ -245,6 +219,22 @@
       "add_level": 1,
       "profit_taken": 0,
       "name": "中国石化"
+    },
+    "sz.002415": {
+      "shares": 6000,
+      "avg_price": 31.79,
+      "current_price": 31.79,
+      "buy_lots": [
+        {
+          "shares": 6000,
+          "price": 31.79,
+          "date": "2026-04-10",
+          "time": "14:00:02"
+        }
+      ],
+      "add_level": 1,
+      "profit_taken": 0,
+      "name": "海康威视"
     }
   },
   "snapshot": {
@@ -1310,7 +1300,65 @@
       "reason": "网格做 T L1 (日内+2.1%，触发2.0%)",
       "trade_id": "B000000146",
       "status": "completed"
+    },
+    {
+      "time": "2026-04-10 10:44:23",
+      "code": "sz.002415",
+      "name": "海康威视",
+      "action": "🔄 做 T 卖出",
+      "shares": 100,
+      "price": 31.5,
+      "amount": 3150.0,
+      "commission": 5,
+      "profit": 68.85,
+      "profit_pct": 2.24,
+      "reason": "网格做 T L1 (日内+2.0%，触发2.0%)",
+      "trade_id": "B000000147",
+      "status": "completed"
+    },
+    {
+      "time": "2026-04-13 09:27:52",
+      "code": "sh.603501",
+      "name": "韦尔股份",
+      "action": "加仓L3",
+      "shares": 200,
+      "price": 94.29,
+      "amount": 18858.0,
+      "commission": 9.43,
+      "reason": "ML 预测上涨 (概率64.7%, medium) + 加仓 L3 (跌-3.4%)",
+      "trade_id": "B000000148",
+      "status": "completed"
+    },
+    {
+      "time": "2026-04-13 09:45:50",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "🟢 止盈 L1",
+      "shares": 100,
+      "price": 45.81,
+      "amount": 4581.0,
+      "commission": 5,
+      "profit": 211.42,
+      "profit_pct": 4.85,
+      "reason": "止盈 L1 (盈+5.1% 卖33%)",
+      "trade_id": "B000000149",
+      "status": "completed"
+    },
+    {
+      "time": "2026-04-13 09:58:41",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "🔄 做 T 卖出",
+      "shares": 300,
+      "price": 46.1,
+      "amount": 13830.0,
+      "commission": 6.92,
+      "profit": 729.25,
+      "profit_pct": 5.58,
+      "reason": "网格做 T L1 (日内+2.4%，触发2.0%)",
+      "trade_id": "B000000150",
+      "status": "completed"
     }
   ],
-  "last_update": "2026-04-10 10:26:00"
+  "last_update": "2026-04-13 09:59:27"
 }

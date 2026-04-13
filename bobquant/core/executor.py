@@ -302,6 +302,27 @@ class Executor:
             action_label = "买入"
 
         self.log(f"  🔴 {action_label} {name}: {shares}股 @ ¥{price:.2f} (手续费¥{commission:.2f})")
+        
+        # v2.5 新增：检查是否有做 T 卖出待接回
+        t_profit = 0.0
+        t_profit_pct = 0.0
+        is_t_buyback = False
+        
+        if 't_pending' in self.account.data and code in self.account.data['t_pending']:
+            t_sell = self.account.data['t_pending'][code]
+            if t_sell.get('shares', 0) >= shares:
+                # 做 T 接回：计算实际做 T 盈利
+                is_t_buyback = True
+                sell_price = t_sell['sell_price']
+                buyback_price = price
+                t_profit = (sell_price - buyback_price) * shares - commission
+                t_profit_pct = (t_profit / (buyback_price * shares) * 100) if buyback_price > 0 else 0
+                action_label = f"🔄 做 T 接回 (+¥{t_profit:.2f})"
+                # 清除做 T 待接回记录
+                del self.account.data['t_pending'][code]
+                self.log(f"     做 T 盈利：¥{t_profit:.2f} ({t_profit_pct:+.2f}%)")
+                self.log(f"     卖出@¥{sell_price:.2f} → 接回@¥{buyback_price:.2f}")
+        
         self.log(f"     原因：{reason}")
         self.notify(f"🔴 {action_label} - {name}",
                      f"股票：{code} {name}\n操作：{action_label}\n数量：{shares}股\n"
@@ -311,13 +332,19 @@ class Executor:
         # 生成交易标识符 (A+9 位数字)
         trade_id = get_next_trade_id()
         
+        # v2.5: 做 T 接回时添加盈利信息
         trade = {
             'time': now_str, 'code': code, 'name': name, 'action': action_label,
             'shares': shares, 'price': price, 'amount': cost,
             'commission': round(commission, 2), 'reason': reason,
-            'trade_id': trade_id,  # A 标识符 (待成交)
-            'status': 'pending',    # 待成交状态
+            'trade_id': trade_id,
+            'status': 'pending',
         }
+        
+        if is_t_buyback:
+            trade['profit'] = round(t_profit, 2)
+            trade['profit_pct'] = round(t_profit_pct, 2)
+        
         self.account.add_trade(trade)
         
         # 交易完成后，将 A 标识符转换为 B 标识符 (已成交)
@@ -377,11 +404,32 @@ class Executor:
         commission = max(commission, 5)  # 最低 5 元
         stamp_duty = revenue * 0.001  # 印花税千一（卖出收）
         net_revenue = revenue - commission - stamp_duty
-        cost_basis = shares * pos['avg_price']
-        profit = net_revenue - cost_basis
-        profit_pct = (profit / cost_basis * 100) if cost_basis > 0 else 0
-
-        self.account.cash += net_revenue
+        
+        # v2.5 修复：做 T 卖出不计算盈利（待接回后再计算实际做 T 盈利）
+        is_t_sell = "做 T" in action_label
+        if is_t_sell:
+            # 做 T 卖出：只记录卖出金额，盈利待接回时计算
+            profit = 0.0
+            profit_pct = 0.0
+            # 记录做 T 卖出信息，用于后续接回时配对
+            t_sell_info = {
+                'code': code,
+                'shares': shares,
+                'sell_price': price,
+                'sell_time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'sell_amount': net_revenue
+            }
+            # 保存到账户的做 T 记录中
+            if 't_pending' not in self.account.data:
+                self.account.data['t_pending'] = {}
+            self.account.data['t_pending'][code] = t_sell_info
+            self.log(f"     做 T 卖出待接回：{shares}股 @ ¥{price:.2f} = ¥{net_revenue:,.2f}")
+        else:
+            # 正常卖出：计算持仓盈利
+            cost_basis = shares * pos['avg_price']
+            profit = net_revenue - cost_basis
+            profit_pct = (profit / cost_basis * 100) if cost_basis > 0 else 0
+            self.log(f"     盈亏：¥{profit:,.2f} ({profit_pct:+.1f}%)")
 
         # FIFO 更新 buy_lots
         today = datetime.now().strftime('%Y-%m-%d')

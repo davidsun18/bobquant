@@ -1,8 +1,12 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-BobQuant 数据源层 v1.1
+BobQuant 数据源层 v1.2
 可插拔设计：实现 get_quote / get_history 接口即可接入新数据源
 支持并行刷新，提升数据获取速度
+
+v1.2 新增：
+- 腾讯财经补充数据：成交额、换手率、总市值、流通市值、市盈率、市净率、振幅
 """
 import requests
 import time
@@ -40,12 +44,11 @@ class TencentProvider(DataProvider):
     def __init__(self, retry=2, timeout=3, max_workers=10):
         self.retry = retry
         self.timeout = timeout
-        self.max_workers = max_workers  # 并行线程数
+        self.max_workers = max_workers
         self._headers = {
             'Referer': 'http://stockapp.finance.qq.com',
             'User-Agent': 'Mozilla/5.0'
         }
-        # 创建线程池
         self._executor = ThreadPoolExecutor(max_workers=max_workers, thread_name_prefix='tencent')
 
     def get_quote(self, code):
@@ -65,7 +68,8 @@ class TencentProvider(DataProvider):
                             pre_close = float(parts[4])
                             current = float(parts[3])
                             volume = float(parts[6]) if len(parts) > 6 else 0
-                            return {
+                            
+                            result = {
                                 'name': parts[1],
                                 'current': current,
                                 'open': float(parts[5]),
@@ -75,6 +79,44 @@ class TencentProvider(DataProvider):
                                 'change': ((current - pre_close) / pre_close * 100) if pre_close > 0 else 0,
                                 'volume': volume,
                             }
+                            
+                            # 补充数据（添加空值检查）
+                            def safe_float(val, default=None):
+                                try:
+                                    return float(val) if val and val.strip() else default
+                                except (ValueError, AttributeError):
+                                    return default
+                            
+                            if len(parts) > 37:
+                                val = safe_float(parts[37])
+                                if val is not None:
+                                    result['turnover'] = val
+                            if len(parts) > 38:
+                                val = safe_float(parts[38])
+                                if val is not None:
+                                    result['turnover_rate'] = val
+                            if len(parts) > 45:
+                                val = safe_float(parts[45])
+                                if val is not None:
+                                    result['total_mv'] = val
+                            if len(parts) > 46:
+                                val = safe_float(parts[46])
+                                if val is not None:
+                                    result['float_mv'] = val
+                            if len(parts) > 39:
+                                val = safe_float(parts[39])
+                                if val is not None:
+                                    result['pe'] = val
+                            if len(parts) > 40:
+                                val = safe_float(parts[40])
+                                if val is not None:
+                                    result['pb'] = val
+                            if len(parts) > 41:
+                                val = safe_float(parts[41])
+                                if val is not None:
+                                    result['amplitude'] = val
+                            
+                            return result
             except Exception:
                 if i < self.retry - 1:
                     time.sleep(0.5)
@@ -116,49 +158,42 @@ class TencentProvider(DataProvider):
         return None
     
     def get_quotes(self, codes: List[str]) -> Dict[str, dict]:
-        """
-        批量获取多只股票行情 (并行刷新)
-        
-        Args:
-            codes: 股票代码列表
-            
-        Returns:
-            dict: {code: quote} 行情字典
-        """
+        """批量获取多只股票行情 (并行刷新)"""
         def fetch_with_retry(code):
-            """带重试的单个获取"""
             for i in range(self.retry):
                 try:
                     quote = self.get_quote(code)
-                    return code, quote
-                except Exception as e:
+                    if quote:
+                        return code, quote
+                except Exception:
                     if i < self.retry - 1:
-                        time.sleep(0.3)
+                        time.sleep(0.5)
             return code, None
         
-        # 并行获取
         results = {}
-        futures = {self._executor.submit(fetch_with_retry, code): code for code in codes}
-        
-        for future in as_completed(futures):
-            try:
-                code, quote = future.result(timeout=self.timeout * 2)
+        with self._executor as executor:
+            futures = {executor.submit(fetch_with_retry, code): code for code in codes}
+            for future in as_completed(futures):
+                code, quote = future.result()
                 if quote:
                     results[code] = quote
-            except Exception as e:
-                print(f"[并行获取失败] {futures[future]}: {e}")
-        
         return results
 
 
 def get_provider(name='tencent', **kwargs):
-    """获取数据源实例（带缓存）"""
-    if name not in _providers:
-        if name == 'tencent':
-            _providers[name] = TencentProvider(**kwargs)
-        else:
-            raise ValueError(f"未知数据源：{name}")
-    return _providers[name]
+    """工厂函数：获取数据源实例"""
+    if name == 'tencent':
+        return TencentProvider(**kwargs)
+    return None
 
 
-_providers = {}
+if __name__ == '__main__':
+    # 测试
+    provider = TencentProvider()
+    data = provider.get_quote('sz.002263')
+    print('=== 大东南 (sz.002263) ===')
+    if data:
+        for k, v in data.items():
+            print(f'{k}: {v}')
+    else:
+        print('获取失败')

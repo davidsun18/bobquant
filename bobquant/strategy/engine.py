@@ -402,17 +402,30 @@ class RiskManager:
 
 
 # ==================== 策略工厂 ====================
+# 注意：MultiFactorStrategy 在 multi_factor.py 中定义
+# 为避免循环导入，使用延迟导入
+def _get_multi_factor_strategy():
+    from .multi_factor import MultiFactorStrategy
+    return MultiFactorStrategy
+
 _strategy_map = {
     'macd': MACDStrategy,
     'bollinger': BollingerStrategy,
+    'multi_factor': _get_multi_factor_strategy,
 }
 
 
-def get_strategy(name):
+def get_strategy(name, config=None):
     """获取策略实例"""
-    cls = _strategy_map.get(name)
-    if cls:
-        return cls()
+    cls_or_factory = _strategy_map.get(name)
+    if cls_or_factory:
+        # 如果是工厂函数（如 multi_factor），调用它获取类
+        if callable(cls_or_factory) and cls_or_factory.__name__ == '_get_multi_factor_strategy':
+            cls = cls_or_factory()
+            return cls(config) if config else cls()
+        else:
+            # 普通策略类
+            return cls_or_factory(config) if config else cls_or_factory()
     raise ValueError(f"未知策略：{name}")
 
 

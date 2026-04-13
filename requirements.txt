@@ -48,3 +48,8 @@ pytz==2023.3
 
 # Windows 特定依赖
 # pywin32==305  # Windows API 支持
+
+# 可视化 Dashboard (v2.5+)
+plotly>=6.0.0
+dash>=4.0.0
+dash-bootstrap-components>=1.5.0

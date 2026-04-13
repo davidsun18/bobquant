@@ -3,5 +3,6 @@
 """
 
 from .predictor import MLPredictor
+from .lightgbm_predictor import LightGBMPredictor
 
-__all__ = ['MLPredictor']
+__all__ = ['MLPredictor', 'LightGBMPredictor']

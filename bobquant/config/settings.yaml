@@ -166,3 +166,46 @@ log:
   dir: "logs/sim_trading"
   max_size: 10485760                # 10MB
   backup_count: 10
+
+# --- 自动调仓 (Rebalance) ---
+rebalance:
+  enabled: false                    # 是否启用自动调仓
+  mode: "equal_weight"              # equal_weight(等权重) / target_weight(目标仓位)
+  
+  # 调仓频率
+  frequency: "weekly"               # daily / weekly / monthly
+  rebalance_day: 0                  # 周一 (0-6) / 每月第几天 (1-31)
+  
+  # 调仓阈值
+  threshold_pct: 0.05               # 偏离 5% 触发调仓
+  min_trade_value: 1000             # 最小交易金额 1000 元
+  
+  # 交易成本
+  commission_rate: 0.0005           # 佣金万分之五
+  stamp_duty_rate: 0.001            # 印花税千分之一
+  slippage: 0.001                   # 滑点 0.1%
+  
+  # 仓位限制
+  max_position_pct: 0.10            # 单票最大仓位 10%
+  min_position_pct: 0.02            # 单票最小仓位 2%
+  
+  # 目标仓位 (仅在 target_weight 模式下使用)
+  target_positions:
+    {}
+    # 示例:
+    # sh.600000: 0.08
+    # sh.600036: 0.12
+    # sz.000001: 0.10
+  
+  # 股票池 (为空则使用主股票池)
+  stock_pool: []
+    # 示例:
+    # - sh.600000
+    # - sh.600036
+    # - sz.000001
+  
+  # T+1 限制
+  respect_t1: true                  # 是否遵守 T+1 交易规则
+  
+  # 通知
+  notify_enabled: true              # 是否发送调仓通知

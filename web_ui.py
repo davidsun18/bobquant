@@ -4,7 +4,7 @@ BOB 量化系统 - Web UI 界面
 实时显示持仓、盈亏、资产等信息，每 5 秒刷新
 """
 
-from flask import Flask, render_template, jsonify, request, make_response
+from flask import Flask, render_template, jsonify, request, make_response, redirect
 import json
 import os
 import sys
@@ -129,7 +129,7 @@ def load_account():
     return None
 
 def load_trades():
-    """加载交易记录 (只统计 B 标识符的已成交交易)"""
+    """加载交易记录 (统计所有已成交交易)"""
     if os.path.exists(TRADE_LOG_FILE):
         with open(TRADE_LOG_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -140,11 +140,13 @@ def load_trades():
             else:
                 return []
             
-            # 只统计 B 标识符的已成交交易
+            # v2.5 修复：显示所有交易记录（包括 A 开头建仓和 B 开头做 T）
             finalized_trades = []
             for t in trades:
                 trade_id = t.get('trade_id', '')
-                if trade_id and trade_id.startswith('B'):
+                status = t.get('status', '')
+                # 显示所有已成交的交易（A 开头建仓、B 开头做 T、✅ V2 建仓等）
+                if trade_id and status == 'completed':
                     finalized_trades.append(t)
             
             return finalized_trades
@@ -310,6 +312,11 @@ def api_stock_detail(code):
         'profit_pct': profit_pct,
         'trades': stock_trades[-10:]  # 返回最近 10 条
     })
+
+@app.route('/dashboard')
+def dashboard_redirect():
+    """重定向到 Plotly Dashboard"""
+    return redirect('http://localhost:8050')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)

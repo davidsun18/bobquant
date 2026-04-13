@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-BobQuant 技术指标库 v2.2 - 集成 TA-Lib
+BobQuant 技术指标库 v3.0 - 集成 TA-Lib 高级指标库
+
+v3.0 新增:
+- 完整集成 talib_advanced 模块
+- 150+ TA-Lib 指标封装
+- 指标组合策略
+- 指标背离检测
+- 金叉/死叉检测
+- 多周期共振分析
 
 v2.2 新增:
 - 集成 TA-Lib 高性能指标计算
@@ -10,7 +18,18 @@ v2.2 新增:
 
 使用方式:
     from bobquant.indicator.technical import macd, bollinger
+    from bobquant.indicator.talib_advanced import TALibIndicators, IndicatorStrategies
+    
+    # 基础用法
     df = macd(df)  # 自动使用 TA-Lib 加速
+    
+    # 高级用法
+    ind = TALibIndicators(df)
+    df['rsi'] = ind.rsi(14)
+    
+    # 策略用法
+    strategies = IndicatorStrategies(df)
+    df = strategies.dual_ma_strategy()
 """
 import pandas as pd
 import numpy as np
@@ -23,6 +42,21 @@ try:
 except ImportError:
     TALIB_AVAILABLE = False
     print("[指标] ⚠️ TA-Lib 未安装，使用纯 Python 实现")
+
+# 导入高级指标模块
+try:
+    from .talib_advanced import (
+        TALibIndicators,
+        IndicatorStrategies,
+        DivergenceDetector,
+        CrossDetector,
+        compute_indicator,
+        apply_indicators,
+        get_all_indicators_info
+    )
+    print("[指标] ✅ talib_advanced 模块已加载")
+except ImportError as e:
+    print(f"[指标] ⚠️ talib_advanced 模块导入失败：{e}")
 
 
 def macd(df, fast=12, slow=26, signal=9, prefix=''):
@@ -393,6 +427,20 @@ def benchmark_talib():
     print("=" * 60)
 
 
+# ==================== 导出高级指标接口 ====================
+
+__all__ = [
+    # 基础指标
+    'macd', 'dual_macd', 'bollinger', 'rsi', 'atr', 'kdj',
+    'volume_ratio', 'momentum', 'cci', 'candlestick_patterns',
+    'apply_all_indicators',
+    # 高级指标
+    'TALibIndicators', 'IndicatorStrategies', 'DivergenceDetector',
+    'CrossDetector', 'compute_indicator', 'apply_indicators',
+    'get_all_indicators_info'
+]
+
+
 if __name__ == '__main__':
     # 测试
     test_df = pd.DataFrame({
@@ -416,3 +464,54 @@ if __name__ == '__main__':
     
     print("\n" + "=" * 60)
     benchmark_talib()
+    
+    # 测试高级指标
+    print("\n" + "=" * 60)
+    print("📊 高级指标测试 (talib_advanced)")
+    print("=" * 60)
+    
+    try:
+        from .talib_advanced import TALibIndicators, IndicatorStrategies
+        
+        ind = TALibIndicators(test_df)
+        
+        # 测试 10 个核心指标
+        print("\n【计算 10 个核心指标】")
+        core_tests = [
+            ('SMA(20)', ind.sma, 20),
+            ('EMA(20)', ind.ema, 20),
+            ('RSI(14)', ind.rsi, 14),
+            ('MACD', ind.macd, None),
+            ('KDJ', ind.stoch, None),
+            ('布林带', ind.bbands, None),
+            ('ATR(14)', ind.atr, 14),
+            ('CCI(20)', ind.cci, 20),
+            ('威廉指标', ind.willr, 14),
+            ('资金流量', ind.mfi, 14)
+        ]
+        
+        for name, func, param in core_tests:
+            try:
+                if param:
+                    result = func(param)
+                else:
+                    result = func()
+                
+                if isinstance(result, tuple):
+                    print(f"✅ {name}: {len(result)} 个序列")
+                else:
+                    print(f"✅ {name}: 长度 {len(result)}")
+            except Exception as e:
+                print(f"❌ {name}: {e}")
+        
+        # 测试策略
+        print("\n【测试指标组合策略】")
+        strategies = IndicatorStrategies(test_df)
+        df_ma = strategies.dual_ma_strategy()
+        print(f"✅ 双均线策略：金叉 {df_ma['golden_cross'].sum()} 次，死叉 {df_ma['death_cross'].sum()} 次")
+        
+        print("\n" + "=" * 60)
+        print("高级指标测试完成！")
+        
+    except Exception as e:
+        print(f"⚠️ 高级指标测试失败：{e}")

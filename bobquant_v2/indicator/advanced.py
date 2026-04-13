@@ -402,3 +402,17 @@ class AdvancedFactors:
         signals['p2_adjusted_score'] = max(0, min(100, base_score))
         
         return signals
+
+
+# 模块级别的函数，方便直接导入
+def generate_p2_signals(df: pd.DataFrame) -> Dict:
+    """
+    生成 P2 级别信号（模块级别函数）
+    
+    Args:
+        df: 包含所有 P0+P1+P2 因子的 DataFrame
+    
+    Returns:
+        P2 信号字典
+    """
+    return AdvancedFactors.generate_p2_signals(df)
