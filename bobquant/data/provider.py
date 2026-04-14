@@ -171,12 +171,19 @@ class TencentProvider(DataProvider):
             return code, None
         
         results = {}
-        with self._executor as executor:
-            futures = {executor.submit(fetch_with_retry, code): code for code in codes}
+        try:
+            futures = {self._executor.submit(fetch_with_retry, code): code for code in codes}
             for future in as_completed(futures):
                 code, quote = future.result()
                 if quote:
                     results[code] = quote
+        except RuntimeError as e:
+            # 线程池已关闭，降级为串行获取
+            logger.warning(f"并行获取失败，降级为串行：{e}")
+            for code in codes:
+                quote = fetch_with_retry(code)
+                if quote[1]:
+                    results[quote[0]] = quote[1]
         return results
 
 

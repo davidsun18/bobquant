@@ -280,7 +280,7 @@ class BobQuantEngine:
             
         except Exception as e:
             classified = self.error_classifier.classify(e)
-            logger.error(f"初始化失败：{classified.user_message}")
+            logger.error(f"初始化失败：{classified.classified_error.message}")
             self._emit_telemetry(
                 EventType.ERROR_OCCURRED,
                 "system.error",
@@ -620,7 +620,7 @@ class BobQuantEngine:
             
         except Exception as e:
             classified = self.error_classifier.classify(e)
-            logger.error(f"交易检查失败：{classified.user_message}")
+            logger.error(f"交易检查失败：{classified.classified_error.message}")
             
             # 尝试恢复
             if classified.recoverable:
@@ -799,7 +799,7 @@ class BobQuantEngine:
                 df = self.data_provider.get_history(code, days=200)
                 
                 strategy = get_strategy(strat_name)
-                ta_result = strategy.check(code, name, quote, df, self.account.get_position(code))
+                ta_result = strategy.check(code, name, quote, df, self.account.get_position(code), self.config)
                 
                 if not ta_result.get('signal'):
                     continue

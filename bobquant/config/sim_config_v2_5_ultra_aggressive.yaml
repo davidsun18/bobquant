@@ -1,217 +1,313 @@
-# ==========================================
-# BobQuant 模拟盘配置 v2.5（超激进高频版）
-# ==========================================
-# ⚠️ 警告：此配置极其激进，仅用于模拟盘测试！
-
-# --- 系统 ---
 system:
-  name: "BobQuant 超激进高频版"
-  version: "2.5.0-ultra-aggressive"
-  mode: "simulation"
-  log_level: "DEBUG"
-  check_interval: 2                 # 行情检查间隔 2 秒（极致灵敏）
-
-# --- 账户 ---
+  name: BobQuant 超激进高频版
+  version: 2.5.0-ultra-aggressive
+  mode: simulation
+  log_level: DEBUG
+  check_interval: 2
 account:
-  initial_capital: 1000000          # 初始资金 100 万
-  commission_rate: 0.0005           # 手续费万分之五
-  stamp_duty_rate: 0.001            # 印花税千分之一
-
-# --- 股票池 ---
+  initial_capital: 1000000
+  commission_rate: 0.0005
+  stamp_duty_rate: 0.001
 stock_pool:
-  config_file: "config/stock_pool_50_active.yaml"
-  enable_fundamental_filter: false  # 完全关闭基本面筛选
-  min_fundamental_score: 30         # 极低门槛 30 分
-  
-  # 基本面筛选标准（极宽松）
-  fundamentals:
-    min_roe: 0.0                    # 不要求 ROE
-    min_revenue_growth: -1.0        # 不要求增长
-    min_profit_growth: -1.0         # 允许大幅亏损
-    max_debt_ratio: 0.95            # 几乎不限制负债
-    max_pe: 500                     # 几乎不限制 PE
-    max_pb: 20                      # 几乎不限制 PB
-    min_market_cap: 10000000000     # 市值≥100 亿即可
-
-# --- 策略 ---
+- code: sh.600036
+  name: 招商银行
+  strategy: bollinger
+  industry: 银行
+  market_cap: 800000000000
+- code: sh.601398
+  name: 工商银行
+  strategy: bollinger
+  industry: 银行
+  market_cap: 1500000000000
+- code: sh.601288
+  name: 农业银行
+  strategy: bollinger
+  industry: 银行
+  market_cap: 1200000000000
+- code: sh.601318
+  name: 中国平安
+  strategy: macd
+  industry: 保险
+  market_cap: 700000000000
+- code: sh.601688
+  name: 华泰证券
+  strategy: macd
+  industry: 证券
+  market_cap: 150000000000
+- code: sh.600519
+  name: 贵州茅台
+  strategy: bollinger
+  industry: 白酒
+  market_cap: 2000000000000
+- code: sh.000858
+  name: 五粮液
+  strategy: macd
+  industry: 白酒
+  market_cap: 600000000000
+- code: sz.000568
+  name: 泸州老窖
+  strategy: macd
+  industry: 白酒
+  market_cap: 250000000000
+- code: sh.600809
+  name: 山西汾酒
+  strategy: macd
+  industry: 白酒
+  market_cap: 200000000000
+- code: sz.002415
+  name: 海康威视
+  strategy: macd
+  industry: 科技
+  market_cap: 300000000000
+- code: sh.601138
+  name: 工业富联
+  strategy: macd
+  industry: 科技
+  market_cap: 400000000000
+- code: sz.002371
+  name: 北方华创
+  strategy: macd
+  industry: 半导体
+  market_cap: 180000000000
+- code: sh.603986
+  name: 兆易创新
+  strategy: macd
+  industry: 半导体
+  market_cap: 150000000000
+- code: sh.603501
+  name: 韦尔股份
+  strategy: macd
+  industry: 半导体
+  market_cap: 120000000000
+- code: sz.300750
+  name: 宁德时代
+  strategy: macd
+  industry: 新能源/科技
+  market_cap: 800000000000
+- code: sz.002594
+  name: 比亚迪
+  strategy: macd
+  industry: 新能源
+  market_cap: 700000000000
+- code: sh.601012
+  name: 隆基绿能
+  strategy: bollinger
+  industry: 光伏
+  market_cap: 200000000000
+- code: sz.002460
+  name: 赣锋锂业
+  strategy: bollinger
+  industry: 锂业
+  market_cap: 150000000000
+- code: sz.002812
+  name: 恩捷股份
+  strategy: macd
+  industry: 锂电
+  market_cap: 120000000000
+- code: sh.600276
+  name: 恒瑞医药
+  strategy: macd
+  industry: 创新药
+  market_cap: 300000000000
+- code: sz.300760
+  name: 迈瑞医疗
+  strategy: macd
+  industry: 医疗器械
+  market_cap: 350000000000
+- code: sh.600436
+  name: 片仔癀
+  strategy: bollinger
+  industry: 中药
+  market_cap: 200000000000
+- code: sh.603259
+  name: 药明康德
+  strategy: macd
+  industry: CXO
+  market_cap: 180000000000
+- code: sz.000333
+  name: 美的集团
+  strategy: bollinger
+  industry: 家电
+  market_cap: 500000000000
+- code: sz.000651
+  name: 格力电器
+  strategy: bollinger
+  industry: 家电
+  market_cap: 250000000000
+- code: sh.600690
+  name: 海尔智家
+  strategy: bollinger
+  industry: 家电
+  market_cap: 200000000000
+- code: sh.600887
+  name: 伊利股份
+  strategy: bollinger
+  industry: 食品
+  market_cap: 200000000000
+- code: sh.601899
+  name: 紫金矿业
+  strategy: macd
+  industry: 有色金属
+  market_cap: 350000000000
+- code: sh.601088
+  name: 中国神华
+  strategy: bollinger
+  industry: 煤炭
+  market_cap: 500000000000
+- code: sh.600028
+  name: 中国石化
+  strategy: bollinger
+  industry: 石化
+  market_cap: 400000000000
 strategy:
-  # 日内做 T 策略 v2.5（极致灵敏版）
   day_trading:
     enabled: true
-    t_grid_up: 0.0005               # 上涨 0.05% 触发做 T 卖出（超灵敏！）
-    t_grid_down: 0.0005             # 下跌 0.05% 触发做 T 买入
-    t_grid_max: 20                  # 最多 20 层（极致细分）
-    t_sell_ratio: 0.1               # 每次卖 10% 可卖股数（极细分）
-    t_buyback_dip: 0.0003           # 回落 0.03% 接回
-    min_profit_tick: 1              # 最小盈利 1 个价位即做 T
-    enable_scalping: true           # 启用超短线剥头皮
-    scalping_threshold: 0.0005      # 0.05% 触发剥头皮（超灵敏）
-    max_holding_time: 60            # 最长持仓 1 分钟（超短线）
+    t_grid_up: 0.0005
+    t_grid_down: 0.0005
+    t_grid_max: 20
+    t_sell_ratio: 0.1
+    t_buyback_dip: 0.0003
+    min_profit_tick: 1
+    enable_scalping: true
+    scalping_threshold: 0.0005
+    max_holding_time: 60
     enable_momentum: true
-    momentum_threshold: 0.0008      # 2 分钟内涨跌≥0.08% 触发
-    min_trade_value: 5000           # 最小交易金额 5000 元（降低门槛）
+    momentum_threshold: 0.0008
+    min_trade_value: 5000
     enable_micro_grid: true
-    micro_grid_step: 0.0003         # 微网格步长 0.03%（超密集）
-    enable_flash_trading: true      # 启用闪电交易（新增）
-    flash_threshold: 0.0003         # 0.03% 快速波动触发
-  
-  # 双 MACD 策略（超快版）
+    micro_grid_step: 0.0003
+    enable_flash_trading: true
+    flash_threshold: 0.0003
   dual_macd:
     enabled: true
-    short_period: [2, 5, 2]         # 超短周期
-    long_period: [8, 17, 5]         # 超短周期
-  
-  # 布林带策略（极激进版）
+    short_period:
+    - 2
+    - 5
+    - 2
+    long_period:
+    - 8
+    - 17
+    - 5
   bollinger:
     enabled: true
-    window: 8                       # 超短周期
-    num_std: 1.0                    # 1 倍标准差（极易触发）
+    window: 8
+    num_std: 1.0
     dynamic: true
-  
-  # RSI 策略（超敏感版）
   rsi:
     enabled: true
-    period: 3                       # 超短周期
-    oversold: 25                    # 超卖线降低
-    overbought: 75                  # 超买线提高
-  
-  # KDJ 策略（超快版）
+    period: 3
+    oversold: 25
+    overbought: 75
   kdj:
     enabled: true
-    n: 3                            # 超短周期
+    n: 3
     m1: 1
     m2: 1
-  
-  # 信号过滤（无过滤模式）
   signal:
-    rsi_buy_max: 80                 # 几乎不限制
-    rsi_sell_min: 20                # 几乎不限制
-    volume_confirm: false           # 不强制成交量确认
-    volume_ratio_buy: 0.5           # 缩量也买入
+    rsi_buy_max: 80
+    rsi_sell_min: 20
+    volume_confirm: false
+    volume_ratio_buy: 0.5
     enable_micro_trend: true
     enable_breakout: true
-    breakout_window: 3              # 3 日高点即突破
+    breakout_window: 3
     enable_mean_reversion: true
-    reversion_threshold: 0.001      # 偏离均线 0.1% 触发
-    enable_tick_follow: true        # 启用逐笔跟随（新增）
-    tick_threshold: 0.0002          # 0.02% 逐笔波动触发
-
-# --- 仓位管理 ---
+    reversion_threshold: 0.001
+    enable_tick_follow: true
+    tick_threshold: 0.0002
 position:
-  max_position_pct: 0.25            # 单票最大仓位 25%（激进！）
-  max_stocks: 20                    # 最大同时持仓 20 只
-  min_buy_shares: 100               # 最小买入 100 股
+  max_position_pct: 0.25
+  max_stocks: 20
+  min_buy_shares: 100
   enable_full_position: true
-  enable_leverage: false            # 暂不启用杠杆
-  rapid_reposition: true            # 快速重新建仓（新增）
-  
-  # 金字塔加仓（超密集版）
+  enable_leverage: false
+  rapid_reposition: true
   pyramid:
     enabled: true
-    levels: [0.01, 0.02, 0.03, 0.04, 0.05, 0.06]  # 超密集加仓
-    add_dip_pct: 0.01               # 加仓间隔 1%
-    max_add_levels: 10              # 最多加仓 10 层
-
-# --- 止盈止损 ---
+    levels:
+    - 0.01
+    - 0.02
+    - 0.03
+    - 0.04
+    - 0.05
+    - 0.06
+    add_dip_pct: 0.01
+    max_add_levels: 10
 risk_control:
-  # 硬止损（超紧）
   stop_loss:
     enabled: true
-    pct: -0.03                      # -3% 止损（超紧）
+    pct: -0.03
     trailing: true
-  
-  # 跟踪止损（超激进）
   trailing_stop:
     enabled: true
-    activation_pct: 0.01            # 盈利 1% 后激活
-    drawdown_pct: 0.005             # 回撤 0.5% 止盈（超灵敏）
-  
-  # 分批止盈（超快版）
+    activation_pct: 0.01
+    drawdown_pct: 0.005
   take_profit:
     enabled: true
     levels:
-      - threshold: 0.01             # 盈利 1% 即开始止盈
-        sell_ratio: 0.2             # 卖出 20%
-      - threshold: 0.02
-        sell_ratio: 0.3
-      - threshold: 0.03
-        sell_ratio: 0.5
-  
-  # 时间止损（超短）
+    - threshold: 0.01
+      sell_ratio: 0.2
+    - threshold: 0.02
+      sell_ratio: 0.3
+    - threshold: 0.03
+      sell_ratio: 0.5
   time_stop:
     enabled: true
-    max_holding_minutes: 15         # 最长持仓 15 分钟
+    max_holding_minutes: 15
     break_even_stop: true
-
-# --- 大盘风控 ---
 market_risk:
   enabled: true
-  index_code: "sh.000001"
+  index_code: sh.000001
   ma20_line: 20
-  max_position_bear: 0.80           # 跌破 20 日线仓位≤80%（更激进）
-  crash_threshold: -0.05            # 暴跌 -5% 禁止买入
-
-# --- 数据源 ---
+  max_position_bear: 0.8
+  crash_threshold: -0.05
 data:
-  primary: "tencent"
-  fallback: "tencent"
-  history_provider: "baostock"
+  primary: tencent
+  fallback: tencent
+  history_provider: baostock
   history_days: 60
-  realtime_refresh: 1               # 实时数据 1 秒刷新（极致）
-
-# --- 交易时段 ---
+  realtime_refresh: 1
 trading_hours:
-  morning_start: "09:25"
-  morning_end: "11:35"
-  afternoon_start: "12:55"
-  afternoon_end: "15:05"
-  
-  pre_market: "09:15"
-  post_market: "15:30"
-  
-  # 高频交易时段
+  morning_start: 09:25
+  morning_end: '11:35'
+  afternoon_start: '12:55'
+  afternoon_end: '15:05'
+  pre_market: 09:15
+  post_market: '15:30'
   high_freq_window:
-    - "09:30-10:30"                 # 开盘 1 小时
-    - "10:30-11:30"                 # 上午连续
-    - "13:00-14:00"                 # 午后连续
-    - "14:00-15:00"                 # 尾盘连续
-
-# --- 通知 ---
+  - 09:30-10:30
+  - 10:30-11:30
+  - 13:00-14:00
+  - 14:00-15:00
 notify:
   feishu:
     enabled: true
-    user_id: "ou_973651ccbc692b7cd90a7d561f6885b3"
-    instant_alert: true             # 即时通知（新增）
-  
-  # 通知类型（全量模式）
+    user_id: ou_973651ccbc692b7cd90a7d561f6885b3
+    instant_alert: true
   events:
     trade_executed: true
     stop_loss: true
     take_profit: true
     scalping_signal: true
     high_freq_alert: true
-    flash_trade: true               # 闪电交易通知
-    micro_grid_trade: true          # 微网格交易通知
+    flash_trade: true
+    micro_grid_trade: true
     daily_report: true
     risk_warning: true
-    position_change: true           # 仓位变动通知
-
-# --- 日志 ---
+    position_change: true
 log:
-  dir: "logs/sim_trading_ultra_aggressive"
-  max_size: 52428800                # 50MB（大量日志）
+  dir: logs/sim_trading_ultra_aggressive
+  max_size: 52428800
   backup_count: 30
-  detail_level: "debug"
-
-# --- 高频交易特殊配置 ---
+  detail_level: debug
 high_frequency:
   enabled: true
-  max_trades_per_minute: 10         # 每分钟最多 10 笔（激进！）
-  min_spread: 0.0005                # 最小价差 0.05%
-  order_book_depth: 10              # 盘口深度 10 档
+  max_trades_per_minute: 10
+  min_spread: 0.0005
+  order_book_depth: 10
   enable_market_making: false
-  latency_target_ms: 50             # 目标延迟<50ms
+  latency_target_ms: 50
   enable_smart_routing: true
-  enable_order_splitting: true      # 启用订单拆分（新增）
-  split_threshold: 50000            # 超过 5 万拆分订单
-  enable_iceberg: false             # 暂不启用冰山订单
+  enable_order_splitting: true
+  split_threshold: 50000
+  enable_iceberg: false
