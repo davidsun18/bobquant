@@ -165,6 +165,7 @@ class BobQuantEngine:
     
     def __init__(self, config_path: Optional[Path] = None):
         """初始化交易引擎"""
+        self._config_path = config_path  # 保存配置路径供后续读取
         self.config: Optional[BobQuantConfig] = None
         self.config_loader = ConfigLoader(config_path)
         
@@ -414,9 +415,19 @@ class BobQuantEngine:
         }
         self.risk_manager = RiskManager(risk_config)
         
-        # 高频交易引擎
-        hf_config = self.config.strategy or {}
-        enable_high_freq = hf_config.get('high_frequency', {}).get('enabled', False) if isinstance(hf_config, dict) else False
+        # 高频交易引擎 - 直接从原始配置读取（因为 schema 未定义 high_frequency 字段）
+        enable_high_freq = False
+        try:
+            import yaml
+            config_path = getattr(self, '_config_path', None)
+            if config_path:
+                with open(config_path, 'r') as f:
+                    raw_config = yaml.safe_load(f)
+                hf_section = raw_config.get('high_frequency', {})
+                enable_high_freq = hf_section.get('enabled', False) if isinstance(hf_section, dict) else False
+                logger.info(f"  ⚡ 高频交易配置：enabled={enable_high_freq}")
+        except Exception as e:
+            logger.warning(f"  读取高频配置失败：{e}")
         
         if enable_high_freq:
             self.hf_engine = HighFrequencyEngine({
