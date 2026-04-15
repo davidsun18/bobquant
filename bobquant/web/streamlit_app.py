@@ -30,8 +30,9 @@ import numpy as np
 
 # 配置
 ACCOUNT_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/account_ideal.json'
-TRADE_LOG_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/交易记录.json'
-LOG_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/sim_trading/模拟盘日志.log'
+# 超激进模拟盘路径
+TRADE_LOG_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/bobquant/logs/trades.json'
+LOG_FILE = '/home/openclaw/.openclaw/workspace/quant_strategies/logs/bobquant_20260414.log'
 
 # 股票代码转中文名称映射
 STOCK_NAMES = {

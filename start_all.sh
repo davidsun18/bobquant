@@ -71,7 +71,7 @@ fi
 
 # 3. 检查并启动 BobQuant 主进程
 if ! check_process "BobQuant" "bobquant/main.py"; then
-    start_process "BobQuant" "python3 bobquant/main.py --config bobquant/config/sim_config_v2_2.yaml --mode simulation" "$LOG_DIR/bobquant.log"
+    start_process "BobQuant" "cd bobquant && python3 main.py --config config/sim_config_v2_2.yaml --mode simulation" "$LOG_DIR/bobquant.log"
 fi
 
 # 4. 检查并启动 V2 策略进程 (如果有)

@@ -18,6 +18,11 @@ v2.4 功能保留:
 - 自动调仓引擎
 """
 
+import sys
+import os
+# 添加 bobquant 目录到 Python 路径，支持直接运行
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import time
 import logging
 from datetime import datetime
@@ -26,7 +31,7 @@ from typing import Any, Dict, List, Optional
 
 # ==================== v3.0 新模块导入 ====================
 # 配置系统
-from .config import (
+from config import (
     ConfigLoader,
     BobQuantConfig,
     ConfigValidator,
@@ -34,7 +39,7 @@ from .config import (
 )
 
 # 错误处理系统
-from .errors import (
+from errors import (
     BobQuantError,
     TradingError,
     DataError,
@@ -50,7 +55,7 @@ from .errors import (
 )
 
 # 权限系统
-from .permissions import (
+from permissions import (
     PermissionEngine,
     PermissionMode,
     PermissionRequest,
@@ -59,7 +64,7 @@ from .permissions import (
 )
 
 # 工具系统
-from .tools import (
+from tools import (
     ToolRegistry,
     get_registry,
     ToolContext,
@@ -69,7 +74,7 @@ from .tools import (
 )
 
 # 遥测系统
-from .telemetry import (
+from telemetry import (
     TelemetrySink,
     TelemetryEvent,
     EventType,
@@ -345,9 +350,13 @@ class BobQuantEngine:
     
     def _init_account(self):
         """初始化账户"""
-        # 支持两种 stock_pool 格式：列表或字典
+        # 优先使用股票池配置中的 positions_file，否则使用默认路径
         positions_file = Path("positions.json")
-        if self.config and self.config.stock_pool:
+        
+        # 如果_init_strategies 中已经解析了 positions_file，优先使用
+        if hasattr(self, '_positions_file'):
+            positions_file = self._positions_file
+        elif self.config and self.config.stock_pool:
             if isinstance(self.config.stock_pool, list) and len(self.config.stock_pool) > 0:
                 positions_file = Path(self.config.stock_pool[0].get('positions_file', 'positions.json'))
             elif isinstance(self.config.stock_pool, dict):
@@ -358,7 +367,7 @@ class BobQuantEngine:
         self.account = Account(str(positions_file), initial_capital).load()
         self.account.migrate_positions()
         
-        logger.info(f"  ✅ 账户就绪 (初始资金：¥{initial_capital:,.0f})")
+        logger.info(f"  ✅ 账户就绪 (初始资金：¥{initial_capital:,.0f}, 持仓文件：{positions_file})")
     
     def _init_executor(self):
         """初始化执行器"""
@@ -389,6 +398,41 @@ class BobQuantEngine:
         """初始化策略引擎"""
         if not self.config:
             return
+        
+        # 加载股票池文件（如果配置的是 config_file 引用）
+        if self.config.stock_pool:
+            if isinstance(self.config.stock_pool, dict) and 'config_file' in self.config.stock_pool:
+                try:
+                    import yaml
+                    config_file = self.config.stock_pool['config_file']
+                    # 如果是相对路径，相对于工作目录（quant_strategies）解析
+                    if not os.path.isabs(config_file):
+                        # 配置文件中的路径是相对于 quant_strategies 目录的
+                        base_dir = Path(__file__).parent.parent  # bobquant 的父目录 = quant_strategies
+                        stock_pool_path = base_dir / config_file
+                    else:
+                        stock_pool_path = Path(config_file)
+                    
+                    with open(stock_pool_path, 'r', encoding='utf-8') as f:
+                        stock_pool_list = yaml.safe_load(f)
+                    
+                    # 替换 stock_pool 为实际的股票列表
+                    self.config.stock_pool = stock_pool_list
+                    logger.info(f"✅ 股票池已加载：{len(stock_pool_list)} 只股票")
+                    
+                    # 同时加载账户文件路径（如果配置了）
+                    if 'positions_file' in self.config.stock_pool:
+                        positions_file = self.config.stock_pool['positions_file']
+                        if not os.path.isabs(positions_file):
+                            positions_path = base_dir / positions_file
+                        else:
+                            positions_path = Path(positions_file)
+                        # 保存路径供_init_account 使用
+                        self._positions_file = positions_path
+                        logger.info(f"📁 账户文件路径：{positions_path}")
+                except Exception as e:
+                    logger.error(f"❌ 股票池加载失败：{e}")
+                    self.config.stock_pool = []
         
         # 网格做 T 策略
         trade_cfg = {
@@ -441,8 +485,8 @@ class BobQuantEngine:
             logger.info(f"  ⚡ 高频交易引擎就绪")
         
         # 综合决策引擎
-        enable_ml = hf_config.get('ml', {}).get('enabled', True) if isinstance(hf_config, dict) else True
-        enable_sentiment = hf_config.get('sentiment', {}).get('enabled', True) if isinstance(hf_config, dict) else True
+        enable_ml = hf_section.get('ml', {}).get('enabled', True) if isinstance(hf_section, dict) else True
+        enable_sentiment = hf_section.get('sentiment', {}).get('enabled', True) if isinstance(hf_section, dict) else True
         
         if enable_ml or enable_sentiment:
             self.decision_engine = DecisionEngine({

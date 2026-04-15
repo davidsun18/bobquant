@@ -54,9 +54,9 @@ cat > "$CRON_FILE" << 'EOF'
 @reboot /home/openclaw/.openclaw/workspace/quant_strategies/start_all.sh
 
 # 日线策略 (bobquant 主进程)
-25 9 * * 1-5 cd /home/openclaw/.openclaw/workspace/quant_strategies && python3 bobquant/main.py --config bobquant/config/sim_config_v2_2.yaml --mode simulation >> logs/bobquant.log 2>&1
-0 13 * * 1-5 cd /home/openclaw/.openclaw/workspace/quant_strategies && python3 bobquant/main.py --config bobquant/config/sim_config_v2_2.yaml --mode simulation >> logs/bobquant.log 2>&1
-5 15 * * 1-5 cd /home/openclaw/.openclaw/workspace/quant_strategies && python3 bobquant/main.py --config bobquant/config/sim_config_v2_2.yaml --mode simulation >> logs/bobquant.log 2>&1
+25 9 * * 1-5 cd /home/openclaw/.openclaw/workspace/quant_strategies/bobquant && python3 main.py --config config/sim_config_v2_2.yaml --mode simulation >> ../logs/bobquant.log 2>&1
+0 13 * * 1-5 cd /home/openclaw/.openclaw/workspace/quant_strategies/bobquant && python3 main.py --config config/sim_config_v2_2.yaml --mode simulation >> ../logs/bobquant.log 2>&1
+5 15 * * 1-5 cd /home/openclaw/.openclaw/workspace/quant_strategies/bobquant && python3 main.py --config config/sim_config_v2_2.yaml --mode simulation >> ../logs/bobquant.log 2>&1
 
 # 中频交易 (每 5 分钟检查)
 */5 9 * * 1-5 cd /home/openclaw/.openclaw/workspace/quant_strategies && python3 scripts/run_sim_test.py --run --once >> logs/mf_sim.log 2>&1

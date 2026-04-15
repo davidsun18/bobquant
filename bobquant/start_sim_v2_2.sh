@@ -59,7 +59,7 @@ echo ""
 echo "🚀 启动模拟盘主程序..."
 echo ""
 
-python3 main.py --config config/sim_config_v2_2.yaml --mode simulation
+python3 -m bobquant.main --config config/sim_config_v2_2.yaml --mode simulation
 
 # 如果主程序退出，检查退出码
 if [ $? -eq 0 ]; then
