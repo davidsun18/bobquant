@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-03-24 16:31:17",
+  "batch_size": 10,
+  "total_stocks": 50,
+  "total_queries": 5,
+  "success": 0,
+  "failed": 5,
+  "success_rate": 0.0,
+  "avg_response_ms": 17813.000297546387,
+  "total_time_ms": 89065.00148773193,
+  "rating": "⭐⭐",
+  "all_quotes": []
+}

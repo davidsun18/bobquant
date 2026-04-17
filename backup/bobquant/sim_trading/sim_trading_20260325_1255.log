@@ -1,0 +1,649 @@
+[2026-03-25 12:55:48] ======================================================================
+[2026-03-25 12:55:48] 🎯 理想化模拟盘启动
+[2026-03-25 12:55:48] ======================================================================
+[2026-03-25 12:55:48] 初始资金：¥1,000,000.00
+[2026-03-25 12:55:48] 手续费率：万分之五 (5‱)
+[2026-03-25 12:55:48] 检查间隔：30秒
+[2026-03-25 12:55:48] 监控股票：50 只
+[2026-03-25 12:55:48] ======================================================================
+[2026-03-25 12:55:49] 💰 账户汇总:
+[2026-03-25 12:55:49]    现金：¥443,380.83
+[2026-03-25 12:55:49]    持仓市值：¥562,923.00
+[2026-03-25 12:55:49]    总资产：¥1,006,303.83
+[2026-03-25 12:55:49]    总盈亏：¥6,303.83 (+0.63%)
+[2026-03-25 12:55:49]    持仓明细:
+[2026-03-25 12:55:49]      🟢 sz.000333: ¥174 (+0.4%)
+[2026-03-25 12:55:49]      🟢 sh.600887: ¥627 (+1.3%)
+[2026-03-25 12:55:49]      🟢 sh.600016: ¥550 (+1.3%)
+[2026-03-25 12:55:49]      🟢 sh.601658: ¥415 (+1.0%)
+[2026-03-25 12:55:49]      🟢 sh.603198: ¥990 (+1.7%)
+[2026-03-25 12:55:49]      🟢 sh.603369: ¥225 (+0.5%)
+[2026-03-25 12:55:49]      🟢 sh.600085: ¥42 (+0.1%)
+[2026-03-25 12:55:49]      🟢 sh.600436: ¥85 (+0.1%)
+[2026-03-25 12:55:49]      🟢 sz.000538: ¥108 (+0.2%)
+[2026-03-25 12:55:49]      🟢 sh.600690: ¥486 (+1.2%)
+[2026-03-25 12:55:49]      🟢 sh.600547: ¥2,880 (+5.1%)
+[2026-03-25 12:55:49] 💤 午休时间...
+[2026-03-25 13:00:49] 📊 检查交易信号...
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:01:07]   ⚪ 迎驾贡酒: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:01:08]   ⚪ 今世缘: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:01:21]   🟢 买入 赣锋锂业: 1000股 @ ¥69.21 (手续费¥34.61)
+[2026-03-25 13:01:21]      原因：MACD 金叉
+[2026-03-25 13:01:21]   ⚠️ 飞书推送异常：[Errno 2] No such file or directory: 'message'
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:01:31]   ⚪ 同仁堂: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:01:31]   ⚪ 片仔癀: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:01:37]   ⚪ 美的集团: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:01:40]   ⚪ 海尔智家: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:01:44]   ⚪ 山东黄金: 已持仓，跳过买入
+[2026-03-25 13:01:44]   ✅ 执行 1 笔交易，账户已更新
+[2026-03-25 13:01:45] 💰 账户汇总:
+[2026-03-25 13:01:45]    现金：¥374,136.22
+[2026-03-25 13:01:45]    持仓市值：¥631,679.00
+[2026-03-25 13:01:45]    总资产：¥1,005,815.22
+[2026-03-25 13:01:45]    总盈亏：¥5,815.22 (+0.58%)
+[2026-03-25 13:01:45]    持仓明细:
+[2026-03-25 13:01:45]      🟢 sz.000333: ¥90 (+0.2%)
+[2026-03-25 13:01:45]      🟢 sh.600887: ¥551 (+1.1%)
+[2026-03-25 13:01:45]      🟢 sh.600016: ¥550 (+1.3%)
+[2026-03-25 13:01:45]      🟢 sh.601658: ¥332 (+0.8%)
+[2026-03-25 13:01:45]      🟢 sh.603198: ¥936 (+1.6%)
+[2026-03-25 13:01:45]      🟢 sh.603369: ¥165 (+0.4%)
+[2026-03-25 13:01:45]      🟢 sh.600085: ¥84 (+0.2%)
+[2026-03-25 13:01:45]      🟢 sh.600436: ¥85 (+0.1%)
+[2026-03-25 13:01:45]      🟢 sz.000538: ¥48 (+0.1%)
+[2026-03-25 13:01:45]      🟢 sh.600690: ¥432 (+1.0%)
+[2026-03-25 13:01:45]      🟢 sh.600547: ¥2,895 (+5.1%)
+[2026-03-25 13:01:45]      🔴 sz.002460: ¥-40 (-0.1%)
+[2026-03-25 13:02:15] 📊 检查交易信号...
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:02:36]   ⚪ 迎驾贡酒: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:02:37]   ⚪ 今世缘: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:02:54]   ⚪ 赣锋锂业: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:03:00]   ⚪ 同仁堂: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:03:01]   ⚪ 片仔癀: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:03:08]   ⚪ 美的集团: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:03:10]   ⚪ 海尔智家: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:03:16]   ⚪ 山东黄金: 已持仓，跳过买入
+[2026-03-25 13:03:16]   ⚪ 无交易信号
+[2026-03-25 13:03:17] 💰 账户汇总:
+[2026-03-25 13:03:17]    现金：¥374,136.22
+[2026-03-25 13:03:17]    持仓市值：¥631,389.00
+[2026-03-25 13:03:17]    总资产：¥1,005,525.22
+[2026-03-25 13:03:17]    总盈亏：¥5,525.22 (+0.55%)
+[2026-03-25 13:03:17]    持仓明细:
+[2026-03-25 13:03:17]      🟢 sz.000333: ¥126 (+0.3%)
+[2026-03-25 13:03:17]      🟢 sh.600887: ¥570 (+1.2%)
+[2026-03-25 13:03:17]      🟢 sh.600016: ¥550 (+1.3%)
+[2026-03-25 13:03:17]      🟢 sh.601658: ¥332 (+0.8%)
+[2026-03-25 13:03:17]      🟢 sh.603198: ¥900 (+1.6%)
+[2026-03-25 13:03:17]      🟢 sh.603369: ¥180 (+0.4%)
+[2026-03-25 13:03:17]      🟢 sh.600085: ¥56 (+0.1%)
+[2026-03-25 13:03:17]      🟢 sh.600436: ¥125 (+0.2%)
+[2026-03-25 13:03:17]      🟢 sz.000538: ¥12 (+0.0%)
+[2026-03-25 13:03:17]      🟢 sh.600690: ¥342 (+0.8%)
+[2026-03-25 13:03:17]      🟢 sh.600547: ¥2,835 (+5.0%)
+[2026-03-25 13:03:17]      🔴 sz.002460: ¥-190 (-0.3%)
+[2026-03-25 13:03:47] 📊 检查交易信号...
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:04:04]   ⚪ 迎驾贡酒: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:04:05]   ⚪ 今世缘: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:04:18]   ⚪ 赣锋锂业: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:04:27]   ⚪ 同仁堂: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:04:27]   ⚪ 片仔癀: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:04:32]   ⚪ 美的集团: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:04:35]   ⚪ 海尔智家: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:04:39]   ⚪ 山东黄金: 已持仓，跳过买入
+[2026-03-25 13:04:39]   ⚪ 无交易信号
+[2026-03-25 13:04:40] 💰 账户汇总:
+[2026-03-25 13:04:40]    现金：¥374,136.22
+[2026-03-25 13:04:40]    持仓市值：¥631,743.00
+[2026-03-25 13:04:40]    总资产：¥1,005,879.22
+[2026-03-25 13:04:40]    总盈亏：¥5,879.22 (+0.59%)
+[2026-03-25 13:04:40]    持仓明细:
+[2026-03-25 13:04:40]      🟢 sz.000333: ¥120 (+0.3%)
+[2026-03-25 13:04:40]      🟢 sh.600887: ¥551 (+1.1%)
+[2026-03-25 13:04:40]      🟢 sh.600016: ¥550 (+1.3%)
+[2026-03-25 13:04:40]      🟢 sh.601658: ¥415 (+1.0%)
+[2026-03-25 13:04:40]      🟢 sh.603198: ¥900 (+1.6%)
+[2026-03-25 13:04:40]      🟢 sh.603369: ¥195 (+0.5%)
+[2026-03-25 13:04:40]      🟢 sh.600085: ¥84 (+0.2%)
+[2026-03-25 13:04:40]      🟢 sh.600436: ¥90 (+0.1%)
+[2026-03-25 13:04:40]      🟢 sz.000538: ¥48 (+0.1%)
+[2026-03-25 13:04:40]      🟢 sh.600690: ¥324 (+0.8%)
+[2026-03-25 13:04:40]      🟢 sh.600547: ¥2,775 (+4.9%)
+[2026-03-25 13:04:40]      🟢 sz.002460: ¥140 (+0.2%)
+[2026-03-25 13:05:10] 📊 检查交易信号...
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:05:33]   ⚪ 迎驾贡酒: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:05:33]   ⚪ 今世缘: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:05:45]   ⚪ 赣锋锂业: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:05:52]   ⚪ 同仁堂: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:05:52]   ⚪ 片仔癀: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:05:58]   ⚪ 美的集团: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:06:02]   ⚪ 海尔智家: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:06:08]   ⚪ 山东黄金: 已持仓，跳过买入
+[2026-03-25 13:06:08]   ⚪ 无交易信号
+[2026-03-25 13:06:09] 💰 账户汇总:
+[2026-03-25 13:06:09]    现金：¥374,136.22
+[2026-03-25 13:06:09]    持仓市值：¥631,757.00
+[2026-03-25 13:06:09]    总资产：¥1,005,893.22
+[2026-03-25 13:06:09]    总盈亏：¥5,893.22 (+0.59%)
+[2026-03-25 13:06:09]    持仓明细:
+[2026-03-25 13:06:09]      🟢 sz.000333: ¥156 (+0.4%)
+[2026-03-25 13:06:09]      🟢 sh.600887: ¥532 (+1.1%)
+[2026-03-25 13:06:09]      🟢 sh.600016: ¥550 (+1.3%)
+[2026-03-25 13:06:09]      🟢 sh.601658: ¥415 (+1.0%)
+[2026-03-25 13:06:09]      🟢 sh.603198: ¥918 (+1.6%)
+[2026-03-25 13:06:09]      🟢 sh.603369: ¥225 (+0.5%)
+[2026-03-25 13:06:09]      🟢 sh.600085: ¥84 (+0.2%)
+[2026-03-25 13:06:09]      🟢 sh.600436: ¥100 (+0.1%)
+[2026-03-25 13:06:09]      🟢 sz.000538: ¥60 (+0.1%)
+[2026-03-25 13:06:09]      🟢 sh.600690: ¥306 (+0.7%)
+[2026-03-25 13:06:09]      🟢 sh.600547: ¥2,700 (+4.8%)
+[2026-03-25 13:06:09]      🟢 sz.002460: ¥160 (+0.2%)
+[2026-03-25 13:06:39] 📊 检查交易信号...
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:07:01]   ⚪ 迎驾贡酒: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:07:02]   ⚪ 今世缘: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:07:23]   ⚪ 赣锋锂业: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:07:31]   ⚪ 同仁堂: 已持仓，跳过买入
+login success!
+logout success!
+[2026-03-25 13:07:32]   ⚪ 片仔癀: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:07:37]   ⚪ 美的集团: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:07:42]   ⚪ 海尔智家: 已持仓，跳过买入
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-25 13:07:47]   ⚪ 山东黄金: 已持仓，跳过买入

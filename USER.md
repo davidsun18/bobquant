@@ -1,15 +1,15 @@
-# USER.md - About Your Human
-
-- **Name:** David
-- **What to call them:** David
-- **Pronouns:** 
-- **Timezone:** Asia/Shanghai (中国)
-- **Notes:** 对编程比较感兴趣
-
-## Context
-
-刚开始接触编程，需要引导和学习支持。
-
----
-
-_The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference._
+```markdown                                                               
+  # USER.md - 关于我的偏好                                                
+                                                                          
+  ## 基本信息                                                             
+  - **公司：** 量化交易公司                                               
+  - **业务：** 量化策略研发与交易执行                                     
+                                                                          
+  ## 偏好设定                                                             
+  - **报告格式：** Markdown + JSON 双格式                                 
+  - **风险偏好：** 中等，注重风控                                         
+  - **交易品种：** A 股为主                                               
+                                                                          
+  ## 联系方式                                                             
+  - 优先通过飞书/微信通知重要事项                                         
+``` 

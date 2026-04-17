@@ -1,0 +1,40 @@
+{
+  "test_date": "2026-04-10T08:26:54.411006",
+  "test_params": {
+    "code": "000001.SZ",
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "fast_window": 12,
+    "slow_window": 26,
+    "signal_window": 9
+  },
+  "vectorbt": {
+    "engine": "vectorbt",
+    "version": "0.28.5",
+    "execution_time_sec": 12.94,
+    "metrics": {
+      "total_return": "-8.48%",
+      "annual_return": "-8.82%",
+      "max_drawdown": "-12.82%",
+      "sharpe_ratio": -0.5104247379991448,
+      "total_trades": 7,
+      "win_rate": "0.0%"
+    }
+  },
+  "notes": {
+    "vectorbt_advantages": [
+      "向量化计算，速度比传统循环快 10-100 倍",
+      "支持参数优化和网格搜索",
+      "内置丰富的技术指标库",
+      "支持组合分析和蒙特卡洛模拟",
+      "内存效率高，适合大规模回测"
+    ],
+    "traditional_advantages": [
+      "逻辑更直观，易于调试",
+      "支持更复杂的交易规则",
+      "可以模拟更真实的市场微观结构",
+      "适合高频策略回测"
+    ],
+    "recommendation": "建议：日常回测和参数优化使用 VectorBT，复杂策略验证使用传统引擎"
+  }
+}

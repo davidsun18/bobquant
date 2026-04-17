@@ -1,0 +1,4761 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1774482048.293316   61626 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1774482050.379628   61626 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+[2026-03-26 07:40:51] 🚀 BobQuant v1.0 启动
+[2026-03-26 07:40:51] 📍 模拟盘模式
+[2026-03-26 07:40:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:41:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:41:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:42:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:42:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:43:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:43:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:44:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:44:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:45:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:45:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:46:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:46:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:47:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:47:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:48:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:48:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:49:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:49:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:50:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:50:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:51:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:51:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:52:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:52:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:53:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:53:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:54:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:54:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:55:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:55:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:56:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:56:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:57:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:57:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:58:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:58:51] ⏸️ 非交易时段，等待...
+[2026-03-26 07:59:21] ⏸️ 非交易时段，等待...
+[2026-03-26 07:59:51] ⏸️ 非交易时段，等待...
+[2026-03-26 08:00:21] ⏸️ 非交易时段，等待...
+[2026-03-26 08:00:51] ⏸️ 非交易时段，等待...
+[2026-03-26 08:01:21] ⏸️ 非交易时段，等待...
+[2026-03-26 08:01:51] ⏸️ 非交易时段，等待...
+[2026-03-26 08:02:21] ⏸️ 非交易时段，等待...
+[2026-03-26 08:02:51] ⏸️ 非交易时段，等待...
+[2026-03-26 08:03:21] ⏸️ 非交易时段，等待...
+[2026-03-26 08:03:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:04:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:04:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:05:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:05:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:06:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:06:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:07:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:07:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:08:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:08:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:09:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:09:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:10:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:10:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:11:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:11:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:12:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:12:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:13:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:13:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:14:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:14:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:15:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:15:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:16:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:16:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:17:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:17:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:18:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:18:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:19:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:19:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:20:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:20:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:21:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:21:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:22:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:22:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:23:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:23:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:24:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:24:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:25:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:25:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:26:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:26:52] ⏸️ 非交易时段，等待...
+[2026-03-26 08:27:22] ⏸️ 非交易时段，等待...
+[2026-03-26 08:27:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:28:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:28:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:29:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:29:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:30:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:30:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:31:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:31:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:32:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:32:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:33:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:33:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:34:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:34:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:35:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:35:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:36:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:36:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:37:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:37:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:38:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:38:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:39:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:39:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:40:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:40:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:41:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:41:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:42:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:42:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:43:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:43:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:44:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:44:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:45:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:45:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:46:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:46:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:47:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:47:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:48:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:48:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:49:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:49:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:50:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:50:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:51:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:51:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:52:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:52:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:53:23] ⏸️ 非交易时段，等待...
+[2026-03-26 08:53:53] ⏸️ 非交易时段，等待...
+[2026-03-26 08:54:24] ⏸️ 非交易时段，等待...
+[2026-03-26 08:54:54] ⏸️ 非交易时段，等待...
+[2026-03-26 08:55:24] ⏸️ 非交易时段，等待...
+[2026-03-26 08:55:54] ⏸️ 非交易时段，等待...
+[2026-03-26 08:56:24] ⏸️ 非交易时段，等待...
+[2026-03-26 08:56:54] ⏸️ 非交易时段，等待...
+[2026-03-26 08:57:24] ⏸️ 非交易时段，等待...
+[2026-03-26 08:57:54] ⏸️ 非交易时段，等待...
+[2026-03-26 08:58:24] ⏸️ 非交易时段，等待...
+[2026-03-26 08:58:54] ⏸️ 非交易时段，等待...
+[2026-03-26 08:59:24] ⏸️ 非交易时段，等待...
+[2026-03-26 08:59:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:00:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:00:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:01:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:01:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:02:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:02:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:03:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:03:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:04:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:04:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:05:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:05:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:06:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:06:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:07:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:07:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:08:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:08:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:09:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:09:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:10:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:10:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:11:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:11:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:12:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:12:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:13:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:13:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:14:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:14:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:15:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:15:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:16:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:16:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:17:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:17:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:18:24] ⏸️ 非交易时段，等待...
+[2026-03-26 09:18:54] ⏸️ 非交易时段，等待...
+[2026-03-26 09:19:25] ⏸️ 非交易时段，等待...
+[2026-03-26 09:19:55] ⏸️ 非交易时段，等待...
+[2026-03-26 09:20:25] ⏸️ 非交易时段，等待...
+[2026-03-26 09:20:55] ⏸️ 非交易时段，等待...
+[2026-03-26 09:21:25] ⏸️ 非交易时段，等待...
+[2026-03-26 09:21:55] ⏸️ 非交易时段，等待...
+[2026-03-26 09:22:25] ⏸️ 非交易时段，等待...
+[2026-03-26 09:22:55] ⏸️ 非交易时段，等待...
+[2026-03-26 09:23:25] ⏸️ 非交易时段，等待...
+[2026-03-26 09:23:55] ⏸️ 非交易时段，等待...
+[2026-03-26 09:24:25] ⏸️ 非交易时段，等待...
+[2026-03-26 09:24:55] ⏸️ 非交易时段，等待...
+[2026-03-26 09:25:25] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:25:25] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:25:25]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:25:26]   📌 Phase 2: 风控...
+[2026-03-26 09:25:27]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:25:28]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:25:30]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:25:31]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:25:34]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:25:35]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:25:38]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:25:40]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:25:43]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:25:45]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:25:54]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:25:55]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:25:56]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:26:05]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:26:12]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:26:14]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:26:16]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:26:21]   🔴 🔴 策略减仓 美的集团: 400股 @ ¥74.89 (剩余200股)
+[2026-03-26 09:26:21]      盈亏：¥345.02 (+1.2%)
+[2026-03-26 09:26:21]      原因：策略减仓 (ML 预测下跌 (概率69.8%, medium))
+login success!
+logout success!
+[2026-03-26 09:26:22]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:26:22]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:26:23]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:26:28]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:26:31]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:26:31]   ✅ 交易记录已同步
+[2026-03-26 09:26:31]   ✅ 执行 1 笔交易
+[2026-03-26 09:26:32] 
+============================================================
+[2026-03-26 09:26:32] 📊 账户汇总
+[2026-03-26 09:26:32] ============================================================
+[2026-03-26 09:26:32] 总资产：¥1,008,049 (现金¥466,654 + 持仓¥541,395)
+[2026-03-26 09:26:32] 盈亏：¥+8,049 (+0.80%)
+[2026-03-26 09:26:32] 持仓：11 只
+[2026-03-26 09:26:32] ============================================================
+[2026-03-26 09:27:02] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:27:02] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:27:02]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:27:03]   📌 Phase 2: 风控...
+[2026-03-26 09:27:04]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:27:07]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:27:08]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:27:08]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:27:09]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:27:09]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:27:10]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:27:12]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:27:14]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:27:17]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:27:23]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:27:25]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:27:36]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:27:40]   🔴 🔴 策略减仓 赣锋锂业: 700股 @ ¥70.37 (剩余300股)
+[2026-03-26 09:27:40]      盈亏：¥787.37 (+1.6%)
+[2026-03-26 09:27:40]      原因：策略减仓 (ML 预测下跌 (概率78.9%, high))
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:27:43]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:27:46]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:27:49]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:27:55]   🔴 🔴 策略减仓 美的集团: 100股 @ ¥74.89 (剩余100股)
+[2026-03-26 09:27:55]      盈亏：¥86.26 (+1.2%)
+[2026-03-26 09:27:55]      原因：策略减仓 (ML 预测下跌 (概率69.8%, medium))
+login success!
+logout success!
+[2026-03-26 09:27:57]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:27:58]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:28:00]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:28:02]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:28:04]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:28:04]   ✅ 交易记录已同步
+[2026-03-26 09:28:04]   ✅ 执行 2 笔交易
+[2026-03-26 09:28:05] 
+============================================================
+[2026-03-26 09:28:05] 📊 账户汇总
+[2026-03-26 09:28:05] ============================================================
+[2026-03-26 09:28:05] 总资产：¥1,008,021 (现金¥523,374 + 持仓¥484,647)
+[2026-03-26 09:28:05] 盈亏：¥+8,021 (+0.80%)
+[2026-03-26 09:28:05] 持仓：11 只
+[2026-03-26 09:28:05] ============================================================
+[2026-03-26 09:28:35] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:28:35] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:28:35]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:28:36]   📌 Phase 2: 风控...
+[2026-03-26 09:28:37]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:28:38]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:28:41]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:28:42]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:28:42]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:28:42]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:28:45]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:28:46]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:28:56]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:28:58]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:29:01]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:29:09]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:29:15]   🔴 🔴 策略减仓 赣锋锂业: 200股 @ ¥70.37 (剩余100股)
+[2026-03-26 09:29:15]      盈亏：¥224.96 (+1.6%)
+[2026-03-26 09:29:15]      原因：策略减仓 (ML 预测下跌 (概率78.9%, high))
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:29:19]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:29:20]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:29:25]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:29:33]   🔴 🔴 策略减仓 美的集团: 100股 @ ¥74.89 (清仓)
+[2026-03-26 09:29:33]      盈亏：¥86.26 (+1.2%)
+[2026-03-26 09:29:33]      原因：策略减仓 (ML 预测下跌 (概率69.8%, medium))
+login success!
+logout success!
+[2026-03-26 09:29:33]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:29:34]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:29:34]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:29:35]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:29:38]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:29:38]   ✅ 交易记录已同步
+[2026-03-26 09:29:38]   ✅ 执行 2 笔交易
+[2026-03-26 09:29:39] 
+============================================================
+[2026-03-26 09:29:39] 📊 账户汇总
+[2026-03-26 09:29:39] ============================================================
+[2026-03-26 09:29:39] 总资产：¥1,008,010 (现金¥544,926 + 持仓¥463,084)
+[2026-03-26 09:29:39] 盈亏：¥+8,010 (+0.80%)
+[2026-03-26 09:29:39] 持仓：10 只
+[2026-03-26 09:29:39] ============================================================
+[2026-03-26 09:30:09] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:30:09] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:30:09]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:30:10]   📌 Phase 2: 风控...
+[2026-03-26 09:30:13]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:30:14]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:30:16]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:30:22]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:30:23]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:30:25]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:30:26]   ⚪ 中国银行: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:30:29]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:30:31]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:30:32]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:30:41]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:30:41]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:30:42]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:30:50]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:31:01]   🔴 🔴 策略减仓 赣锋锂业: 200股 @ ¥70.83 (剩余100股)
+[2026-03-26 09:31:01]      盈亏：¥316.92 (+2.3%)
+[2026-03-26 09:31:01]      原因：策略减仓 (ML 预测下跌 (概率78.9%, high))
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:31:03]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:31:05]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:31:05]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:31:08]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:31:12]   🔴 🔴 策略减仓 美的集团: 100股 @ ¥75.14 (清仓)
+[2026-03-26 09:31:12]      盈亏：¥111.24 (+1.5%)
+[2026-03-26 09:31:12]      原因：策略减仓 (ML 预测下跌 (概率69.8%, medium))
+login success!
+logout failed!
+[2026-03-26 09:31:14]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:31:14]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:31:15]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:31:20]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:31:23]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:31:23]   ✅ 交易记录已同步
+[2026-03-26 09:31:23]   ✅ 执行 2 笔交易
+[2026-03-26 09:31:25] 
+============================================================
+[2026-03-26 09:31:25] 📊 账户汇总
+[2026-03-26 09:31:25] ============================================================
+[2026-03-26 09:31:25] 总资产：¥1,009,953 (现金¥113,679 + 持仓¥896,274)
+[2026-03-26 09:31:25] 盈亏：¥+9,953 (+1.00%)
+[2026-03-26 09:31:25] 持仓：25 只
+[2026-03-26 09:31:25] ============================================================
+[2026-03-26 09:31:55] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:31:55] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:31:55]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:31:56]   📌 Phase 2: 风控...
+[2026-03-26 09:31:58]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:32:00]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:32:02]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:32:02]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:32:08]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:32:10]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:32:15]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:32:16]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:32:17]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:32:22]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:32:26]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:32:35]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:32:37]   🔴 🔴 策略减仓 赣锋锂业: 100股 @ ¥70.38 (清仓)
+[2026-03-26 09:32:37]      盈亏：¥113.48 (+1.6%)
+[2026-03-26 09:32:37]      原因：策略减仓 (ML 预测下跌 (概率78.9%, high))
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:32:40]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:32:42]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:32:45]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:32:50]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:32:51]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:32:52]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:32:56]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:32:58]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:32:58]   ✅ 交易记录已同步
+[2026-03-26 09:32:58]   ✅ 执行 1 笔交易
+[2026-03-26 09:33:00] 
+============================================================
+[2026-03-26 09:33:00] 📊 账户汇总
+[2026-03-26 09:33:00] ============================================================
+[2026-03-26 09:33:00] 总资产：¥1,010,175 (现金¥120,714 + 持仓¥889,461)
+[2026-03-26 09:33:00] 盈亏：¥+10,175 (+1.02%)
+[2026-03-26 09:33:00] 持仓：24 只
+[2026-03-26 09:33:00] ============================================================
+[2026-03-26 09:33:30] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:33:30] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:33:30]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:33:31]   📌 Phase 2: 风控...
+[2026-03-26 09:33:33]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:33:33]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:34]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:34]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:35]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:36]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:33:38]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:39]   ⚪ 中国银行: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:33:40]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:41]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:42]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:33:50]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:33:51]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:34:03]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:34:10]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:34:11]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:34:15]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:34:15]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:34:22]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:34:24]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:34:27]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:34:27]   ⚪ 无交易信号
+[2026-03-26 09:34:29] 
+============================================================
+[2026-03-26 09:34:29] 📊 账户汇总
+[2026-03-26 09:34:29] ============================================================
+[2026-03-26 09:34:29] 总资产：¥1,011,012 (现金¥120,714 + 持仓¥890,298)
+[2026-03-26 09:34:29] 盈亏：¥+11,012 (+1.10%)
+[2026-03-26 09:34:29] 持仓：24 只
+[2026-03-26 09:34:29] ============================================================
+[2026-03-26 09:34:59] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:34:59] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:34:59]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:35:02]   📌 Phase 2: 风控...
+[2026-03-26 09:35:04]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:35:05]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:05]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:06]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:07]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:07]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:35:08]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:08]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:35:09]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:09]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:10]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:35:16]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:16]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:17]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:35:29]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:35:33]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:35:35]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:35:37]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:35:38]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:35:39]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:35:42]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:35:44]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:35:45]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:35:47]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:35:53]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:35:53]   ⚪ 无交易信号
+[2026-03-26 09:35:55] 
+============================================================
+[2026-03-26 09:35:55] 📊 账户汇总
+[2026-03-26 09:35:55] ============================================================
+[2026-03-26 09:35:55] 总资产：¥1,010,927 (现金¥68,718 + 持仓¥942,209)
+[2026-03-26 09:35:55] 盈亏：¥+10,927 (+1.09%)
+[2026-03-26 09:35:55] 持仓：26 只
+[2026-03-26 09:35:55] ============================================================
+[2026-03-26 09:36:25] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:36:25] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:36:25]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:36:26]   📌 Phase 2: 风控...
+[2026-03-26 09:36:28]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:36:29]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:30]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:31]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:32]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:32]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:32]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:34]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:36:34]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:35]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:36]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:36:40]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:42]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:36:43]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:36:52]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:36:57]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:36:59]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:37:02]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:37:07]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:37:07]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:37:14]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:37:14]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:37:15]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:37:17]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:37:19]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:37:19]   ⚪ 无交易信号
+[2026-03-26 09:37:22] 
+============================================================
+[2026-03-26 09:37:22] 📊 账户汇总
+[2026-03-26 09:37:22] ============================================================
+[2026-03-26 09:37:22] 总资产：¥1,011,131 (现金¥68,718 + 持仓¥942,413)
+[2026-03-26 09:37:22] 盈亏：¥+11,131 (+1.11%)
+[2026-03-26 09:37:22] 持仓：26 只
+[2026-03-26 09:37:22] ============================================================
+[2026-03-26 09:37:52] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:37:52] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:37:52]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:37:52]   📌 Phase 2: 风控...
+[2026-03-26 09:37:55]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:37:55]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:37:56]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:37:57]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:37:58]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:37:59]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:38:00]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:38:01]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:38:03]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:38:03]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:38:03]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:38:09]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:38:10]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:38:11]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:38:20]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:38:28]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:38:30]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:38:31]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:38:34]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:38:45]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:38:46]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:38:48]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:38:51]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:38:51]   ⚪ 无交易信号
+[2026-03-26 09:38:53] 
+============================================================
+[2026-03-26 09:38:53] 📊 账户汇总
+[2026-03-26 09:38:53] ============================================================
+[2026-03-26 09:38:53] 总资产：¥1,011,378 (现金¥68,718 + 持仓¥942,660)
+[2026-03-26 09:38:53] 盈亏：¥+11,378 (+1.14%)
+[2026-03-26 09:38:53] 持仓：26 只
+[2026-03-26 09:38:53] ============================================================
+[2026-03-26 09:39:23] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:39:23] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:39:23]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:39:24]   📌 Phase 2: 风控...
+[2026-03-26 09:39:26]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:39:28]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:28]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:29]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:30]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:31]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:32]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:32]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:39:33]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:33]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:34]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:39:41]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:42]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:39:43]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:39:53]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:40:00]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:40:01]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:40:02]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:40:07]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:40:08]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:40:12]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:40:15]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:40:15]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:40:18]   ⚪ 无交易信号
+[2026-03-26 09:40:21] 
+============================================================
+[2026-03-26 09:40:21] 📊 账户汇总
+[2026-03-26 09:40:21] ============================================================
+[2026-03-26 09:40:21] 总资产：¥1,011,545 (现金¥68,718 + 持仓¥942,827)
+[2026-03-26 09:40:21] 盈亏：¥+11,545 (+1.15%)
+[2026-03-26 09:40:21] 持仓：26 只
+[2026-03-26 09:40:21] ============================================================
+[2026-03-26 09:40:51] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:40:51] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:40:51]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:40:52]   📌 Phase 2: 风控...
+[2026-03-26 09:40:54]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:40:55]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:40:55]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:40:56]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:40:56]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:40:57]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:40:58]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:41:00]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:41:02]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:41:03]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:41:04]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:41:14]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:41:15]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:41:16]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:41:30]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:41:35]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:41:38]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:41:42]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:41:42]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:41:47]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:41:51]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:41:51]   ⚪ 无交易信号
+[2026-03-26 09:41:54] 
+============================================================
+[2026-03-26 09:41:54] 📊 账户汇总
+[2026-03-26 09:41:54] ============================================================
+[2026-03-26 09:41:54] 总资产：¥1,011,877 (现金¥68,718 + 持仓¥943,159)
+[2026-03-26 09:41:54] 盈亏：¥+11,877 (+1.19%)
+[2026-03-26 09:41:54] 持仓：26 只
+[2026-03-26 09:41:54] ============================================================
+[2026-03-26 09:42:24] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:42:24] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:42:24]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:42:25]   📌 Phase 2: 风控...
+[2026-03-26 09:42:27]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:42:28]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:28]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:29]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:32]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:32]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:33]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:35]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:42:36]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:38]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:38]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:42:45]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:46]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:42:49]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:42:58]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:43:04]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:43:05]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:43:07]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:43:10]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:43:15]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:43:16]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:43:17]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:43:25]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:43:27]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:43:27]   ⚪ 无交易信号
+[2026-03-26 09:43:29] 
+============================================================
+[2026-03-26 09:43:29] 📊 账户汇总
+[2026-03-26 09:43:29] ============================================================
+[2026-03-26 09:43:29] 总资产：¥1,012,180 (现金¥68,718 + 持仓¥943,462)
+[2026-03-26 09:43:29] 盈亏：¥+12,180 (+1.22%)
+[2026-03-26 09:43:29] 持仓：26 只
+[2026-03-26 09:43:29] ============================================================
+[2026-03-26 09:43:59] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:43:59] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:43:59]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:44:00]   📌 Phase 2: 风控...
+[2026-03-26 09:44:03]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:44:04]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:05]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:06]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:07]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:07]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:09]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:10]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:44:10]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:12]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:13]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:44:24]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:24]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:44:25]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:44:37]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:44:41]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:44:42]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:44:46]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:44:47]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:44:55]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:45:00]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:45:02]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:45:02]   ⚪ 无交易信号
+[2026-03-26 09:45:04] 
+============================================================
+[2026-03-26 09:45:04] 📊 账户汇总
+[2026-03-26 09:45:04] ============================================================
+[2026-03-26 09:45:04] 总资产：¥1,013,061 (现金¥68,718 + 持仓¥944,343)
+[2026-03-26 09:45:04] 盈亏：¥+13,061 (+1.31%)
+[2026-03-26 09:45:04] 持仓：26 只
+[2026-03-26 09:45:04] ============================================================
+[2026-03-26 09:45:34] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:45:34] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:45:34]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:45:35]   📌 Phase 2: 风控...
+[2026-03-26 09:45:38]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:45:38]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:39]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:40]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:40]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:41]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:41]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:43]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:45:43]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:43]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:44]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:45:52]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:53]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:45:53]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:46:00]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:46:05]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:46:08]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:46:11]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:46:12]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:46:16]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:46:17]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:46:19]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:46:21]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:46:23]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:46:23]   ⚪ 无交易信号
+[2026-03-26 09:46:25] 
+============================================================
+[2026-03-26 09:46:25] 📊 账户汇总
+[2026-03-26 09:46:25] ============================================================
+[2026-03-26 09:46:25] 总资产：¥1,011,948 (现金¥68,718 + 持仓¥943,230)
+[2026-03-26 09:46:25] 盈亏：¥+11,948 (+1.19%)
+[2026-03-26 09:46:25] 持仓：26 只
+[2026-03-26 09:46:25] ============================================================
+[2026-03-26 09:46:55] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:46:55] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:46:55]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:46:56]   📌 Phase 2: 风控...
+[2026-03-26 09:46:59]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:46:59]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:00]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:01]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:02]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:02]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:02]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:04]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:47:04]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:06]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:09]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:47:16]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:16]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:18]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:47:23]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:47:29]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:47:29]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:47:31]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:47:33]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:47:40]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:41]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:47:43]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:47:44]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:47:46]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:47:46]   ⚪ 无交易信号
+[2026-03-26 09:47:48] 
+============================================================
+[2026-03-26 09:47:48] 📊 账户汇总
+[2026-03-26 09:47:48] ============================================================
+[2026-03-26 09:47:48] 总资产：¥1,011,339 (现金¥68,718 + 持仓¥942,621)
+[2026-03-26 09:47:48] 盈亏：¥+11,339 (+1.13%)
+[2026-03-26 09:47:48] 持仓：26 只
+[2026-03-26 09:47:48] ============================================================
+[2026-03-26 09:48:18] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:48:18] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:48:18]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:48:19]   📌 Phase 2: 风控...
+[2026-03-26 09:48:22]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout failed!
+[2026-03-26 09:48:23]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:23]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:25]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:27]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:27]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:28]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:28]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:48:31]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:32]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:33]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:48:38]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:38]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:48:39]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:48:47]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:48:54]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:48:55]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:48:57]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:49:01]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:49:01]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:49:06]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:07]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:07]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:49:09]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:49:10]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:49:10]   ⚪ 无交易信号
+[2026-03-26 09:49:12] 
+============================================================
+[2026-03-26 09:49:12] 📊 账户汇总
+[2026-03-26 09:49:12] ============================================================
+[2026-03-26 09:49:12] 总资产：¥1,011,635 (现金¥68,718 + 持仓¥942,917)
+[2026-03-26 09:49:12] 盈亏：¥+11,635 (+1.16%)
+[2026-03-26 09:49:12] 持仓：26 只
+[2026-03-26 09:49:12] ============================================================
+[2026-03-26 09:49:42] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:49:42] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:49:42]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:49:43]   📌 Phase 2: 风控...
+[2026-03-26 09:49:46]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:49:48]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:50]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:50]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:51]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:53]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:54]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:55]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:49:56]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:56]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:49:58]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:50:06]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:50:06]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:50:07]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:50:14]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:50:26]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:50:28]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:50:30]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:50:32]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:50:32]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:50:38]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:50:40]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:50:40]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:50:44]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:50:45]   ⚪ 无交易信号
+[2026-03-26 09:50:48] 
+============================================================
+[2026-03-26 09:50:48] 📊 账户汇总
+[2026-03-26 09:50:48] ============================================================
+[2026-03-26 09:50:48] 总资产：¥1,011,120 (现金¥68,718 + 持仓¥942,402)
+[2026-03-26 09:50:48] 盈亏：¥+11,120 (+1.11%)
+[2026-03-26 09:50:48] 持仓：26 只
+[2026-03-26 09:50:48] ============================================================
+[2026-03-26 09:51:18] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:51:18] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:51:18]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:51:19]   📌 Phase 2: 风控...
+[2026-03-26 09:51:21]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:51:21]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:24]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:25]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:27]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:30]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:31]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:33]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:51:37]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:37]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:37]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:51:43]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:44]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:51:45]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:51:57]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:52:01]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:52:03]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:52:08]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:52:12]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:52:13]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:52:19]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:52:19]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:52:20]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:52:22]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:52:26]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:52:26]   ⚪ 无交易信号
+[2026-03-26 09:52:28] 
+============================================================
+[2026-03-26 09:52:28] 📊 账户汇总
+[2026-03-26 09:52:28] ============================================================
+[2026-03-26 09:52:28] 总资产：¥1,011,043 (现金¥68,718 + 持仓¥942,325)
+[2026-03-26 09:52:28] 盈亏：¥+11,043 (+1.10%)
+[2026-03-26 09:52:28] 持仓：26 只
+[2026-03-26 09:52:28] ============================================================
+[2026-03-26 09:52:58] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:52:58] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:52:58]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:52:59]   📌 Phase 2: 风控...
+[2026-03-26 09:53:01]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:53:02]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:04]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:04]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:04]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:05]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:06]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:06]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:53:08]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:10]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:10]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:53:15]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:15]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:53:28]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:53:34]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:53:35]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:53:36]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:53:39]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:53:39]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:53:44]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:45]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:53:46]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:53:49]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:53:51]   ⚪ 无交易信号
+[2026-03-26 09:53:53] 
+============================================================
+[2026-03-26 09:53:53] 📊 账户汇总
+[2026-03-26 09:53:53] ============================================================
+[2026-03-26 09:53:53] 总资产：¥1,011,348 (现金¥68,718 + 持仓¥942,630)
+[2026-03-26 09:53:53] 盈亏：¥+11,348 (+1.13%)
+[2026-03-26 09:53:53] 持仓：26 只
+[2026-03-26 09:53:53] ============================================================
+[2026-03-26 09:54:23] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:54:23] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:54:23]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:54:24]   📌 Phase 2: 风控...
+[2026-03-26 09:54:27]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:54:27]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:28]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:29]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:30]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:31]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:32]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:32]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:54:33]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:34]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:35]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:54:40]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:42]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:54:43]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:54:55]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:55:01]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:55:02]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:55:04]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:55:04]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:55:15]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:55:16]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:55:17]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:55:18]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:55:18]   ⚪ 无交易信号
+[2026-03-26 09:55:21] 
+============================================================
+[2026-03-26 09:55:21] 📊 账户汇总
+[2026-03-26 09:55:21] ============================================================
+[2026-03-26 09:55:21] 总资产：¥1,011,059 (现金¥68,718 + 持仓¥942,341)
+[2026-03-26 09:55:21] 盈亏：¥+11,059 (+1.11%)
+[2026-03-26 09:55:21] 持仓：26 只
+[2026-03-26 09:55:21] ============================================================
+[2026-03-26 09:55:51] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:55:51] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:55:51]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:55:52]   📌 Phase 2: 风控...
+[2026-03-26 09:55:54]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:55:55]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:55:57]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:55:57]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:00]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:01]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:01]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:02]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:56:04]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:05]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:07]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:56:15]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:15]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:16]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:56:24]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:56:29]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:56:30]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:56:36]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 09:56:36]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:56:37]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:56:43]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:44]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:56:44]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:56:50]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:56:52]   ⚪ 无交易信号
+[2026-03-26 09:56:55] 
+============================================================
+[2026-03-26 09:56:55] 📊 账户汇总
+[2026-03-26 09:56:55] ============================================================
+[2026-03-26 09:56:55] 总资产：¥1,011,258 (现金¥68,718 + 持仓¥942,540)
+[2026-03-26 09:56:55] 盈亏：¥+11,258 (+1.13%)
+[2026-03-26 09:56:55] 持仓：26 只
+[2026-03-26 09:56:55] ============================================================
+[2026-03-26 09:57:25] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:57:25] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:57:25]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:57:25]   📌 Phase 2: 风控...
+[2026-03-26 09:57:28]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:57:29]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:29]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:29]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:30]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:31]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:32]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:32]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:57:33]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:34]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:36]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:57:43]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:44]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:57:45]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:58:10]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:58:10]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:58:12]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:58:14]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:58:15]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:58:21]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:58:23]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:58:24]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:58:30]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:58:31]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 09:58:31]   ⚪ 无交易信号
+[2026-03-26 09:58:33] 
+============================================================
+[2026-03-26 09:58:33] 📊 账户汇总
+[2026-03-26 09:58:33] ============================================================
+[2026-03-26 09:58:33] 总资产：¥1,011,101 (现金¥68,718 + 持仓¥942,383)
+[2026-03-26 09:58:33] 盈亏：¥+11,101 (+1.11%)
+[2026-03-26 09:58:33] 持仓：26 只
+[2026-03-26 09:58:33] ============================================================
+[2026-03-26 09:59:03] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 09:59:03] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 09:59:03]   📌 Phase 1: 网格做 T...
+[2026-03-26 09:59:04]   📌 Phase 2: 风控...
+[2026-03-26 09:59:06]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 09:59:09]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:11]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:11]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:12]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:14]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:59:15]   ⚪ 中国银行: T+1 限制
+login success!
+logout failed!
+[2026-03-26 09:59:17]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:59:18]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:19]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:59:27]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:28]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 09:59:30]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:59:35]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:59:43]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:59:44]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 09:59:48]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 09:59:49]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 09:59:55]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:56]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 09:59:57]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 09:59:58]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:00:00]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:00:00]   ⚪ 无交易信号
+[2026-03-26 10:00:02] 
+============================================================
+[2026-03-26 10:00:02] 📊 账户汇总
+[2026-03-26 10:00:02] ============================================================
+[2026-03-26 10:00:02] 总资产：¥1,011,789 (现金¥68,718 + 持仓¥943,071)
+[2026-03-26 10:00:02] 盈亏：¥+11,789 (+1.18%)
+[2026-03-26 10:00:02] 持仓：26 只
+[2026-03-26 10:00:02] ============================================================
+[2026-03-26 10:00:32] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:00:32] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:00:32]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:00:33]   📌 Phase 2: 风控...
+[2026-03-26 10:00:36]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:00:37]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:00:38]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:00:40]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:00:40]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:00:41]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:00:43]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:00:43]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:00:47]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:00:47]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:00:57]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:00:58]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:00:58]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:01:10]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 10:01:16]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:01:17]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:01:18]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 10:01:21]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:01:29]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:01:30]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:01:30]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:01:32]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:01:35]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:01:35]   ⚪ 无交易信号
+[2026-03-26 10:01:38] 
+============================================================
+[2026-03-26 10:01:38] 📊 账户汇总
+[2026-03-26 10:01:38] ============================================================
+[2026-03-26 10:01:38] 总资产：¥1,011,619 (现金¥68,718 + 持仓¥942,901)
+[2026-03-26 10:01:38] 盈亏：¥+11,619 (+1.16%)
+[2026-03-26 10:01:38] 持仓：26 只
+[2026-03-26 10:01:38] ============================================================
+[2026-03-26 10:02:08] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:02:08] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:02:08]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:02:09]   📌 Phase 2: 风控...
+[2026-03-26 10:02:11]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:02:11]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:02:13]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:02:15]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:02:16]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:02:17]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:02:18]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:02:20]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:02:21]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:02:21]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:02:31]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:02:31]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:02:32]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:02:41]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:02:50]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:02:53]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:03:02]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:05]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:06]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:03:08]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:03:08]   ⚪ 无交易信号
+[2026-03-26 10:03:11] 
+============================================================
+[2026-03-26 10:03:11] 📊 账户汇总
+[2026-03-26 10:03:11] ============================================================
+[2026-03-26 10:03:11] 总资产：¥1,011,366 (现金¥68,718 + 持仓¥942,648)
+[2026-03-26 10:03:11] 盈亏：¥+11,366 (+1.14%)
+[2026-03-26 10:03:11] 持仓：26 只
+[2026-03-26 10:03:11] ============================================================
+[2026-03-26 10:03:41] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:03:41] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:03:41]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:03:42]   📌 Phase 2: 风控...
+[2026-03-26 10:03:44]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:03:44]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:46]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:46]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:47]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:48]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:03:49]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:50]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:03:50]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:03:52]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:03:56]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:58]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:03:59]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:04:08]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:04:17]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:04:17]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 10:04:20]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:04:21]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:04:22]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:04:27]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:04:27]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:04:31]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:04:36]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:04:36]   ⚪ 无交易信号
+[2026-03-26 10:04:39] 
+============================================================
+[2026-03-26 10:04:39] 📊 账户汇总
+[2026-03-26 10:04:39] ============================================================
+[2026-03-26 10:04:39] 总资产：¥1,010,653 (现金¥68,718 + 持仓¥941,935)
+[2026-03-26 10:04:39] 盈亏：¥+10,653 (+1.07%)
+[2026-03-26 10:04:39] 持仓：26 只
+[2026-03-26 10:04:39] ============================================================
+[2026-03-26 10:05:09] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:05:09] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:05:09]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:05:09]   📌 Phase 2: 风控...
+[2026-03-26 10:05:12]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:05:12]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:13]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:13]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:15]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:16]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:18]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:18]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:05:19]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:19]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:05:20]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:05:26]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:27]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:29]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:05:36]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:05:46]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:05:47]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:05:48]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:05:49]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+[2026-03-26 10:05:50]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:05:57]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:58]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:05:58]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:06:02]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:06:02]   ⚪ 无交易信号
+[2026-03-26 10:06:04] 
+============================================================
+[2026-03-26 10:06:04] 📊 账户汇总
+[2026-03-26 10:06:04] ============================================================
+[2026-03-26 10:06:04] 总资产：¥1,010,846 (现金¥68,718 + 持仓¥942,128)
+[2026-03-26 10:06:04] 盈亏：¥+10,846 (+1.08%)
+[2026-03-26 10:06:04] 持仓：26 只
+[2026-03-26 10:06:04] ============================================================
+[2026-03-26 10:06:34] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:06:34] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:06:34]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:06:35]   📌 Phase 2: 风控...
+[2026-03-26 10:06:37]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:06:38]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:40]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:41]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:42]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:43]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:44]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:45]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:06:46]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:46]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:50]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:06:55]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:06:56]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:06:58]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:07:07]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:07:18]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:07:20]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:07:23]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:07:24]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:07:30]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 10:07:34]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:07:38]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:07:41]   ⚪ 无交易信号
+[2026-03-26 10:07:43] 
+============================================================
+[2026-03-26 10:07:43] 📊 账户汇总
+[2026-03-26 10:07:43] ============================================================
+[2026-03-26 10:07:43] 总资产：¥1,010,346 (现金¥68,718 + 持仓¥941,628)
+[2026-03-26 10:07:43] 盈亏：¥+10,346 (+1.03%)
+[2026-03-26 10:07:43] 持仓：26 只
+[2026-03-26 10:07:43] ============================================================
+[2026-03-26 10:08:13] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:08:13] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:08:13]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:08:14]   📌 Phase 2: 风控...
+[2026-03-26 10:08:17]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:08:17]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:18]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:19]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:20]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:21]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:23]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:26]   ⚪ 中国银行: T+1 限制
+login success!
+logout failed!
+[2026-03-26 10:08:27]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:29]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:31]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:08:35]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:36]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:08:36]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:08:49]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:08:49]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:08:51]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:08:53]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:08:54]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:09:03]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:09:04]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:09:06]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:09:09]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:09:12]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:09:12]   ⚪ 无交易信号
+[2026-03-26 10:09:15] 
+============================================================
+[2026-03-26 10:09:15] 📊 账户汇总
+[2026-03-26 10:09:15] ============================================================
+[2026-03-26 10:09:15] 总资产：¥1,009,485 (现金¥68,718 + 持仓¥940,767)
+[2026-03-26 10:09:15] 盈亏：¥+9,485 (+0.95%)
+[2026-03-26 10:09:15] 持仓：26 只
+[2026-03-26 10:09:15] ============================================================
+[2026-03-26 10:09:45] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:09:45] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:09:45]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:09:46]   📌 Phase 2: 风控...
+[2026-03-26 10:09:48]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout failed!
+[2026-03-26 10:09:50]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:09:51]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:09:52]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:09:54]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:09:56]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:09:56]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:09:57]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:09:58]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:09:59]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:10:08]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:10:09]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:10:09]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:10:20]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:10:26]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:10:26]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+[2026-03-26 10:10:29]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:10:31]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:10:32]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:10:40]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:10:41]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:10:42]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:10:47]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:10:49]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:10:49]   ⚪ 无交易信号
+[2026-03-26 10:10:52] 
+============================================================
+[2026-03-26 10:10:52] 📊 账户汇总
+[2026-03-26 10:10:52] ============================================================
+[2026-03-26 10:10:52] 总资产：¥1,009,652 (现金¥68,718 + 持仓¥940,934)
+[2026-03-26 10:10:52] 盈亏：¥+9,652 (+0.97%)
+[2026-03-26 10:10:52] 持仓：26 只
+[2026-03-26 10:10:52] ============================================================
+[2026-03-26 10:11:22] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:11:22] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:11:22]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:11:23]   📌 Phase 2: 风控...
+[2026-03-26 10:11:25]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:11:26]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:11:27]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:11:28]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:11:28]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:11:29]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:11:30]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:11:31]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:11:32]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:11:36]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:11:42]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:11:55]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:12:00]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:12:01]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:12:04]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:12:07]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:12:08]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:12:11]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:12:13]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:12:15]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:12:17]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:12:21]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:12:21]   ⚪ 无交易信号
+[2026-03-26 10:12:23] 
+============================================================
+[2026-03-26 10:12:23] 📊 账户汇总
+[2026-03-26 10:12:23] ============================================================
+[2026-03-26 10:12:23] 总资产：¥1,010,415 (现金¥68,718 + 持仓¥941,697)
+[2026-03-26 10:12:23] 盈亏：¥+10,415 (+1.04%)
+[2026-03-26 10:12:23] 持仓：26 只
+[2026-03-26 10:12:23] ============================================================
+[2026-03-26 10:12:53] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:12:53] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:12:53]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:12:54]   📌 Phase 2: 风控...
+[2026-03-26 10:12:57]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:12:57]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:12:58]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:13:00]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:13:03]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:13:04]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:13:06]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:13:06]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:13:06]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:13:08]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:13:14]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:13:17]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:13:26]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:13:34]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:13:34]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:13:37]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:13:39]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout failed!
+[2026-03-26 10:13:40]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:13:47]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:13:47]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:13:48]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:13:51]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:13:51]   ⚪ 无交易信号
+[2026-03-26 10:13:54] 
+============================================================
+[2026-03-26 10:13:54] 📊 账户汇总
+[2026-03-26 10:13:54] ============================================================
+[2026-03-26 10:13:54] 总资产：¥1,010,649 (现金¥68,718 + 持仓¥941,931)
+[2026-03-26 10:13:54] 盈亏：¥+10,649 (+1.06%)
+[2026-03-26 10:13:54] 持仓：26 只
+[2026-03-26 10:13:54] ============================================================
+[2026-03-26 10:14:24] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:14:24] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:14:24]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:14:25]   📌 Phase 2: 风控...
+[2026-03-26 10:14:27]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:14:27]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:14:29]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:14:30]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:14:31]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:14:32]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:14:34]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:14:35]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:14:35]   ⚪ 邮储银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:14:36]   ⚪ 平安银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:14:43]   ⚪ 水井坊: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:14:46]   ⚪ 迎驾贡酒: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:14:48]   ⚪ 今世缘: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:15:00]   ⚪ 长电科技: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:15:06]   ⚪ 天齐锂业: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:15:06]   ⚪ 天赐材料: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:15:09]   ⚪ 隆基绿能: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout failed!
+[2026-03-26 10:15:10]   ⚪ 恒瑞医药: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:15:12]   ⚪ 同仁堂: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout success!
+login success!
+logout failed!
+login success!
+logout success!
+[2026-03-26 10:15:16]   ⚪ 格力电器: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:15:16]   ⚪ 伊利股份: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout failed!
+[2026-03-26 10:15:17]   ⚪ 海尔智家: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:15:20]   ⚪ 中国石化: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+login success!
+logout success!
+[2026-03-26 10:15:22]   ⚪ 山东黄金: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+[2026-03-26 10:15:22]   ⚪ 无交易信号
+[2026-03-26 10:15:24] 
+============================================================
+[2026-03-26 10:15:24] 📊 账户汇总
+[2026-03-26 10:15:24] ============================================================
+[2026-03-26 10:15:24] 总资产：¥1,010,804 (现金¥68,718 + 持仓¥942,086)
+[2026-03-26 10:15:24] 盈亏：¥+10,804 (+1.08%)
+[2026-03-26 10:15:24] 持仓：26 只
+[2026-03-26 10:15:24] ============================================================
+[2026-03-26 10:15:54] 🧠 综合决策引擎就绪 (ML=True, 情绪=True)
+[2026-03-26 10:15:54] 📊 检查交易信号（三阶段 + v1.0 智能增强）...
+[2026-03-26 10:15:54]   📌 Phase 1: 网格做 T...
+[2026-03-26 10:15:55]   📌 Phase 2: 风控...
+[2026-03-26 10:15:58]   📌 Phase 3: 策略信号 (v1.0 智能增强)...
+login success!
+logout success!
+[2026-03-26 10:15:58]   ⚪ 工商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:16:01]   ⚪ 农业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:16:01]   ⚪ 建设银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:16:04]   ⚪ 招商银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:16:05]   ⚪ 兴业银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:16:06]   ⚪ 民生银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!
+[2026-03-26 10:16:07]   ⚪ 中国银行: T+1 限制
+login success!
+logout success!
+[2026-03-26 10:16:07]   ⚪ 交通银行: 情绪过滤：情绪高涨 (64分)，只保留强信号 [情绪过滤]
+login success!
+logout success!

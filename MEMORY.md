@@ -1,70 +1,98 @@
-# MEMORY.md - 长期记忆
+# MEMORY.md - 量化交易团队长期记忆
 
-## 👥 人物
+## 🧠 核心记忆
 
-**David**
-- 位置：中国，时区 Asia/Shanghai
-- 兴趣：编程（新手，刚开始学习）
-- 状态：需要引导和学习支持
-
----
-
-## ⚙️ 系统配置
-
-### Agent 配置
-- **工具权限**: `full`（所有工具已启用）
-- **配置文件**: `/home/openclaw/.openclaw/openclaw.json`
-
-### API Keys
-- **Brave Search**: 已配置 (`tools.web.search.apiKey`) - 主搜索源
-- **Tavily Search**: 已配置 (`~/.openclaw/.env`) - 备选搜索源，每月 1000 次免费额度
-- **阿里云百炼**: 已配置 (qwen3.5-plus 模型)
-
-### 技能
-- **cf-fetcher**: 网页抓取技能
-  - 位置：`/home/openclaw/.openclaw/workspace/skills/cf-fetcher/`
-  - 功能：高效抓取网页，优先 Markdown 格式，节省 Token
-  - 依赖：`requests`, `html-to-markdown` ✅ 已安装
-  - **优先级**: 抓取网页内容时优先使用此技能
-
-### 自定义脚本
-- **tavily_search.py**: Tavily API 搜索脚本
-  - 位置：`/home/openclaw/.openclaw/workspace/scripts/tavily_search.py`
-  - 用法：`python3 scripts/tavily_search.py "搜索关键词" [结果数] [深度]`
-  - API Key: 从 `~/.openclaw/.env` 读取
-  - **使用场景**: 需要 AI 摘要、新闻搜索、深度搜索时
+### 团队成立
+- **成立日期：** 2026-04-18
+- **团队成员：** 7 个专业 Agent
+- **核心使命：** 量化策略研发与自动化交易
 
 ---
 
-## 📅 重要日期
+## 📊 重要决策
 
-- **2026-03-16**: Bob 首次上线，与 David 相识
+### 2026-04-18 - 系统初始化
+- ✅ 完成 7 个 Agent 配置
+- ✅ 建立协作路由规则
+- ✅ 配置定时任务
+- ✅ 建立记忆与知识系统
 
----
+**决策要点：**
+- 采用 Boss Bot 统一协调模式
+- 合规风控优先于收益
+- 数据质量第一原则
 
-## 🎯 当前项目
-
-1. **量化交易模拟盘** - A 股量化策略系统
-   - 引擎：三阶段（做T/风控/策略信号），金字塔加仓，分批止盈
-   - 数据源：腾讯财经（主力），Infoway WebSocket（测试中，API Key 有效但连接不稳）
-   - 守护：process_guard.py 自动管理 web_ui + streamlit + 交易引擎
-   - 股票池：50 只（银行/白酒/科技/新能源/医药/消费/周期）
-   - 位置：`/home/openclaw/.openclaw/workspace/quant_strategies/`
-
-2. **Python 入门教学** - David 想学编程，从 Python 开始
-   - 状态：等待 David 安装 Python 环境
-   - 系统：Windows
-
----
-
-## 💡 偏好与习惯
-
-- **A 股颜色**：红涨绿跌！不要用美股习惯（绿涨红跌）
-- **网页抓取**: 优先使用 cf-fetcher 技能（节省 Token）
-- **搜索优先级**: 
-  1. **Brave Search** (`web_search` 工具) - ⭐ 优先使用，快速准确
-  2. **Tavily Search** (`scripts/tavily_search.py`) - 备选，AI 摘要、新闻模式、深度搜索
+### 2026-04-18 02:33 - 系统重构
+- ✅ 旧量化系统 (`quant_strategies/`) 已删除
+- ✅ 新多 Agent 架构已启用
+- ✅ 旧策略代码备份到 `knowledge/strategies/legacy/`
+- ✅ 历史回测备份到 `knowledge/backtests/legacy/`
 
 ---
 
-_最后更新：2026-03-16_
+## 🔬 研究发现
+
+### 因子库初始状态
+- 动量因子：5 个 (MOM_20D, MOM_60D, MOM_120D, RSV_20D, IND_MOM)
+- 价值因子：4 个 (EP, BP, SP, CFOP)
+- 成长因子：3 个 (REV_G, PROF_G, ASSET_G)
+- 质量因子：4 个 (ROE, ROA, GPM, LEV)
+- 技术因子：3 个 (VOL_20D, TURN, AMIHUD)
+
+**总计：19 个因子**
+
+### 策略研发状态
+- 初始策略模板已创建
+- 待完成首个策略回测
+
+---
+
+## 📈 绩效基准
+
+### 目标设定
+| 指标 | 目标值 | 说明 |
+|------|--------|------|
+| 年化收益 | >15% | 超越基准 7% |
+| 夏普比率 | >1.0 | 风险调整后收益 |
+| 最大回撤 | <-25% | 风险控制 |
+| 胜率 | >55% | 交易胜率 |
+
+---
+
+## 📝 经验教训
+
+### 系统建设
+- Agent 协作需要清晰的通信协议
+- 定时任务需要可靠的调度机制
+- 记忆系统对长期决策至关重要
+
+### 待验证假设
+- 动量因子在 A 股市场的有效性
+- 多因子组合的稳定性
+- 不同市场环境下的策略表现
+
+---
+
+## 🔄 更新记录
+
+| 日期 | 更新内容 | 更新 Agent |
+|------|---------|-----------|
+| 2026-04-18 02:33 | 系统迁移完成 - 旧量化系统 → 多 Agent 架构 | Boss Bot |
+| 2026-04-18 02:00 | 初始创建 | Boss Bot |
+
+---
+
+## 📦 迁移记录
+
+**2026-04-18 系统重构：**
+- **旧系统：** `quant_strategies/` (单体重仓系统) → 已删除
+- **新系统：** 多 Agent 协作架构 → 已启用
+- **备份内容：** 旧策略代码 → `knowledge/strategies/legacy/`
+- **备份内容：** 历史回测 → `knowledge/backtests/legacy/`
+- **详情文档：** `memory/daily/2026-04-18_migration.md`
+
+---
+
+## 🔖 标签索引
+
+#系统初始化 #因子库 #策略模板 #团队协作 #记忆系统 #系统迁移 #多 Agent 架构

@@ -1,0 +1,10 @@
+{
+  "best_params": {
+    "fast_period": 10,
+    "slow_period": 58,
+    "signal_period": 13
+  },
+  "best_value": -1000.0,
+  "n_trials": 50,
+  "direction": "MAXIMIZE"
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 BobQuant 可视化看板</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+        
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .card-url {
+            color: #4facfe;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .card-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .card-features li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .card-features li:before {
+            content: "✅ ";
+            margin-right: 5px;
+        }
+        
+        .card-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .card-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .info-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .info-title {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .info-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .status-running {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 BobQuant 可视化看板</h1>
+        <p class="subtitle">量化交易监控与分析平台</p>
+        
+        <div class="card-grid">
+            <!-- Streamlit 看板 -->
+            <a href="http://localhost:8501" target="_blank" class="card">
+                <div class="card-icon">📊</div>
+                <div class="card-title">Streamlit 看板 <span class="status status-running">运行中</span></div>
+                <div class="card-url">http://localhost:8501</div>
+                <ul class="card-features">
+                    <li>多页面导航</li>
+                    <li>账户概览与绩效分析</li>
+                    <li>持仓占比饼图</li>
+                    <li>交易记录筛选</li>
+                    <li>K 线图表（MA/MACD/布林带）</li>
+                    <li>月度收益分布</li>
+                </ul>
+                <div class="card-button">立即访问</div>
+            </a>
+            
+            <!-- Plotly Dash 看板 -->
+            <a href="http://localhost:8050" target="_blank" class="card">
+                <div class="card-icon">📈</div>
+                <div class="card-title">Plotly Dash 看板 <span class="status status-running">运行中</span></div>
+                <div class="card-url">http://localhost:8050</div>
+                <ul class="card-features">
+                    <li>单页面实时监控</li>
+                    <li>3 秒自动刷新</li>
+                    <li>K 线蜡烛图</li>
+                    <li>成交量柱状图</li>
+                    <li>技术指标叠加</li>
+                    <li>持仓盈亏饼图</li>
+                </ul>
+                <div class="card-button">立即访问</div>
+            </a>
+        </div>
+        
+        <div class="info-section">
+            <h2 class="info-title">ℹ️ 快速指南</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">🎯 推荐使用场景</div>
+                    <div class="info-value">
+                        <strong>Streamlit</strong>: 深度分析、绩效查看、历史数据<br>
+                        <strong>Dash</strong>: 实时监控、快速查看、交易时段
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">🔄 刷新频率</div>
+                    <div class="info-value">
+                        Streamlit: 30 秒自动更新<br>
+                        Dash: 3 秒实时刷新
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">📱 访问方式</div>
+                    <div class="info-value">
+                        本地：localhost:8501 / 8050<br>
+                        局域网：192.168.50.55:8501 / 8050
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-label">📚 文档</div>
+                    <div class="info-value">
+                        查看 STREAMLIT_README.md<br>
+                        获取详细使用说明
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>BobQuant 可视化看板 v1.0 | 最后更新：2026-04-11</p>
+            <p>如有问题，请查看日志文件：/tmp/streamlit.log</p>
+        </div>
+    </div>
+    
+    <script>
+        // 自动检测服务状态
+        async function checkService(url, callback) {
+            try {
+                const response = await fetch(url, {method: 'HEAD', mode: 'no-cors'});
+                callback(true);
+            } catch (e) {
+                callback(false);
+            }
+        }
+        
+        // 检查 Streamlit 状态
+        checkService('http://localhost:8501/_stcore/health', (isUp) => {
+            const statusEl = document.querySelector('.card:nth-child(1) .status');
+            if (!isUp) {
+                statusEl.textContent = '未运行';
+                statusEl.className = 'status';
+                statusEl.style.background = '#f8d7da';
+                statusEl.style.color = '#721c24';
+            }
+        });
+        
+        // 检查 Dash 状态
+        checkService('http://localhost:8050', (isUp) => {
+            const statusEl = document.querySelector('.card:nth-child(2) .status');
+            if (!isUp) {
+                statusEl.textContent = '未运行';
+                statusEl.className = 'status';
+                statusEl.style.background = '#f8d7da';
+                statusEl.style.color = '#721c24';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "report_time": "2026-04-10T08:31:07.892540",
+  "engine": "vectorbt",
+  "summary": {
+    "total_return": -0.08484555555994192,
+    "total_return_pct": "-8.48%",
+    "annual_return": -0.0881923062386678,
+    "annual_return_pct": "-8.82%",
+    "max_drawdown": -0.12816389951421936,
+    "max_drawdown_pct": "-12.82%",
+    "sharpe_ratio": -0.5104247379991448,
+    "total_trades": 7,
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "win_rate": 0.0,
+    "win_rate_pct": "0.0%",
+    "profit_factor": 0,
+    "final_value": 915154.4444400581,
+    "initial_capital": 1000000,
+    "total_profit": -84845.55555994192
+  },
+  "strategy": {
+    "name": "MACD",
+    "parameters": {
+      "fast_window": 12,
+      "slow_window": 26,
+      "signal_window": 9
+    }
+  },
+  "config": {
+    "initial_capital": 1000000,
+    "commission_rate": 0.0005,
+    "stamp_duty_rate": 0.001
+  }
+}

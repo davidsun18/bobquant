@@ -1,0 +1,76 @@
+{
+  "test_suite": "BobQuant Performance Test Suite",
+  "bobquant_version": "2.5.0-refactored",
+  "test_date": "2026-04-11T02:43:43.995151",
+  "python_version": "3.10.12",
+  "system_info": "Linux 6.8.0-106-generic (x86_64)",
+  "metrics": [
+    {
+      "test_name": "工具系统性能测试",
+      "iterations": 500,
+      "total_time_ms": 3.17,
+      "avg_time_ms": 0.006,
+      "min_time_ms": 0.005,
+      "max_time_ms": 0.079,
+      "median_time_ms": 0.005,
+      "std_dev_ms": 0.004,
+      "operations_per_second": 179314.95,
+      "timestamp": "2026-04-11T02:43:40.006670"
+    },
+    {
+      "test_name": "权限系统性能测试",
+      "iterations": 500,
+      "total_time_ms": 4.915,
+      "avg_time_ms": 0.009,
+      "min_time_ms": 0.006,
+      "max_time_ms": 0.054,
+      "median_time_ms": 0.009,
+      "std_dev_ms": 0.004,
+      "operations_per_second": 106182.63,
+      "timestamp": "2026-04-11T02:43:40.020688"
+    },
+    {
+      "test_name": "错误处理性能测试",
+      "iterations": 500,
+      "total_time_ms": 32.924,
+      "avg_time_ms": 0.065,
+      "min_time_ms": 0.026,
+      "max_time_ms": 4.797,
+      "median_time_ms": 0.059,
+      "std_dev_ms": 0.213,
+      "operations_per_second": 15341.33,
+      "timestamp": "2026-04-11T02:43:40.062362"
+    },
+    {
+      "test_name": "遥测系统性能测试",
+      "iterations": 500,
+      "total_time_ms": 0.729,
+      "avg_time_ms": 0.001,
+      "min_time_ms": 0.001,
+      "max_time_ms": 0.024,
+      "median_time_ms": 0.001,
+      "std_dev_ms": 0.002,
+      "operations_per_second": 855155.86,
+      "timestamp": "2026-04-11T02:43:42.587792"
+    },
+    {
+      "test_name": "配置系统性能测试",
+      "iterations": 50,
+      "total_time_ms": 1401.751,
+      "avg_time_ms": 28.033,
+      "min_time_ms": 11.305,
+      "max_time_ms": 619.304,
+      "median_time_ms": 11.64,
+      "std_dev_ms": 85.696,
+      "operations_per_second": 35.67,
+      "timestamp": "2026-04-11T02:43:43.995010"
+    }
+  ],
+  "summary": {
+    "total_tests": 5,
+    "overall_avg_latency_ms": 5.623,
+    "total_operations_per_second": 1156030.44,
+    "fastest_test": "遥测系统性能测试",
+    "slowest_test": "配置系统性能测试"
+  }
+}

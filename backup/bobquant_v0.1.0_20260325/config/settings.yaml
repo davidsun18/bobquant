@@ -1,0 +1,101 @@
+# ==========================================
+# BobQuant 量化交易系统 - 全局配置
+# ==========================================
+
+# --- 系统 ---
+system:
+  name: "BobQuant"
+  version: "0.1.0"
+  log_level: "INFO"                # DEBUG / INFO / WARNING / ERROR
+  check_interval: 30               # 行情检查间隔（秒）
+
+# --- 账户 ---
+account:
+  initial_capital: 1000000         # 初始资金 100万
+  commission_rate: 0.0005          # 手续费万分之五
+  stamp_duty_rate: 0.001           # 印花税千分之一（卖出时收取）
+  max_stocks: 20                   # 最大持仓数量
+  max_position_pct: 0.08           # 单只股票最大仓位比例
+
+# --- 数据源 ---
+data:
+  primary: "tencent"               # 主数据源: tencent / infoway / tushare
+  fallback: "tencent"              # 备用数据源
+  history_provider: "baostock"     # 历史数据: baostock / tushare
+  history_days: 60                 # 默认获取60天历史数据
+
+  tencent:
+    enabled: true
+    retry: 2
+    timeout: 3
+
+  infoway:
+    enabled: false
+    api_key: ""
+    websocket_url: "wss://data.infoway.io/ws"
+    business: "stock"
+
+  tushare:
+    enabled: false
+    token: ""
+
+# --- 策略 ---
+strategy:
+  # 金字塔加仓
+  pyramid_levels: [0.03, 0.05, 0.07]
+  add_dip_pct: 0.03
+
+  # 分批止盈
+  take_profit:
+    - pct: 0.05
+      sell_ratio: 0.33
+    - pct: 0.10
+      sell_ratio: 0.50
+    - pct: 0.15
+      sell_ratio: 1.00
+
+  # 止损
+  stop_loss_pct: -0.08
+
+  # 跟踪止损
+  trailing_stop:
+    activate_pct: 0.05
+    drawdown_pct: 0.02
+
+  # 网格做T
+  grid_t:
+    grid_up: 0.02
+    grid_step: 0.015
+    grid_max: 3
+    buyback_dip: 0.01
+    sell_ratio: 0.20
+
+  # 信号过滤
+  signal:
+    rsi_buy_max: 35
+    rsi_sell_min: 70
+    volume_confirm: true
+    volume_ratio_buy: 1.5
+
+# --- 通知 ---
+notify:
+  feishu:
+    enabled: true
+    user_id: "ou_973651ccbc692b7cd90a7d561f6885b3"
+
+# --- 券商（未来实盘） ---
+broker:
+  mode: "simulator"                # simulator / easytrader / miniqmt
+  easytrader:
+    client: "ths"                  # ths / xq (同花顺/雪球)
+    account: ""
+  miniqmt:
+    account: ""
+    path: ""
+
+# --- 交易时段 ---
+trading_hours:
+  morning_start: "09:25"
+  morning_end: "11:35"
+  afternoon_start: "12:55"
+  afternoon_end: "15:05"

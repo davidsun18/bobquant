@@ -1,0 +1,54 @@
+{
+  "comparisons": [
+    {
+      "test_name": "工具系统性能测试",
+      "baseline_avg_ms": 0.05,
+      "current_avg_ms": 0.006,
+      "improvement_percent": 88.0,
+      "speedup_factor": 8.333333333333334,
+      "baseline_ops": 20000.0,
+      "current_ops": 179314.95
+    },
+    {
+      "test_name": "权限系统性能测试",
+      "baseline_avg_ms": 0.1,
+      "current_avg_ms": 0.009,
+      "improvement_percent": 91.0,
+      "speedup_factor": 11.111111111111112,
+      "baseline_ops": 10000.0,
+      "current_ops": 106182.63
+    },
+    {
+      "test_name": "错误处理性能测试",
+      "baseline_avg_ms": 0.5,
+      "current_avg_ms": 0.065,
+      "improvement_percent": 87.0,
+      "speedup_factor": 7.692307692307692,
+      "baseline_ops": 2000.0,
+      "current_ops": 15341.33
+    },
+    {
+      "test_name": "遥测系统性能测试",
+      "baseline_avg_ms": 0.01,
+      "current_avg_ms": 0.001,
+      "improvement_percent": 90.00000000000001,
+      "speedup_factor": 10.0,
+      "baseline_ops": 100000.0,
+      "current_ops": 855155.86
+    },
+    {
+      "test_name": "配置系统性能测试",
+      "baseline_avg_ms": 50.0,
+      "current_avg_ms": 28.033,
+      "improvement_percent": 43.934,
+      "speedup_factor": 1.7836121713694573,
+      "baseline_ops": 20.0,
+      "current_ops": 35.67
+    }
+  ],
+  "summary": {
+    "tests_improved": 5,
+    "tests_degraded": 0,
+    "avg_improvement": 79.9868
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "config": {
+    "initial_capital": 1000000,
+    "stock_pool_size": 5,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "strategy": "dual_macd + bollinger"
+  },
+  "metrics": {
+    "total_return": 0.03796948536732769,
+    "annual_return": 0.03799597979608538,
+    "max_drawdown": 0.006955613591393772,
+    "sharpe_ratio": 1.8285015992894191,
+    "win_rate": 0.8333333333333334,
+    "total_trades": 13,
+    "final_equity": 1037969.4853673277
+  },
+  "targets": {
+    "annual_return": 0.15,
+    "max_drawdown": 0.25,
+    "sharpe_ratio": 1.2,
+    "win_rate": 0.55
+  },
+  "trades": [
+    {
+      "date": "2024-02-12",
+      "code": "sh.600519",
+      "name": "贵州茅台",
+      "action": "buy",
+      "price": 105.03196345915681,
+      "shares": 900,
+      "reason": "布林带下轨 (%B=0.04)"
+    },
+    {
+      "date": "2024-02-21",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "buy",
+      "price": 168.93108106444467,
+      "shares": 500,
+      "reason": "布林带下轨 (%B=-0.02)"
+    },
+    {
+      "date": "2024-03-01",
+      "code": "sh.600519",
+      "name": "贵州茅台",
+      "action": "sell",
+      "price": 111.63748636441935,
+      "shares": 900,
+      "profit": 5844.496877008292,
+      "reason": "布林带上轨 (%B=0.91)"
+    },
+    {
+      "date": "2024-04-03",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "sell",
+      "price": 165.177658319891,
+      "shares": 500,
+      "profit": -1959.3002014367667,
+      "reason": "布林带上轨 (%B=0.92)"
+    },
+    {
+      "date": "2024-04-10",
+      "code": "sh.600519",
+      "name": "贵州茅台",
+      "action": "buy",
+      "price": 107.35131485969676,
+      "shares": 900,
+      "reason": "布林带下轨 (%B=-0.03)"
+    },
+    {
+      "date": "2024-05-06",
+      "code": "sh.600519",
+      "name": "贵州茅台",
+      "action": "sell",
+      "price": 116.16173404068063,
+      "shares": 900,
+      "profit": 7824.831702248877,
+      "reason": "布林带上轨 (%B=1.04)"
+    },
+    {
+      "date": "2024-05-20",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "buy",
+      "price": 157.2534904167389,
+      "shares": 600,
+      "reason": "布林带下轨 (%B=-0.09)"
+    },
+    {
+      "date": "2024-06-14",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "sell",
+      "price": 167.6952749690965,
+      "shares": 600,
+      "profit": 6164.453566433091,
+      "reason": "布林带上轨 (%B=0.93)"
+    },
+    {
+      "date": "2024-08-28",
+      "code": "sh.600519",
+      "name": "贵州茅台",
+      "action": "buy",
+      "price": 129.79567044336346,
+      "shares": 700,
+      "reason": "布林带下轨 (%B=-0.11)"
+    },
+    {
+      "date": "2024-09-16",
+      "code": "sh.600519",
+      "name": "贵州茅台",
+      "action": "sell",
+      "price": 141.39587014345358,
+      "shares": 700,
+      "profit": 8021.162680962661,
+      "reason": "布林带上轨 (%B=0.93)"
+    },
+    {
+      "date": "2024-10-04",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "buy",
+      "price": 178.9796246077674,
+      "shares": 500,
+      "reason": "布林带下轨 (%B=0.04)"
+    },
+    {
+      "date": "2024-10-18",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "sell",
+      "price": 203.7857846451871,
+      "shares": 500,
+      "profit": 12301.187126387274,
+      "reason": "布林带上轨 (%B=1.38)"
+    },
+    {
+      "date": "2024-12-17",
+      "code": "sh.600519",
+      "name": "贵州茅台",
+      "action": "buy",
+      "price": 144.05096469713078,
+      "shares": 700,
+      "reason": "布林带下轨 (%B=0.01)"
+    }
+  ]
+}

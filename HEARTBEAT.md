@@ -1,5 +1,25 @@
-# HEARTBEAT.md
-
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
-
-# Add tasks below when you want the agent to check something periodically.
+```markdown                                                               
+  # HEARTBEAT.md - Agent 心跳任务配置                                     
+                                                                          
+  ## 💓 心跳检查清单                                                      
+                                                                          
+  ### 检查频率：每 30 分钟                                                
+                                                                          
+  - [ ] 检查 Gateway 网关状态                                             
+  - [ ] 检查各 Agent 在线状态                                             
+  - [ ] 检查定时任务执行情况                                              
+  - [ ] 检查是否有待处理告警                                              
+                                                                          
+  ### 检查频率：每 4 小时                                                 
+                                                                          
+  - [ ] 检查数据采集进度                                                  
+  - [ ] 检查未完成任务                                                    
+  - [ ] 检查系统资源使用                                                  
+                                                                          
+  ### 检查频率：每日                                                      
+                                                                          
+  - [ ] 检查昨日任务完成情况                                              
+  - [ ] 检查今日待办任务                                                  
+  - [ ] 检查日历事件                                                      
+  - [ ] 检查重要通知                                                      
+```  

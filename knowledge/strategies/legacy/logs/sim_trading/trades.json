@@ -1,0 +1,17 @@
+[
+  {
+    "time": "2026-04-15 13:59:38",
+    "code": "sh.601138",
+    "name": "工业富联",
+    "action": "🟢 止盈 L3",
+    "shares": 300,
+    "price": 58.1,
+    "amount": 17430.0,
+    "commission": 8.71,
+    "profit": 2679.85,
+    "profit_pct": 18.2,
+    "reason": "止盈 L3 (盈+18.4% 卖100%)",
+    "trade_id": "B000000151",
+    "status": "completed"
+  }
+]

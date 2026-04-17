@@ -1,0 +1,86 @@
+{
+  "last_rebalance_date": "2026-04-11",
+  "history": [
+    {
+      "date": "2026-04-11",
+      "timestamp": "2026-04-11 00:15:43",
+      "mode": "equal_weight",
+      "orders_count": 4,
+      "total_value": 1175800.0,
+      "total_cost": 2343.3,
+      "orders": [
+        {
+          "code": "sh.600036",
+          "name": "sh.600036",
+          "action": "buy",
+          "shares": 5700,
+          "price": 35.0,
+          "reason": "调仓买入：目标25.0% (当前0.0%)",
+          "priority": 2,
+          "estimated_value": 199500.0,
+          "estimated_cost": 299.25,
+          "timestamp": "2026-04-11 00:15:43"
+        },
+        {
+          "code": "sz.000001",
+          "name": "sz.000001",
+          "action": "buy",
+          "shares": 16600,
+          "price": 12.0,
+          "reason": "调仓买入：目标25.0% (当前0.0%)",
+          "priority": 2,
+          "estimated_value": 199200.0,
+          "estimated_cost": 298.8,
+          "timestamp": "2026-04-11 00:15:43"
+        },
+        {
+          "code": "sz.000002",
+          "name": "sz.000002",
+          "action": "buy",
+          "shares": 7900,
+          "price": 25.0,
+          "reason": "调仓买入：目标25.0% (当前0.0%)",
+          "priority": 2,
+          "estimated_value": 197500.0,
+          "estimated_cost": 296.25,
+          "timestamp": "2026-04-11 00:15:43"
+        },
+        {
+          "code": "sh.600000",
+          "name": "sh.600000",
+          "action": "sell",
+          "shares": 55200,
+          "price": 10.5,
+          "reason": "调仓卖出：目标25.0% (当前80.8%)",
+          "priority": 1,
+          "estimated_value": 579600.0,
+          "estimated_cost": 1449.0,
+          "timestamp": "2026-04-11 00:15:43"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "timestamp": "2026-04-11 00:15:43",
+      "mode": "target_weight",
+      "orders_count": 1,
+      "total_value": 100000.0,
+      "total_cost": 250.0,
+      "orders": [
+        {
+          "code": "sz.000002",
+          "name": "sz.000002",
+          "action": "sell",
+          "shares": 4000,
+          "price": 25.0,
+          "reason": "调仓卖出：目标15.0% (当前25.0%)",
+          "priority": 1,
+          "estimated_value": 100000.0,
+          "estimated_cost": 250.0,
+          "timestamp": "2026-04-11 00:15:43"
+        }
+      ]
+    }
+  ],
+  "last_update": "2026-04-11 00:15:43"
+}

@@ -1,0 +1,2971 @@
+{
+  "config": {
+    "initial_capital": 1000000,
+    "stock_pool_size": 50,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "strategy": "dual_macd + bollinger"
+  },
+  "metrics": {
+    "total_return": 0.0218231245000005,
+    "annual_return": 0.02183823388248407,
+    "max_drawdown": 0.0581763814030373,
+    "sharpe_ratio": 0.4176814761576785,
+    "win_rate": 0.6714285714285714,
+    "total_trades": 149,
+    "final_equity": 1021823.1245000005,
+    "total_profit": 29537.729999999992
+  },
+  "targets": {
+    "annual_return": 0.15,
+    "max_drawdown": 0.25,
+    "sharpe_ratio": 1.2,
+    "win_rate": 0.55
+  },
+  "trades": [
+    {
+      "date": "2024-03-13",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "buy",
+      "price": 5.17,
+      "shares": 9600,
+      "reason": "布林带下轨 (%B=0.05)",
+      "cost": 49656.816
+    },
+    {
+      "date": "2024-03-13",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "buy",
+      "price": 37.07,
+      "shares": 1200,
+      "reason": "布林带下轨 (%B=-0.02)",
+      "cost": 44506.242
+    },
+    {
+      "date": "2024-03-14",
+      "code": "sh.600016",
+      "name": "民生银行",
+      "action": "buy",
+      "price": 3.95,
+      "shares": 11400,
+      "reason": "布林带下轨 (%B=0.02)",
+      "cost": 45052.515
+    },
+    {
+      "date": "2024-03-19",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "buy",
+      "price": 30.8,
+      "shares": 1300,
+      "reason": "布林带下轨 (%B=0.04)",
+      "cost": 40060.02
+    },
+    {
+      "date": "2024-03-19",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "buy",
+      "price": 4.29,
+      "shares": 9500,
+      "reason": "布林带下轨 (%B=0.01)",
+      "cost": 40775.377499999995
+    },
+    {
+      "date": "2024-03-20",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "buy",
+      "price": 6.74,
+      "shares": 5700,
+      "reason": "布林带下轨 (%B=0.09)",
+      "cost": 38437.208999999995
+    },
+    {
+      "date": "2024-03-21",
+      "code": "sh.600690",
+      "name": "海尔智家",
+      "action": "buy",
+      "price": 23.29,
+      "shares": 1500,
+      "reason": "布林带下轨 (%B=0.03)",
+      "cost": 34952.4675
+    },
+    {
+      "date": "2024-03-22",
+      "code": "sh.600438",
+      "name": "通威股份",
+      "action": "buy",
+      "price": 25.52,
+      "shares": 1300,
+      "reason": "布林带下轨 (%B=0.04)",
+      "cost": 33192.587999999996
+    },
+    {
+      "date": "2024-03-25",
+      "code": "sh.600085",
+      "name": "同仁堂",
+      "action": "buy",
+      "price": 41.13,
+      "shares": 800,
+      "reason": "布林带下轨 (%B=-0.12)",
+      "cost": 32920.452
+    },
+    {
+      "date": "2024-03-26",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "sell",
+      "price": 32.4,
+      "shares": 1300,
+      "profit": 2037.8799999999974,
+      "reason": "布林带上轨 (%B=0.97)"
+    },
+    {
+      "date": "2024-03-28",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "buy",
+      "price": 22.17,
+      "shares": 1500,
+      "reason": "布林带下轨 (%B=0.06)",
+      "cost": 33271.627499999995
+    },
+    {
+      "date": "2024-03-28",
+      "code": "sz.002185",
+      "name": "华天科技",
+      "action": "buy",
+      "price": 7.72,
+      "shares": 4200,
+      "reason": "布林带下轨 (%B=-0.01)",
+      "cost": 32440.212
+    },
+    {
+      "date": "2024-03-28",
+      "code": "sh.600690",
+      "name": "海尔智家",
+      "action": "sell",
+      "price": 25.08,
+      "shares": 1500,
+      "profit": 2647.3799999999974,
+      "reason": "布林带上轨 (%B=0.91)"
+    },
+    {
+      "date": "2024-03-29",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "buy",
+      "price": 15.78,
+      "shares": 2000,
+      "reason": "布林带下轨 (%B=-0.31)",
+      "cost": 31575.78
+    },
+    {
+      "date": "2024-04-02",
+      "code": "sh.600584",
+      "name": "长电科技",
+      "action": "buy",
+      "price": 27.1,
+      "shares": 1100,
+      "reason": "布林带下轨 (%B=-0.12)",
+      "cost": 29824.905
+    },
+    {
+      "date": "2024-04-02",
+      "code": "sz.000538",
+      "name": "云南白药",
+      "action": "buy",
+      "price": 50.13,
+      "shares": 500,
+      "reason": "布林带下轨 (%B=0.04)",
+      "cost": 25077.532499999998
+    },
+    {
+      "date": "2024-04-08",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "sell",
+      "price": 5.4,
+      "shares": 9600,
+      "profit": 2156.1600000000035,
+      "reason": "布林带上轨 (%B=0.91)"
+    },
+    {
+      "date": "2024-04-08",
+      "code": "sh.600436",
+      "name": "片仔癀",
+      "action": "buy",
+      "price": 222.84,
+      "shares": 100,
+      "reason": "布林带下轨 (%B=-0.12)",
+      "cost": 22295.142
+    },
+    {
+      "date": "2024-04-08",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "buy",
+      "price": 27.27,
+      "shares": 1000,
+      "reason": "布林带下轨 (%B=-0.03)",
+      "cost": 27283.635
+    },
+    {
+      "date": "2024-04-08",
+      "code": "sh.601888",
+      "name": "中国中免",
+      "action": "buy",
+      "price": 81.87,
+      "shares": 300,
+      "reason": "布林带下轨 (%B=0.05)",
+      "cost": 24573.280499999997
+    },
+    {
+      "date": "2024-04-09",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "sell",
+      "price": 39.69,
+      "shares": 1200,
+      "profit": 3096.372000000003,
+      "reason": "布林带上轨 (%B=0.90) + RSI 超买"
+    },
+    {
+      "date": "2024-04-10",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "sell",
+      "price": 7.03,
+      "shares": 5700,
+      "profit": 1612.9289999999964,
+      "reason": "布林带上轨 (%B=0.90) + RSI 超买"
+    },
+    {
+      "date": "2024-04-10",
+      "code": "sh.603198",
+      "name": "迎驾贡酒",
+      "action": "buy",
+      "price": 61.53,
+      "shares": 500,
+      "reason": "布林带下轨 (%B=-0.11)",
+      "cost": 30780.3825
+    },
+    {
+      "date": "2024-04-10",
+      "code": "sh.603986",
+      "name": "兆易创新",
+      "action": "buy",
+      "price": 66.42,
+      "shares": 400,
+      "reason": "布林带下轨 (%B=-0.03)",
+      "cost": 26581.284
+    },
+    {
+      "date": "2024-04-15",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "sell",
+      "price": 4.59,
+      "shares": 9500,
+      "profit": 2806.394999999997,
+      "reason": "布林带上轨 (%B=1.01)"
+    },
+    {
+      "date": "2024-04-15",
+      "code": "sz.000538",
+      "name": "云南白药",
+      "action": "sell",
+      "price": 51.75,
+      "shares": 500,
+      "profit": 784.125,
+      "reason": "布林带上轨 (%B=0.98)"
+    },
+    {
+      "date": "2024-04-23",
+      "code": "sz.002466",
+      "name": "天齐锂业",
+      "action": "buy",
+      "price": 45.14,
+      "shares": 700,
+      "reason": "布林带下轨 (%B=0.00)",
+      "cost": 31613.799
+    },
+    {
+      "date": "2024-04-24",
+      "code": "sh.603986",
+      "name": "兆易创新",
+      "action": "sell",
+      "price": 77.9,
+      "shares": 400,
+      "profit": 4560.840000000004,
+      "reason": "布林带上轨 (%B=0.94)"
+    },
+    {
+      "date": "2024-04-24",
+      "code": "sz.002460",
+      "name": "赣锋锂业",
+      "action": "buy",
+      "price": 33.36,
+      "shares": 900,
+      "reason": "布林带下轨 (%B=-0.06)",
+      "cost": 30039.012
+    },
+    {
+      "date": "2024-04-26",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "sell",
+      "price": 16.43,
+      "shares": 2000,
+      "profit": 1267.1399999999994,
+      "reason": "布林带上轨 (%B=0.94) + RSI 超买"
+    },
+    {
+      "date": "2024-04-26",
+      "code": "sh.603198",
+      "name": "迎驾贡酒",
+      "action": "sell",
+      "price": 68.94,
+      "shares": 500,
+      "profit": 3670.529999999999,
+      "reason": "布林带上轨 (%B=1.03)"
+    },
+    {
+      "date": "2024-04-26",
+      "code": "sh.600085",
+      "name": "同仁堂",
+      "action": "sell",
+      "price": 42.9,
+      "shares": 800,
+      "profit": 1381.6800000000003,
+      "reason": "布林带上轨 (%B=1.16)"
+    },
+    {
+      "date": "2024-04-29",
+      "code": "sz.002185",
+      "name": "华天科技",
+      "action": "sell",
+      "price": 8.15,
+      "shares": 4200,
+      "profit": 1771.7699999999968,
+      "reason": "布林带上轨 (%B=0.93)"
+    },
+    {
+      "date": "2024-04-29",
+      "code": "sh.600436",
+      "name": "片仔癀",
+      "action": "sell",
+      "price": 235.66,
+      "shares": 100,
+      "profit": 1258.434000000001,
+      "reason": "布林带上轨 (%B=0.98)"
+    },
+    {
+      "date": "2024-04-30",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "sell",
+      "price": 28.61,
+      "shares": 1000,
+      "profit": 1311.3899999999994,
+      "reason": "布林带上轨 (%B=0.98) + RSI 超买"
+    },
+    {
+      "date": "2024-05-14",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "buy",
+      "price": 4.42,
+      "shares": 9000,
+      "reason": "布林带下轨 (%B=0.09)",
+      "cost": 39799.89
+    },
+    {
+      "date": "2024-05-20",
+      "code": "sh.601888",
+      "name": "中国中免",
+      "action": "sell",
+      "price": 78.22,
+      "shares": 300,
+      "profit": -1118.4660000000003,
+      "reason": "布林带上轨 (%B=1.05)"
+    },
+    {
+      "date": "2024-05-22",
+      "code": "sh.600016",
+      "name": "民生银行",
+      "action": "sell",
+      "price": 4.03,
+      "shares": 11400,
+      "profit": 866.0579999999973,
+      "reason": "布林带上轨 (%B=1.01)"
+    },
+    {
+      "date": "2024-05-22",
+      "code": "sh.600438",
+      "name": "通威股份",
+      "action": "sell",
+      "price": 23.4,
+      "shares": 1300,
+      "profit": -2786.420000000002,
+      "reason": "布林带上轨 (%B=0.97)"
+    },
+    {
+      "date": "2024-05-24",
+      "code": "sh.603369",
+      "name": "今世缘",
+      "action": "buy",
+      "price": 53.36,
+      "shares": 800,
+      "reason": "布林带下轨 (%B=-0.12)",
+      "cost": 42709.344
+    },
+    {
+      "date": "2024-05-27",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "sell",
+      "price": 21.68,
+      "shares": 1500,
+      "profit": -767.5200000000004,
+      "reason": "布林带上轨 (%B=0.94)"
+    },
+    {
+      "date": "2024-05-28",
+      "code": "sh.600436",
+      "name": "片仔癀",
+      "action": "buy",
+      "price": 228.61,
+      "shares": 100,
+      "reason": "布林带下轨 (%B=0.09)",
+      "cost": 22872.4305
+    },
+    {
+      "date": "2024-05-30",
+      "code": "sh.603198",
+      "name": "迎驾贡酒",
+      "action": "buy",
+      "price": 69.07,
+      "shares": 600,
+      "reason": "布林带下轨 (%B=0.09)",
+      "cost": 41462.72099999999
+    },
+    {
+      "date": "2024-05-31",
+      "code": "sz.000651",
+      "name": "格力电器",
+      "action": "buy",
+      "price": 40.7,
+      "shares": 900,
+      "reason": "布林带下轨 (%B=0.08)",
+      "cost": 36648.314999999995
+    },
+    {
+      "date": "2024-06-03",
+      "code": "sh.600584",
+      "name": "长电科技",
+      "action": "sell",
+      "price": 26.84,
+      "shares": 1100,
+      "profit": -315.52400000000125,
+      "reason": "布林带上轨 (%B=0.91)"
+    },
+    {
+      "date": "2024-06-03",
+      "code": "sh.600085",
+      "name": "同仁堂",
+      "action": "buy",
+      "price": 43.88,
+      "shares": 800,
+      "reason": "布林带下轨 (%B=0.10)",
+      "cost": 35121.551999999996
+    },
+    {
+      "date": "2024-06-06",
+      "code": "sh.600016",
+      "name": "民生银行",
+      "action": "buy",
+      "price": 3.81,
+      "shares": 9700,
+      "reason": "布林带下轨 (%B=0.03)",
+      "cost": 36975.4785
+    },
+    {
+      "date": "2024-06-07",
+      "code": "sh.601988",
+      "name": "中国银行",
+      "action": "sell",
+      "price": 4.53,
+      "shares": 9000,
+      "profit": 949.2300000000032,
+      "reason": "布林带上轨 (%B=0.92)"
+    },
+    {
+      "date": "2024-06-07",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "buy",
+      "price": 27.06,
+      "shares": 1300,
+      "reason": "布林带下轨 (%B=0.01)",
+      "cost": 35195.589
+    },
+    {
+      "date": "2024-06-11",
+      "code": "sh.601288",
+      "name": "农业银行",
+      "action": "buy",
+      "price": 4.17,
+      "shares": 8500,
+      "reason": "布林带下轨 (%B=-0.28)",
+      "cost": 35462.722499999996
+    },
+    {
+      "date": "2024-06-11",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "buy",
+      "price": 33.36,
+      "shares": 1000,
+      "reason": "布林带下轨 (%B=0.08)",
+      "cost": 33376.68
+    },
+    {
+      "date": "2024-06-13",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "buy",
+      "price": 17.17,
+      "shares": 1800,
+      "reason": "布林带下轨 (%B=0.03)",
+      "cost": 30921.453
+    },
+    {
+      "date": "2024-06-13",
+      "code": "sz.000538",
+      "name": "云南白药",
+      "action": "buy",
+      "price": 51.98,
+      "shares": 500,
+      "reason": "布林带下轨 (%B=-0.08)",
+      "cost": 26002.995
+    },
+    {
+      "date": "2024-06-14",
+      "code": "sh.600438",
+      "name": "通威股份",
+      "action": "buy",
+      "price": 20.97,
+      "shares": 1400,
+      "reason": "布林带下轨 (%B=0.01)",
+      "cost": 29372.679
+    },
+    {
+      "date": "2024-06-17",
+      "code": "sh.600028",
+      "name": "中国石化",
+      "action": "buy",
+      "price": 5.99,
+      "shares": 4600,
+      "reason": "布林带下轨 (%B=-0.06)",
+      "cost": 27567.777
+    },
+    {
+      "date": "2024-06-19",
+      "code": "sh.601888",
+      "name": "中国中免",
+      "action": "buy",
+      "price": 67.51,
+      "shares": 300,
+      "reason": "布林带下轨 (%B=0.05)",
+      "cost": 20263.1265
+    },
+    {
+      "date": "2024-06-27",
+      "code": "sh.600690",
+      "name": "海尔智家",
+      "action": "buy",
+      "price": 28.4,
+      "shares": 900,
+      "reason": "布林带下轨 (%B=-0.14)",
+      "cost": 25572.78
+    },
+    {
+      "date": "2024-06-27",
+      "code": "sh.600547",
+      "name": "山东黄金",
+      "action": "buy",
+      "price": 26.88,
+      "shares": 900,
+      "reason": "布林带下轨 (%B=-0.01)",
+      "cost": 24204.095999999998
+    },
+    {
+      "date": "2024-07-01",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "sell",
+      "price": 17.75,
+      "shares": 1800,
+      "profit": 1012.0499999999956,
+      "reason": "布林带上轨 (%B=0.90)"
+    },
+    {
+      "date": "2024-07-01",
+      "code": "sh.600028",
+      "name": "中国石化",
+      "action": "sell",
+      "price": 6.39,
+      "shares": 4600,
+      "profit": 1810.6059999999998,
+      "reason": "布林带上轨 (%B=0.91)"
+    },
+    {
+      "date": "2024-07-02",
+      "code": "sh.601288",
+      "name": "农业银行",
+      "action": "sell",
+      "price": 4.52,
+      "shares": 8500,
+      "profit": 2936.5800000000017,
+      "reason": "布林带上轨 (%B=1.03) + RSI 超买"
+    },
+    {
+      "date": "2024-07-02",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "sell",
+      "price": 35.08,
+      "shares": 1000,
+      "profit": 1684.9199999999983,
+      "reason": "布林带上轨 (%B=1.06) + RSI 超买"
+    },
+    {
+      "date": "2024-07-02",
+      "code": "sh.600016",
+      "name": "民生银行",
+      "action": "sell",
+      "price": 3.87,
+      "shares": 9700,
+      "profit": 544.461000000003,
+      "reason": "布林带上轨 (%B=0.94)"
+    },
+    {
+      "date": "2024-07-05",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "buy",
+      "price": 21.2,
+      "shares": 1400,
+      "reason": "布林带下轨 (%B=0.02)",
+      "cost": 29694.84
+    },
+    {
+      "date": "2024-07-05",
+      "code": "sh.600547",
+      "name": "山东黄金",
+      "action": "sell",
+      "price": 29.21,
+      "shares": 900,
+      "profit": 2070.7109999999993,
+      "reason": "布林带上轨 (%B=1.17)"
+    },
+    {
+      "date": "2024-07-09",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "buy",
+      "price": 16.43,
+      "shares": 1900,
+      "reason": "布林带下轨 (%B=-0.30)",
+      "cost": 31232.6085
+    },
+    {
+      "date": "2024-07-10",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "buy",
+      "price": 41.71,
+      "shares": 700,
+      "reason": "布林带下轨 (%B=-0.15)",
+      "cost": 29211.5985
+    },
+    {
+      "date": "2024-07-17",
+      "code": "sh.603369",
+      "name": "今世缘",
+      "action": "sell",
+      "price": 49.75,
+      "shares": 800,
+      "profit": -2927.800000000003,
+      "reason": "布林带上轨 (%B=1.04)"
+    },
+    {
+      "date": "2024-07-17",
+      "code": "sh.600436",
+      "name": "片仔癀",
+      "action": "sell",
+      "price": 223.23,
+      "shares": 100,
+      "profit": -560.3230000000003,
+      "reason": "布林带上轨 (%B=1.11)"
+    },
+    {
+      "date": "2024-07-17",
+      "code": "sh.601888",
+      "name": "中国中免",
+      "action": "sell",
+      "price": 70.51,
+      "shares": 300,
+      "profit": 878.8470000000016,
+      "reason": "布林带上轨 (%B=1.09)"
+    },
+    {
+      "date": "2024-07-18",
+      "code": "sz.000538",
+      "name": "云南白药",
+      "action": "sell",
+      "price": 52.41,
+      "shares": 500,
+      "profit": 188.79499999999825,
+      "reason": "布林带上轨 (%B=0.95)"
+    },
+    {
+      "date": "2024-07-18",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "sell",
+      "price": 26.21,
+      "shares": 1300,
+      "profit": -1139.0729999999967,
+      "reason": "布林带上轨 (%B=0.93)"
+    },
+    {
+      "date": "2024-07-22",
+      "code": "sh.600085",
+      "name": "同仁堂",
+      "action": "sell",
+      "price": 39.68,
+      "shares": 800,
+      "profit": -3391.743999999999,
+      "reason": "布林带上轨 (%B=0.91)"
+    },
+    {
+      "date": "2024-07-24",
+      "code": "sh.600016",
+      "name": "民生银行",
+      "action": "buy",
+      "price": 3.66,
+      "shares": 10100,
+      "reason": "布林带下轨 (%B=-0.10)",
+      "cost": 36984.483
+    },
+    {
+      "date": "2024-07-24",
+      "code": "sz.000333",
+      "name": "美的集团",
+      "action": "buy",
+      "price": 60.08,
+      "shares": 500,
+      "reason": "布林带下轨 (%B=-0.33)",
+      "cost": 30055.019999999997
+    },
+    {
+      "date": "2024-07-26",
+      "code": "sh.603986",
+      "name": "兆易创新",
+      "action": "buy",
+      "price": 84.41,
+      "shares": 400,
+      "reason": "布林带下轨 (%B=0.01)",
+      "cost": 33780.882
+    },
+    {
+      "date": "2024-07-26",
+      "code": "sz.000651",
+      "name": "格力电器",
+      "action": "sell",
+      "price": 39.83,
+      "shares": 900,
+      "profit": -818.8470000000016,
+      "reason": "布林带上轨 (%B=1.03)"
+    },
+    {
+      "date": "2024-07-29",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "buy",
+      "price": 32.45,
+      "shares": 1000,
+      "reason": "布林带下轨 (%B=0.06)",
+      "cost": 32466.225000000002
+    },
+    {
+      "date": "2024-08-05",
+      "code": "sz.002185",
+      "name": "华天科技",
+      "action": "buy",
+      "price": 8.13,
+      "shares": 3900,
+      "reason": "布林带下轨 (%B=0.06)",
+      "cost": 31722.8535
+    },
+    {
+      "date": "2024-08-05",
+      "code": "sh.600584",
+      "name": "长电科技",
+      "action": "buy",
+      "price": 29.79,
+      "shares": 1000,
+      "reason": "布林带下轨 (%B=-0.14)",
+      "cost": 29804.894999999997
+    },
+    {
+      "date": "2024-08-06",
+      "code": "sh.600438",
+      "name": "通威股份",
+      "action": "sell",
+      "price": 18.83,
+      "shares": 1400,
+      "profit": -3022.3620000000046,
+      "reason": "布林带上轨 (%B=1.03)"
+    },
+    {
+      "date": "2024-08-12",
+      "code": "sh.600900",
+      "name": "长江电力",
+      "action": "buy",
+      "price": 29.18,
+      "shares": 1000,
+      "reason": "布林带下轨 (%B=0.04)",
+      "cost": 29194.59
+    },
+    {
+      "date": "2024-08-19",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "sell",
+      "price": 33.42,
+      "shares": 1000,
+      "profit": 936.5799999999981,
+      "reason": "布林带上轨 (%B=0.94)"
+    },
+    {
+      "date": "2024-08-19",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "sell",
+      "price": 16.95,
+      "shares": 1900,
+      "profit": 955.7949999999983,
+      "reason": "布林带上轨 (%B=0.93)"
+    },
+    {
+      "date": "2024-08-20",
+      "code": "sh.603369",
+      "name": "今世缘",
+      "action": "buy",
+      "price": 41.21,
+      "shares": 700,
+      "reason": "布林带下轨 (%B=0.04)",
+      "cost": 28861.423499999997
+    },
+    {
+      "date": "2024-08-20",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "buy",
+      "price": 23.54,
+      "shares": 1300,
+      "reason": "布林带下轨 (%B=0.03)",
+      "cost": 30617.301
+    },
+    {
+      "date": "2024-08-20",
+      "code": "sh.601888",
+      "name": "中国中免",
+      "action": "buy",
+      "price": 62.18,
+      "shares": 400,
+      "reason": "布林带下轨 (%B=0.05)",
+      "cost": 24884.435999999998
+    },
+    {
+      "date": "2024-08-21",
+      "code": "sz.002709",
+      "name": "天赐材料",
+      "action": "buy",
+      "price": 14.24,
+      "shares": 1900,
+      "reason": "双 MACD 金叉",
+      "cost": 27069.528
+    },
+    {
+      "date": "2024-08-22",
+      "code": "sz.000333",
+      "name": "美的集团",
+      "action": "sell",
+      "price": 64.09,
+      "shares": 500,
+      "profit": 1972.9550000000017,
+      "reason": "布林带上轨 (%B=0.93)"
+    },
+    {
+      "date": "2024-08-26",
+      "code": "sh.600085",
+      "name": "同仁堂",
+      "action": "buy",
+      "price": 34.9,
+      "shares": 800,
+      "reason": "布林带下轨 (%B=0.02)",
+      "cost": 27933.96
+    },
+    {
+      "date": "2024-08-27",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "sell",
+      "price": 41.7,
+      "shares": 700,
+      "profit": -36.18999999999505,
+      "reason": "布林带上轨 (%B=1.14) + RSI 超买"
+    },
+    {
+      "date": "2024-08-30",
+      "code": "sz.000568",
+      "name": "泸州老窖",
+      "action": "buy",
+      "price": 119.28,
+      "shares": 200,
+      "reason": "双 MACD 金叉",
+      "cost": 23867.928
+    },
+    {
+      "date": "2024-08-30",
+      "code": "sh.600584",
+      "name": "长电科技",
+      "action": "sell",
+      "price": 32.65,
+      "shares": 1000,
+      "profit": 2827.3499999999985,
+      "reason": "布林带上轨 (%B=1.25)"
+    },
+    {
+      "date": "2024-09-02",
+      "code": "sz.000568",
+      "name": "泸州老窖",
+      "action": "sell",
+      "price": 112.5,
+      "shares": 200,
+      "profit": -1378.5,
+      "reason": "双 MACD 死叉"
+    },
+    {
+      "date": "2024-09-02",
+      "code": "sh.600547",
+      "name": "山东黄金",
+      "action": "buy",
+      "price": 26.17,
+      "shares": 1100,
+      "reason": "布林带下轨 (%B=-0.12)",
+      "cost": 28801.393500000002
+    },
+    {
+      "date": "2024-09-04",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "buy",
+      "price": 31.36,
+      "shares": 900,
+      "reason": "布林带下轨 (%B=0.08)",
+      "cost": 28238.111999999997
+    },
+    {
+      "date": "2024-09-05",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "buy",
+      "price": 5.63,
+      "shares": 4800,
+      "reason": "布林带下轨 (%B=0.04)",
+      "cost": 27037.512
+    },
+    {
+      "date": "2024-09-05",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "buy",
+      "price": 7.2,
+      "shares": 3500,
+      "reason": "布林带下轨 (%B=0.08)",
+      "cost": 25212.6
+    },
+    {
+      "date": "2024-09-06",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "buy",
+      "price": 38.04,
+      "shares": 600,
+      "reason": "布林带下轨 (%B=-0.05)",
+      "cost": 22835.412
+    },
+    {
+      "date": "2024-09-09",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "buy",
+      "price": 15.97,
+      "shares": 1400,
+      "reason": "布林带下轨 (%B=0.07)",
+      "cost": 22369.179
+    },
+    {
+      "date": "2024-09-11",
+      "code": "sz.002460",
+      "name": "赣锋锂业",
+      "action": "sell",
+      "price": 27.84,
+      "shares": 900,
+      "profit": -4993.0560000000005,
+      "reason": "布林带上轨 (%B=1.06)"
+    },
+    {
+      "date": "2024-09-11",
+      "code": "sz.002466",
+      "name": "天齐锂业",
+      "action": "sell",
+      "price": 27.42,
+      "shares": 700,
+      "profit": -12423.194,
+      "reason": "布林带上轨 (%B=1.01)"
+    },
+    {
+      "date": "2024-09-12",
+      "code": "sz.000538",
+      "name": "云南白药",
+      "action": "buy",
+      "price": 50.71,
+      "shares": 400,
+      "reason": "布林带下轨 (%B=-0.22)",
+      "cost": 20294.142
+    },
+    {
+      "date": "2024-09-13",
+      "code": "sh.600028",
+      "name": "中国石化",
+      "action": "buy",
+      "price": 6.19,
+      "shares": 3800,
+      "reason": "布林带下轨 (%B=0.03)",
+      "cost": 23533.761
+    },
+    {
+      "date": "2024-09-18",
+      "code": "sh.600690",
+      "name": "海尔智家",
+      "action": "sell",
+      "price": 26.11,
+      "shares": 900,
+      "profit": -2084.499,
+      "reason": "布林带上轨 (%B=1.05)"
+    },
+    {
+      "date": "2024-09-20",
+      "code": "sh.603198",
+      "name": "迎驾贡酒",
+      "action": "sell",
+      "price": 51.8,
+      "shares": 600,
+      "profit": -10393.079999999994,
+      "reason": "布林带上轨 (%B=0.95)"
+    },
+    {
+      "date": "2024-09-23",
+      "code": "sh.600438",
+      "name": "通威股份",
+      "action": "buy",
+      "price": 17.43,
+      "shares": 1400,
+      "reason": "布林带下轨 (%B=-0.05)",
+      "cost": 24414.200999999997
+    },
+    {
+      "date": "2024-09-24",
+      "code": "sh.600016",
+      "name": "民生银行",
+      "action": "sell",
+      "price": 3.57,
+      "shares": 10100,
+      "profit": -945.0570000000007,
+      "reason": "布林带上轨 (%B=1.01)"
+    },
+    {
+      "date": "2024-09-24",
+      "code": "sh.603369",
+      "name": "今世缘",
+      "action": "sell",
+      "price": 39.82,
+      "shares": 700,
+      "profit": -1000.8739999999998,
+      "reason": "布林带上轨 (%B=0.93)"
+    },
+    {
+      "date": "2024-09-24",
+      "code": "sh.600887",
+      "name": "伊利股份",
+      "action": "sell",
+      "price": 23.25,
+      "shares": 1300,
+      "profit": -407.22499999999854,
+      "reason": "布林带上轨 (%B=1.05)"
+    },
+    {
+      "date": "2024-09-25",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "sell",
+      "price": 34.15,
+      "shares": 900,
+      "profit": 2480.2649999999994,
+      "reason": "布林带上轨 (%B=1.00) + RSI 超买"
+    },
+    {
+      "date": "2024-09-25",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "sell",
+      "price": 17.6,
+      "shares": 1400,
+      "profit": 2257.360000000004,
+      "reason": "布林带上轨 (%B=1.06) + RSI 超买"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "sell",
+      "price": 7.96,
+      "shares": 3500,
+      "profit": 2632.1399999999994,
+      "reason": "布林带上轨 (%B=0.91) + RSI 超买"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sz.002156",
+      "name": "通富微电",
+      "action": "sell",
+      "price": 19.86,
+      "shares": 1400,
+      "profit": -1903.804,
+      "reason": "布林带上轨 (%B=1.02)"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sz.002185",
+      "name": "华天科技",
+      "action": "sell",
+      "price": 7.99,
+      "shares": 3900,
+      "profit": -577.1610000000037,
+      "reason": "布林带上轨 (%B=0.94)"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sh.603986",
+      "name": "兆易创新",
+      "action": "sell",
+      "price": 75.27,
+      "shares": 400,
+      "profit": -3686.108,
+      "reason": "布林带上轨 (%B=1.17)"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sh.600085",
+      "name": "同仁堂",
+      "action": "sell",
+      "price": 35.9,
+      "shares": 800,
+      "profit": 771.2799999999988,
+      "reason": "布林带上轨 (%B=0.95)"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sh.601888",
+      "name": "中国中免",
+      "action": "sell",
+      "price": 63.81,
+      "shares": 400,
+      "profit": 626.4759999999987,
+      "reason": "布林带上轨 (%B=1.10)"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sh.600547",
+      "name": "山东黄金",
+      "action": "sell",
+      "price": 27.91,
+      "shares": 1100,
+      "profit": 1883.2989999999954,
+      "reason": "布林带上轨 (%B=0.90) + RSI 超买"
+    },
+    {
+      "date": "2024-09-26",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "sell",
+      "price": 42.73,
+      "shares": 600,
+      "profit": 2788.3619999999974,
+      "reason": "布林带上轨 (%B=0.98)"
+    },
+    {
+      "date": "2024-09-27",
+      "code": "sh.600438",
+      "name": "通威股份",
+      "action": "sell",
+      "price": 20.76,
+      "shares": 1400,
+      "profit": 4632.936000000005,
+      "reason": "布林带上轨 (%B=1.21)"
+    },
+    {
+      "date": "2024-09-27",
+      "code": "sz.000538",
+      "name": "云南白药",
+      "action": "sell",
+      "price": 56.47,
+      "shares": 400,
+      "profit": 2281.4120000000003,
+      "reason": "布林带上轨 (%B=0.99)"
+    },
+    {
+      "date": "2024-09-30",
+      "code": "sh.601398",
+      "name": "工商银行",
+      "action": "sell",
+      "price": 6.18,
+      "shares": 4800,
+      "profit": 2610.3359999999993,
+      "reason": "布林带上轨 (%B=0.96) + RSI 超买"
+    },
+    {
+      "date": "2024-09-30",
+      "code": "sh.600028",
+      "name": "中国石化",
+      "action": "sell",
+      "price": 6.96,
+      "shares": 3800,
+      "profit": 2899.5519999999997,
+      "reason": "布林带上轨 (%B=0.94)"
+    },
+    {
+      "date": "2024-09-30",
+      "code": "sh.600900",
+      "name": "长江电力",
+      "action": "sell",
+      "price": 30.05,
+      "shares": 1000,
+      "profit": 839.9500000000007,
+      "reason": "布林带上轨 (%B=0.99)"
+    },
+    {
+      "date": "2024-10-25",
+      "code": "sh.600900",
+      "name": "长江电力",
+      "action": "buy",
+      "price": 27.54,
+      "shares": 1800,
+      "reason": "布林带下轨 (%B=0.03)",
+      "cost": 49596.786
+    },
+    {
+      "date": "2024-10-30",
+      "code": "sh.600028",
+      "name": "中国石化",
+      "action": "buy",
+      "price": 6.19,
+      "shares": 7600,
+      "reason": "布林带下轨 (%B=0.00)",
+      "cost": 47067.522
+    },
+    {
+      "date": "2024-10-31",
+      "code": "sz.000651",
+      "name": "格力电器",
+      "action": "buy",
+      "price": 43.5,
+      "shares": 1000,
+      "reason": "布林带下轨 (%B=-0.06)",
+      "cost": 43521.75
+    },
+    {
+      "date": "2024-10-31",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "buy",
+      "price": 40.04,
+      "shares": 1000,
+      "reason": "布林带下轨 (%B=0.09)",
+      "cost": 40060.02
+    },
+    {
+      "date": "2024-11-01",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "buy",
+      "price": 18.29,
+      "shares": 2200,
+      "reason": "布林带下轨 (%B=0.02)",
+      "cost": 40258.119
+    },
+    {
+      "date": "2024-11-01",
+      "code": "sh.600690",
+      "name": "海尔智家",
+      "action": "buy",
+      "price": 29.39,
+      "shares": 1300,
+      "reason": "布林带下轨 (%B=0.06)",
+      "cost": 38226.1035
+    },
+    {
+      "date": "2024-11-07",
+      "code": "sh.600547",
+      "name": "山东黄金",
+      "action": "buy",
+      "price": 25.75,
+      "shares": 1400,
+      "reason": "布林带下轨 (%B=0.05)",
+      "cost": 36068.025
+    },
+    {
+      "date": "2024-11-12",
+      "code": "sh.601288",
+      "name": "农业银行",
+      "action": "buy",
+      "price": 4.65,
+      "shares": 7400,
+      "reason": "布林带下轨 (%B=0.07)",
+      "cost": 34427.204999999994
+    },
+    {
+      "date": "2024-11-12",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "buy",
+      "price": 7.85,
+      "shares": 4200,
+      "reason": "布林带下轨 (%B=0.08)",
+      "cost": 32986.485
+    },
+    {
+      "date": "2024-11-22",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "buy",
+      "price": 36.45,
+      "shares": 800,
+      "reason": "布林带下轨 (%B=-0.08)",
+      "cost": 29174.58
+    },
+    {
+      "date": "2024-11-22",
+      "code": "sh.600438",
+      "name": "通威股份",
+      "action": "buy",
+      "price": 25.99,
+      "shares": 1100,
+      "reason": "布林带下轨 (%B=0.03)",
+      "cost": 28603.2945
+    },
+    {
+      "date": "2024-11-28",
+      "code": "sh.601288",
+      "name": "农业银行",
+      "action": "sell",
+      "price": 4.85,
+      "shares": 7400,
+      "profit": 1444.1100000000006,
+      "reason": "布林带上轨 (%B=0.92)"
+    },
+    {
+      "date": "2024-11-28",
+      "code": "sh.600028",
+      "name": "中国石化",
+      "action": "sell",
+      "price": 6.4,
+      "shares": 7600,
+      "profit": 1547.3600000000006,
+      "reason": "布林带上轨 (%B=0.91)"
+    },
+    {
+      "date": "2024-12-03",
+      "code": "sh.600900",
+      "name": "长江电力",
+      "action": "sell",
+      "price": 27.95,
+      "shares": 1800,
+      "profit": 687.6900000000023,
+      "reason": "布林带上轨 (%B=1.01)"
+    },
+    {
+      "date": "2024-12-04",
+      "code": "sh.601939",
+      "name": "建设银行",
+      "action": "sell",
+      "price": 8.19,
+      "shares": 4200,
+      "profit": 1393.601999999999,
+      "reason": "布林带上轨 (%B=1.13)"
+    },
+    {
+      "date": "2024-12-04",
+      "code": "sh.600436",
+      "name": "片仔癀",
+      "action": "buy",
+      "price": 226.03,
+      "shares": 100,
+      "reason": "布林带下轨 (%B=0.07)",
+      "cost": 22614.301499999998
+    },
+    {
+      "date": "2024-12-04",
+      "code": "sh.601088",
+      "name": "中国神华",
+      "action": "sell",
+      "price": 42.1,
+      "shares": 1000,
+      "profit": 2017.9000000000015,
+      "reason": "布林带上轨 (%B=1.07)"
+    },
+    {
+      "date": "2024-12-10",
+      "code": "sh.600036",
+      "name": "招商银行",
+      "action": "sell",
+      "price": 38.6,
+      "shares": 800,
+      "profit": 1689.1199999999953,
+      "reason": "布林带上轨 (%B=1.00)"
+    },
+    {
+      "date": "2024-12-10",
+      "code": "sh.601166",
+      "name": "兴业银行",
+      "action": "sell",
+      "price": 18.68,
+      "shares": 2200,
+      "profit": 816.9040000000023,
+      "reason": "布林带上轨 (%B=0.97)"
+    },
+    {
+      "date": "2024-12-12",
+      "code": "sz.000651",
+      "name": "格力电器",
+      "action": "sell",
+      "price": 43.46,
+      "shares": 1000,
+      "profit": -83.45999999999913,
+      "reason": "布林带上轨 (%B=0.90) + RSI 超买"
+    },
+    {
+      "date": "2024-12-16",
+      "code": "sz.002466",
+      "name": "天齐锂业",
+      "action": "buy",
+      "price": 35.21,
+      "shares": 1200,
+      "reason": "布林带下轨 (%B=0.05)",
+      "cost": 42273.126
+    },
+    {
+      "date": "2024-12-17",
+      "code": "sz.002460",
+      "name": "赣锋锂业",
+      "action": "buy",
+      "price": 36.98,
+      "shares": 1100,
+      "reason": "布林带下轨 (%B=0.02)",
+      "cost": 40698.339
+    },
+    {
+      "date": "2024-12-19",
+      "code": "sh.603198",
+      "name": "迎驾贡酒",
+      "action": "buy",
+      "price": 55.44,
+      "shares": 700,
+      "reason": "布林带下轨 (%B=-0.17)",
+      "cost": 38827.403999999995
+    },
+    {
+      "date": "2024-12-31",
+      "code": "sh.601888",
+      "name": "中国中免",
+      "action": "buy",
+      "price": 67.01,
+      "shares": 500,
+      "reason": "布林带下轨 (%B=-0.01)",
+      "cost": 33521.752499999995
+    }
+  ],
+  "equity_curve": [
+    {
+      "date": "2024-01-02",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-03",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-04",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-05",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-08",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-09",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-10",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-11",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-12",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-15",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-16",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-17",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-18",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-19",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-22",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-23",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-24",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-25",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-26",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-29",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-30",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-01-31",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-01",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-02",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-05",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-06",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-07",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-08",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-19",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-20",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-21",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-22",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-23",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-26",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-27",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-28",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-02-29",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-01",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-04",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-05",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-06",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-07",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-08",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-11",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-12",
+      "equity": 1000000,
+      "cash": 1000000,
+      "position_value": 0
+    },
+    {
+      "date": "2024-03-13",
+      "equity": 999952.942,
+      "cash": 905836.942,
+      "position_value": 94116.0
+    },
+    {
+      "date": "2024-03-14",
+      "equity": 1000542.427,
+      "cash": 860784.427,
+      "position_value": 139758.0
+    },
+    {
+      "date": "2024-03-15",
+      "equity": 1001058.427,
+      "cash": 860784.427,
+      "position_value": 140274.0
+    },
+    {
+      "date": "2024-03-18",
+      "equity": 999996.427,
+      "cash": 860784.427,
+      "position_value": 139212.0
+    },
+    {
+      "date": "2024-03-19",
+      "equity": 1000010.0295000001,
+      "cash": 779949.0295000001,
+      "position_value": 220061.0
+    },
+    {
+      "date": "2024-03-20",
+      "equity": 1001840.8205,
+      "cash": 741511.8205,
+      "position_value": 260329.0
+    },
+    {
+      "date": "2024-03-21",
+      "equity": 1003016.353,
+      "cash": 706559.353,
+      "position_value": 296457.0
+    },
+    {
+      "date": "2024-03-22",
+      "equity": 1004006.765,
+      "cash": 673366.765,
+      "position_value": 330640.0
+    },
+    {
+      "date": "2024-03-25",
+      "equity": 1005538.313,
+      "cash": 640446.313,
+      "position_value": 365092.0
+    },
+    {
+      "date": "2024-03-26",
+      "equity": 1007743.193,
+      "cash": 682524.193,
+      "position_value": 325219.0
+    },
+    {
+      "date": "2024-03-27",
+      "equity": 1010065.193,
+      "cash": 682524.193,
+      "position_value": 327541.0
+    },
+    {
+      "date": "2024-03-28",
+      "equity": 1009120.7335,
+      "cash": 654394.7335,
+      "position_value": 354726.0
+    },
+    {
+      "date": "2024-03-29",
+      "equity": 1011435.9535,
+      "cash": 622818.9535,
+      "position_value": 388617.0
+    },
+    {
+      "date": "2024-04-01",
+      "equity": 1012851.9535,
+      "cash": 622818.9535,
+      "position_value": 390033.0
+    },
+    {
+      "date": "2024-04-02",
+      "equity": 1013297.516,
+      "cash": 567916.516,
+      "position_value": 445381.0
+    },
+    {
+      "date": "2024-04-03",
+      "equity": 1013982.516,
+      "cash": 567916.516,
+      "position_value": 446066.0
+    },
+    {
+      "date": "2024-04-08",
+      "equity": 1009890.6185,
+      "cash": 545552.6185,
+      "position_value": 464338.0
+    },
+    {
+      "date": "2024-04-09",
+      "equity": 1011144.9905,
+      "cash": 593132.9905,
+      "position_value": 418012.0
+    },
+    {
+      "date": "2024-04-10",
+      "equity": 1006706.253,
+      "cash": 575802.253,
+      "position_value": 430904.0
+    },
+    {
+      "date": "2024-04-11",
+      "equity": 1006451.253,
+      "cash": 575802.253,
+      "position_value": 430649.0
+    },
+    {
+      "date": "2024-04-12",
+      "equity": 1005454.253,
+      "cash": 575802.253,
+      "position_value": 429652.0
+    },
+    {
+      "date": "2024-04-15",
+      "equity": 1010165.773,
+      "cash": 645212.773,
+      "position_value": 364953.0
+    },
+    {
+      "date": "2024-04-16",
+      "equity": 1002986.773,
+      "cash": 645212.773,
+      "position_value": 357774.0
+    },
+    {
+      "date": "2024-04-17",
+      "equity": 1014056.773,
+      "cash": 645212.773,
+      "position_value": 368844.0
+    },
+    {
+      "date": "2024-04-18",
+      "equity": 1013504.773,
+      "cash": 645212.773,
+      "position_value": 368292.0
+    },
+    {
+      "date": "2024-04-19",
+      "equity": 1007000.773,
+      "cash": 645212.773,
+      "position_value": 361788.0
+    },
+    {
+      "date": "2024-04-22",
+      "equity": 1007187.773,
+      "cash": 645212.773,
+      "position_value": 361975.0
+    },
+    {
+      "date": "2024-04-23",
+      "equity": 1004761.974,
+      "cash": 613598.974,
+      "position_value": 391163.0
+    },
+    {
+      "date": "2024-04-24",
+      "equity": 1003967.802,
+      "cash": 614688.802,
+      "position_value": 389279.0
+    },
+    {
+      "date": "2024-04-25",
+      "equity": 1004024.802,
+      "cash": 614688.802,
+      "position_value": 389336.0
+    },
+    {
+      "date": "2024-04-26",
+      "equity": 1012808.1520000001,
+      "cash": 716237.1520000001,
+      "position_value": 296571.0
+    },
+    {
+      "date": "2024-04-29",
+      "equity": 1021934.3560000001,
+      "cash": 773975.3560000001,
+      "position_value": 247959.0
+    },
+    {
+      "date": "2024-04-30",
+      "equity": 1017474.7460000002,
+      "cash": 802556.7460000002,
+      "position_value": 214918.0
+    },
+    {
+      "date": "2024-05-06",
+      "equity": 1020735.7460000002,
+      "cash": 802556.7460000002,
+      "position_value": 218179.0
+    },
+    {
+      "date": "2024-05-07",
+      "equity": 1020490.7460000002,
+      "cash": 802556.7460000002,
+      "position_value": 217934.0
+    },
+    {
+      "date": "2024-05-08",
+      "equity": 1017378.7460000002,
+      "cash": 802556.7460000002,
+      "position_value": 214822.0
+    },
+    {
+      "date": "2024-05-09",
+      "equity": 1021453.7460000002,
+      "cash": 802556.7460000002,
+      "position_value": 218897.0
+    },
+    {
+      "date": "2024-05-10",
+      "equity": 1018547.7460000002,
+      "cash": 802556.7460000002,
+      "position_value": 215991.0
+    },
+    {
+      "date": "2024-05-13",
+      "equity": 1015871.7460000002,
+      "cash": 802556.7460000002,
+      "position_value": 213315.0
+    },
+    {
+      "date": "2024-05-14",
+      "equity": 1015257.8560000001,
+      "cash": 762756.8560000001,
+      "position_value": 252501.0
+    },
+    {
+      "date": "2024-05-15",
+      "equity": 1016327.8560000001,
+      "cash": 762756.8560000001,
+      "position_value": 253571.0
+    },
+    {
+      "date": "2024-05-16",
+      "equity": 1015676.8560000001,
+      "cash": 762756.8560000001,
+      "position_value": 252920.0
+    },
+    {
+      "date": "2024-05-17",
+      "equity": 1017943.8560000001,
+      "cash": 762756.8560000001,
+      "position_value": 255187.0
+    },
+    {
+      "date": "2024-05-20",
+      "equity": 1018909.3900000001,
+      "cash": 786199.3900000001,
+      "position_value": 232710.0
+    },
+    {
+      "date": "2024-05-21",
+      "equity": 1017124.3900000001,
+      "cash": 786199.3900000001,
+      "position_value": 230925.0
+    },
+    {
+      "date": "2024-05-22",
+      "equity": 1022454.028,
+      "cash": 862485.028,
+      "position_value": 159969.0
+    },
+    {
+      "date": "2024-05-23",
+      "equity": 1020100.028,
+      "cash": 862485.028,
+      "position_value": 157615.0
+    },
+    {
+      "date": "2024-05-24",
+      "equity": 1016789.684,
+      "cash": 819775.684,
+      "position_value": 197014.0
+    },
+    {
+      "date": "2024-05-27",
+      "equity": 1019783.164,
+      "cash": 852263.164,
+      "position_value": 167520.0
+    },
+    {
+      "date": "2024-05-28",
+      "equity": 1018126.7335,
+      "cash": 829390.7335,
+      "position_value": 188736.0
+    },
+    {
+      "date": "2024-05-29",
+      "equity": 1019245.7335,
+      "cash": 829390.7335,
+      "position_value": 189855.0
+    },
+    {
+      "date": "2024-05-30",
+      "equity": 1019243.0125,
+      "cash": 787928.0125,
+      "position_value": 231315.0
+    },
+    {
+      "date": "2024-05-31",
+      "equity": 1018833.6975,
+      "cash": 751279.6975,
+      "position_value": 267554.0
+    },
+    {
+      "date": "2024-06-03",
+      "equity": 1019510.6215,
+      "cash": 745652.6215,
+      "position_value": 273858.0
+    },
+    {
+      "date": "2024-06-04",
+      "equity": 1021648.6215,
+      "cash": 745652.6215,
+      "position_value": 275996.0
+    },
+    {
+      "date": "2024-06-05",
+      "equity": 1018523.6215,
+      "cash": 745652.6215,
+      "position_value": 272871.0
+    },
+    {
+      "date": "2024-06-06",
+      "equity": 1018261.143,
+      "cash": 708677.143,
+      "position_value": 309584.0
+    },
+    {
+      "date": "2024-06-07",
+      "equity": 1014649.784,
+      "cash": 714210.784,
+      "position_value": 300439.0
+    },
+    {
+      "date": "2024-06-11",
+      "equity": 1011183.3814999999,
+      "cash": 645371.3814999999,
+      "position_value": 365812.0
+    },
+    {
+      "date": "2024-06-12",
+      "equity": 1010284.3814999999,
+      "cash": 645371.3814999999,
+      "position_value": 364913.0
+    },
+    {
+      "date": "2024-06-13",
+      "equity": 1005768.9334999999,
+      "cash": 588446.9334999999,
+      "position_value": 417322.0
+    },
+    {
+      "date": "2024-06-14",
+      "equity": 1008763.2544999999,
+      "cash": 559074.2544999999,
+      "position_value": 449689.0
+    },
+    {
+      "date": "2024-06-17",
+      "equity": 1005824.4774999999,
+      "cash": 531506.4774999999,
+      "position_value": 474318.0
+    },
+    {
+      "date": "2024-06-18",
+      "equity": 1005384.4774999999,
+      "cash": 531506.4774999999,
+      "position_value": 473878.0
+    },
+    {
+      "date": "2024-06-19",
+      "equity": 1003513.3509999999,
+      "cash": 511243.3509999999,
+      "position_value": 492270.0
+    },
+    {
+      "date": "2024-06-20",
+      "equity": 996275.3509999999,
+      "cash": 511243.3509999999,
+      "position_value": 485032.0
+    },
+    {
+      "date": "2024-06-21",
+      "equity": 994548.3509999999,
+      "cash": 511243.3509999999,
+      "position_value": 483305.0
+    },
+    {
+      "date": "2024-06-24",
+      "equity": 992881.3509999999,
+      "cash": 511243.3509999999,
+      "position_value": 481638.0
+    },
+    {
+      "date": "2024-06-25",
+      "equity": 990478.3509999999,
+      "cash": 511243.3509999999,
+      "position_value": 479235.0
+    },
+    {
+      "date": "2024-06-26",
+      "equity": 997845.3509999999,
+      "cash": 511243.3509999999,
+      "position_value": 486602.0
+    },
+    {
+      "date": "2024-06-27",
+      "equity": 992019.4749999999,
+      "cash": 461466.47499999986,
+      "position_value": 530553.0
+    },
+    {
+      "date": "2024-06-28",
+      "equity": 989884.4749999999,
+      "cash": 461466.47499999986,
+      "position_value": 528418.0
+    },
+    {
+      "date": "2024-07-01",
+      "equity": 993280.1309999998,
+      "cash": 522749.1309999998,
+      "position_value": 470531.0
+    },
+    {
+      "date": "2024-07-02",
+      "equity": 993028.0919999998,
+      "cash": 633677.0919999998,
+      "position_value": 359351.0
+    },
+    {
+      "date": "2024-07-03",
+      "equity": 992862.0919999998,
+      "cash": 633677.0919999998,
+      "position_value": 359185.0
+    },
+    {
+      "date": "2024-07-04",
+      "equity": 988385.0919999998,
+      "cash": 633677.0919999998,
+      "position_value": 354708.0
+    },
+    {
+      "date": "2024-07-05",
+      "equity": 989293.9629999999,
+      "cash": 630244.9629999999,
+      "position_value": 359049.0
+    },
+    {
+      "date": "2024-07-08",
+      "equity": 981251.9629999999,
+      "cash": 630244.9629999999,
+      "position_value": 351007.0
+    },
+    {
+      "date": "2024-07-09",
+      "equity": 984146.3544999999,
+      "cash": 599012.3544999999,
+      "position_value": 385134.0
+    },
+    {
+      "date": "2024-07-10",
+      "equity": 985354.7559999999,
+      "cash": 569800.7559999999,
+      "position_value": 415554.0
+    },
+    {
+      "date": "2024-07-11",
+      "equity": 995845.7559999999,
+      "cash": 569800.7559999999,
+      "position_value": 426045.0
+    },
+    {
+      "date": "2024-07-12",
+      "equity": 996792.7559999999,
+      "cash": 569800.7559999999,
+      "position_value": 426992.0
+    },
+    {
+      "date": "2024-07-15",
+      "equity": 996703.7559999999,
+      "cash": 569800.7559999999,
+      "position_value": 426903.0
+    },
+    {
+      "date": "2024-07-16",
+      "equity": 998883.7559999999,
+      "cash": 569800.7559999999,
+      "position_value": 429083.0
+    },
+    {
+      "date": "2024-07-17",
+      "equity": 1003296.4799999999,
+      "cash": 652993.4799999999,
+      "position_value": 350303.0
+    },
+    {
+      "date": "2024-07-18",
+      "equity": 1004502.2019999999,
+      "cash": 713211.2019999999,
+      "position_value": 291291.0
+    },
+    {
+      "date": "2024-07-19",
+      "equity": 1007619.2019999999,
+      "cash": 713211.2019999999,
+      "position_value": 294408.0
+    },
+    {
+      "date": "2024-07-22",
+      "equity": 1004743.458,
+      "cash": 744923.458,
+      "position_value": 259820.0
+    },
+    {
+      "date": "2024-07-23",
+      "equity": 996839.458,
+      "cash": 744923.458,
+      "position_value": 251916.0
+    },
+    {
+      "date": "2024-07-24",
+      "equity": 992159.955,
+      "cash": 677883.955,
+      "position_value": 314276.0
+    },
+    {
+      "date": "2024-07-25",
+      "equity": 990900.955,
+      "cash": 677883.955,
+      "position_value": 313017.0
+    },
+    {
+      "date": "2024-07-26",
+      "equity": 997235.226,
+      "cash": 679914.226,
+      "position_value": 317321.0
+    },
+    {
+      "date": "2024-07-29",
+      "equity": 994337.001,
+      "cash": 647448.001,
+      "position_value": 346889.0
+    },
+    {
+      "date": "2024-07-30",
+      "equity": 991453.001,
+      "cash": 647448.001,
+      "position_value": 344005.0
+    },
+    {
+      "date": "2024-07-31",
+      "equity": 1000897.001,
+      "cash": 647448.001,
+      "position_value": 353449.0
+    },
+    {
+      "date": "2024-08-01",
+      "equity": 997260.001,
+      "cash": 647448.001,
+      "position_value": 349812.0
+    },
+    {
+      "date": "2024-08-02",
+      "equity": 992456.001,
+      "cash": 647448.001,
+      "position_value": 345008.0
+    },
+    {
+      "date": "2024-08-05",
+      "equity": 987131.2525000001,
+      "cash": 585920.2525000001,
+      "position_value": 401211.0
+    },
+    {
+      "date": "2024-08-06",
+      "equity": 987522.8905000001,
+      "cash": 612255.8905000001,
+      "position_value": 375267.0
+    },
+    {
+      "date": "2024-08-07",
+      "equity": 986655.8905000001,
+      "cash": 612255.8905000001,
+      "position_value": 374400.0
+    },
+    {
+      "date": "2024-08-08",
+      "equity": 987935.8905000001,
+      "cash": 612255.8905000001,
+      "position_value": 375680.0
+    },
+    {
+      "date": "2024-08-09",
+      "equity": 987856.8905000001,
+      "cash": 612255.8905000001,
+      "position_value": 375601.0
+    },
+    {
+      "date": "2024-08-12",
+      "equity": 986695.3005000001,
+      "cash": 583061.3005000001,
+      "position_value": 403634.0
+    },
+    {
+      "date": "2024-08-13",
+      "equity": 988727.3005000001,
+      "cash": 583061.3005000001,
+      "position_value": 405666.0
+    },
+    {
+      "date": "2024-08-14",
+      "equity": 984745.3005000001,
+      "cash": 583061.3005000001,
+      "position_value": 401684.0
+    },
+    {
+      "date": "2024-08-15",
+      "equity": 988191.3005000001,
+      "cash": 583061.3005000001,
+      "position_value": 405130.0
+    },
+    {
+      "date": "2024-08-16",
+      "equity": 988596.3005000001,
+      "cash": 583061.3005000001,
+      "position_value": 405535.0
+    },
+    {
+      "date": "2024-08-19",
+      "equity": 991169.6755000001,
+      "cash": 648620.6755000001,
+      "position_value": 342549.0
+    },
+    {
+      "date": "2024-08-20",
+      "equity": 988070.5150000001,
+      "cash": 564257.5150000001,
+      "position_value": 423813.0
+    },
+    {
+      "date": "2024-08-21",
+      "equity": 984891.9870000001,
+      "cash": 537187.9870000001,
+      "position_value": 447704.0
+    },
+    {
+      "date": "2024-08-22",
+      "equity": 980830.942,
+      "cash": 569200.942,
+      "position_value": 411630.0
+    },
+    {
+      "date": "2024-08-23",
+      "equity": 980644.942,
+      "cash": 569200.942,
+      "position_value": 411444.0
+    },
+    {
+      "date": "2024-08-26",
+      "equity": 980775.9820000001,
+      "cash": 541266.9820000001,
+      "position_value": 439509.0
+    },
+    {
+      "date": "2024-08-27",
+      "equity": 974458.7920000001,
+      "cash": 570427.7920000001,
+      "position_value": 404031.0
+    },
+    {
+      "date": "2024-08-28",
+      "equity": 973236.7920000001,
+      "cash": 570427.7920000001,
+      "position_value": 402809.0
+    },
+    {
+      "date": "2024-08-29",
+      "equity": 976804.7920000001,
+      "cash": 570427.7920000001,
+      "position_value": 406377.0
+    },
+    {
+      "date": "2024-08-30",
+      "equity": 987017.2140000002,
+      "cash": 579177.2140000002,
+      "position_value": 407840.0
+    },
+    {
+      "date": "2024-09-02",
+      "equity": 975887.3205000001,
+      "cash": 572853.3205000001,
+      "position_value": 403034.0
+    },
+    {
+      "date": "2024-09-03",
+      "equity": 980834.3205000001,
+      "cash": 572853.3205000001,
+      "position_value": 407981.0
+    },
+    {
+      "date": "2024-09-04",
+      "equity": 978177.2085000002,
+      "cash": 544615.2085000002,
+      "position_value": 433562.0
+    },
+    {
+      "date": "2024-09-05",
+      "equity": 980098.0965000002,
+      "cash": 492365.0965000002,
+      "position_value": 487733.0
+    },
+    {
+      "date": "2024-09-06",
+      "equity": 974276.6845000002,
+      "cash": 469529.6845000002,
+      "position_value": 504747.0
+    },
+    {
+      "date": "2024-09-09",
+      "equity": 966297.5055000002,
+      "cash": 447160.5055000002,
+      "position_value": 519137.0
+    },
+    {
+      "date": "2024-09-10",
+      "equity": 966212.5055000002,
+      "cash": 447160.5055000002,
+      "position_value": 519052.0
+    },
+    {
+      "date": "2024-09-11",
+      "equity": 968976.2555000002,
+      "cash": 491366.2555000002,
+      "position_value": 477610.0
+    },
+    {
+      "date": "2024-09-12",
+      "equity": 966382.1135000002,
+      "cash": 471072.1135000002,
+      "position_value": 495310.0
+    },
+    {
+      "date": "2024-09-13",
+      "equity": 962971.3525000003,
+      "cash": 447538.3525000002,
+      "position_value": 515433.0
+    },
+    {
+      "date": "2024-09-18",
+      "equity": 966243.8535000002,
+      "cash": 471013.8535000002,
+      "position_value": 495230.0
+    },
+    {
+      "date": "2024-09-19",
+      "equity": 970682.8535000002,
+      "cash": 471013.8535000002,
+      "position_value": 499669.0
+    },
+    {
+      "date": "2024-09-20",
+      "equity": 971605.7735000001,
+      "cash": 502062.7735000002,
+      "position_value": 469543.0
+    },
+    {
+      "date": "2024-09-23",
+      "equity": 975125.5725000002,
+      "cash": 477648.5725000002,
+      "position_value": 497477.0
+    },
+    {
+      "date": "2024-09-24",
+      "equity": 996529.4165000003,
+      "cash": 571710.4165000003,
+      "position_value": 424819.0
+    },
+    {
+      "date": "2024-09-25",
+      "equity": 1001654.0415000003,
+      "cash": 627030.0415000003,
+      "position_value": 374624.0
+    },
+    {
+      "date": "2024-09-26",
+      "equity": 1017001.5255000003,
+      "cash": 854318.5255000003,
+      "position_value": 162683.0
+    },
+    {
+      "date": "2024-09-27",
+      "equity": 1021060.8735000003,
+      "cash": 905918.8735000003,
+      "position_value": 115142.0
+    },
+    {
+      "date": "2024-09-30",
+      "equity": 1027182.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 35188.0
+    },
+    {
+      "date": "2024-10-08",
+      "equity": 1030697.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 38703.0
+    },
+    {
+      "date": "2024-10-09",
+      "equity": 1026821.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 34827.0
+    },
+    {
+      "date": "2024-10-10",
+      "equity": 1025719.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 33725.0
+    },
+    {
+      "date": "2024-10-11",
+      "equity": 1023306.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 31312.0
+    },
+    {
+      "date": "2024-10-14",
+      "equity": 1023762.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 31767.999999999996
+    },
+    {
+      "date": "2024-10-15",
+      "equity": 1022831.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 30837.0
+    },
+    {
+      "date": "2024-10-16",
+      "equity": 1022166.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 30172.0
+    },
+    {
+      "date": "2024-10-17",
+      "equity": 1021881.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 29887.0
+    },
+    {
+      "date": "2024-10-18",
+      "equity": 1023249.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 31255.0
+    },
+    {
+      "date": "2024-10-21",
+      "equity": 1023705.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 31711.000000000004
+    },
+    {
+      "date": "2024-10-22",
+      "equity": 1024503.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 32509.0
+    },
+    {
+      "date": "2024-10-23",
+      "equity": 1025624.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 33630.0
+    },
+    {
+      "date": "2024-10-24",
+      "equity": 1024332.7115000003,
+      "cash": 991994.7115000003,
+      "position_value": 32338.0
+    },
+    {
+      "date": "2024-10-25",
+      "equity": 1027537.9255000004,
+      "cash": 942397.9255000004,
+      "position_value": 85140.0
+    },
+    {
+      "date": "2024-10-28",
+      "equity": 1027594.9255000004,
+      "cash": 942397.9255000004,
+      "position_value": 85197.0
+    },
+    {
+      "date": "2024-10-29",
+      "equity": 1026608.9255000004,
+      "cash": 942397.9255000004,
+      "position_value": 84211.0
+    },
+    {
+      "date": "2024-10-30",
+      "equity": 1026395.4035000004,
+      "cash": 895330.4035000004,
+      "position_value": 131065.0
+    },
+    {
+      "date": "2024-10-31",
+      "equity": 1027848.6335000003,
+      "cash": 811748.6335000003,
+      "position_value": 216100.0
+    },
+    {
+      "date": "2024-11-01",
+      "equity": 1029256.4110000004,
+      "cash": 733264.4110000004,
+      "position_value": 295992.0
+    },
+    {
+      "date": "2024-11-04",
+      "equity": 1028715.4110000004,
+      "cash": 733264.4110000004,
+      "position_value": 295451.0
+    },
+    {
+      "date": "2024-11-05",
+      "equity": 1033586.4110000004,
+      "cash": 733264.4110000004,
+      "position_value": 300322.0
+    },
+    {
+      "date": "2024-11-06",
+      "equity": 1030551.4110000004,
+      "cash": 733264.4110000004,
+      "position_value": 297287.0
+    },
+    {
+      "date": "2024-11-07",
+      "equity": 1036424.3860000004,
+      "cash": 697196.3860000004,
+      "position_value": 339228.0
+    },
+    {
+      "date": "2024-11-08",
+      "equity": 1035972.3860000004,
+      "cash": 697196.3860000004,
+      "position_value": 338776.0
+    },
+    {
+      "date": "2024-11-11",
+      "equity": 1035739.3860000004,
+      "cash": 697196.3860000004,
+      "position_value": 338543.0
+    },
+    {
+      "date": "2024-11-12",
+      "equity": 1031119.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 401337.0
+    },
+    {
+      "date": "2024-11-13",
+      "equity": 1035750.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 405968.0
+    },
+    {
+      "date": "2024-11-14",
+      "equity": 1034056.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 404274.0
+    },
+    {
+      "date": "2024-11-15",
+      "equity": 1032176.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 402394.0
+    },
+    {
+      "date": "2024-11-18",
+      "equity": 1034050.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 404268.0
+    },
+    {
+      "date": "2024-11-19",
+      "equity": 1036225.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 406443.0
+    },
+    {
+      "date": "2024-11-20",
+      "equity": 1036876.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 407094.0
+    },
+    {
+      "date": "2024-11-21",
+      "equity": 1039582.6960000005,
+      "cash": 629782.6960000005,
+      "position_value": 409800.0
+    },
+    {
+      "date": "2024-11-22",
+      "equity": 1032515.8215000005,
+      "cash": 572004.8215000005,
+      "position_value": 460511.0
+    },
+    {
+      "date": "2024-11-25",
+      "equity": 1033271.8215000005,
+      "cash": 572004.8215000005,
+      "position_value": 461267.0
+    },
+    {
+      "date": "2024-11-26",
+      "equity": 1032507.8215000005,
+      "cash": 572004.8215000005,
+      "position_value": 460503.0
+    },
+    {
+      "date": "2024-11-27",
+      "equity": 1040103.8215000005,
+      "cash": 572004.8215000005,
+      "position_value": 468099.0
+    },
+    {
+      "date": "2024-11-28",
+      "equity": 1036831.2915000005,
+      "cash": 656450.2915000005,
+      "position_value": 380381.0
+    },
+    {
+      "date": "2024-11-29",
+      "equity": 1038143.2915000005,
+      "cash": 656450.2915000005,
+      "position_value": 381693.0
+    },
+    {
+      "date": "2024-12-02",
+      "equity": 1038120.2915000005,
+      "cash": 656450.2915000005,
+      "position_value": 381670.0
+    },
+    {
+      "date": "2024-12-03",
+      "equity": 1040574.9815000005,
+      "cash": 706709.9815000005,
+      "position_value": 333865.0
+    },
+    {
+      "date": "2024-12-04",
+      "equity": 1040207.1820000005,
+      "cash": 760517.1820000005,
+      "position_value": 279690.0
+    },
+    {
+      "date": "2024-12-05",
+      "equity": 1038697.1820000005,
+      "cash": 760517.1820000005,
+      "position_value": 278180.0
+    },
+    {
+      "date": "2024-12-06",
+      "equity": 1040527.1820000005,
+      "cash": 760517.1820000005,
+      "position_value": 280010.0
+    },
+    {
+      "date": "2024-12-09",
+      "equity": 1040716.1820000005,
+      "cash": 760517.1820000005,
+      "position_value": 280199.0
+    },
+    {
+      "date": "2024-12-10",
+      "equity": 1041410.2060000005,
+      "cash": 832421.2060000005,
+      "position_value": 208989.0
+    },
+    {
+      "date": "2024-12-11",
+      "equity": 1041126.2060000005,
+      "cash": 832421.2060000005,
+      "position_value": 208705.0
+    },
+    {
+      "date": "2024-12-12",
+      "equity": 1042113.7460000005,
+      "cash": 875837.7460000005,
+      "position_value": 166276.0
+    },
+    {
+      "date": "2024-12-13",
+      "equity": 1037819.7460000005,
+      "cash": 875837.7460000005,
+      "position_value": 161982.0
+    },
+    {
+      "date": "2024-12-16",
+      "equity": 1033893.6200000005,
+      "cash": 833564.6200000005,
+      "position_value": 200329.0
+    },
+    {
+      "date": "2024-12-17",
+      "equity": 1033721.2810000004,
+      "cash": 792866.2810000004,
+      "position_value": 240855.0
+    },
+    {
+      "date": "2024-12-18",
+      "equity": 1033158.2810000004,
+      "cash": 792866.2810000004,
+      "position_value": 240292.0
+    },
+    {
+      "date": "2024-12-19",
+      "equity": 1031823.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 277785.0
+    },
+    {
+      "date": "2024-12-20",
+      "equity": 1032190.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 278152.0
+    },
+    {
+      "date": "2024-12-23",
+      "equity": 1030237.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 276199.0
+    },
+    {
+      "date": "2024-12-24",
+      "equity": 1033309.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 279271.0
+    },
+    {
+      "date": "2024-12-25",
+      "equity": 1028325.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 274287.0
+    },
+    {
+      "date": "2024-12-26",
+      "equity": 1026045.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 272007.0
+    },
+    {
+      "date": "2024-12-27",
+      "equity": 1026536.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 272498.0
+    },
+    {
+      "date": "2024-12-30",
+      "equity": 1027203.8770000004,
+      "cash": 754038.8770000004,
+      "position_value": 273165.0
+    },
+    {
+      "date": "2024-12-31",
+      "equity": 1021823.1245000005,
+      "cash": 720517.1245000005,
+      "position_value": 301306.0
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+# ==========================================
+# BobQuant 模拟盘配置 v2.2（30 只龙头股）
+# ==========================================
+
+# --- 系统 ---
+system:
+  name: "BobQuant 模拟盘"
+  version: "2.2"                    # v2.2: 30 只龙头股精选池
+  mode: "simulation"                # simulation / real
+  log_level: "INFO"
+
+# --- 账户 ---
+account:
+  initial_capital: 1000000          # 初始资金 100 万
+  commission_rate: 0.0005           # 手续费万分之五
+  stamp_duty_rate: 0.001            # 印花税千分之一
+
+# --- 股票池 ---
+stock_pool:
+  config_file: "config/stock_pool_30_top.yaml"  # 30 只龙头股
+  enable_fundamental_filter: true   # 启用基本面筛选
+  min_fundamental_score: 70         # 70 分以上
+  
+  # 基本面筛选标准（严格）
+  fundamentals:
+    min_roe: 0.12                   # ROE ≥12%
+    min_revenue_growth: 0.10        # 营收增长≥10%
+    min_profit_growth: 0.05         # 净利润增长≥5%
+    max_debt_ratio: 0.60            # 资产负债率≤60%
+    max_pe: 30                      # 市盈率≤30
+    max_pb: 5                       # 市净率≤5
+    min_market_cap: 200000000000    # 市值≥200 亿
+
+# --- 策略 ---
+strategy:
+  # 双 MACD 策略
+  dual_macd:
+    enabled: true
+    short_period: [6, 13, 5]        # 短周期 (fast, slow, signal)
+    long_period: [24, 52, 18]       # 长周期
+  
+  # 布林带策略
+  bollinger:
+    enabled: true
+    window: 20
+    num_std: 2
+    dynamic: true                   # 动态标准差
+  
+  # 信号过滤
+  signal:
+    rsi_buy_max: 35
+    rsi_sell_min: 70
+    volume_confirm: true
+    volume_ratio_buy: 1.5
+
+# --- 仓位管理 ---
+position:
+  max_position_pct: 0.10            # 单票最大仓位 10%
+  max_stocks: 10                    # 最大同时持仓 10 只
+  min_buy_shares: 100               # 最小买入 100 股
+  
+  # 金字塔加仓
+  pyramid:
+    enabled: true
+    levels: [0.03, 0.05, 0.07]      # 下跌 3%/5%/7% 加仓
+    add_dip_pct: 0.03               # 加仓间隔 3%
+
+# --- 止盈止损 ---
+risk_control:
+  # 硬止损
+  stop_loss:
+    enabled: true
+    pct: -0.08                      # -8% 止损
+  
+  # 跟踪止损
+  trailing_stop:
+    enabled: true
+    activation_pct: 0.05            # 盈利 5% 后激活
+    drawdown_pct: 0.02              # 回撤 2% 止盈
+  
+  # 分批止盈
+  take_profit:
+    enabled: true
+    levels:
+      - threshold: 0.05
+        sell_ratio: 0.33            # 盈利 5% 卖出 33%
+      - threshold: 0.10
+        sell_ratio: 0.50            # 盈利 10% 卖出 50%
+      - threshold: 0.15
+        sell_ratio: 1.00            # 盈利 15% 清仓
+
+# --- 大盘风控 ---
+market_risk:
+  enabled: true
+  index_code: "sh.000001"           # 上证指数
+  ma20_line: 20
+  max_position_bear: 0.50           # 跌破 20 日线仓位≤50%
+  crash_threshold: -0.03            # 暴跌 -3% 禁止买入
+
+# --- 数据源 ---
+data:
+  primary: "tencent"                # 腾讯财经
+  fallback: "tencent"
+  history_provider: "baostock"
+  history_days: 60
+
+# --- 交易时段 ---
+trading_hours:
+  morning_start: "09:25"
+  morning_end: "11:35"
+  afternoon_start: "12:55"
+  afternoon_end: "15:05"
+  
+  # 盘前准备
+  pre_market: "09:15"
+  # 盘后总结
+  post_market: "15:30"
+
+# --- TWAP 算法执行 ---
+twap:
+  enabled: false                    # 是否启用 TWAP 大单拆分
+  threshold: 10000                  # 触发 TWAP 的股数阈值（>10000 股自动拆分）
+  slices: 5                         # 拆分份数
+  duration_minutes: 10              # 执行时长（分钟）
+
+# --- 强化学习 (RL) ---
+rl:
+  enabled: false                    # 是否启用 RL 策略
+  algorithm: "ppo"                  # 算法选择：ppo / a2c / dqn
+  model_path: "rl/models"           # 模型保存路径
+  
+  # 训练配置
+  training:
+    total_timesteps: 10000          # 训练总步数
+    eval_freq: 1000                 # 评估频率
+    n_eval_episodes: 5              # 评估回合数
+    window_size: 60                 # 状态窗口大小
+  
+  # 交易配置
+  trading:
+    max_stocks: 10                  # 最大持仓数量
+    max_position_pct: 0.10          # 单票最大仓位
+    initial_capital: 1000000        # 初始资金
+  
+  # 预测配置
+  prediction:
+    use_trained_model: true         # 使用已训练模型
+    deterministic: true             # 确定性预测
+
+# --- 通知 ---
+notify:
+  feishu:
+    enabled: true
+    user_id: "ou_973651ccbc692b7cd90a7d561f6885b3"
+  
+  # 通知类型
+  events:
+    trade_executed: true            # 交易执行
+    stop_loss: true                 # 止损触发
+    take_profit: true               # 止盈触发
+    daily_report: true              # 日报
+    risk_warning: true              # 风险预警
+
+# --- 日志 ---
+log:
+  dir: "logs/sim_trading"
+  max_size: 10485760                # 10MB
+  backup_count: 10
+
+# --- 自动调仓 (Rebalance) ---
+rebalance:
+  enabled: false                    # 是否启用自动调仓
+  mode: "equal_weight"              # equal_weight(等权重) / target_weight(目标仓位)
+  
+  # 调仓频率
+  frequency: "weekly"               # daily / weekly / monthly
+  rebalance_day: 0                  # 周一 (0-6) / 每月第几天 (1-31)
+  
+  # 调仓阈值
+  threshold_pct: 0.05               # 偏离 5% 触发调仓
+  min_trade_value: 1000             # 最小交易金额 1000 元
+  
+  # 交易成本
+  commission_rate: 0.0005           # 佣金万分之五
+  stamp_duty_rate: 0.001            # 印花税千分之一
+  slippage: 0.001                   # 滑点 0.1%
+  
+  # 仓位限制
+  max_position_pct: 0.10            # 单票最大仓位 10%
+  min_position_pct: 0.02            # 单票最小仓位 2%
+  
+  # 目标仓位 (仅在 target_weight 模式下使用)
+  target_positions:
+    {}
+    # 示例:
+    # sh.600000: 0.08
+    # sh.600036: 0.12
+    # sz.000001: 0.10
+  
+  # 股票池 (为空则使用主股票池)
+  stock_pool: []
+    # 示例:
+    # - sh.600000
+    # - sh.600036
+    # - sz.000001
+  
+  # T+1 限制
+  respect_t1: true                  # 是否遵守 T+1 交易规则
+  
+  # 通知
+  notify_enabled: true              # 是否发送调仓通知
