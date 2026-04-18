@@ -1,0 +1,52 @@
+2026-04-18 13:27:16,668 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:27:16,668 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:27:16,670 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:27:16,670 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:27:16,670 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:27:16,670 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:27:16,672 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:16,672 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:16,673 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:16,673 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:16,673 - framework.message_queue - INFO - Agent execution_bot 已订阅消息队列
+2026-04-18 13:27:16,673 - framework.message_queue - INFO - Agent execution_bot 已订阅消息队列
+2026-04-18 13:27:16,673 - framework.agent_base - INFO - Agent execution_bot 初始化完成
+2026-04-18 13:27:16,673 - framework.agent_base - INFO - Agent execution_bot 初始化完成
+2026-04-18 13:27:16,674 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:16,674 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:16,674 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:16,674 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:16,674 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:16,674 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:16,674 - ExecutionBot - INFO - Execution Bot 初始化完成，初始资金：¥1,000,000.00
+2026-04-18 13:27:16,674 - ExecutionBot - INFO - Execution Bot 初始化完成，初始资金：¥1,000,000.00
+2026-04-18 13:27:16,674 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:27:16,674 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:27:16,683 - framework.agent_base - INFO - execution_bot 已启动 (心跳间隔：10.0s)
+2026-04-18 13:27:16,683 - framework.agent_base - INFO - execution_bot 已启动 (心跳间隔：10.0s)
+2026-04-18 13:33:36,120 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:33:36,120 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:33:36,131 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:33:36,131 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:33:36,131 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:33:36,131 - ExecutionBot - INFO - ============================================================
+2026-04-18 13:33:36,132 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:33:36,132 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:33:36,132 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:33:36,132 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:33:36,132 - framework.message_queue - INFO - Agent execution_bot 已订阅消息队列
+2026-04-18 13:33:36,132 - framework.message_queue - INFO - Agent execution_bot 已订阅消息队列
+2026-04-18 13:33:36,132 - framework.agent_base - INFO - Agent execution_bot 初始化完成
+2026-04-18 13:33:36,132 - framework.agent_base - INFO - Agent execution_bot 初始化完成
+2026-04-18 13:33:36,142 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:33:36,142 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:33:36,142 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:33:36,142 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:33:36,142 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:33:36,142 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:33:36,142 - ExecutionBot - INFO - Execution Bot 初始化完成，初始资金：¥1,000,000.00
+2026-04-18 13:33:36,142 - ExecutionBot - INFO - Execution Bot 初始化完成，初始资金：¥1,000,000.00
+2026-04-18 13:33:36,142 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:33:36,142 - ExecutionBot - INFO - Execution Bot 启动
+2026-04-18 13:33:36,157 - framework.agent_base - INFO - execution_bot 已启动 (心跳间隔：10.0s)
+2026-04-18 13:33:36,157 - framework.agent_base - INFO - execution_bot 已启动 (心跳间隔：10.0s)

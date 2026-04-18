@@ -1,0 +1,151 @@
+2026-04-18 13:27:17,754 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:17,754 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:17,754 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:17,754 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:17,754 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:17,808 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:27:17,808 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:27:17,808 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:27:17,808 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:27:17,809 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [752783]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8500): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+2026-04-18 13:27:23,943 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:23,943 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:23,944 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:23,944 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:23,944 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:24,005 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:27:24,005 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:27:24,005 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:27:24,005 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:27:24,006 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [752800]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8500): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+2026-04-18 13:27:29,066 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:29,066 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:29,067 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:29,067 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:29,067 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:29,119 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:27:29,119 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:27:29,119 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:27:29,119 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:27:29,120 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [752813]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8500): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+2026-04-18 13:27:35,462 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:35,462 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:35,462 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:35,462 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:35,462 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:35,515 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:27:35,516 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:27:35,516 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:27:35,516 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:27:35,517 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [752830]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8500): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+2026-04-18 13:27:41,888 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:41,889 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:41,889 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:41,889 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:41,889 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:41,952 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:27:41,952 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:27:41,952 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:27:41,952 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:27:41,953 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [752840]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8500): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+2026-04-18 13:27:48,218 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:48,218 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:48,219 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:48,219 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:48,219 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:48,313 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:27:48,314 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:27:48,314 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:27:48,314 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:27:48,316 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [752852]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8500 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [752852]
+2026-04-18 13:27:49,704 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:27:49,704 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:27:49,704 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:27:49,704 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:27:49,704 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:27:49,743 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:27:49,743 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:27:49,743 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:27:49,743 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:27:49,744 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [752865]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8500 (Press CTRL+C to quit)
+INFO:     127.0.0.1:49086 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [752865]
+2026-04-18 13:33:38,770 - framework.message_queue - INFO - 消息队列初始化完成：/home/openclaw/.openclaw/workspace/message_queue
+2026-04-18 13:33:38,771 - framework.event_bus - INFO - 事件总线初始化完成
+2026-04-18 13:33:38,772 - framework.trading_rules - INFO - 加载 28 个节假日
+2026-04-18 13:33:38,772 - framework.trading_rules - INFO - 交易时间控制器初始化完成
+2026-04-18 13:33:38,772 - framework.trading_rules - INFO - 交易规则管理器初始化完成
+2026-04-18 13:33:38,899 - Dashboard - INFO - 启动 BobQuant Dashboard...
+2026-04-18 13:33:38,903 - Dashboard - INFO - API: http://localhost:8500
+2026-04-18 13:33:38,903 - Dashboard - INFO - Dashboard: http://localhost:8500/dashboard
+2026-04-18 13:33:38,903 - Dashboard - INFO - WebSocket: ws://localhost:8500/ws
+2026-04-18 13:33:38,907 - framework.message_queue - INFO - 消息队列后台工作线程已启动
+INFO:     Started server process [711]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8500 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57960 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57970 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46110 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46856 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39256 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46524 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46778 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59936 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53470 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51110 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42144 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52040 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44200 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57026 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54262 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35596 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45468 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42564 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54946 - "GET /api/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60326 - "GET /api/status HTTP/1.1" 200 OK

@@ -1,0 +1,1 @@
+{"id": "9f47605e-ddd1-41f2-8958-a89b06d01b52", "timestamp": "2026-04-18T09:21:09.435397", "from_agent": "boss_bot", "to_agent": "execution_bot", "msg_type": "trade_order", "content": {"action": "buy", "stock_code": "600519", "stock_name": "贵州茅台", "price": 1400.0, "quantity": 100, "reason": "策略信号：突破 20 日均线"}, "priority": 8, "status": "pending", "retry_count": 0, "error": null}

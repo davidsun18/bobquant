@@ -42,8 +42,8 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ### GitHub 仓库
 - **仓库名**: `bobquant` (不是 bob-quant!)
 - **URL**: https://github.com/davidsun18/bobquant.git
-- **Token**: `REDACTED` ✅ 长期有效
-- **分支**: `main`
+- **Token**: 见 GitHub 密码管理器
+- **分支**: `master`
 
 ### 推送命令
 ```bash

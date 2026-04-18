@@ -1,0 +1,80 @@
+{
+  "agent_id": "data-bot",
+  "agent_name": "Data Bot",
+  "version": "1.0.0",
+  "description": "数据工程师 - 负责数据采集、清洗、校验",
+  
+  "data_sources": {
+    "primary": {
+      "name": "腾讯财经",
+      "provider": "tencent",
+      "base_url": "https://qt.gtimg.cn",
+      "api_type": "realtime",
+      "timeout_ms": 1000,
+      "retry_count": 3,
+      "enabled": true
+    },
+    "historical": {
+      "name": "BaoStock",
+      "provider": "baostock",
+      "api_type": "historical",
+      "enabled": true
+    },
+    "disabled": [
+      {
+        "name": "iTick",
+        "provider": "itick",
+        "reason": "DNS 解析问题",
+        "disabled_at": "2026-04-18"
+      }
+    ]
+  },
+  
+  "collection_schedule": {
+    "timezone": "Asia/Shanghai",
+    "tasks": [
+      {
+        "name": "盘前数据采集",
+        "cron": "30 8 * * 1-5",
+        "description": "交易日 08:30 采集前一日行情数据"
+      },
+      {
+        "name": "午间数据备份",
+        "cron": "30 11 * * 1-5",
+        "description": "交易日 11:30 午间数据备份"
+      },
+      {
+        "name": "盘后数据归档",
+        "cron": "0 16 * * 1-5",
+        "description": "交易日 16:00 盘后数据归档"
+      }
+    ]
+  },
+  
+  "trading_hours": {
+    "morning": {
+      "start": "09:25",
+      "end": "11:35"
+    },
+    "afternoon": {
+      "start": "12:55",
+      "end": "15:05"
+    }
+  },
+  
+  "storage": {
+    "raw_data_path": "/home/openclaw/.openclaw/workspace/data/raw",
+    "processed_data_path": "/home/openclaw/.openclaw/workspace/data/processed",
+    "backup_path": "/home/openclaw/.openclaw/workspace/backup/data"
+  },
+  
+  "quality_checks": {
+    "enabled": true,
+    "checks": [
+      "completeness",
+      "accuracy",
+      "timeliness",
+      "consistency"
+    ]
+  }
+}

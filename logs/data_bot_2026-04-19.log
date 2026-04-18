@@ -1,0 +1,15 @@
+2026-04-19 00:02:01,726 - DataBot - INFO - Data Bot 数据采集启动
+2026-04-19 00:02:01,727 - DataBot - INFO - 工作目录：/home/openclaw/.openclaw/workspace
+2026-04-19 00:02:01,727 - DataBot - INFO - ==================================================
+2026-04-19 00:02:01,727 - DataBot - INFO - 开始采集实时行情数据
+2026-04-19 00:02:01,727 - DataBot - INFO - ==================================================
+2026-04-19 00:02:01,727 - DataBot - INFO - 待采集股票数量：10
+2026-04-19 00:02:02,472 - DataBot - INFO - 数据验证结果：{'valid': True, 'record_count': 10, 'issues': []}
+2026-04-19 00:02:02,489 - DataBot - INFO - 原始数据已保存：/home/openclaw/.openclaw/workspace/data/raw/quote_20260419_000202.parquet
+2026-04-19 00:02:02,493 - DataBot - INFO - 处理数据已保存：/home/openclaw/.openclaw/workspace/data/processed/quote/2026-04-19/quote_2026-04-19_000202.parquet
+2026-04-19 00:02:02,493 - DataBot - INFO - 采集完成：10 只股票
+2026-04-19 00:02:02,494 - DataBot - INFO - 原始数据：/home/openclaw/.openclaw/workspace/data/raw/quote_20260419_000202.parquet
+2026-04-19 00:02:02,494 - DataBot - INFO - 处理数据：/home/openclaw/.openclaw/workspace/data/processed/quote/2026-04-19/quote_2026-04-19_000202.parquet
+2026-04-19 00:02:02,495 - DataBot - INFO - ==================================================
+2026-04-19 00:02:02,495 - DataBot - INFO - Data Bot 数据采集完成
+2026-04-19 00:02:02,495 - DataBot - INFO - ==================================================
