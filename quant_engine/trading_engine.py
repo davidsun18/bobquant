@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-trading_engine.py - 主交易引擎
+trading_engine.py - 主交易引擎 (v2.1 自学习增强版)
 
-整合市场状态识别、风控、网格交易、ATR止损，提供统一的交易接口。
+整合市场状态识别、风控、网格交易、ATR止损、经验学习，提供统一的交易接口。
+
+v2.1 新增：
+- 自动复盘：定期评估历史决策结果
+- 经验注入：新决策时召回相关历史经验
+- 反馈闭环：每周自动审查并微调规则参数
 """
 
 import json
@@ -20,6 +25,13 @@ from .grid_engine import GridEngine
 from .atr_stop import ATRStopLoss, compute_atr
 from .position_manager import PositionManager
 from .signal_generator import SignalGenerator
+from .experience import (
+    ExperienceLibrary,
+    get_experience_lib,
+    get_review_agent,
+    get_experience_injector,
+    get_feedback_loop,
+)
 
 logger = logging.getLogger("quant_engine.engine")
 
@@ -28,18 +40,17 @@ STATE_FILE = Path("/home/openclaw/.openclaw/workspace/quant_engine/engine_state.
 
 class TradingEngine:
     """
-    BobQuant 交易引擎 v2.0
+    BobQuant 交易引擎 v2.1 - 自学习版
 
     使用方式:
         engine = TradingEngine(config)
-        engine.load_state()  # 可选，恢复上次状态
+        engine.load_state()
 
         # 每日开盘前
-        engine.update_benchmark(benchmark_df)  # 更新市场状态
-        engine.update_prices(market_prices)     # 更新最新价格
-        engine.check_stop_losses()              # 检查止损
+        engine.update_benchmark(benchmark_df)
+        engine.update_prices(market_prices)
 
-        # 生成信号
+        # 生成信号（自动记录决策快照 + 经验注入）
         signals = engine.generate_signals(stock_data)
 
         # 执行交易
@@ -47,6 +58,12 @@ class TradingEngine:
             engine.execute(sig)
 
         engine.save_state()
+
+        # 收盘后复盘（自动评估历史决策）
+        engine.run_review(market_prices)
+
+        # 每周日规则审查（自适应调整参数）
+        engine.run_weekly_review()
     """
 
     def __init__(self, config: Optional[dict] = None):
@@ -300,3 +317,63 @@ class TradingEngine:
         except Exception as e:
             logger.error(f"加载状态失败: {e}")
             return False
+
+    # ==================== 自学习模块 (v2.1 新增) ====================
+
+    def run_review(self, market_prices: Optional[Dict[str, float]] = None) -> dict:
+        """
+        执行自动复盘
+
+        检查历史决策快照，评估结果，生成经验条目。
+        建议收盘后或每天执行一次。
+
+        Args:
+            market_prices: 当前市场价格，用于计算实际收益
+
+        Returns:
+            复盘结果统计
+        """
+        reviewer = get_review_agent()
+        return reviewer.run_review(market_prices or self._market_prices)
+
+    def run_weekly_review(self) -> List[dict]:
+        """
+        执行每周规则审查（反馈闭环）
+
+        分析近期交易数据，自动微调规则参数。
+        建议每周日执行一次。
+
+        Returns:
+            参数调整列表
+        """
+        feedback = get_feedback_loop(self.config)
+        current_config = {
+            "conviction_threshold": self.config.get("experience", {}).get("conviction_threshold", 50.0),
+            "grid_spacing_multiplier": self.config.get("grid", {}).get("spacing_multiplier", 1.0),
+            "stop_loss_multiplier": self.config.get("atr_stop", {}).get("multiplier", 1.0),
+        }
+        return feedback.run_weekly_review(self._trade_log, current_config)
+
+    def get_experience_summary(self) -> dict:
+        """获取经验库摘要"""
+        lib = get_experience_lib()
+        stats = lib.get_stats()
+        recent_experiences = lib.retrieve({}, top_k=10)
+
+        return {
+            "stats": stats,
+            "recent_experiences": [
+                {
+                    "summary": e.summary,
+                    "lesson_type": e.lesson_type,
+                    "conviction_impact": e.conviction_impact,
+                    "occurrence_count": e.occurrence_count,
+                }
+                for e in recent_experiences
+            ],
+        }
+
+    def get_adaptive_config(self) -> dict:
+        """获取自适应配置（反馈闭环调整后的参数）"""
+        feedback = get_feedback_loop(self.config)
+        return feedback.get_adaptive_config()

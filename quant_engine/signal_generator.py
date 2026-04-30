@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-signal_generator.py - 统一信号生成器
+signal_generator.py - 统一信号生成器 (v2.1 自学习增强版)
 
-整合市场状态、风控、网格引擎、ATR止损，生成最终可执行信号。
+整合市场状态、风控、网格引擎、ATR止损、经验注入，生成最终可执行信号。
+
+v2.1 新增：
+- 每次决策自动记录 DecisionSnapshot（决策快照）
+- 信号生成前召回相关历史经验，调整置信度
+- 经验不足的信号可能被拦截
 """
 
 import logging
+import uuid
 from datetime import datetime
 from typing import Dict, List, Optional
 
@@ -17,12 +23,18 @@ from .risk_control import RiskControlManager, PositionInfo as RiskPosition
 from .grid_engine import GridEngine, GridSignal
 from .atr_stop import ATRStopLoss, compute_atr
 from .position_manager import PositionManager
+from .experience import (
+    DecisionSnapshot,
+    ExperienceInjector,
+    get_experience_lib,
+    get_experience_injector,
+)
 
 logger = logging.getLogger("quant_engine.signals")
 
 
 class SignalGenerator:
-    """统一信号生成器"""
+    """统一信号生成器 (v2.1 自学习增强版)"""
 
     def __init__(self, config: Optional[dict] = None):
         self.config = config or {}
@@ -33,6 +45,15 @@ class SignalGenerator:
         self.positions = PositionManager()
         self.cash = config.get("capital", {}).get("total", 1_000_000)
         self.starting_cash = self.cash
+
+        # 自学习模块
+        experience_cfg = self.config.get("experience", {})
+        self.experience_enabled = experience_cfg.get("enabled", True)
+        self.exp_lib = get_experience_lib() if self.experience_enabled else None
+        self.exp_injector = get_experience_injector(
+            top_k=experience_cfg.get("top_k", 5),
+            conviction_threshold=experience_cfg.get("conviction_threshold", 30.0),
+        ) if self.experience_enabled else None
 
     def update_market(self, benchmark_data: dict) -> dict:
         """更新市场状态，返回 regime 结果"""
@@ -127,10 +148,25 @@ class SignalGenerator:
                     logger.info(f"风控拦截: {code} 买入信号")
                     continue
 
+                # 经验注入（v2.1 新增）
+                conviction_adj = 0.0
+                experience_summary = ""
+                if self.experience_enabled and self.exp_injector:
+                    has_position = current_pos > 0
+                    conviction_adj, experiences = self.exp_injector.inject_context(
+                        regime_state=regime_result["state"],
+                        regime_adx=regime_result.get("adx", 25.0),
+                        regime_vol_pct=regime_result.get("vol_percentile", 0.50),
+                        grid_level=gs.grid_level,
+                        signal_type=gs.direction,
+                        has_position=has_position,
+                    )
+                    experience_summary = self.exp_injector.get_context_summary(experiences)
+
                 current_price = market_prices.get(code, ref_price)
                 pnl_pct = (current_price - pos.cost_price) / pos.cost_price if (pos and pos.cost_price > 0) else 0
 
-                signals.append({
+                signal_data = {
                     "code": code,
                     "name": name,
                     "direction": gs.direction,
@@ -142,7 +178,37 @@ class SignalGenerator:
                     "volatility": round(vol_60d, 4),
                     "pnl_pct": round(pnl_pct, 4) if pos else None,
                     "timestamp": datetime.now().isoformat(),
-                })
+                }
+
+                # 经验注入元信息
+                if self.experience_enabled:
+                    signal_data["experience_adjustment"] = round(conviction_adj, 1)
+                    signal_data["experience_summary"] = experience_summary
+
+                signals.append(signal_data)
+
+                # 保存决策快照（v2.1 新增）
+                if self.experience_enabled and self.exp_lib:
+                    snapshot = DecisionSnapshot(
+                        decision_id=f"dec_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{code}_{uuid.uuid4().hex[:6]}",
+                        code=code,
+                        name=name,
+                        direction=gs.direction,
+                        regime_state=regime_result["state"],
+                        regime_adx=regime_result.get("adx", 25.0),
+                        regime_vol_percentile=regime_result.get("vol_percentile", 0.50),
+                        price=gs.price,
+                        atr_20=atr,
+                        volatility_60d=vol_60d,
+                        pnl_at_decision=pnl_pct if pos else 0.0,
+                        grid_level=gs.grid_level,
+                        grid_spacing=spacing_mult,
+                        reason=gs.reason,
+                        predicted_direction="up" if gs.direction == "buy" else "down",
+                        global_breaker=self.risk.state.is_global_breaker,
+                        single_stock_breakers=list(self.risk.state.single_stock_breakers.keys()),
+                    )
+                    self.exp_lib.save_snapshot(snapshot)
 
             # ATR 止损检查
             if pos and pos.cost_price > 0 and atr > 0:

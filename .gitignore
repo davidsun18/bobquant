@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Data files (parquet) - too large
+data/raw/
+data/processed/
+*.parquet
+
+# Logs
+logs/
+
+# Experience runtime state (auto-generated)
+quant_engine/experience/experiences.json
+quant_engine/experience/snapshots/
+quant_engine/experience/stats.json
+
+# Research output
+quant_strategies/research/daily_report*.md
